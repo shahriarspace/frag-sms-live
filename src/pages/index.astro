@@ -1,0 +1,474 @@
+---
+import Base from '../layouts/Base.astro';
+
+// FAQ Structured Data (Google FAQ Rich Snippet)
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Brauche ich ein Smartphone f\u00fcr FragSMS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann \u2014 auch mit \u00e4lteren Feature Phones und Prepaid-Handys."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Brauche ich Internet oder WLAN f\u00fcr FragSMS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. FragSMS funktioniert komplett \u00fcber SMS im Mobilfunknetz. Kein WLAN, kein Datenplan und keine App n\u00f6tig."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie k\u00fcndige ich mein FragSMS Abo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sende einfach STOP per SMS oder nutze den \u201eJetzt k\u00fcndigen\u201c Button auf fragsms.de/upgrade. Die K\u00fcndigung ist sofort wirksam, ohne Wartezeit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sind meine Daten bei FragSMS sicher?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Alle Daten werden ausschlie\u00dflich auf EU-Servern gespeichert. Deine Telefonnummer wird per SHA-256 verschl\u00fcsselt und nie im Klartext gespeichert. FragSMS ist vollst\u00e4ndig DSGVO-konform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Zahlungsmethoden unterst\u00fctzt FragSMS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kreditkarte, SEPA-Lastschrift, PayPal und Sofort\u00fcberweisung \u2014 die beliebtesten Zahlungsmethoden in Deutschland. Sichere Abwicklung \u00fcber Stripe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet FragSMS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FragSMS bietet einen kostenlosen Tarif mit 20 Nachrichten pro Monat. Basic kostet 4,99 \u20ac/Monat (200 Nachrichten) und Pro kostet 9,99 \u20ac/Monat (unbegrenzt). Alle Preise sind Endpreise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich ChatGPT per SMS nutzen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen \u2014 \u00e4hnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort erhalten."
+      }
+    }
+  ]
+};
+
+// Service Structured Data
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "FragSMS",
+  "description": "KI-Assistent per SMS in Deutschland. Stelle Fragen per SMS und erhalte sofort KI-Antworten. Kein Smartphone, kein Internet, kein Account n\u00f6tig.",
+  "provider": {
+    "@type": "Organization",
+    "name": "FragSMS",
+    "url": "https://fragsms.de"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Germany"
+  },
+  "serviceType": "KI-Assistent per SMS",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "FragSMS Free",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "description": "20 kostenlose KI-Nachrichten pro Monat per SMS"
+    },
+    {
+      "@type": "Offer",
+      "name": "FragSMS Basic",
+      "price": "4.99",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "4.99",
+        "priceCurrency": "EUR",
+        "billingDuration": "P1M"
+      },
+      "description": "200 KI-Nachrichten pro Monat per SMS"
+    },
+    {
+      "@type": "Offer",
+      "name": "FragSMS Pro",
+      "price": "9.99",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "9.99",
+        "priceCurrency": "EUR",
+        "billingDuration": "P1M"
+      },
+      "description": "Unbegrenzte KI-Nachrichten pro Monat per SMS"
+    }
+  ]
+};
+
+// BreadcrumbList for homepage
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://fragsms.de/"
+    }
+  ]
+};
+---
+
+<Base
+  title="FragSMS — KI-Assistent per SMS | ChatGPT per SMS in Deutschland"
+  description="FragSMS ist dein KI-Assistent per SMS in Deutschland. Kein App, kein Internet, kein Login. Stelle Fragen per SMS und erhalte sofort Antworten. DSGVO-konform, EU-Daten. Ab 0 EUR kostenlos testen."
+  keywords="KI per SMS, ChatGPT per SMS, KI Assistent Deutschland, AI SMS ohne App, DSGVO KI Assistent, KI ohne Smartphone, KI ohne Internet, FragSMS, kuenstliche Intelligenz SMS, SMS AI Deutschland, KI Feature Phone"
+  jsonLd={[faqJsonLd, serviceJsonLd, breadcrumbJsonLd]}
+>
+  <!-- Hero Section -->
+  <section style="padding: 4rem 0; text-align: center; background: var(--color-bg-alt);">
+    <div class="container">
+      <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">
+        KI-Assistent per SMS <span style="display: block; font-size: 1.1rem; font-weight: 400; color: var(--color-text-muted); margin-top: 0.25rem;">Wie ChatGPT &mdash; aber per SMS, ohne App, ohne Internet</span>
+      </h1>
+      <p style="font-size: 1.25rem; color: var(--color-text-muted); margin-bottom: 2rem;">
+        Kein App. Kein Login. <strong>Frag einfach.</strong>
+      </p>
+      <div style="background: var(--color-bg); border: 2px solid var(--color-primary); border-radius: 12px; padding: 2rem; display: inline-block; max-width: 400px;">
+        <p style="font-size: 1rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">Sende eine SMS an:</p>
+        <p style="font-size: 1.75rem; font-weight: 700; color: var(--color-primary); letter-spacing: 1px;">
+          +49 XXX XXXXXXX
+        </p>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+          20 kostenlose Nachrichten pro Monat &mdash; kein Abo n&ouml;tig
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section style="padding: 4rem 0;" aria-labelledby="how-it-works">
+    <div class="container">
+      <h2 id="how-it-works" style="text-align: center; font-size: 1.75rem; margin-bottom: 0.5rem;">So funktioniert KI per SMS</h2>
+      <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 2.5rem; font-size: 0.95rem;">In 3 einfachen Schritten zur KI-Antwort &mdash; ganz ohne Smartphone oder Internet.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+        <article style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.75rem;" aria-hidden="true">1</div>
+          <h3 style="margin-bottom: 0.5rem;">SMS senden</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+            Sende deine Frage per SMS an unsere deutsche +49 Nummer. Funktioniert mit jedem Handy &mdash; auch Feature Phones.
+          </p>
+        </article>
+        <article style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.75rem;" aria-hidden="true">2</div>
+          <h3 style="margin-bottom: 0.5rem;">KI antwortet sofort</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+            Unsere k&uuml;nstliche Intelligenz versteht deine Frage und antwortet auf Deutsch &mdash; direkt per SMS in Sekunden.
+          </p>
+        </article>
+        <article style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.75rem;" aria-hidden="true">3</div>
+          <h3 style="margin-bottom: 0.5rem;">Fertig &mdash; so einfach</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+            Kein Download, kein Account, kein Internet n&ouml;tig. KI f&uuml;r alle &mdash; auch Senioren, Feature Phones und l&auml;ndliche Gebiete.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Sliding Panel -->
+  <section style="padding: 4rem 0; background: var(--color-bg-alt); overflow: hidden;" aria-labelledby="features-heading">
+    <div class="container">
+      <h2 id="features-heading" style="text-align: center; font-size: 1.75rem; margin-bottom: 0.5rem;">Warum FragSMS?</h2>
+      <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 2rem; font-size: 0.95rem;">
+        Datenschutz, EU-Datenstandort und Einfachheit &mdash; <strong>Made in Germany</strong>.
+      </p>
+
+      <!-- Slider container -->
+      <div style="position: relative;" role="region" aria-label="Feature-Karussell" aria-roledescription="Karussell">
+        <!-- Slides wrapper -->
+        <div id="feature-slider" style="display: flex; transition: transform 0.5s ease; will-change: transform;" aria-live="polite">
+
+          <!-- Slide 1: EU Data Residency -->
+          <div class="feature-slide" style="min-width: 100%; padding: 0 1rem;" role="group" aria-roledescription="Folie" aria-label="1 von 4: EU-Datenstandort">
+            <div style="background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 16px; padding: 2.5rem; max-width: 600px; margin: 0 auto; text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;" aria-hidden="true">&#127466;&#127482;</div>
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Daten bleiben in Europa &mdash; garantiert</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;">
+                Alle deine Daten werden ausschlie&szlig;lich auf <strong>EU-Servern</strong> gespeichert (Cloudflare D1, EU-Jurisdiction).
+                Keine Daten&uuml;bertragung in die USA. Vollst&auml;ndig <strong>DSGVO-konform</strong> &mdash; von Anfang an.
+              </p>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                <span style="background: #eff6ff; color: var(--color-primary); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">EU-Server</span>
+                <span style="background: #eff6ff; color: var(--color-primary); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">DSGVO</span>
+                <span style="background: #eff6ff; color: var(--color-primary); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Verschl&uuml;sselt</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Privacy — STOP deletes everything -->
+          <div class="feature-slide" style="min-width: 100%; padding: 0 1rem;" role="group" aria-roledescription="Folie" aria-label="2 von 4: Datenschutz">
+            <div style="background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 16px; padding: 2.5rem; max-width: 600px; margin: 0 auto; text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;" aria-hidden="true">&#128274;</div>
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">STOP senden = Alle Daten gel&ouml;scht</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;">
+                Sende <strong>STOP</strong> und alle deine Daten werden sofort entfernt. Kein Nachfragen, keine Wartezeit, keine versteckten Kopien.
+                Deine <strong>Privatsph&auml;re</strong> ist bei uns kein Feature &mdash; sie ist das Fundament.
+              </p>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                <span style="background: #f0fdf4; color: var(--color-success); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Sofort-L&ouml;schung</span>
+                <span style="background: #f0fdf4; color: var(--color-success); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Kein Tracking</span>
+                <span style="background: #f0fdf4; color: var(--color-success); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Kein Profiling</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Phone number never stored -->
+          <div class="feature-slide" style="min-width: 100%; padding: 0 1rem;" role="group" aria-roledescription="Folie" aria-label="3 von 4: Verschluesselung">
+            <div style="background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 16px; padding: 2.5rem; max-width: 600px; margin: 0 auto; text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;" aria-hidden="true">&#128373;</div>
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Deine Nummer bleibt geheim</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;">
+                Wir speichern deine Telefonnummer <strong>niemals im Klartext</strong>. Sie wird sofort verschl&uuml;sselt (SHA-256) &mdash;
+                selbst wir k&ouml;nnen sie nicht zur&uuml;ckrechnen. Maximaler Datenschutz.
+              </p>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                <span style="background: #fef3c7; color: #b45309; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">SHA-256 Hash</span>
+                <span style="background: #fef3c7; color: #b45309; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Kein Klartext</span>
+                <span style="background: #fef3c7; color: #b45309; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Nicht umkehrbar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Flexible payment -->
+          <div class="feature-slide" style="min-width: 100%; padding: 0 1rem;" role="group" aria-roledescription="Folie" aria-label="4 von 4: Zahlungsmethoden">
+            <div style="background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 16px; padding: 2.5rem; max-width: 600px; margin: 0 auto; text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;" aria-hidden="true">&#128179;</div>
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Zahle wie du willst</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;">
+                Kreditkarte, <strong>SEPA-Lastschrift</strong>, <strong>PayPal</strong>, Sofort&uuml;berweisung &mdash; die beliebtesten
+                Zahlungsmethoden in Deutschland. Sicher &uuml;ber Stripe.
+              </p>
+              <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                <span style="background: #f5f3ff; color: #7c3aed; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Kreditkarte</span>
+                <span style="background: #f5f3ff; color: #7c3aed; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">SEPA</span>
+                <span style="background: #f5f3ff; color: #7c3aed; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">PayPal</span>
+                <span style="background: #f5f3ff; color: #7c3aed; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Sofort</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Navigation arrows -->
+        <button id="slider-prev" aria-label="Vorherige Folie" style="position: absolute; top: 50%; left: 0.5rem; transform: translateY(-50%); background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 2;">
+          &#8592;
+        </button>
+        <button id="slider-next" aria-label="N&auml;chste Folie" style="position: absolute; top: 50%; right: 0.5rem; transform: translateY(-50%); background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 2;">
+          &#8594;
+        </button>
+      </div>
+
+      <!-- Dot indicators -->
+      <div id="slider-dots" style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem;" role="tablist" aria-label="Feature-Folien">
+        <button class="slider-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Folie 1: EU-Datenstandort" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: var(--color-primary); cursor: pointer; transition: background 0.3s;"></button>
+        <button class="slider-dot" data-index="1" role="tab" aria-selected="false" aria-label="Folie 2: Datenschutz" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: var(--color-border); cursor: pointer; transition: background 0.3s;"></button>
+        <button class="slider-dot" data-index="2" role="tab" aria-selected="false" aria-label="Folie 3: Verschluesselung" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: var(--color-border); cursor: pointer; transition: background 0.3s;"></button>
+        <button class="slider-dot" data-index="3" role="tab" aria-selected="false" aria-label="Folie 4: Zahlungsmethoden" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: var(--color-border); cursor: pointer; transition: background 0.3s;"></button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Feature slider logic
+    const slider = document.getElementById('feature-slider');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+    const totalSlides = 4;
+    let currentSlide = 0;
+    let autoplayTimer;
+
+    function goToSlide(index) {
+      currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.style.background = i === currentSlide ? 'var(--color-primary)' : 'var(--color-border)';
+        dot.setAttribute('aria-selected', i === currentSlide ? 'true' : 'false');
+      });
+    }
+
+    prevBtn.addEventListener('click', () => { goToSlide(currentSlide - 1); resetAutoplay(); });
+    nextBtn.addEventListener('click', () => { goToSlide(currentSlide + 1); resetAutoplay(); });
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => { goToSlide(parseInt(dot.dataset.index)); resetAutoplay(); });
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    slider.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        goToSlide(diff > 0 ? currentSlide + 1 : currentSlide - 1);
+        resetAutoplay();
+      }
+    }, { passive: true });
+
+    // Autoplay every 5 seconds
+    function resetAutoplay() {
+      clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
+    }
+    resetAutoplay();
+  </script>
+
+  <!-- Pricing -->
+  <section style="padding: 4rem 0;" aria-labelledby="pricing-heading">
+    <div class="container">
+      <h2 id="pricing-heading" style="text-align: center; font-size: 1.75rem; margin-bottom: 0.5rem;">FragSMS Preise</h2>
+      <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 2.5rem; font-size: 0.95rem;">Kostenlos starten. Jederzeit upgraden. Jederzeit k&uuml;ndbar.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; max-width: 750px; margin: 0 auto;">
+        <!-- Free -->
+        <article style="border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem; text-align: center; background: var(--color-bg);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Free</h3>
+          <p style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">&euro;0</p>
+          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">pro Monat</p>
+          <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
+            <li style="padding: 0.3rem 0;">&#10003; 20 Nachrichten / Monat</li>
+            <li style="padding: 0.3rem 0;">&#10003; KI-Antworten auf Deutsch</li>
+            <li style="padding: 0.3rem 0;">&#10003; Kein Account n&ouml;tig</li>
+          </ul>
+        </article>
+        <!-- Basic -->
+        <article style="border: 2px solid var(--color-primary); border-radius: 12px; padding: 2rem; text-align: center; background: var(--color-bg); position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: white; padding: 0.2rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+            Beliebt
+          </div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Basic</h3>
+          <p style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">&euro;4,99</p>
+          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">pro Monat</p>
+          <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
+            <li style="padding: 0.3rem 0;">&#10003; 200 Nachrichten / Monat</li>
+            <li style="padding: 0.3rem 0;">&#10003; Gespr&auml;chsverlauf</li>
+            <li style="padding: 0.3rem 0;">&#10003; Jederzeit k&uuml;ndbar</li>
+          </ul>
+          <a href="/upgrade" style="display: inline-block; margin-top: 1.5rem; background: var(--color-primary); color: white; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
+            Jetzt upgraden
+          </a>
+        </article>
+        <!-- Pro -->
+        <article style="border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem; text-align: center; background: var(--color-bg);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Pro</h3>
+          <p style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">&euro;9,99</p>
+          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">pro Monat</p>
+          <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
+            <li style="padding: 0.3rem 0;">&#10003; Unbegrenzte Nachrichten</li>
+            <li style="padding: 0.3rem 0;">&#10003; Gespr&auml;chsverlauf</li>
+            <li style="padding: 0.3rem 0;">&#10003; Priorit&auml;ts-Antworten</li>
+          </ul>
+          <a href="/upgrade" style="display: inline-block; margin-top: 1.5rem; background: var(--color-text); color: white; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
+            Jetzt upgraden
+          </a>
+        </article>
+      </div>
+      <p style="text-align: center; font-size: 0.8rem; color: var(--color-text-muted); margin-top: 1.5rem;">
+        Alle Preise sind Endpreise. Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.
+      </p>
+    </div>
+  </section>
+
+  <!-- SEO long-form content section -->
+  <section style="padding: 4rem 0; background: var(--color-bg-alt);" aria-labelledby="about-heading">
+    <div class="container" style="max-width: 650px;">
+      <h2 id="about-heading" style="font-size: 1.75rem; margin-bottom: 1.5rem; text-align: center;">ChatGPT per SMS nutzen &mdash; so geht&apos;s in Deutschland</h2>
+      <div style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8;">
+        <p style="margin-bottom: 1rem;">
+          Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber was, wenn du kein Smartphone hast?
+          Kein Internet? Oder einfach keine App installieren m&ouml;chtest? <strong>FragSMS</strong> macht k&uuml;nstliche Intelligenz
+          per SMS zug&auml;nglich &mdash; f&uuml;r jeden, mit jedem Handy.
+        </p>
+        <p style="margin-bottom: 1rem;">
+          Ob du Fragen zur Allgemeinbildung hast, einen Text &uuml;bersetzen lassen m&ouml;chtest, Kochrezepte brauchst oder
+          Hilfe beim Formulieren von Nachrichten suchst &mdash; FragSMS antwortet in Sekunden, komplett auf Deutsch.
+        </p>
+        <p style="margin-bottom: 1rem;">
+          <strong>Ideal f&uuml;r Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind.
+          <strong>Perfekt f&uuml;r l&auml;ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf&uuml;gbar ist.
+          Und <strong>100% DSGVO-konform</strong>: Alle Daten werden auf EU-Servern gespeichert,
+          deine Telefonnummer wird verschl&uuml;sselt und nie im Klartext abgelegt.
+        </p>
+        <p>
+          <strong>Starte jetzt kostenlos</strong> &mdash; sende einfach eine SMS an unsere +49 Nummer und erhalte 20 Nachrichten pro Monat gratis.
+          Kein Abo, kein Account, kein Risiko.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding: 4rem 0;" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading" style="text-align: center; font-size: 1.75rem; margin-bottom: 2.5rem;">H&auml;ufige Fragen zu FragSMS</h2>
+      <div style="max-width: 600px; margin: 0 auto;">
+        <article style="margin-bottom: 1.5rem;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 style="font-size: 1rem; margin-bottom: 0.3rem;" itemprop="name">Brauche ich ein Smartphone f&uuml;r FragSMS?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;" itemprop="text">Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann &mdash; auch mit &auml;lteren Feature Phones und Prepaid-Handys.</p>
+          </div>
+        </article>
+        <article style="margin-bottom: 1.5rem;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 style="font-size: 1rem; margin-bottom: 0.3rem;" itemprop="name">Brauche ich Internet oder WLAN?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;" itemprop="text">Nein. SMS funktioniert &uuml;ber das Mobilfunknetz &mdash; kein WLAN, kein Datenplan und keine App n&ouml;tig.</p>
+          </div>
+        </article>
+        <article style="margin-bottom: 1.5rem;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 style="font-size: 1rem; margin-bottom: 0.3rem;" itemprop="name">Kann ich ChatGPT per SMS nutzen?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;" itemprop="text">Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen &mdash; &auml;hnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort auf Deutsch erhalten.</p>
+          </div>
+        </article>
+        <article style="margin-bottom: 1.5rem;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 style="font-size: 1rem; margin-bottom: 0.3rem;" itemprop="name">Wie k&uuml;ndige ich mein Abo?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;" itemprop="text">Sende STOP per SMS oder nutze den &quot;Jetzt k&uuml;ndigen&quot; Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.</p>
+          </div>
+        </article>
+        <article style="margin-bottom: 1.5rem;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 style="font-size: 1rem; margin-bottom: 0.3rem;" itemprop="name">Sind meine Daten sicher?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;" itemprop="text">Ja. Alle Daten werden ausschlie&szlig;lich in der EU gespeichert. Deine Telefonnummer wird per SHA-256 verschl&uuml;sselt &mdash; wir speichern sie nie im Klartext. Vollst&auml;ndig DSGVO-konform.</p>
+          </div>
+        </article>
+        <article style="margin-bottom: 1.5rem;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 style="font-size: 1rem; margin-bottom: 0.3rem;" itemprop="name">Was kostet FragSMS?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;" itemprop="text">FragSMS bietet einen kostenlosen Tarif mit 20 Nachrichten pro Monat. Basic kostet 4,99 &euro;/Monat (200 Nachrichten) und Pro 9,99 &euro;/Monat (unbegrenzt). Alle Preise sind Endpreise.</p>
+          </div>
+        </article>
+        <article style="margin-bottom: 1.5rem;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 style="font-size: 1rem; margin-bottom: 0.3rem;" itemprop="name">Welche Zahlungsmethoden gibt es?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;" itemprop="text">Kreditkarte, SEPA-Lastschrift, PayPal und Sofort&uuml;berweisung &mdash; die beliebtesten Zahlungsmethoden in Deutschland. Sichere Abwicklung &uuml;ber Stripe.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</Base>

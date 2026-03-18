@@ -1,0 +1,177 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: object | object[];
+}
+
+const {
+  title,
+  description = 'FragSMS — Dein KI-Assistent per SMS in Deutschland. Kein App, kein Internet, kein Login. Frag einfach per SMS und erhalte sofort KI-Antworten. DSGVO-konform, EU-Daten.',
+  keywords = 'KI per SMS, ChatGPT per SMS, KI Assistent Deutschland, SMS KI, AI SMS ohne App, DSGVO KI, FragSMS',
+  ogImage = '/og-image.png',
+  noindex = false,
+  jsonLd,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="FragSMS" />
+    <meta name="theme-color" content="#2563eb" />
+    {noindex
+      ? <meta name="robots" content="noindex, nofollow" />
+      : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    }
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="alternate" hreflang="de" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    <title>{title}</title>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://stripe.fragsms.de" crossorigin />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="FragSMS" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="FragSMS — KI-Assistent per SMS in Deutschland" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="FragSMS — KI-Assistent per SMS in Deutschland" />
+
+    <!-- Structured Data: Organization (all pages) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FragSMS",
+      "url": "https://fragsms.de",
+      "logo": "https://fragsms.de/logo.png",
+      "description": "KI-Assistent per SMS in Deutschland. Kein App, kein Internet. DSGVO-konform.",
+      "foundingDate": "2026",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "kontakt@fragsms.de",
+        "contactType": "customer service",
+        "availableLanguage": "German"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Germany"
+      }
+    })} />
+
+    <!-- Structured Data: WebSite with SearchAction -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "FragSMS",
+      "url": "https://fragsms.de",
+      "inLanguage": "de",
+      "description": "KI-Assistent per SMS — Frag einfach."
+    })} />
+
+    <!-- Page-specific structured data -->
+    {jsonLd && (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).map(data => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+    ))}
+
+    <style is:global>
+      :root {
+        --color-primary: #2563eb;
+        --color-primary-dark: #1d4ed8;
+        --color-bg: #ffffff;
+        --color-bg-alt: #f8fafc;
+        --color-text: #1e293b;
+        --color-text-muted: #64748b;
+        --color-border: #e2e8f0;
+        --color-success: #16a34a;
+        --color-error: #dc2626;
+        --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        --max-width: 800px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        color: var(--color-text);
+        background: var(--color-bg);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header style="border-bottom: 1px solid var(--color-border); padding: 1rem 0;">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="/" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text);" aria-label="FragSMS Startseite">
+          FragSMS
+        </a>
+        <nav aria-label="Hauptnavigation" style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
+          <a href="/upgrade">Upgrade</a>
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer style="border-top: 1px solid var(--color-border); padding: 2rem 0; margin-top: 4rem; background: var(--color-bg-alt);">
+      <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
+        <nav aria-label="Footer-Navigation" style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+          <a href="/nutzungsbedingungen">Nutzungsbedingungen</a>
+        </nav>
+        <p>&copy; {new Date().getFullYear()} FragSMS. Alle Rechte vorbehalten.</p>
+        <p style="margin-top: 0.25rem;">Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.</p>
+      </div>
+    </footer>
+  </body>
+</html>

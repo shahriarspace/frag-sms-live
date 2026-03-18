@@ -1,0 +1,230 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="FragSMS Upgrade — Basic oder Pro Abo | Ab 4,99 EUR/Monat" description="Upgrade dein FragSMS Abo auf Basic (200 Nachrichten, 4,99 EUR) oder Pro (unbegrenzt, 9,99 EUR). Zahle mit Kreditkarte, SEPA, PayPal oder Sofort. Jederzeit kuendbar." keywords="FragSMS Upgrade, KI SMS Abo, FragSMS Basic, FragSMS Pro, KI Assistent Abo Deutschland">
+  <section style="padding: 3rem 0;">
+    <div class="container" style="max-width: 560px;">
+      <h1 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; text-align: center;">
+        FragSMS Upgrade
+      </h1>
+      <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 2rem;">
+        W&auml;hle deinen Tarif und zahle sicher mit Karte, SEPA oder Sofort.
+      </p>
+
+      <!-- Upgrade Form -->
+      <form id="upgrade-form" style="background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem;">
+        <!-- Phone number -->
+        <div style="margin-bottom: 1.5rem;">
+          <label for="phone" style="display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">
+            Deine Handynummer
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+49 151 2345 6789"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 8px; font-size: 1rem;"
+          />
+          <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+            Die Nummer, mit der du FragSMS per SMS nutzt.
+          </p>
+        </div>
+
+        <!-- Plan selection -->
+        <div style="margin-bottom: 1.5rem;">
+          <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 0.9rem;">Tarif w&auml;hlen</p>
+          <div style="display: flex; gap: 1rem;">
+            <label style="flex: 1; border: 2px solid var(--color-border); border-radius: 8px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s;" id="plan-basic-label">
+              <input type="radio" name="plan" value="basic" required style="display: none;" />
+              <div style="font-weight: 700; font-size: 1.1rem;">Basic</div>
+              <div style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; margin: 0.25rem 0;">&euro;4,99</div>
+              <div style="font-size: 0.8rem; color: var(--color-text-muted);">200 Nachrichten/Monat</div>
+            </label>
+            <label style="flex: 1; border: 2px solid var(--color-border); border-radius: 8px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s;" id="plan-pro-label">
+              <input type="radio" name="plan" value="pro" style="display: none;" />
+              <div style="font-weight: 700; font-size: 1.1rem;">Pro</div>
+              <div style="color: var(--color-primary); font-weight: 700; font-size: 1.25rem; margin: 0.25rem 0;">&euro;9,99</div>
+              <div style="font-size: 0.8rem; color: var(--color-text-muted);">Unbegrenzt</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Legal checkboxes (mandatory) -->
+        <div style="margin-bottom: 1.5rem; font-size: 0.85rem;">
+          <label style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.75rem; cursor: pointer;">
+            <input type="checkbox" id="cb-widerruf" required style="margin-top: 3px;" />
+            <span>
+              Ich stimme zu, dass FragSMS sofort beginnt und verzichte auf mein 14-t&auml;giges Widerrufsrecht (&sect;356 Abs. 5 BGB).
+            </span>
+          </label>
+          <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
+            <input type="checkbox" id="cb-datenschutz" required style="margin-top: 3px;" />
+            <span>
+              Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerkl&auml;rung</a> gelesen und stimme zu.
+            </span>
+          </label>
+        </div>
+
+        <!-- Submit button — legally required wording -->
+        <button
+          type="submit"
+          id="submit-btn"
+          disabled
+          style="width: 100%; padding: 0.85rem; background: var(--color-primary); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; opacity: 0.5; transition: opacity 0.2s;"
+        >
+          Kostenpflichtig bestellen
+        </button>
+
+        <p style="text-align: center; font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.75rem;">
+          Sichere Zahlung &uuml;ber Stripe. Karte, SEPA-Lastschrift oder Sofort&uuml;berweisung.
+        </p>
+
+        <!-- Error message area -->
+        <div id="error-msg" style="display: none; margin-top: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; color: var(--color-error); font-size: 0.85rem; text-align: center;">
+        </div>
+      </form>
+
+      <!-- Jetzt kuendigen — §312k BGB: must be permanently visible -->
+      <div style="margin-top: 2.5rem; padding: 1.5rem; border: 1px solid var(--color-border); border-radius: 12px; text-align: center;">
+        <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Abo k&uuml;ndigen</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1rem;">
+          Du hast bereits ein Abo und m&ouml;chtest k&uuml;ndigen? Gib deine Handynummer ein.
+        </p>
+        <div style="display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto;">
+          <input
+            type="tel"
+            id="cancel-phone"
+            placeholder="+49 151 2345 6789"
+            style="flex: 1; padding: 0.6rem; border: 1px solid var(--color-border); border-radius: 8px; font-size: 0.9rem;"
+          />
+          <button
+            type="button"
+            id="cancel-btn"
+            style="padding: 0.6rem 1.25rem; background: var(--color-error); color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;"
+          >
+            Jetzt k&uuml;ndigen
+          </button>
+        </div>
+        <div id="cancel-msg" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; text-align: center;"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const STRIPE_WORKER_URL = 'https://stripe.fragsms.de';
+
+    // --- Plan selection highlighting ---
+    const planInputs = document.querySelectorAll('input[name="plan"]');
+    planInputs.forEach(input => {
+      input.addEventListener('change', () => {
+        document.getElementById('plan-basic-label').style.borderColor = '';
+        document.getElementById('plan-pro-label').style.borderColor = '';
+        const label = input.value === 'basic' ? 'plan-basic-label' : 'plan-pro-label';
+        document.getElementById(label).style.borderColor = 'var(--color-primary)';
+        checkFormValidity();
+      });
+    });
+
+    // --- Enable button only when all checkboxes are checked and plan is selected ---
+    const cbWiderruf = document.getElementById('cb-widerruf');
+    const cbDatenschutz = document.getElementById('cb-datenschutz');
+    const submitBtn = document.getElementById('submit-btn');
+
+    function checkFormValidity() {
+      const planSelected = document.querySelector('input[name="plan"]:checked');
+      const allChecked = cbWiderruf.checked && cbDatenschutz.checked && planSelected;
+      submitBtn.disabled = !allChecked;
+      submitBtn.style.opacity = allChecked ? '1' : '0.5';
+    }
+
+    cbWiderruf.addEventListener('change', checkFormValidity);
+    cbDatenschutz.addEventListener('change', checkFormValidity);
+
+    // --- Upgrade form submission ---
+    document.getElementById('upgrade-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errorMsg = document.getElementById('error-msg');
+      errorMsg.style.display = 'none';
+
+      const phone = document.getElementById('phone').value.trim();
+      const plan = document.querySelector('input[name="plan"]:checked')?.value;
+
+      if (!phone || !plan) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Bitte warten...';
+
+      try {
+        const response = await fetch(`${STRIPE_WORKER_URL}/create-checkout`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone, plan }),
+        });
+
+        const data = await response.json();
+
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          errorMsg.textContent = data.error || 'Ein Fehler ist aufgetreten.';
+          errorMsg.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Kostenpflichtig bestellen';
+          checkFormValidity();
+        }
+      } catch (err) {
+        errorMsg.textContent = 'Verbindungsfehler. Bitte versuche es erneut.';
+        errorMsg.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Kostenpflichtig bestellen';
+        checkFormValidity();
+      }
+    });
+
+    // --- Cancel subscription ---
+    document.getElementById('cancel-btn').addEventListener('click', async () => {
+      const phone = document.getElementById('cancel-phone').value.trim();
+      const cancelMsg = document.getElementById('cancel-msg');
+
+      if (!phone) {
+        cancelMsg.textContent = 'Bitte gib deine Handynummer ein.';
+        cancelMsg.style.color = 'var(--color-error)';
+        cancelMsg.style.display = 'block';
+        return;
+      }
+
+      if (!confirm('Bist du sicher, dass du dein Abo kuendigen moechtest?')) return;
+
+      const cancelBtn = document.getElementById('cancel-btn');
+      cancelBtn.disabled = true;
+      cancelBtn.textContent = 'Wird gekuendigt...';
+
+      try {
+        const response = await fetch(`${STRIPE_WORKER_URL}/cancel`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone }),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          cancelMsg.textContent = data.message;
+          cancelMsg.style.color = 'var(--color-success)';
+        } else {
+          cancelMsg.textContent = data.error || 'Fehler beim Kuendigen.';
+          cancelMsg.style.color = 'var(--color-error)';
+        }
+      } catch (err) {
+        cancelMsg.textContent = 'Verbindungsfehler. Bitte versuche es erneut.';
+        cancelMsg.style.color = 'var(--color-error)';
+      }
+
+      cancelMsg.style.display = 'block';
+      cancelBtn.disabled = false;
+      cancelBtn.textContent = 'Jetzt kuendigen';
+    });
+  </script>
+</Base>
