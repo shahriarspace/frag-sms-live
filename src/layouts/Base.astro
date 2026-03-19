@@ -117,6 +117,28 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </script>
 
     <style is:global>
+      /* Skip to content link */
+      .skip-to-content {
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--color-primary);
+        color: var(--color-btn-text);
+        padding: 0.75rem 1.5rem;
+        border-radius: 0 0 8px 8px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        z-index: 200;
+        text-decoration: none;
+        transition: top 0.2s;
+      }
+      .skip-to-content:focus {
+        top: 0;
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+      }
+
       :root {
         /* Dark theme (default) */
         --color-bg: #0a0a0a;
@@ -302,6 +324,16 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       ::selection {
         background: rgba(16, 185, 129, 0.3);
         color: var(--color-text);
+      }
+
+      /* Global focus-visible styles for keyboard navigation */
+      :focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+      }
+      /* Remove default outline for mouse clicks */
+      :focus:not(:focus-visible) {
+        outline: none;
       }
 
       /* Language switcher */
@@ -490,8 +522,11 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         background: var(--color-bg);
         border-bottom: 1px solid var(--color-border);
         padding: 1rem 0;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.15);
         z-index: 99;
+      }
+      [data-theme="light"] .mobile-nav {
+        box-shadow: 0 8px 32px rgba(0,0,0,0.08);
       }
       .mobile-nav.open {
         display: block;
@@ -537,6 +572,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </style>
   </head>
   <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Zum Inhalt springen</a>
+
     <!-- Header -->
     <header style="border-bottom: 1px solid var(--color-border); padding: 1.1rem 0; backdrop-filter: blur(12px); background: var(--color-header-bg); position: sticky; top: 0; z-index: 100;">
       <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
@@ -591,7 +629,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </header>
 
     <!-- Main content -->
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
