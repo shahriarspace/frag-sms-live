@@ -3,21 +3,26 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Zahlung abgebrochen — FragSMS" noindex={true}>
-  <section style="padding: 4rem 0; text-align: center;">
+  <section class="section" style="text-align: center;">
     <div class="container" style="max-width: 500px;">
-      <h1 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">
-        Zahlung abgebrochen
-      </h1>
-      <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--color-text-muted);">
-        Kein Problem! Du kannst jederzeit zur&uuml;ckkommen und upgraden.
-        Dein kostenloser Zugang bleibt aktiv.
-      </p>
+      <div class="fade-in">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--color-accent-glow); border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; color: var(--color-text-muted);">
+          &#10005;
+        </div>
+        <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">
+          Zahlung abgebrochen
+        </h1>
+        <p style="font-size: 1.1rem; margin-bottom: 2.5rem; color: var(--color-text-muted);">
+          Kein Problem! Du kannst jederzeit zur&uuml;ckkommen und upgraden.
+          Dein kostenloser Zugang bleibt aktiv.
+        </p>
+      </div>
 
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="/upgrade" style="display: inline-block; background: var(--color-primary); color: white; padding: 0.75rem 2rem; border-radius: 8px; font-weight: 600;">
+      <div class="fade-in" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/upgrade" class="btn-primary">
           Erneut versuchen
         </a>
-        <a href="/" style="display: inline-block; background: var(--color-bg-alt); color: var(--color-text); padding: 0.75rem 2rem; border-radius: 8px; font-weight: 600; border: 1px solid var(--color-border);">
+        <a href="/" class="btn-secondary">
           Zur&uuml;ck zur Startseite
         </a>
       </div>

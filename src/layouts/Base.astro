@@ -29,7 +29,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content="FragSMS" />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#0a0a0a" />
     {noindex
       ? <meta name="robots" content="noindex, nofollow" />
       : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -100,17 +100,24 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
 
     <style is:global>
       :root {
-        --color-primary: #2563eb;
-        --color-primary-dark: #1d4ed8;
-        --color-bg: #ffffff;
-        --color-bg-alt: #f8fafc;
-        --color-text: #1e293b;
-        --color-text-muted: #64748b;
-        --color-border: #e2e8f0;
-        --color-success: #16a34a;
-        --color-error: #dc2626;
-        --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-        --max-width: 800px;
+        /* German flag dark theme */
+        --color-bg: #0a0a0a;
+        --color-bg-alt: #111111;
+        --color-surface: #1a1a1a;
+        --color-surface-hover: #222222;
+        --color-text: #f5f5f5;
+        --color-text-muted: #a3a3a3;
+        --color-border: #2a2a2a;
+        --color-border-hover: #3a3a3a;
+        --color-primary: #FFD700;
+        --color-primary-dark: #E6C200;
+        --color-primary-glow: rgba(255, 215, 0, 0.15);
+        --color-accent: #DD0000;
+        --color-accent-glow: rgba(221, 0, 0, 0.15);
+        --color-success: #22c55e;
+        --color-error: #ef4444;
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        --max-width: 1100px;
       }
 
       * {
@@ -119,18 +126,26 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: var(--font-sans);
         color: var(--color-text);
         background: var(--color-bg);
         line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       a {
         color: var(--color-primary);
         text-decoration: none;
+        transition: color 0.2s ease;
       }
       a:hover {
+        color: var(--color-primary-dark);
         text-decoration: underline;
       }
 
@@ -139,19 +154,220 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         margin: 0 auto;
         padding: 0 1.5rem;
       }
+
+      /* Fade-in animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Gold gradient text utility */
+      .text-gradient {
+        background: linear-gradient(135deg, #FFD700, #FFA500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Card base style */
+      .card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: 16px;
+        padding: 2rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        border-color: var(--color-border-hover);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.05);
+      }
+
+      /* Badge styles */
+      .badge {
+        display: inline-block;
+        padding: 0.3rem 0.85rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.025em;
+      }
+      .badge-gold {
+        background: var(--color-primary-glow);
+        color: var(--color-primary);
+        border: 1px solid rgba(255, 215, 0, 0.25);
+      }
+      .badge-red {
+        background: var(--color-accent-glow);
+        color: #ff4444;
+        border: 1px solid rgba(221, 0, 0, 0.25);
+      }
+      .badge-muted {
+        background: rgba(163, 163, 163, 0.1);
+        color: var(--color-text-muted);
+        border: 1px solid rgba(163, 163, 163, 0.15);
+      }
+
+      /* Button styles */
+      .btn-primary {
+        display: inline-block;
+        background: var(--color-primary);
+        color: #0a0a0a;
+        padding: 0.75rem 2rem;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        text-decoration: none;
+      }
+      .btn-primary:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        text-decoration: none;
+        color: #0a0a0a;
+      }
+
+      .btn-secondary {
+        display: inline-block;
+        background: var(--color-surface);
+        color: var(--color-text);
+        padding: 0.75rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid var(--color-border);
+        cursor: pointer;
+        transition: border-color 0.2s ease, background 0.2s ease;
+        text-decoration: none;
+      }
+      .btn-secondary:hover {
+        border-color: var(--color-primary);
+        background: var(--color-surface-hover);
+        text-decoration: none;
+        color: var(--color-text);
+      }
+
+      /* Section spacing */
+      .section {
+        padding: 5rem 0;
+      }
+
+      /* Section heading */
+      .section-heading {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .section-heading h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .section-heading p {
+        color: var(--color-text-muted);
+        font-size: 1rem;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      /* Scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-border);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-border-hover);
+      }
+
+      /* Selection color */
+      ::selection {
+        background: rgba(255, 215, 0, 0.3);
+        color: var(--color-text);
+      }
+
+      /* Legal page styles */
+      .legal-content {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 0.9rem;
+        line-height: 1.8;
+      }
+      .legal-content h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .legal-content h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 2.5rem 0 0.75rem;
+        color: var(--color-text);
+      }
+      .legal-content h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 1.5rem 0 0.5rem;
+      }
+      .legal-content p {
+        color: var(--color-text-muted);
+        margin-bottom: 0.75rem;
+      }
+      .legal-content ul {
+        margin: 0.5rem 0 1rem 1.5rem;
+        color: var(--color-text-muted);
+      }
+      .legal-content li {
+        padding: 0.2rem 0;
+      }
+      .legal-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        font-size: 0.85rem;
+      }
+      .legal-content th {
+        text-align: left;
+        padding: 0.75rem;
+        border-bottom: 2px solid var(--color-border);
+        color: var(--color-text);
+        font-weight: 600;
+      }
+      .legal-content td {
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--color-border);
+        color: var(--color-text-muted);
+      }
+      .legal-content strong {
+        color: var(--color-text);
+      }
+      .legal-content a {
+        color: var(--color-primary);
+      }
     </style>
   </head>
   <body>
     <!-- Header -->
-    <header style="border-bottom: 1px solid var(--color-border); padding: 1rem 0;">
+    <header style="border-bottom: 1px solid var(--color-border); padding: 1rem 0; backdrop-filter: blur(8px); background: rgba(10, 10, 10, 0.85); position: sticky; top: 0; z-index: 100;">
       <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="/" style="font-size: 1.25rem; font-weight: 700; color: var(--color-text);" aria-label="FragSMS Startseite">
-          FragSMS
+        <a href="/" style="font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em;" aria-label="FragSMS Startseite">
+          <span style="color: var(--color-text);">Frag</span><span style="color: var(--color-primary);">SMS</span>
         </a>
-        <nav aria-label="Hauptnavigation" style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
-          <a href="/upgrade">Upgrade</a>
-          <a href="/impressum">Impressum</a>
-          <a href="/datenschutz">Datenschutz</a>
+        <nav aria-label="Hauptnavigation" style="display: flex; gap: 1.75rem; font-size: 0.9rem;">
+          <a href="/upgrade" style="color: var(--color-text-muted); transition: color 0.2s;">Upgrade</a>
+          <a href="/impressum" style="color: var(--color-text-muted); transition: color 0.2s;">Impressum</a>
+          <a href="/datenschutz" style="color: var(--color-text-muted); transition: color 0.2s;">Datenschutz</a>
         </nav>
       </div>
     </header>
@@ -162,16 +378,30 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </main>
 
     <!-- Footer -->
-    <footer style="border-top: 1px solid var(--color-border); padding: 2rem 0; margin-top: 4rem; background: var(--color-bg-alt);">
+    <footer style="border-top: 1px solid var(--color-border); padding: 3rem 0; margin-top: 0; background: var(--color-bg-alt);">
       <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
-        <nav aria-label="Footer-Navigation" style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
-          <a href="/impressum">Impressum</a>
-          <a href="/datenschutz">Datenschutz</a>
-          <a href="/nutzungsbedingungen">Nutzungsbedingungen</a>
+        <nav aria-label="Footer-Navigation" style="display: flex; justify-content: center; gap: 1.75rem; margin-bottom: 1.25rem;">
+          <a href="/impressum" style="color: var(--color-text-muted);">Impressum</a>
+          <a href="/datenschutz" style="color: var(--color-text-muted);">Datenschutz</a>
+          <a href="/nutzungsbedingungen" style="color: var(--color-text-muted);">Nutzungsbedingungen</a>
         </nav>
-        <p>&copy; {new Date().getFullYear()} FragSMS. Alle Rechte vorbehalten.</p>
-        <p style="margin-top: 0.25rem;">Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.</p>
+        <p style="color: #666;">&copy; {new Date().getFullYear()} FragSMS. Alle Rechte vorbehalten.</p>
+        <p style="margin-top: 0.25rem; color: #555;">Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.</p>
       </div>
     </footer>
+
+    <!-- Fade-in observer -->
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

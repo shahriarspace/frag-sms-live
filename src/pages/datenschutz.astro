@@ -3,113 +3,116 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Datenschutzerklaerung — FragSMS | DSGVO-konformer KI-Assistent" description="Datenschutzerklaerung von FragSMS. Erfahre, wie wir deine Daten schuetzen: EU-Server, verschluesselte Telefonnummern, keine Daten in den USA. Vollstaendig DSGVO-konform." keywords="FragSMS Datenschutz, DSGVO KI Assistent, Datenschutzerklaerung FragSMS, EU Daten KI">
-  <section style="padding: 3rem 0;">
-    <div class="container" style="max-width: 650px; font-size: 0.9rem; line-height: 1.7;">
-      <h1 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">Datenschutzerkl&auml;rung</h1>
+  <section class="section">
+    <div class="container legal-content">
+      <div class="fade-in">
+        <span class="badge badge-gold" style="margin-bottom: 1rem;">DSGVO-konform</span>
+        <h1>Datenschutzerkl&auml;rung</h1>
+      </div>
 
-      <p style="color: var(--color-text-muted); margin-bottom: 2rem;">
+      <p style="margin-bottom: 2rem;">
         Stand: M&auml;rz 2026. Verantwortlicher gem&auml;&szlig; Art. 4 Abs. 7 DSGVO: siehe <a href="/impressum">Impressum</a>.
       </p>
 
-      <h2 style="font-size: 1.15rem; margin: 2rem 0 0.75rem;">1. &Uuml;berblick</h2>
+      <h2>1. &Uuml;berblick</h2>
       <p>
         FragSMS ist ein KI-Assistent, der per SMS erreichbar ist. Wir nehmen den Schutz deiner pers&ouml;nlichen Daten sehr ernst.
         Diese Datenschutzerkl&auml;rung informiert dich dar&uuml;ber, welche Daten wir erheben, wie wir sie verwenden und welche Rechte du hast.
       </p>
 
-      <h2 style="font-size: 1.15rem; margin: 2rem 0 0.75rem;">2. Welche Daten wir erheben</h2>
+      <h2>2. Welche Daten wir erheben</h2>
 
-      <h3 style="font-size: 1rem; margin: 1rem 0 0.5rem;">2.1 SMS-Nutzung</h3>
+      <h3>2.1 SMS-Nutzung</h3>
       <p>Wenn du uns eine SMS sendest, verarbeiten wir:</p>
-      <ul style="margin: 0.5rem 0 0.5rem 1.5rem;">
+      <ul>
         <li><strong>Telefonnummer</strong> &mdash; wird sofort gehasht (SHA-256 mit geheimem Salt). Deine Nummer wird niemals im Klartext gespeichert.</li>
         <li><strong>SMS-Inhalt</strong> &mdash; wird als Gespr&auml;chsverlauf gespeichert (max. 10 Nachrichten, 90 Tage Aufbewahrung).</li>
         <li><strong>Einwilligungszeitpunkt</strong> &mdash; wann du per JA zugestimmt hast (&sect;7a UWG).</li>
       </ul>
 
-      <h3 style="font-size: 1rem; margin: 1rem 0 0.5rem;">2.2 Zahlungsdaten</h3>
+      <h3>2.2 Zahlungsdaten</h3>
       <p>
         Zahlungen werden &uuml;ber Stripe abgewickelt. Wir speichern deine Stripe-Kunden-ID, aber keine Kreditkarten- oder Bankdaten.
         Stripe verarbeitet deine Zahlungsdaten gem&auml;&szlig; eigener Datenschutzerkl&auml;rung.
       </p>
 
-      <h3 style="font-size: 1rem; margin: 1rem 0 0.5rem;">2.3 Website-Besuch</h3>
+      <h3>2.3 Website-Besuch</h3>
       <p>
         Unsere Website (fragsms.de) ist statisch und wird &uuml;ber GitHub Pages gehostet.
         Wir verwenden keine Cookies, kein Tracking und kein Analytics.
       </p>
 
-      <h2 style="font-size: 1.15rem; margin: 2rem 0 0.75rem;">3. Auftragsverarbeiter</h2>
+      <h2>3. Auftragsverarbeiter</h2>
       <p>Wir nutzen folgende Dienstleister zur Datenverarbeitung. Mit allen wurden Auftragsverarbeitungsvertr&auml;ge (AVV/DPA) geschlossen:</p>
 
-      <table style="width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem;">
+      <table>
         <thead>
-          <tr style="border-bottom: 2px solid var(--color-border);">
-            <th style="text-align: left; padding: 0.5rem;">Dienstleister</th>
-            <th style="text-align: left; padding: 0.5rem;">Zweck</th>
-            <th style="text-align: left; padding: 0.5rem;">Standort</th>
+          <tr>
+            <th>Dienstleister</th>
+            <th>Zweck</th>
+            <th>Standort</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom: 1px solid var(--color-border);">
-            <td style="padding: 0.5rem;">Twilio</td>
-            <td style="padding: 0.5rem;">SMS-Versand und -Empfang</td>
-            <td style="padding: 0.5rem;">EU (DPA abgeschlossen)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-border);">
-            <td style="padding: 0.5rem;">Anthropic</td>
-            <td style="padding: 0.5rem;">KI-Antworten (Claude Haiku)</td>
-            <td style="padding: 0.5rem;">USA (DPA + SCCs)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-border);">
-            <td style="padding: 0.5rem;">Cloudflare</td>
-            <td style="padding: 0.5rem;">Hosting, Datenbank (D1 EU), DNS</td>
-            <td style="padding: 0.5rem;">EU (D1 Jurisdiction EU)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-border);">
-            <td style="padding: 0.5rem;">Stripe</td>
-            <td style="padding: 0.5rem;">Zahlungsabwicklung</td>
-            <td style="padding: 0.5rem;">EU (Irish entity)</td>
+          <tr>
+            <td>Twilio</td>
+            <td>SMS-Versand und -Empfang</td>
+            <td>EU (DPA abgeschlossen)</td>
           </tr>
           <tr>
-            <td style="padding: 0.5rem;">GitHub (Microsoft)</td>
-            <td style="padding: 0.5rem;">Website-Hosting (keine pers. Daten)</td>
-            <td style="padding: 0.5rem;">USA</td>
+            <td>Anthropic</td>
+            <td>KI-Antworten (Claude Haiku)</td>
+            <td>USA (DPA + SCCs)</td>
+          </tr>
+          <tr>
+            <td>Cloudflare</td>
+            <td>Hosting, Datenbank (D1 EU), DNS</td>
+            <td>EU (D1 Jurisdiction EU)</td>
+          </tr>
+          <tr>
+            <td>Stripe</td>
+            <td>Zahlungsabwicklung</td>
+            <td>EU (Irish entity)</td>
+          </tr>
+          <tr>
+            <td>GitHub (Microsoft)</td>
+            <td>Website-Hosting (keine pers. Daten)</td>
+            <td>USA</td>
           </tr>
         </tbody>
       </table>
 
-      <h2 style="font-size: 1.15rem; margin: 2rem 0 0.75rem;">4. Aufbewahrungsfristen</h2>
-      <table style="width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem;">
+      <h2>4. Aufbewahrungsfristen</h2>
+      <table>
         <thead>
-          <tr style="border-bottom: 2px solid var(--color-border);">
-            <th style="text-align: left; padding: 0.5rem;">Datenkategorie</th>
-            <th style="text-align: left; padding: 0.5rem;">Aufbewahrung</th>
+          <tr>
+            <th>Datenkategorie</th>
+            <th>Aufbewahrung</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom: 1px solid var(--color-border);">
-            <td style="padding: 0.5rem;">Telefonnummer-Hash</td>
-            <td style="padding: 0.5rem;">5 Jahre (UWG &sect;7a)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-border);">
-            <td style="padding: 0.5rem;">Einwilligungszeitpunkt</td>
-            <td style="padding: 0.5rem;">5 Jahre (UWG &sect;7a)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-border);">
-            <td style="padding: 0.5rem;">Gespr&auml;chsverlauf</td>
-            <td style="padding: 0.5rem;">90 Tage (rollierend)</td>
+          <tr>
+            <td>Telefonnummer-Hash</td>
+            <td>5 Jahre (UWG &sect;7a)</td>
           </tr>
           <tr>
-            <td style="padding: 0.5rem;">Zahlungsdaten</td>
-            <td style="padding: 0.5rem;">Vertragsdauer + 10 Jahre (Steuerrecht)</td>
+            <td>Einwilligungszeitpunkt</td>
+            <td>5 Jahre (UWG &sect;7a)</td>
+          </tr>
+          <tr>
+            <td>Gespr&auml;chsverlauf</td>
+            <td>90 Tage (rollierend)</td>
+          </tr>
+          <tr>
+            <td>Zahlungsdaten</td>
+            <td>Vertragsdauer + 10 Jahre (Steuerrecht)</td>
           </tr>
         </tbody>
       </table>
 
-      <h2 style="font-size: 1.15rem; margin: 2rem 0 0.75rem;">5. Deine Rechte (DSGVO)</h2>
+      <h2>5. Deine Rechte (DSGVO)</h2>
       <p>Du hast folgende Rechte:</p>
-      <ul style="margin: 0.5rem 0 0.5rem 1.5rem;">
+      <ul>
         <li><strong>Auskunft</strong> (Art. 15 DSGVO) &mdash; Welche Daten wir &uuml;ber dich gespeichert haben</li>
         <li><strong>Berichtigung</strong> (Art. 16 DSGVO) &mdash; Korrektur falscher Daten</li>
         <li><strong>L&ouml;schung</strong> (Art. 17 DSGVO) &mdash; L&ouml;schung deiner Daten, soweit keine gesetzliche Aufbewahrungspflicht besteht</li>
@@ -119,13 +122,13 @@ import Base from '../layouts/Base.astro';
         <li><strong>Beschwerde</strong> &mdash; Recht auf Beschwerde bei der zust&auml;ndigen Aufsichtsbeh&ouml;rde (LDI NRW)</li>
       </ul>
 
-      <h2 style="font-size: 1.15rem; margin: 2rem 0 0.75rem;">6. Abmeldung (STOP)</h2>
+      <h2>6. Abmeldung (STOP)</h2>
       <p>
         Du kannst dich jederzeit abmelden, indem du <strong>STOP</strong> per SMS sendest.
         Deine aktive Nutzung wird sofort beendet. Consent-Logs werden gem&auml;&szlig; &sect;7a UWG f&uuml;r 5 Jahre aufbewahrt.
       </p>
 
-      <h2 style="font-size: 1.15rem; margin: 2rem 0 0.75rem;">7. Kontakt</h2>
+      <h2>7. Kontakt</h2>
       <p>
         Bei Fragen zum Datenschutz wende dich an:
         <a href="mailto:datenschutz@fragsms.de">datenschutz@fragsms.de</a>
