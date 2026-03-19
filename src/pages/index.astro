@@ -537,6 +537,42 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- ═══════════════════════════════════════════════
+       BLOG TEASER
+  ════════════════════════════════════════════════ -->
+  <section class="pg-section" aria-labelledby="blog-heading">
+    <div class="container">
+      <div class="section-heading fade-in">
+        <h2 id="blog-heading"><span data-i18n="blog_title_1">Ratgeber &amp;</span> <span class="text-gradient" data-i18n="blog_title_2">Wissen</span></h2>
+        <p data-i18n="blog_subtitle">Alles &uuml;ber KI per SMS, Datenschutz und digitale Teilhabe in Deutschland.</p>
+      </div>
+      <div class="blog-grid">
+
+        <a href="/frag-sms-live/blog/ki-ohne-internet/" class="blog-card fade-in">
+          <div class="blog-tag" data-i18n="blog_tag_1">Ratgeber</div>
+          <h3 class="blog-card-title" data-i18n="blog_card1_title">KI ohne Internet nutzen &mdash; so geht&apos;s per SMS</h3>
+          <p class="blog-card-desc" data-i18n="blog_card1_desc">Kein WLAN, kein Datenvolumen, kein Problem. Wie FragSMS k&uuml;nstliche Intelligenz f&uuml;r jeden zug&auml;nglich macht.</p>
+          <span class="blog-read-more" data-i18n="blog_read_more">Artikel lesen &rarr;</span>
+        </a>
+
+        <a href="/frag-sms-live/blog/chatgpt-alternative-ohne-app/" class="blog-card fade-in">
+          <div class="blog-tag" data-i18n="blog_tag_2">Vergleich</div>
+          <h3 class="blog-card-title" data-i18n="blog_card2_title">ChatGPT Alternative ohne App: KI per SMS</h3>
+          <p class="blog-card-desc" data-i18n="blog_card2_desc">Kein Konto, keine App, kein Login &mdash; wie FragSMS im direkten Vergleich zu ChatGPT abschneidet.</p>
+          <span class="blog-read-more" data-i18n="blog_read_more">Artikel lesen &rarr;</span>
+        </a>
+
+        <a href="/frag-sms-live/blog/dsgvo-ki-assistent/" class="blog-card fade-in">
+          <div class="blog-tag" data-i18n="blog_tag_3">Datenschutz</div>
+          <h3 class="blog-card-title" data-i18n="blog_card3_title">DSGVO-konformer KI-Assistent: Warum Datenschutz bei KI wichtig ist</h3>
+          <p class="blog-card-desc" data-i18n="blog_card3_desc">Was passiert mit deinen KI-Anfragen? Und was macht einen wirklich DSGVO-konformen KI-Assistenten aus?</p>
+          <span class="blog-read-more" data-i18n="blog_read_more">Artikel lesen &rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
        BOTTOM CTA
   ════════════════════════════════════════════════ -->
   <section class="cta-section">
@@ -1213,6 +1249,66 @@ const breadcrumbJsonLd = {
       margin: 0 auto;
     }
 
+    /* ── Blog grid ───────────────────────────────── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .blog-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 2rem;
+      text-decoration: none;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .blog-card:hover {
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 32px rgba(16,185,129,0.08);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .blog-tag {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(16,185,129,0.12);
+      color: var(--color-primary);
+      border: 1px solid rgba(16,185,129,0.25);
+      margin-bottom: 1rem;
+      align-self: flex-start;
+    }
+    .blog-card-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+    .blog-card-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+    .blog-read-more {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.01em;
+    }
+
     /* ── Responsive ──────────────────────────────── */
     @media (max-width: 800px) {
       .sb-grid {
@@ -1351,7 +1447,20 @@ const breadcrumbJsonLd = {
         about_title_2: 'Deutschland',
         about_p1: 'Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber was, wenn du kein Smartphone hast? <strong>FragSMS</strong> macht k\u00fcnstliche Intelligenz per SMS zug\u00e4nglich \u2014 f\u00fcr jeden, mit jedem Handy.',
         about_p2: 'Ob du Fragen zur Allgemeinbildung hast, einen Text \u00fcbersetzen lassen m\u00f6chtest oder Kochrezepte brauchst \u2014 FragSMS antwortet in Sekunden, komplett auf Deutsch.',
-        about_p3: '<strong>Ideal f\u00fcr Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong>Perfekt f\u00fcr l\u00e4ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf\u00fcgbar ist. Und <strong style="color:var(--color-primary)">100% DSGVO-konform</strong>.'
+        about_p3: '<strong>Ideal f\u00fcr Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong>Perfekt f\u00fcr l\u00e4ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf\u00fcgbar ist. Und <strong style="color:var(--color-primary)">100% DSGVO-konform</strong>.',
+        blog_title_1: 'Ratgeber &amp;',
+        blog_title_2: 'Wissen',
+        blog_subtitle: 'Alles \u00fcber KI per SMS, Datenschutz und digitale Teilhabe in Deutschland.',
+        blog_tag_1: 'Ratgeber',
+        blog_tag_2: 'Vergleich',
+        blog_tag_3: 'Datenschutz',
+        blog_card1_title: 'KI ohne Internet nutzen \u2014 so geht\'s per SMS',
+        blog_card1_desc: 'Kein WLAN, kein Datenvolumen, kein Problem. Wie FragSMS k\u00fcnstliche Intelligenz f\u00fcr jeden zug\u00e4nglich macht.',
+        blog_card2_title: 'ChatGPT Alternative ohne App: KI per SMS',
+        blog_card2_desc: 'Kein Konto, keine App, kein Login \u2014 wie FragSMS im direkten Vergleich zu ChatGPT abschneidet.',
+        blog_card3_title: 'DSGVO-konformer KI-Assistent: Warum Datenschutz bei KI wichtig ist',
+        blog_card3_desc: 'Was passiert mit deinen KI-Anfragen? Und was macht einen wirklich DSGVO-konformen KI-Assistenten aus?',
+        blog_read_more: 'Artikel lesen \u2192'
       },
       en: {
         hero_badge: 'AI via SMS in Germany',
@@ -1431,7 +1540,20 @@ const breadcrumbJsonLd = {
         about_title_2: 'Germany',
         about_p1: 'Millions of people in Germany already use AI assistants like ChatGPT. But what if you don\'t have a smartphone? <strong>FragSMS</strong> makes AI accessible via SMS \u2014 for everyone, with any phone.',
         about_p2: 'Whether you have questions, need translations, or want cooking recipes \u2014 FragSMS replies in seconds, entirely in German.',
-        about_p3: '<strong>Ideal for seniors</strong> unfamiliar with smartphone apps. <strong>Perfect for rural areas</strong> with poor mobile internet. And <strong style="color:var(--color-primary)">100% GDPR compliant</strong>.'
+        about_p3: '<strong>Ideal for seniors</strong> unfamiliar with smartphone apps. <strong>Perfect for rural areas</strong> with poor mobile internet. And <strong style="color:var(--color-primary)">100% GDPR compliant</strong>.',
+        blog_title_1: 'Guides &amp;',
+        blog_title_2: 'Knowledge',
+        blog_subtitle: 'Everything about AI via SMS, privacy and digital inclusion in Germany.',
+        blog_tag_1: 'Guide',
+        blog_tag_2: 'Comparison',
+        blog_tag_3: 'Privacy',
+        blog_card1_title: 'Using AI without internet \u2014 how it works via SMS',
+        blog_card1_desc: 'No WiFi, no data plan, no problem. How FragSMS makes artificial intelligence accessible to everyone.',
+        blog_card2_title: 'ChatGPT alternative without app: AI via SMS',
+        blog_card2_desc: 'No account, no app, no login \u2014 how FragSMS compares directly to ChatGPT.',
+        blog_card3_title: 'GDPR-compliant AI assistant: Why privacy in AI matters',
+        blog_card3_desc: 'What happens to your AI queries? And what makes a truly GDPR-compliant AI assistant?',
+        blog_read_more: 'Read article \u2192'
       }
     };
     if (window.__fragApplyLang) window.__fragApplyLang();
