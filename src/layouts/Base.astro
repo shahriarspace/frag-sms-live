@@ -32,6 +32,11 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <meta name="keywords" content={keywords} />
     <meta name="author" content="FragSMS" />
     <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/frag-sms-live/favicon.svg" />
+    <link rel="apple-touch-icon" href="/frag-sms-live/icon.svg" />
+
     {noindex
       ? <meta name="robots" content="noindex, nofollow" />
       : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -70,7 +75,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       "@type": "Organization",
       "name": "FragSMS",
       "url": "https://fragsms.de",
-      "logo": "https://fragsms.de/logo.png",
+      "logo": "https://fragsms.de/logo.svg",
       "description": "KI-Assistent per SMS in Deutschland. Kein App, kein Internet. DSGVO-konform.",
       "foundingDate": "2026",
       "contactPoint": {
@@ -422,8 +427,20 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <!-- Header -->
     <header style="border-bottom: 1px solid var(--color-border); padding: 1rem 0; backdrop-filter: blur(8px); background: rgba(10, 10, 10, 0.85); position: sticky; top: 0; z-index: 100;">
       <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="/frag-sms-live/" style="font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em;" aria-label="FragSMS Startseite">
-          <span style="color: var(--color-text);">Frag</span><span style="color: var(--color-primary);">SMS</span>
+        <a href="/frag-sms-live/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;" aria-label="FragSMS Startseite">
+          <!-- Speech bubble icon -->
+          <svg width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
+            <rect x="0" y="0" width="32" height="32" rx="6" fill="#0a0a0a" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+            <rect x="6" y="5" width="20" height="14" rx="2" fill="#10b981"/>
+            <polygon points="8,19 14,19 8,25" fill="#10b981"/>
+            <text x="16" y="15" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#0a0a0a" text-anchor="middle">?</text>
+            <circle cx="11" cy="28" r="1.5" fill="#059669"/>
+            <circle cx="16" cy="28" r="1.5" fill="#059669"/>
+            <circle cx="21" cy="28" r="1.5" fill="#059669"/>
+          </svg>
+          <span style="font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em;">
+            <span style="color: var(--color-text);">Frag</span><span style="color: var(--color-primary);">SMS</span>
+          </span>
         </a>
         <nav aria-label="Hauptnavigation" class="header-nav" style="display: flex; align-items: center; gap: 1.75rem; font-size: 0.9rem;">
           <a href="/frag-sms-live/upgrade" style="color: var(--color-text-muted); transition: color 0.2s;" data-i18n="nav_upgrade">Upgrade</a>
@@ -447,6 +464,21 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <!-- Footer -->
     <footer style="border-top: 1px solid var(--color-border); padding: 3rem 0; margin-top: 0; background: var(--color-bg-alt);">
       <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
+        <!-- Footer logo -->
+        <a href="/frag-sms-live/" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; text-decoration: none;" aria-label="FragSMS">
+          <svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="0" y="0" width="32" height="32" rx="6" fill="#0a0a0a" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+            <rect x="6" y="5" width="20" height="14" rx="2" fill="#10b981"/>
+            <polygon points="8,19 14,19 8,25" fill="#10b981"/>
+            <text x="16" y="15" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#0a0a0a" text-anchor="middle">?</text>
+            <circle cx="11" cy="28" r="1.5" fill="#059669"/>
+            <circle cx="16" cy="28" r="1.5" fill="#059669"/>
+            <circle cx="21" cy="28" r="1.5" fill="#059669"/>
+          </svg>
+          <span style="font-size: 1rem; font-weight: 800; letter-spacing: -0.02em;">
+            <span style="color: var(--color-text);">Frag</span><span style="color: var(--color-primary);">SMS</span>
+          </span>
+        </a>
         <nav aria-label="Footer-Navigation" style="display: flex; justify-content: center; gap: 1.75rem; margin-bottom: 1.25rem;">
           <a href="/frag-sms-live/impressum" style="color: var(--color-text-muted);">Impressum</a>
           <a href="/frag-sms-live/datenschutz" style="color: var(--color-text-muted);" data-i18n="nav_datenschutz">Datenschutz</a>
