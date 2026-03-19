@@ -411,6 +411,7 @@ const breadcrumbJsonLd = {
           <button class="feature-tab" data-index="1" role="tab" aria-selected="false" aria-controls="feature-panel-1" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;" data-i18n="tab_privacy">Datenschutz</button>
           <button class="feature-tab" data-index="2" role="tab" aria-selected="false" aria-controls="feature-panel-2" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;" data-i18n="tab_encryption">Verschl&uuml;sselung</button>
           <button class="feature-tab" data-index="3" role="tab" aria-selected="false" aria-controls="feature-panel-3" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;" data-i18n="tab_payment">Zahlung</button>
+          <button class="feature-tab" data-index="4" role="tab" aria-selected="false" aria-controls="feature-panel-4" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;" data-i18n="tab_travel">Reise &amp; Urlaub</button>
         </div>
 
         <!-- Tab panels -->
@@ -469,6 +470,24 @@ const breadcrumbJsonLd = {
             <span class="badge badge-muted">PayPal</span>
             <span class="badge badge-muted">Sofort</span>
           </div>
+        </div>
+
+        <div id="feature-panel-4" class="feature-panel card" role="tabpanel" style="text-align: center; padding: 2.5rem; display: none;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">&#9992;&#65039;</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;" data-i18n="feat4_title">Dein Reisebegleiter &mdash; ohne Roaming</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 480px; margin: 0 auto;" data-i18n="feat4_desc">
+            Im <strong style="color: var(--color-text);">Urlaub</strong>, auf <strong style="color: var(--color-text);">Gesch&auml;ftsreise</strong> oder beim Wandern in den Bergen &mdash;
+            WLAN ist nicht immer verf&uuml;gbar. Mit FragSMS hast du deinen KI-Assistenten <strong style="color: var(--color-text);">immer dabei</strong>:
+            &Uuml;bersetzungen, Reisetipps, Notfall-Infos &mdash; alles per SMS. <strong style="color: var(--color-primary);">Speichere die Nummer vor der Reise</strong> und du bist abgesichert.
+          </p>
+          <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span class="badge badge-primary" data-i18n="feat4_b1">Kein Roaming n&ouml;tig</span>
+            <span class="badge badge-primary" data-i18n="feat4_b2">Kein WLAN n&ouml;tig</span>
+            <span class="badge badge-primary" data-i18n="feat4_b3">&Uuml;berall verf&uuml;gbar</span>
+          </div>
+          <p style="margin-top: 1.25rem; font-size: 0.8rem; color: var(--color-text-muted); font-style: italic;" data-i18n="feat4_tip">
+            &#128161; Tipp: Speichere die FragSMS-Nummer <strong style="color: var(--color-text);">vor der Reise</strong> als Kontakt &mdash; so hast du deinen KI-Assistenten immer griffbereit.
+          </p>
         </div>
       </div>
     </div>
@@ -1104,6 +1123,13 @@ const breadcrumbJsonLd = {
         feat3_title: 'Zahle wie du willst',
         feat3_desc: 'Kreditkarte, <strong style="color: var(--color-text);">SEPA-Lastschrift</strong>, <strong style="color: var(--color-text);">PayPal</strong>, Sofort\u00fcberweisung \u2014 die beliebtesten Zahlungsmethoden in Deutschland. Sicher \u00fcber Stripe.',
         feat3_b1: 'Kreditkarte',
+        tab_travel: 'Reise & Urlaub',
+        feat4_title: 'Dein Reisebegleiter \u2014 ohne Roaming',
+        feat4_desc: 'Im <strong style="color: var(--color-text);">Urlaub</strong>, auf <strong style="color: var(--color-text);">Gesch\u00e4ftsreise</strong> oder beim Wandern in den Bergen \u2014 WLAN ist nicht immer verf\u00fcgbar. Mit FragSMS hast du deinen KI-Assistenten <strong style="color: var(--color-text);">immer dabei</strong>: \u00dcbersetzungen, Reisetipps, Notfall-Infos \u2014 alles per SMS. <strong style="color: var(--color-primary);">Speichere die Nummer vor der Reise</strong> und du bist abgesichert.',
+        feat4_b1: 'Kein Roaming n\u00f6tig',
+        feat4_b2: 'Kein WLAN n\u00f6tig',
+        feat4_b3: '\u00dcberall verf\u00fcgbar',
+        feat4_tip: '\ud83d\udca1 Tipp: Speichere die FragSMS-Nummer <strong style="color: var(--color-text);">vor der Reise</strong> als Kontakt \u2014 so hast du deinen KI-Assistenten immer griffbereit.',
         pricing_title: 'Preise',
         pricing_subtitle: 'Kostenlos starten. Jederzeit upgraden. Jederzeit k\u00fcndbar.',
         price_per_month: 'pro Monat',
@@ -1222,6 +1248,13 @@ const breadcrumbJsonLd = {
         feat3_title: 'Pay your way',
         feat3_desc: 'Credit card, <strong style="color: var(--color-text);">SEPA direct debit</strong>, <strong style="color: var(--color-text);">PayPal</strong>, instant bank transfer \u2014 Germany\'s most popular payment methods. Secure via Stripe.',
         feat3_b1: 'Credit Card',
+        tab_travel: 'Travel & Vacation',
+        feat4_title: 'Your travel companion \u2014 no roaming needed',
+        feat4_desc: 'On <strong style="color: var(--color-text);">vacation</strong>, on a <strong style="color: var(--color-text);">business trip</strong>, or hiking in the mountains \u2014 WiFi isn\'t always available. With FragSMS, your AI assistant is <strong style="color: var(--color-text);">always with you</strong>: translations, travel tips, emergency info \u2014 all via SMS. <strong style="color: var(--color-primary);">Save the number before your trip</strong> and you\'re covered.',
+        feat4_b1: 'No Roaming Needed',
+        feat4_b2: 'No WiFi Needed',
+        feat4_b3: 'Available Everywhere',
+        feat4_tip: '\ud83d\udca1 Tip: Save the FragSMS number <strong style="color: var(--color-text);">before your trip</strong> as a contact \u2014 your AI assistant is always at hand.',
         pricing_title: 'Pricing',
         pricing_subtitle: 'Start for free. Upgrade anytime. Cancel anytime.',
         price_per_month: 'per month',
