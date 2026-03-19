@@ -6,6 +6,7 @@ export interface Props {
   ogImage?: string;
   noindex?: boolean;
   jsonLd?: object | object[];
+  legalPage?: boolean;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   ogImage = '/frag-sms-live/og-image.png',
   noindex = false,
   jsonLd,
+  legalPage = false,
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
@@ -100,7 +102,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
 
     <style is:global>
       :root {
-        /* German flag dark theme */
+        /* Emerald dark theme (Kobi-inspired) */
         --color-bg: #0a0a0a;
         --color-bg-alt: #111111;
         --color-surface: #1a1a1a;
@@ -109,13 +111,13 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         --color-text-muted: #a3a3a3;
         --color-border: #2a2a2a;
         --color-border-hover: #3a3a3a;
-        --color-primary: #FFD700;
-        --color-primary-dark: #E6C200;
-        --color-primary-glow: rgba(255, 215, 0, 0.15);
-        --color-accent: #DD0000;
-        --color-accent-glow: rgba(221, 0, 0, 0.15);
+        --color-primary: #10b981;
+        --color-primary-dark: #059669;
+        --color-primary-glow: rgba(16, 185, 129, 0.15);
+        --color-primary-border: rgba(16, 185, 129, 0.3);
         --color-success: #22c55e;
         --color-error: #ef4444;
+        --color-error-glow: rgba(239, 68, 68, 0.15);
         --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
         --max-width: 1100px;
       }
@@ -166,9 +168,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         transform: translateY(0);
       }
 
-      /* Red-to-gold gradient text utility (German flag colors) */
+      /* Emerald gradient text */
       .text-gradient {
-        background: linear-gradient(135deg, #DD0000, #FFD700);
+        background: linear-gradient(135deg, #10b981, #34d399);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -184,7 +186,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       }
       .card:hover {
         border-color: var(--color-border-hover);
-        box-shadow: 0 0 20px rgba(221, 0, 0, 0.06), 0 0 40px rgba(255, 215, 0, 0.04);
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.06);
       }
 
       /* Badge styles */
@@ -196,15 +198,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         font-weight: 600;
         letter-spacing: 0.025em;
       }
-      .badge-gold {
+      .badge-primary {
         background: var(--color-primary-glow);
         color: var(--color-primary);
-        border: 1px solid rgba(255, 215, 0, 0.25);
-      }
-      .badge-red {
-        background: var(--color-accent-glow);
-        color: #ff4444;
-        border: 1px solid rgba(221, 0, 0, 0.25);
+        border: 1px solid var(--color-primary-border);
       }
       .badge-muted {
         background: rgba(163, 163, 163, 0.1);
@@ -229,7 +226,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       .btn-primary:hover {
         background: var(--color-primary-dark);
         transform: translateY(-1px);
-        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
         text-decoration: none;
         color: #0a0a0a;
       }
@@ -276,6 +273,24 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         margin: 0 auto;
       }
 
+      /* German flag tricolor divider */
+      .tricolor-divider {
+        display: flex;
+        height: 3px;
+      }
+      .tricolor-divider > div:first-child {
+        flex: 1;
+        background: #000000;
+      }
+      .tricolor-divider > div:nth-child(2) {
+        flex: 1;
+        background: #DD0000;
+      }
+      .tricolor-divider > div:last-child {
+        flex: 1;
+        background: #FFD700;
+      }
+
       /* Scrollbar styling */
       ::-webkit-scrollbar {
         width: 8px;
@@ -291,10 +306,42 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         background: var(--color-border-hover);
       }
 
-      /* Selection color — German flag red */
+      /* Selection color — emerald tint */
       ::selection {
-        background: rgba(221, 0, 0, 0.3);
+        background: rgba(16, 185, 129, 0.3);
         color: var(--color-text);
+      }
+
+      /* Language switcher */
+      .lang-switcher {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        padding: 0.2rem;
+        font-size: 0.85rem;
+      }
+      .lang-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem 0.5rem;
+        border: none;
+        border-radius: 4px;
+        background: transparent;
+        cursor: pointer;
+        font-size: 0.9rem;
+        line-height: 1;
+        transition: background 0.2s;
+      }
+      .lang-btn.active {
+        background: var(--color-primary-glow);
+        box-shadow: 0 0 0 1px var(--color-primary-border);
+      }
+      .lang-btn:hover:not(.active) {
+        background: var(--color-surface-hover);
       }
 
       /* Legal page styles */
@@ -355,19 +402,33 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       .legal-content a {
         color: var(--color-primary);
       }
+
+      /* Responsive header nav */
+      @media (max-width: 600px) {
+        .header-nav {
+          gap: 1rem !important;
+          font-size: 0.8rem !important;
+        }
+      }
     </style>
   </head>
   <body>
     <!-- Header -->
-    <header style="border-bottom: 1px solid var(--color-border); padding: 1rem 0; backdrop-filter: blur(8px); background: rgba(10, 10, 10, 0.85); position: sticky; top: 0; z-index: 100; border-top: 2px solid transparent; border-image: linear-gradient(90deg, #DD0000, #FFD700) 1;">
+    <header style="border-bottom: 1px solid var(--color-border); padding: 1rem 0; backdrop-filter: blur(8px); background: rgba(10, 10, 10, 0.85); position: sticky; top: 0; z-index: 100;">
       <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
         <a href="/frag-sms-live/" style="font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em;" aria-label="FragSMS Startseite">
           <span style="color: var(--color-text);">Frag</span><span style="color: var(--color-primary);">SMS</span>
         </a>
-        <nav aria-label="Hauptnavigation" style="display: flex; gap: 1.75rem; font-size: 0.9rem;">
-          <a href="/frag-sms-live/upgrade" style="color: var(--color-text-muted); transition: color 0.2s;">Upgrade</a>
+        <nav aria-label="Hauptnavigation" class="header-nav" style="display: flex; align-items: center; gap: 1.75rem; font-size: 0.9rem;">
+          <a href="/frag-sms-live/upgrade" style="color: var(--color-text-muted); transition: color 0.2s;" data-i18n="nav_upgrade">Upgrade</a>
           <a href="/frag-sms-live/impressum" style="color: var(--color-text-muted); transition: color 0.2s;">Impressum</a>
-          <a href="/frag-sms-live/datenschutz" style="color: var(--color-text-muted); transition: color 0.2s;">Datenschutz</a>
+          <a href="/frag-sms-live/datenschutz" style="color: var(--color-text-muted); transition: color 0.2s;" data-i18n="nav_datenschutz">Datenschutz</a>
+          {!legalPage && (
+            <div class="lang-switcher" aria-label="Sprache / Language">
+              <button class="lang-btn active" data-lang="de" aria-label="Deutsch" title="Deutsch">&#127465;&#127466;</button>
+              <button class="lang-btn" data-lang="en" aria-label="English" title="English">&#127468;&#127463;</button>
+            </div>
+          )}
         </nav>
       </div>
     </header>
@@ -378,15 +439,15 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </main>
 
     <!-- Footer -->
-    <footer style="border-top: 2px solid transparent; border-image: linear-gradient(90deg, #DD0000, #FFD700) 1; padding: 3rem 0; margin-top: 0; background: var(--color-bg-alt);">
+    <footer style="border-top: 1px solid var(--color-border); padding: 3rem 0; margin-top: 0; background: var(--color-bg-alt);">
       <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
         <nav aria-label="Footer-Navigation" style="display: flex; justify-content: center; gap: 1.75rem; margin-bottom: 1.25rem;">
           <a href="/frag-sms-live/impressum" style="color: var(--color-text-muted);">Impressum</a>
-          <a href="/frag-sms-live/datenschutz" style="color: var(--color-text-muted);">Datenschutz</a>
-          <a href="/frag-sms-live/nutzungsbedingungen" style="color: var(--color-text-muted);">Nutzungsbedingungen</a>
+          <a href="/frag-sms-live/datenschutz" style="color: var(--color-text-muted);" data-i18n="nav_datenschutz">Datenschutz</a>
+          <a href="/frag-sms-live/nutzungsbedingungen" style="color: var(--color-text-muted);" data-i18n="footer_nutzungsbedingungen">Nutzungsbedingungen</a>
         </nav>
-        <p style="color: #666;">&copy; {new Date().getFullYear()} FragSMS. Alle Rechte vorbehalten.</p>
-        <p style="margin-top: 0.25rem; color: #555;">Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.</p>
+        <p style="color: #666;">&copy; {new Date().getFullYear()} FragSMS. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></p>
+        <p style="margin-top: 0.25rem; color: #555;" data-i18n="footer_tax">Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.</p>
       </div>
     </footer>
 
@@ -402,6 +463,94 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       }, { threshold: 0.1 });
 
       document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+
+    <!-- Language switcher logic -->
+    <script>
+      (function() {
+        var LANG_KEY = 'fragsms-lang';
+
+        // Shared translations for header/footer (page-specific translations are in each page's script)
+        var baseTranslations = {
+          de: {
+            nav_upgrade: 'Upgrade',
+            nav_datenschutz: 'Datenschutz',
+            footer_nutzungsbedingungen: 'Nutzungsbedingungen',
+            footer_rights: 'Alle Rechte vorbehalten.',
+            footer_tax: 'Gem\u00e4\u00df \u00a7 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.'
+          },
+          en: {
+            nav_upgrade: 'Upgrade',
+            nav_datenschutz: 'Privacy Policy',
+            footer_nutzungsbedingungen: 'Terms of Service',
+            footer_rights: 'All rights reserved.',
+            footer_tax: 'As per \u00a7 19 para. 1 UStG, no VAT is charged (small business regulation).'
+          }
+        };
+
+        function getStoredLang() {
+          try { return localStorage.getItem(LANG_KEY) || 'de'; } catch(e) { return 'de'; }
+        }
+
+        function setStoredLang(lang) {
+          try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
+        }
+
+        function applyLang(lang) {
+          // Merge base translations with any page-level translations
+          var pageTranslations = window.__fragTranslations || {};
+          var deStrings = Object.assign({}, baseTranslations.de, (pageTranslations.de || {}));
+          var enStrings = Object.assign({}, baseTranslations.en, (pageTranslations.en || {}));
+          var strings = lang === 'en' ? enStrings : deStrings;
+
+          // Update all data-i18n elements
+          document.querySelectorAll('[data-i18n]').forEach(function(el) {
+            var key = el.getAttribute('data-i18n');
+            if (strings[key] !== undefined) {
+              el.innerHTML = strings[key];
+            }
+          });
+
+          // Update data-i18n-placeholder elements
+          document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+            var key = el.getAttribute('data-i18n-placeholder');
+            if (strings[key] !== undefined) {
+              el.placeholder = strings[key];
+            }
+          });
+
+          // Update lang-btn active state
+          document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+          });
+
+          // Update html lang attribute
+          document.documentElement.lang = lang === 'en' ? 'en' : 'de';
+        }
+
+        // Initialize on load
+        var currentLang = getStoredLang();
+        // Apply on DOMContentLoaded to ensure page translations are registered
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() { applyLang(currentLang); });
+        } else {
+          applyLang(currentLang);
+        }
+
+        // Bind click events
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var lang = btn.getAttribute('data-lang');
+            setStoredLang(lang);
+            currentLang = lang;
+            applyLang(lang);
+          });
+        });
+
+        // Expose for pages to trigger re-apply after registering translations
+        window.__fragApplyLang = function() { applyLang(getStoredLang()); };
+        window.__fragGetLang = getStoredLang;
+      })();
     </script>
   </body>
 </html>

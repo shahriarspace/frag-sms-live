@@ -9,24 +9,44 @@ import Base from '../layouts/Base.astro';
         <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); border: 2px solid var(--color-success); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.75rem; color: var(--color-success);">
           &#10003;
         </div>
-        <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: var(--color-success);">
+        <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: var(--color-success);" data-i18n="success_title">
           Zahlung erfolgreich!
         </h1>
-        <p style="font-size: 1.1rem; margin-bottom: 2.5rem; color: var(--color-text-muted);">
+        <p style="font-size: 1.1rem; margin-bottom: 2.5rem; color: var(--color-text-muted);" data-i18n="success_desc">
           Dein FragSMS Upgrade ist jetzt aktiv. Du erh&auml;ltst in K&uuml;rze eine Best&auml;tigung per SMS.
         </p>
       </div>
 
       <div class="card fade-in" style="margin-bottom: 2.5rem; text-align: left;">
-        <h2 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-text);">So geht's weiter:</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+        <h2 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-text);" data-i18n="success_next_title">So geht's weiter:</h2>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted);" data-i18n="success_next_desc">
           Sende einfach eine SMS an deine FragSMS-Nummer. Dein erh&ouml;htes Nachrichtenlimit ist sofort verf&uuml;gbar.
         </p>
       </div>
 
-      <a href="/frag-sms-live/" class="btn-primary">
+      <a href="/frag-sms-live/" class="btn-primary" data-i18n="success_back">
         Zur&uuml;ck zur Startseite
       </a>
     </div>
   </section>
+
+  <script>
+    window.__fragTranslations = {
+      de: {
+        success_title: 'Zahlung erfolgreich!',
+        success_desc: 'Dein FragSMS Upgrade ist jetzt aktiv. Du erh\u00e4ltst in K\u00fcrze eine Best\u00e4tigung per SMS.',
+        success_next_title: 'So geht\'s weiter:',
+        success_next_desc: 'Sende einfach eine SMS an deine FragSMS-Nummer. Dein erh\u00f6htes Nachrichtenlimit ist sofort verf\u00fcgbar.',
+        success_back: 'Zur\u00fcck zur Startseite'
+      },
+      en: {
+        success_title: 'Payment successful!',
+        success_desc: 'Your FragSMS upgrade is now active. You\'ll receive a confirmation via SMS shortly.',
+        success_next_title: 'What\'s next:',
+        success_next_desc: 'Just send an SMS to your FragSMS number. Your increased message limit is available immediately.',
+        success_back: 'Back to homepage'
+      }
+    };
+    if (window.__fragApplyLang) window.__fragApplyLang();
+  </script>
 </Base>

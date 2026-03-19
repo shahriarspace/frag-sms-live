@@ -7,11 +7,11 @@ import Base from '../layouts/Base.astro';
   <section class="section">
     <div class="container" style="max-width: 640px;">
       <div class="fade-in" style="text-align: center; margin-bottom: 2.5rem;">
-        <span class="badge badge-gold" style="margin-bottom: 1rem;">Abo verwalten</span>
+        <span class="badge badge-primary" style="margin-bottom: 1rem;" data-i18n="upgrade_badge">Abo verwalten</span>
         <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;">
           FragSMS <span class="text-gradient">Upgrade</span>
         </h1>
-        <p style="color: var(--color-text-muted);">
+        <p style="color: var(--color-text-muted);" data-i18n="upgrade_subtitle">
           W&auml;hle deinen Tarif und zahle sicher mit Karte, SEPA oder Sofort.
         </p>
       </div>
@@ -20,7 +20,7 @@ import Base from '../layouts/Base.astro';
       <form id="upgrade-form" class="card fade-in" style="padding: 2rem;">
         <!-- Phone number -->
         <div style="margin-bottom: 1.5rem;">
-          <label for="phone" style="display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">
+          <label for="phone" style="display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;" data-i18n="upgrade_phone_label">
             Deine Handynummer
           </label>
           <input
@@ -31,36 +31,36 @@ import Base from '../layouts/Base.astro';
             required
             style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 8px; font-size: 1rem; background: var(--color-bg); color: var(--color-text); outline: none; transition: border-color 0.2s;"
           />
-          <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.35rem;">
+          <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.35rem;" data-i18n="upgrade_phone_hint">
             Die Nummer, mit der du FragSMS per SMS nutzt.
           </p>
         </div>
 
         <!-- Plan selection -->
         <div style="margin-bottom: 1.5rem;">
-          <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 0.9rem;">Tarif w&auml;hlen</p>
+          <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 0.9rem;" data-i18n="upgrade_plan_label">Tarif w&auml;hlen</p>
           <div style="display: flex; gap: 0.75rem;">
             <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg);" id="plan-starter-label">
               <input type="radio" name="plan" value="starter" required style="display: none;" />
               <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Starter</div>
               <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;2,99</div>
-              <div style="font-size: 0.75rem; color: var(--color-text-muted);">30 Nachr./Monat</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Max. 3/Tag</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_starter_msgs">30 Nachr./Monat</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);" data-i18n="upgrade_starter_daily">Max. 3/Tag</div>
             </label>
             <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg); position: relative;" id="plan-basic-label">
               <input type="radio" name="plan" value="basic" style="display: none;" />
-              <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: #ffffff; padding: 0.15rem 0.75rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">Beliebt</div>
+              <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: #0a0a0a; padding: 0.15rem 0.75rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;" data-i18n="badge_popular">Beliebt</div>
               <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Basic</div>
               <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;7,99</div>
-              <div style="font-size: 0.75rem; color: var(--color-text-muted);">150 Nachr./Monat</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Max. 8/Tag</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_basic_msgs">150 Nachr./Monat</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);" data-i18n="upgrade_basic_daily">Max. 8/Tag</div>
             </label>
             <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg);" id="plan-pro-label">
               <input type="radio" name="plan" value="pro" style="display: none;" />
               <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Pro</div>
               <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;19,99</div>
-              <div style="font-size: 0.75rem; color: var(--color-text-muted);">500 Nachr./Monat</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Max. 20/Tag</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_pro_msgs">500 Nachr./Monat</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);" data-i18n="upgrade_pro_daily">Max. 20/Tag</div>
             </label>
           </div>
         </div>
@@ -69,13 +69,13 @@ import Base from '../layouts/Base.astro';
         <div style="margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--color-text-muted);">
           <label style="display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.75rem; cursor: pointer;">
             <input type="checkbox" id="cb-widerruf" required style="margin-top: 3px; accent-color: var(--color-primary);" />
-            <span>
+            <span data-i18n="upgrade_cb_widerruf">
               Ich stimme zu, dass FragSMS sofort beginnt und verzichte auf mein 14-t&auml;giges Widerrufsrecht (&sect;356 Abs. 5 BGB).
             </span>
           </label>
           <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
             <input type="checkbox" id="cb-datenschutz" required style="margin-top: 3px; accent-color: var(--color-primary);" />
-            <span>
+            <span data-i18n="upgrade_cb_datenschutz">
               Ich habe die <a href="/frag-sms-live/datenschutz" target="_blank">Datenschutzerkl&auml;rung</a> gelesen und stimme zu.
             </span>
           </label>
@@ -92,19 +92,19 @@ import Base from '../layouts/Base.astro';
           Kostenpflichtig bestellen
         </button>
 
-        <p style="text-align: center; font-size: 0.75rem; color: #666; margin-top: 0.75rem;">
+        <p style="text-align: center; font-size: 0.75rem; color: #666; margin-top: 0.75rem;" data-i18n="upgrade_stripe_note">
           Sichere Zahlung &uuml;ber Stripe. Karte, SEPA-Lastschrift oder Sofort&uuml;berweisung.
         </p>
 
         <!-- Error message area -->
-        <div id="error-msg" style="display: none; margin-top: 1rem; padding: 0.75rem; background: var(--color-accent-glow); border: 1px solid rgba(221,0,0,0.3); border-radius: 8px; color: #ff4444; font-size: 0.85rem; text-align: center;">
+        <div id="error-msg" style="display: none; margin-top: 1rem; padding: 0.75rem; background: var(--color-error-glow); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; color: var(--color-error); font-size: 0.85rem; text-align: center;">
         </div>
       </form>
 
       <!-- Jetzt kuendigen — §312k BGB: must be permanently visible -->
-      <div class="card fade-in" style="margin-top: 2.5rem; text-align: center; border-color: rgba(221, 0, 0, 0.2);">
-        <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Abo k&uuml;ndigen</h2>
-        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1rem;">
+      <div class="card fade-in" style="margin-top: 2.5rem; text-align: center; border-color: rgba(239, 68, 68, 0.2);">
+        <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;" data-i18n="cancel_heading">Abo k&uuml;ndigen</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1rem;" data-i18n="cancel_desc">
           Du hast bereits ein Abo und m&ouml;chtest k&uuml;ndigen? Gib deine Handynummer ein.
         </p>
         <div style="display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto;">
@@ -117,7 +117,7 @@ import Base from '../layouts/Base.astro';
           <button
             type="button"
             id="cancel-btn"
-            style="padding: 0.6rem 1.25rem; background: var(--color-accent); color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap; transition: background 0.2s;"
+            style="padding: 0.6rem 1.25rem; background: var(--color-error); color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap; transition: background 0.2s;"
           >
             Jetzt k&uuml;ndigen
           </button>
@@ -130,13 +130,13 @@ import Base from '../layouts/Base.astro';
   <style>
     #phone:focus, #cancel-phone:focus {
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+      box-shadow: 0 0 0 3px var(--color-primary-glow);
     }
     #plan-starter-label:hover, #plan-basic-label:hover, #plan-pro-label:hover {
       border-color: var(--color-border-hover);
     }
     #cancel-btn:hover {
-      background: #cc0000;
+      background: #dc2626;
     }
   </style>
 
@@ -149,15 +149,13 @@ import Base from '../layouts/Base.astro';
 
     planInputs.forEach(input => {
       input.addEventListener('change', () => {
-        // Reset all labels
         planLabels.forEach(id => {
           document.getElementById(id).style.borderColor = '';
           document.getElementById(id).style.boxShadow = '';
         });
-        // Highlight selected
         const labelId = `plan-${input.value}-label`;
         document.getElementById(labelId).style.borderColor = 'var(--color-primary)';
-        document.getElementById(labelId).style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.1)';
+        document.getElementById(labelId).style.boxShadow = '0 0 20px rgba(16, 185, 129, 0.1)';
         checkFormValidity();
       });
     });
@@ -225,7 +223,7 @@ import Base from '../layouts/Base.astro';
 
       if (!phone) {
         cancelMsg.textContent = 'Bitte gib deine Handynummer ein.';
-        cancelMsg.style.color = '#ff4444';
+        cancelMsg.style.color = 'var(--color-error)';
         cancelMsg.style.display = 'block';
         return;
       }
@@ -250,16 +248,61 @@ import Base from '../layouts/Base.astro';
           cancelMsg.style.color = 'var(--color-success)';
         } else {
           cancelMsg.textContent = data.error || 'Fehler beim Kuendigen.';
-          cancelMsg.style.color = '#ff4444';
+          cancelMsg.style.color = 'var(--color-error)';
         }
       } catch (err) {
         cancelMsg.textContent = 'Verbindungsfehler. Bitte versuche es erneut.';
-        cancelMsg.style.color = '#ff4444';
+        cancelMsg.style.color = 'var(--color-error)';
       }
 
       cancelMsg.style.display = 'block';
       cancelBtn.disabled = false;
       cancelBtn.textContent = 'Jetzt kuendigen';
     });
+  </script>
+
+  <!-- Page translations for upgrade -->
+  <script>
+    window.__fragTranslations = {
+      de: {
+        upgrade_badge: 'Abo verwalten',
+        upgrade_subtitle: 'W\u00e4hle deinen Tarif und zahle sicher mit Karte, SEPA oder Sofort.',
+        upgrade_phone_label: 'Deine Handynummer',
+        upgrade_phone_hint: 'Die Nummer, mit der du FragSMS per SMS nutzt.',
+        upgrade_plan_label: 'Tarif w\u00e4hlen',
+        upgrade_starter_msgs: '30 Nachr./Monat',
+        upgrade_starter_daily: 'Max. 3/Tag',
+        upgrade_basic_msgs: '150 Nachr./Monat',
+        upgrade_basic_daily: 'Max. 8/Tag',
+        upgrade_pro_msgs: '500 Nachr./Monat',
+        upgrade_pro_daily: 'Max. 20/Tag',
+        badge_popular: 'Beliebt',
+        upgrade_cb_widerruf: 'Ich stimme zu, dass FragSMS sofort beginnt und verzichte auf mein 14-t\u00e4giges Widerrufsrecht (\u00a7356 Abs. 5 BGB).',
+        upgrade_cb_datenschutz: 'Ich habe die <a href="/frag-sms-live/datenschutz" target="_blank">Datenschutzerkl\u00e4rung</a> gelesen und stimme zu.',
+        upgrade_stripe_note: 'Sichere Zahlung \u00fcber Stripe. Karte, SEPA-Lastschrift oder Sofort\u00fcberweisung.',
+        cancel_heading: 'Abo k\u00fcndigen',
+        cancel_desc: 'Du hast bereits ein Abo und m\u00f6chtest k\u00fcndigen? Gib deine Handynummer ein.'
+      },
+      en: {
+        upgrade_badge: 'Manage subscription',
+        upgrade_subtitle: 'Choose your plan and pay securely with card, SEPA, or instant transfer.',
+        upgrade_phone_label: 'Your phone number',
+        upgrade_phone_hint: 'The number you use to text FragSMS.',
+        upgrade_plan_label: 'Choose plan',
+        upgrade_starter_msgs: '30 msgs/month',
+        upgrade_starter_daily: 'Max. 3/day',
+        upgrade_basic_msgs: '150 msgs/month',
+        upgrade_basic_daily: 'Max. 8/day',
+        upgrade_pro_msgs: '500 msgs/month',
+        upgrade_pro_daily: 'Max. 20/day',
+        badge_popular: 'Popular',
+        upgrade_cb_widerruf: 'I agree that FragSMS starts immediately and waive my 14-day right of withdrawal (\u00a7356 para. 5 BGB).',
+        upgrade_cb_datenschutz: 'I have read and agree to the <a href="/frag-sms-live/datenschutz" target="_blank">Privacy Policy</a>.',
+        upgrade_stripe_note: 'Secure payment via Stripe. Card, SEPA direct debit, or instant transfer.',
+        cancel_heading: 'Cancel subscription',
+        cancel_desc: 'Already have a subscription and want to cancel? Enter your phone number.'
+      }
+    };
+    if (window.__fragApplyLang) window.__fragApplyLang();
   </script>
 </Base>

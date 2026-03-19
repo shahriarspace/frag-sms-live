@@ -153,77 +153,138 @@ const breadcrumbJsonLd = {
   jsonLd={[faqJsonLd, serviceJsonLd, breadcrumbJsonLd]}
 >
 
-  <!-- Hero Section -->
-  <section class="section" style="padding: 6rem 0 5rem; text-align: center; position: relative; overflow: hidden;">
-    <!-- Subtle dual-color gradient background -->
-    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 0%, rgba(221, 0, 0, 0.05) 0%, transparent 50%), radial-gradient(ellipse at 70% 0%, rgba(255, 215, 0, 0.06) 0%, transparent 50%); pointer-events: none;"></div>
+  <!-- Hero Section with Phone Mockup -->
+  <section class="section" style="padding: 5rem 0 4rem; position: relative; overflow: hidden;">
+    <!-- Subtle emerald gradient background -->
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.07) 0%, transparent 60%); pointer-events: none;"></div>
     <div class="container" style="position: relative; z-index: 1;">
-      <div class="fade-in">
-        <span class="badge badge-gold" style="margin-bottom: 1.5rem;">KI per SMS in Deutschland</span>
-      </div>
-      <h1 class="fade-in" style="font-size: 3.25rem; font-weight: 800; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.03em; max-width: 700px; margin-left: auto; margin-right: auto;">
-        KI-Assistent<br><span class="text-gradient">per SMS</span>
-      </h1>
-      <p class="fade-in" style="font-size: 1.15rem; color: var(--color-text-muted); margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-        Wie ChatGPT &mdash; aber per SMS. Kein App, kein Internet, kein Login. <strong style="color: var(--color-text);">Frag einfach.</strong>
-      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto;">
 
-      <!-- Phone number card -->
-      <div class="fade-in card" style="display: inline-block; max-width: 420px; text-align: center; border-color: rgba(255, 215, 0, 0.2); background: linear-gradient(135deg, var(--color-surface), rgba(255, 215, 0, 0.03));">
-        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Sende eine SMS an</p>
-        <p style="font-size: 2rem; font-weight: 800; color: var(--color-primary); letter-spacing: 2px; margin-bottom: 0.5rem;">
-          +49 XXX XXXXXXX
-        </p>
-        <p style="font-size: 0.85rem; color: var(--color-text-muted);">
-          10 kostenlose Nachrichten pro Monat &mdash; kein Abo n&ouml;tig
-        </p>
-      </div>
+        <!-- Left: Text content -->
+        <div>
+          <div class="fade-in">
+            <span class="badge badge-primary" style="margin-bottom: 1.5rem;" data-i18n="hero_badge">KI per SMS in Deutschland</span>
+          </div>
+          <h1 class="fade-in" style="font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.03em;">
+            <span data-i18n="hero_title_1">KI-Assistent</span><br><span class="text-gradient" data-i18n="hero_title_2">per SMS</span>
+          </h1>
+          <p class="fade-in" style="font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 2rem; max-width: 420px;">
+            <span data-i18n="hero_subtitle">Wie ChatGPT &mdash; aber per SMS. Kein App, kein Internet, kein Login.</span> <strong style="color: var(--color-text);" data-i18n="hero_cta_text">Frag einfach.</strong>
+          </p>
 
-      <!-- German flag accent bar -->
-      <div class="fade-in" style="display: flex; justify-content: center; gap: 0; margin-top: 2.5rem;">
-        <div style="width: 40px; height: 4px; background: #000; border-radius: 2px 0 0 2px;"></div>
-        <div style="width: 40px; height: 4px; background: #DD0000;"></div>
-        <div style="width: 40px; height: 4px; background: #FFD700; border-radius: 0 2px 2px 0;"></div>
+          <!-- Phone number card -->
+          <div class="fade-in card" style="max-width: 380px; text-align: center; border-color: var(--color-primary-border); background: linear-gradient(135deg, var(--color-surface), rgba(16, 185, 129, 0.03));">
+            <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="hero_send_sms">Sende eine SMS an</p>
+            <p style="font-size: 1.75rem; font-weight: 800; color: var(--color-primary); letter-spacing: 2px; margin-bottom: 0.4rem;">
+              +49 XXX XXXXXXX
+            </p>
+            <p style="font-size: 0.8rem; color: var(--color-text-muted);" data-i18n="hero_free_msgs">10 kostenlose Nachrichten pro Monat &mdash; kein Abo n&ouml;tig</p>
+          </div>
+
+          <!-- German flag accent bar -->
+          <div class="fade-in" style="display: flex; gap: 0; margin-top: 2rem;">
+            <div style="width: 40px; height: 4px; background: #000; border-radius: 2px 0 0 2px;"></div>
+            <div style="width: 40px; height: 4px; background: #DD0000;"></div>
+            <div style="width: 40px; height: 4px; background: #FFD700; border-radius: 0 2px 2px 0;"></div>
+          </div>
+        </div>
+
+        <!-- Right: Phone Mockup with SMS carousel -->
+        <div class="fade-in" style="display: flex; justify-content: center;">
+          <div class="phone-mockup">
+            <!-- Phone frame -->
+            <div class="phone-notch"></div>
+            <div class="phone-header">
+              <div style="font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em;">SMS</div>
+              <div style="font-size: 1rem; font-weight: 700; color: var(--color-text);">FragSMS</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">+49 XXX</div>
+            </div>
+
+            <!-- SMS conversation area -->
+            <div class="phone-screen" id="sms-screen">
+              <!-- Conversation 1: Recipe (visible by default) -->
+              <div class="sms-conversation active" data-conv="0">
+                <div class="sms-label" data-i18n="sms_label_0">Kochen &amp; Rezepte</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_0">Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen? Schnelles Abendessen!</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_0">Spanische Tortilla! 4 Kartoffeln schaelen und duenn schneiden. In Oel 15 Min braten. 1 Zwiebel dazu, 5 Min. 6 Eier verquirlen, salzen, ueber die Kartoffeln giessen. Bei kleiner Hitze 8 Min stocken lassen, dann wenden. Fertig in 30 Min!</div>
+              </div>
+
+              <!-- Conversation 2: Translation help -->
+              <div class="sms-conversation" data-conv="1">
+                <div class="sms-label" data-i18n="sms_label_1">Alltagshilfe</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_1">Wie sage ich auf Englisch: Ich moechte einen Termin beim Arzt verschieben?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_1">I would like to reschedule my doctor's appointment. Oder hoeflicher: Could I please reschedule my appointment? Wenn du anrufst: Hi, I'm calling to reschedule my appointment on [Datum].</div>
+              </div>
+
+              <!-- Conversation 3: Factual question without internet -->
+              <div class="sms-conversation" data-conv="2">
+                <div class="sms-label" data-i18n="sms_label_2">Wissen &amp; Fakten</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_2">Wie hoch ist die Zugspitze und kann man da im Winter wandern?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_2">Die Zugspitze ist 2.962 m hoch, Deutschlands hoechster Berg. Im Winter: Wandern nur auf geraeumt Wegen moeglich (z.B. Partnachklamm). Gipfel per Seilbahn erreichbar. Skigebiet an der Zugspitze hat ca. Nov-Mai Saison.</div>
+              </div>
+
+              <!-- Conversation 4: Seniors / practical help -->
+              <div class="sms-conversation" data-conv="3">
+                <div class="sms-label" data-i18n="sms_label_3">Senioren-Hilfe</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_3">Mein Enkel hat Geburtstag, er wird 8. Was schenkt man Kindern in dem Alter?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_3">Tolle Ideen fuer 8-Jaehrige: 1) LEGO-Set (ab 20 EUR) 2) Kinderbuch-Reihe (Die drei ???-Kids) 3) Experiment-Baukasten 4) Eintrittskarten fuer Zoo/Freizeitpark 5) Ferngesteuertes Auto. Budget-Tipp: Buch + Suessigkeiten = immer ein Hit!</div>
+              </div>
+
+              <!-- Conversation 5: No internet scenario -->
+              <div class="sms-conversation" data-conv="4">
+                <div class="sms-label" data-i18n="sms_label_4">Ohne Internet</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_4">Bin auf dem Land, kein Internet. Wann faehrt der naechste Zug von Aachen nach Koeln?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_4">RE1 Aachen-Koeln faehrt alle 30 Min. Fahrzeit ca. 50 Min. Letzter Zug ca. 23:30. Tipp: Am Bahnhof haengen auch Papier-Fahrplaene. Fuer genaue Zeiten ruf die DB-Hotline an: 030 2970.</div>
+              </div>
+            </div>
+
+            <!-- Carousel dots -->
+            <div class="phone-dots">
+              <button class="dot active" data-dot="0" aria-label="Beispiel 1"></button>
+              <button class="dot" data-dot="1" aria-label="Beispiel 2"></button>
+              <button class="dot" data-dot="2" aria-label="Beispiel 3"></button>
+              <button class="dot" data-dot="3" aria-label="Beispiel 4"></button>
+              <button class="dot" data-dot="4" aria-label="Beispiel 5"></button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- German flag tricolor divider -->
-  <div style="display: flex; height: 3px;">
-    <div style="flex: 1; background: #000000;"></div>
-    <div style="flex: 1; background: #DD0000;"></div>
-    <div style="flex: 1; background: #FFD700;"></div>
-  </div>
+  <div class="tricolor-divider"><div></div><div></div><div></div></div>
 
   <!-- How it works -->
   <section class="section" style="background: var(--color-bg-alt);" aria-labelledby="how-it-works">
     <div class="container">
       <div class="section-heading fade-in">
-        <h2 id="how-it-works">So funktioniert <span class="text-gradient">KI per SMS</span></h2>
-        <p>In 3 einfachen Schritten zur KI-Antwort &mdash; ganz ohne Smartphone oder Internet.</p>
+        <h2 id="how-it-works"><span data-i18n="how_title_1">So funktioniert</span> <span class="text-gradient" data-i18n="how_title_2">KI per SMS</span></h2>
+        <p data-i18n="how_subtitle">In 3 einfachen Schritten zur KI-Antwort &mdash; ganz ohne Smartphone oder Internet.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 950px; margin: 0 auto;">
 
         <article class="card fade-in" style="text-align: center;">
-          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-accent-glow); border: 1px solid rgba(221,0,0,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-accent);">1</div>
-          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">SMS senden</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary-glow); border: 1px solid var(--color-primary-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-primary);">1</div>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-i18n="step1_title">SMS senden</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;" data-i18n="step1_desc">
             Sende deine Frage per SMS an unsere deutsche +49 Nummer. Funktioniert mit jedem Handy &mdash; auch Feature Phones.
           </p>
         </article>
 
         <article class="card fade-in" style="text-align: center;">
-          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary-glow); border: 1px solid rgba(255,215,0,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-primary);">2</div>
-          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">KI antwortet sofort</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary-glow); border: 1px solid var(--color-primary-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-primary);">2</div>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-i18n="step2_title">KI antwortet sofort</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;" data-i18n="step2_desc">
             Unsere k&uuml;nstliche Intelligenz versteht deine Frage und antwortet auf Deutsch &mdash; direkt per SMS in Sekunden.
           </p>
         </article>
 
         <article class="card fade-in" style="text-align: center;">
-          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-accent-glow); border: 1px solid rgba(221,0,0,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-accent);">3</div>
-          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Fertig &mdash; so einfach</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary-glow); border: 1px solid var(--color-primary-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-primary);">3</div>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-i18n="step3_title">Fertig &mdash; so einfach</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;" data-i18n="step3_desc">
             Kein Download, kein Account, kein Internet n&ouml;tig. KI f&uuml;r alle &mdash; auch Senioren, Feature Phones und l&auml;ndliche Gebiete.
           </p>
         </article>
@@ -233,82 +294,78 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- German flag tricolor divider -->
-  <div style="display: flex; height: 3px;">
-    <div style="flex: 1; background: #000000;"></div>
-    <div style="flex: 1; background: #DD0000;"></div>
-    <div style="flex: 1; background: #FFD700;"></div>
-  </div>
+  <div class="tricolor-divider"><div></div><div></div><div></div></div>
 
-  <!-- Features — Tabbed panels like KobiDev -->
+  <!-- Features — Tabbed panels -->
   <section class="section" aria-labelledby="features-heading" style="overflow: hidden;">
     <div class="container">
       <div class="section-heading fade-in">
-        <h2 id="features-heading">Warum <span class="text-gradient">FragSMS</span>?</h2>
-        <p>Datenschutz, EU-Datenstandort und Einfachheit &mdash; <strong style="color: var(--color-text);">Made in Germany</strong>.</p>
+        <h2 id="features-heading"><span data-i18n="features_title_1">Warum</span> <span class="text-gradient">FragSMS</span>?</h2>
+        <p><span data-i18n="features_subtitle">Datenschutz, EU-Datenstandort und Einfachheit &mdash;</span> <strong style="color: var(--color-text);">Made in Germany</strong>.</p>
       </div>
 
       <!-- Feature tabs -->
       <div class="fade-in" style="max-width: 700px; margin: 0 auto;">
         <!-- Tab buttons -->
         <div id="feature-tabs" style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; overflow-x: auto; padding-bottom: 0.5rem;" role="tablist" aria-label="Feature-Tabs">
-          <button class="feature-tab active" data-index="0" role="tab" aria-selected="true" aria-controls="feature-panel-0" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-accent); background: var(--color-accent-glow); color: var(--color-accent); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;">EU-Daten</button>
-          <button class="feature-tab" data-index="1" role="tab" aria-selected="false" aria-controls="feature-panel-1" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;">Datenschutz</button>
-          <button class="feature-tab" data-index="2" role="tab" aria-selected="false" aria-controls="feature-panel-2" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;">Verschl&uuml;sselung</button>
-          <button class="feature-tab" data-index="3" role="tab" aria-selected="false" aria-controls="feature-panel-3" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;">Zahlung</button>
+          <button class="feature-tab active" data-index="0" role="tab" aria-selected="true" aria-controls="feature-panel-0" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-primary); background: var(--color-primary-glow); color: var(--color-primary); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;" data-i18n="tab_eu">EU-Daten</button>
+          <button class="feature-tab" data-index="1" role="tab" aria-selected="false" aria-controls="feature-panel-1" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;" data-i18n="tab_privacy">Datenschutz</button>
+          <button class="feature-tab" data-index="2" role="tab" aria-selected="false" aria-controls="feature-panel-2" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;" data-i18n="tab_encryption">Verschl&uuml;sselung</button>
+          <button class="feature-tab" data-index="3" role="tab" aria-selected="false" aria-controls="feature-panel-3" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;" data-i18n="tab_payment">Zahlung</button>
         </div>
 
         <!-- Tab panels -->
         <div id="feature-panel-0" class="feature-panel card" role="tabpanel" style="text-align: center; padding: 2.5rem;">
           <div style="font-size: 2.5rem; margin-bottom: 1rem;">&#127466;&#127482;</div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Daten bleiben in Europa &mdash; garantiert</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;" data-i18n="feat0_title">Daten bleiben in Europa &mdash; garantiert</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;" data-i18n="feat0_desc">
             Alle deine Daten werden ausschlie&szlig;lich auf <strong style="color: var(--color-text);">EU-Servern</strong> gespeichert (Cloudflare D1, EU-Jurisdiction).
             Keine Daten&uuml;bertragung in die USA. Vollst&auml;ndig <strong style="color: var(--color-text);">DSGVO-konform</strong> &mdash; von Anfang an.
           </p>
           <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
-            <span class="badge badge-gold">EU-Server</span>
-            <span class="badge badge-gold">DSGVO</span>
-            <span class="badge badge-gold">Verschl&uuml;sselt</span>
+            <span class="badge badge-primary" data-i18n="feat0_b1">EU-Server</span>
+            <span class="badge badge-primary" data-i18n="feat0_b2">DSGVO</span>
+            <span class="badge badge-primary" data-i18n="feat0_b3">Verschl&uuml;sselt</span>
           </div>
         </div>
 
         <div id="feature-panel-1" class="feature-panel card" role="tabpanel" style="text-align: center; padding: 2.5rem; display: none;">
           <div style="font-size: 2.5rem; margin-bottom: 1rem;">&#128274;</div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">STOP senden = Alle Daten gel&ouml;scht</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;" data-i18n="feat1_title">STOP senden = Alle Daten gel&ouml;scht</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;" data-i18n="feat1_desc">
             Sende <strong style="color: var(--color-text);">STOP</strong> und alle deine Daten werden sofort entfernt. Kein Nachfragen, keine Wartezeit, keine versteckten Kopien.
             Deine <strong style="color: var(--color-text);">Privatsph&auml;re</strong> ist bei uns kein Feature &mdash; sie ist das Fundament.
           </p>
           <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
-            <span class="badge badge-red">Sofort-L&ouml;schung</span>
-            <span class="badge badge-red">Kein Tracking</span>
-            <span class="badge badge-red">Kein Profiling</span>
+            <span class="badge badge-primary" data-i18n="feat1_b1">Sofort-L&ouml;schung</span>
+            <span class="badge badge-primary" data-i18n="feat1_b2">Kein Tracking</span>
+            <span class="badge badge-primary" data-i18n="feat1_b3">Kein Profiling</span>
           </div>
         </div>
 
         <div id="feature-panel-2" class="feature-panel card" role="tabpanel" style="text-align: center; padding: 2.5rem; display: none;">
           <div style="font-size: 2.5rem; margin-bottom: 1rem;">&#128373;</div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Deine Nummer bleibt geheim</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;" data-i18n="feat2_title">Deine Nummer bleibt geheim</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;" data-i18n="feat2_desc">
             Wir speichern deine Telefonnummer <strong style="color: var(--color-text);">niemals im Klartext</strong>. Sie wird sofort verschl&uuml;sselt (SHA-256) &mdash;
             selbst wir k&ouml;nnen sie nicht zur&uuml;ckrechnen. Maximaler Datenschutz.
           </p>
           <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
-            <span class="badge badge-gold">SHA-256 Hash</span>
-            <span class="badge badge-gold">Kein Klartext</span>
-            <span class="badge badge-gold">Nicht umkehrbar</span>
+            <span class="badge badge-primary">SHA-256 Hash</span>
+            <span class="badge badge-primary" data-i18n="feat2_b2">Kein Klartext</span>
+            <span class="badge badge-primary" data-i18n="feat2_b3">Nicht umkehrbar</span>
           </div>
         </div>
 
         <div id="feature-panel-3" class="feature-panel card" role="tabpanel" style="text-align: center; padding: 2.5rem; display: none;">
           <div style="font-size: 2.5rem; margin-bottom: 1rem;">&#128179;</div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Zahle wie du willst</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;" data-i18n="feat3_title">Zahle wie du willst</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 450px; margin: 0 auto;" data-i18n="feat3_desc">
             Kreditkarte, <strong style="color: var(--color-text);">SEPA-Lastschrift</strong>, <strong style="color: var(--color-text);">PayPal</strong>, Sofort&uuml;berweisung &mdash; die beliebtesten
             Zahlungsmethoden in Deutschland. Sicher &uuml;ber Stripe.
           </p>
           <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
-            <span class="badge badge-muted">Kreditkarte</span>
+            <span class="badge badge-muted" data-i18n="feat3_b1">Kreditkarte</span>
             <span class="badge badge-muted">SEPA</span>
             <span class="badge badge-muted">PayPal</span>
             <span class="badge badge-muted">Sofort</span>
@@ -327,17 +384,15 @@ const breadcrumbJsonLd = {
       tab.addEventListener('click', () => {
         const idx = parseInt(tab.dataset.index);
 
-        // Update tabs — active tab uses red accent
         tabs.forEach((t, i) => {
           const isActive = i === idx;
           t.classList.toggle('active', isActive);
           t.setAttribute('aria-selected', isActive ? 'true' : 'false');
-          t.style.borderColor = isActive ? 'var(--color-accent)' : 'var(--color-border)';
-          t.style.background = isActive ? 'var(--color-accent-glow)' : 'transparent';
-          t.style.color = isActive ? 'var(--color-accent)' : 'var(--color-text-muted)';
+          t.style.borderColor = isActive ? 'var(--color-primary)' : 'var(--color-border)';
+          t.style.background = isActive ? 'var(--color-primary-glow)' : 'transparent';
+          t.style.color = isActive ? 'var(--color-primary)' : 'var(--color-text-muted)';
         });
 
-        // Update panels
         panels.forEach((p, i) => {
           p.style.display = i === idx ? 'block' : 'none';
         });
@@ -346,18 +401,14 @@ const breadcrumbJsonLd = {
   </script>
 
   <!-- German flag tricolor divider -->
-  <div style="display: flex; height: 3px;">
-    <div style="flex: 1; background: #000000;"></div>
-    <div style="flex: 1; background: #DD0000;"></div>
-    <div style="flex: 1; background: #FFD700;"></div>
-  </div>
+  <div class="tricolor-divider"><div></div><div></div><div></div></div>
 
   <!-- Pricing -->
   <section class="section" style="background: var(--color-bg-alt);" aria-labelledby="pricing-heading">
     <div class="container">
       <div class="section-heading fade-in">
-        <h2 id="pricing-heading"><span class="text-gradient">FragSMS</span> Preise</h2>
-        <p>Kostenlos starten. Jederzeit upgraden. Jederzeit k&uuml;ndbar.</p>
+        <h2 id="pricing-heading"><span class="text-gradient">FragSMS</span> <span data-i18n="pricing_title">Preise</span></h2>
+        <p data-i18n="pricing_subtitle">Kostenlos starten. Jederzeit upgraden. Jederzeit k&uuml;ndbar.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; max-width: 1000px; margin: 0 auto;">
 
@@ -365,11 +416,11 @@ const breadcrumbJsonLd = {
         <article class="card fade-in" style="text-align: center;">
           <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-text-muted);">Free</h3>
           <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;0</p>
-          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;">pro Monat</p>
+          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;" data-i18n="price_per_month">pro Monat</p>
           <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 10 Nachrichten / Monat</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Max. 2 pro Tag</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Kein Account n&ouml;tig</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="free_f1">10 Nachrichten / Monat</span></li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="free_f2">Max. 2 pro Tag</span></li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="free_f3">Kein Account n&ouml;tig</span></li>
           </ul>
         </article>
 
@@ -377,31 +428,31 @@ const breadcrumbJsonLd = {
         <article class="card fade-in" style="text-align: center;">
           <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-text-muted);">Starter</h3>
           <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;2,99</p>
-          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;">pro Monat</p>
+          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;" data-i18n="price_per_month">pro Monat</p>
           <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 30 Nachrichten / Monat</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Max. 3 pro Tag</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Jederzeit k&uuml;ndbar</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="starter_f1">30 Nachrichten / Monat</span></li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="starter_f2">Max. 3 pro Tag</span></li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="starter_f3">Jederzeit k&uuml;ndbar</span></li>
           </ul>
-          <a href="/frag-sms-live/upgrade" class="btn-secondary" style="display: block; margin-top: 1.5rem; text-align: center;">
+          <a href="/frag-sms-live/upgrade" class="btn-secondary" style="display: block; margin-top: 1.5rem; text-align: center;" data-i18n="btn_upgrade">
             Jetzt upgraden
           </a>
         </article>
 
         <!-- Basic — highlighted -->
-        <article class="card fade-in" style="text-align: center; border-color: var(--color-accent); position: relative; box-shadow: 0 0 30px rgba(221, 0, 0, 0.1);">
-          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: #ffffff; padding: 0.25rem 1.25rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.025em;">
+        <article class="card fade-in" style="text-align: center; border-color: var(--color-primary); position: relative; box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: #0a0a0a; padding: 0.25rem 1.25rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.025em;" data-i18n="badge_popular">
             Beliebt
           </div>
-          <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-accent);">Basic</h3>
+          <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-primary);">Basic</h3>
           <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;7,99</p>
-          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;">pro Monat</p>
+          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;" data-i18n="price_per_month">pro Monat</p>
           <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 150 Nachrichten / Monat</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Max. 8 pro Tag</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Gespr&auml;chsverlauf</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="basic_f1">150 Nachrichten / Monat</span></li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="basic_f2">Max. 8 pro Tag</span></li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="basic_f3">Gespr&auml;chsverlauf</span></li>
           </ul>
-          <a href="/frag-sms-live/upgrade" class="btn-primary" style="display: block; margin-top: 1.5rem; text-align: center;">
+          <a href="/frag-sms-live/upgrade" class="btn-primary" style="display: block; margin-top: 1.5rem; text-align: center;" data-i18n="btn_upgrade">
             Jetzt upgraden
           </a>
         </article>
@@ -410,52 +461,50 @@ const breadcrumbJsonLd = {
         <article class="card fade-in" style="text-align: center;">
           <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-text-muted);">Pro</h3>
           <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;19,99</p>
-          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;">pro Monat</p>
+          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;" data-i18n="price_per_month">pro Monat</p>
           <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 500 Nachrichten / Monat</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Max. 20 pro Tag</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Priorit&auml;ts-Antworten</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="pro_f1">500 Nachrichten / Monat</span></li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="pro_f2">Max. 20 pro Tag</span></li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> <span data-i18n="pro_f3">Priorit&auml;ts-Antworten</span></li>
           </ul>
-          <a href="/frag-sms-live/upgrade" class="btn-secondary" style="display: block; margin-top: 1.5rem; text-align: center;">
+          <a href="/frag-sms-live/upgrade" class="btn-secondary" style="display: block; margin-top: 1.5rem; text-align: center;" data-i18n="btn_upgrade">
             Jetzt upgraden
           </a>
         </article>
 
       </div>
-      <p class="fade-in" style="text-align: center; font-size: 0.8rem; color: #666; margin-top: 2rem;">
+      <p class="fade-in" style="text-align: center; font-size: 0.8rem; color: #666; margin-top: 2rem;" data-i18n="pricing_footnote">
         Alle Preise sind Endpreise. Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.
       </p>
     </div>
   </section>
 
   <!-- German flag tricolor divider -->
-  <div style="display: flex; height: 3px;">
-    <div style="flex: 1; background: #000000;"></div>
-    <div style="flex: 1; background: #DD0000;"></div>
-    <div style="flex: 1; background: #FFD700;"></div>
-  </div>
+  <div class="tricolor-divider"><div></div><div></div><div></div></div>
 
   <!-- SEO long-form content section -->
   <section class="section" aria-labelledby="about-heading">
     <div class="container" style="max-width: 700px;">
-      <h2 id="about-heading" class="fade-in" style="font-size: 2rem; margin-bottom: 1.5rem; text-align: center; font-weight: 700;">ChatGPT per SMS nutzen &mdash; so geht&apos;s in <span class="text-gradient">Deutschland</span></h2>
+      <h2 id="about-heading" class="fade-in" style="font-size: 2rem; margin-bottom: 1.5rem; text-align: center; font-weight: 700;">
+        <span data-i18n="about_title">ChatGPT per SMS nutzen &mdash; so geht&apos;s in</span> <span class="text-gradient" data-i18n="about_title_2">Deutschland</span>
+      </h2>
       <div class="fade-in" style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8;">
-        <p style="margin-bottom: 1rem;">
+        <p style="margin-bottom: 1rem;" data-i18n="about_p1">
           Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber was, wenn du kein Smartphone hast?
           Kein Internet? Oder einfach keine App installieren m&ouml;chtest? <strong style="color: var(--color-text);">FragSMS</strong> macht k&uuml;nstliche Intelligenz
           per SMS zug&auml;nglich &mdash; f&uuml;r jeden, mit jedem Handy.
         </p>
-        <p style="margin-bottom: 1rem;">
+        <p style="margin-bottom: 1rem;" data-i18n="about_p2">
           Ob du Fragen zur Allgemeinbildung hast, einen Text &uuml;bersetzen lassen m&ouml;chtest, Kochrezepte brauchst oder
           Hilfe beim Formulieren von Nachrichten suchst &mdash; FragSMS antwortet in Sekunden, komplett auf Deutsch.
         </p>
-        <p style="margin-bottom: 1rem;">
+        <p style="margin-bottom: 1rem;" data-i18n="about_p3">
           <strong style="color: var(--color-text);">Ideal f&uuml;r Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind.
           <strong style="color: var(--color-text);">Perfekt f&uuml;r l&auml;ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf&uuml;gbar ist.
           Und <strong style="color: var(--color-primary);">100% DSGVO-konform</strong>: Alle Daten werden auf EU-Servern gespeichert,
           deine Telefonnummer wird verschl&uuml;sselt und nie im Klartext abgelegt.
         </p>
-        <p>
+        <p data-i18n="about_p4">
           <strong style="color: var(--color-text);">Starte jetzt kostenlos</strong> &mdash; sende einfach eine SMS an unsere +49 Nummer und erhalte 10 Nachrichten pro Monat gratis.
           Kein Abo, kein Account, kein Risiko.
         </p>
@@ -464,87 +513,83 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- German flag tricolor divider -->
-  <div style="display: flex; height: 3px;">
-    <div style="flex: 1; background: #000000;"></div>
-    <div style="flex: 1; background: #DD0000;"></div>
-    <div style="flex: 1; background: #FFD700;"></div>
-  </div>
+  <div class="tricolor-divider"><div></div><div></div><div></div></div>
 
   <!-- FAQ -->
   <section class="section" style="background: var(--color-bg-alt);" aria-labelledby="faq-heading">
     <div class="container">
       <div class="section-heading fade-in">
-        <h2 id="faq-heading">H&auml;ufige Fragen zu <span class="text-gradient">FragSMS</span></h2>
+        <h2 id="faq-heading"><span data-i18n="faq_title_1">H&auml;ufige Fragen zu</span> <span class="text-gradient">FragSMS</span></h2>
       </div>
       <div style="max-width: 650px; margin: 0 auto;">
 
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <span itemprop="name">Brauche ich ein Smartphone f&uuml;r FragSMS?</span>
-            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span itemprop="name" data-i18n="faq1_q">Brauche ich ein Smartphone f&uuml;r FragSMS?</span>
+            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann &mdash; auch mit &auml;lteren Feature Phones und Prepaid-Handys.</p>
+            <p itemprop="text" data-i18n="faq1_a">Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann &mdash; auch mit &auml;lteren Feature Phones und Prepaid-Handys.</p>
           </div>
         </details>
 
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <span itemprop="name">Brauche ich Internet oder WLAN?</span>
-            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span itemprop="name" data-i18n="faq2_q">Brauche ich Internet oder WLAN?</span>
+            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">Nein. SMS funktioniert &uuml;ber das Mobilfunknetz &mdash; kein WLAN, kein Datenplan und keine App n&ouml;tig.</p>
+            <p itemprop="text" data-i18n="faq2_a">Nein. SMS funktioniert &uuml;ber das Mobilfunknetz &mdash; kein WLAN, kein Datenplan und keine App n&ouml;tig.</p>
           </div>
         </details>
 
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <span itemprop="name">Kann ich ChatGPT per SMS nutzen?</span>
-            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span itemprop="name" data-i18n="faq3_q">Kann ich ChatGPT per SMS nutzen?</span>
+            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen &mdash; &auml;hnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort auf Deutsch erhalten.</p>
+            <p itemprop="text" data-i18n="faq3_a">Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen &mdash; &auml;hnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort auf Deutsch erhalten.</p>
           </div>
         </details>
 
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <span itemprop="name">Wie k&uuml;ndige ich mein Abo?</span>
-            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span itemprop="name" data-i18n="faq4_q">Wie k&uuml;ndige ich mein Abo?</span>
+            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">Sende STOP per SMS oder nutze den &quot;Jetzt k&uuml;ndigen&quot; Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.</p>
+            <p itemprop="text" data-i18n="faq4_a">Sende STOP per SMS oder nutze den &quot;Jetzt k&uuml;ndigen&quot; Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.</p>
           </div>
         </details>
 
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <span itemprop="name">Sind meine Daten sicher?</span>
-            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span itemprop="name" data-i18n="faq5_q">Sind meine Daten sicher?</span>
+            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">Ja. Alle Daten werden ausschlie&szlig;lich in der EU gespeichert. Deine Telefonnummer wird per SHA-256 verschl&uuml;sselt &mdash; wir speichern sie nie im Klartext. Vollst&auml;ndig DSGVO-konform.</p>
+            <p itemprop="text" data-i18n="faq5_a">Ja. Alle Daten werden ausschlie&szlig;lich in der EU gespeichert. Deine Telefonnummer wird per SHA-256 verschl&uuml;sselt &mdash; wir speichern sie nie im Klartext. Vollst&auml;ndig DSGVO-konform.</p>
           </div>
         </details>
 
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <span itemprop="name">Was kostet FragSMS?</span>
-            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span itemprop="name" data-i18n="faq6_q">Was kostet FragSMS?</span>
+            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">FragSMS startet kostenlos mit 10 Nachrichten pro Monat. Starter kostet 2,99 &euro;/Monat (30 Nachrichten), Basic 7,99 &euro;/Monat (150 Nachrichten) und Pro 19,99 &euro;/Monat (500 Nachrichten). Alle Preise sind Endpreise.</p>
+            <p itemprop="text" data-i18n="faq6_a">FragSMS startet kostenlos mit 10 Nachrichten pro Monat. Starter kostet 2,99 &euro;/Monat (30 Nachrichten), Basic 7,99 &euro;/Monat (150 Nachrichten) und Pro 19,99 &euro;/Monat (500 Nachrichten). Alle Preise sind Endpreise.</p>
           </div>
         </details>
 
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <span itemprop="name">Welche Zahlungsmethoden gibt es?</span>
-            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span itemprop="name" data-i18n="faq7_q">Welche Zahlungsmethoden gibt es?</span>
+            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">Kreditkarte, SEPA-Lastschrift, PayPal und Sofort&uuml;berweisung &mdash; die beliebtesten Zahlungsmethoden in Deutschland. Sichere Abwicklung &uuml;ber Stripe.</p>
+            <p itemprop="text" data-i18n="faq7_a">Kreditkarte, SEPA-Lastschrift, PayPal und Sofort&uuml;berweisung &mdash; die beliebtesten Zahlungsmethoden in Deutschland. Sichere Abwicklung &uuml;ber Stripe.</p>
           </div>
         </details>
 
@@ -553,6 +598,113 @@ const breadcrumbJsonLd = {
   </section>
 
   <style>
+    /* Phone mockup */
+    .phone-mockup {
+      width: 280px;
+      background: #111;
+      border-radius: 32px;
+      padding: 12px;
+      border: 2px solid #2a2a2a;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(16, 185, 129, 0.05);
+      position: relative;
+    }
+    .phone-notch {
+      width: 80px;
+      height: 6px;
+      background: #2a2a2a;
+      border-radius: 3px;
+      margin: 4px auto 8px;
+    }
+    .phone-header {
+      text-align: center;
+      padding: 8px 0 12px;
+      border-bottom: 1px solid #2a2a2a;
+      margin-bottom: 8px;
+    }
+    .phone-screen {
+      min-height: 300px;
+      max-height: 340px;
+      overflow-y: auto;
+      padding: 8px 4px;
+      scrollbar-width: none;
+    }
+    .phone-screen::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* SMS conversations */
+    .sms-conversation {
+      display: none;
+    }
+    .sms-conversation.active {
+      display: block;
+    }
+    .sms-label {
+      text-align: center;
+      font-size: 0.65rem;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin-bottom: 10px;
+      padding: 3px 10px;
+      background: var(--color-primary-glow);
+      border-radius: 10px;
+      display: inline-block;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* SMS bubbles */
+    .sms-bubble {
+      padding: 8px 12px;
+      border-radius: 14px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      max-width: 88%;
+      word-wrap: break-word;
+    }
+    .sms-sent {
+      background: var(--color-primary);
+      color: #0a0a0a;
+      margin-left: auto;
+      border-bottom-right-radius: 4px;
+      font-weight: 500;
+    }
+    .sms-received {
+      background: #1e1e1e;
+      color: var(--color-text);
+      border: 1px solid #2a2a2a;
+      margin-right: auto;
+      border-bottom-left-radius: 4px;
+    }
+
+    /* Carousel dots */
+    .phone-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 0 8px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: #2a2a2a;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      padding: 0;
+    }
+    .dot.active {
+      background: var(--color-primary);
+      transform: scale(1.2);
+    }
+    .dot:hover:not(.active) {
+      background: #3a3a3a;
+    }
+
     /* FAQ accordion styling */
     details.faq-item summary::-webkit-details-marker {
       display: none;
@@ -566,6 +718,267 @@ const breadcrumbJsonLd = {
     details.faq-item summary:hover {
       background: var(--color-surface-hover) !important;
     }
+
+    /* Responsive: stack hero on mobile */
+    @media (max-width: 768px) {
+      .phone-mockup {
+        width: 260px;
+      }
+      .phone-screen {
+        min-height: 280px;
+        max-height: 310px;
+      }
+    }
+    @media (max-width: 700px) {
+      section:first-of-type .container > div {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+      }
+      section:first-of-type .container > div > div:first-child {
+        order: 1;
+      }
+      section:first-of-type .container > div > div:last-child {
+        order: 0;
+        margin-bottom: 2rem;
+      }
+      section:first-of-type .card {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      section:first-of-type .fade-in:last-child {
+        justify-content: center;
+      }
+    }
   </style>
+
+  <!-- Phone carousel + page translations -->
+  <script>
+    // --- Phone SMS carousel ---
+    (function() {
+      var conversations = document.querySelectorAll('.sms-conversation');
+      var dots = document.querySelectorAll('.dot');
+      var currentIdx = 0;
+      var autoTimer;
+
+      function showConv(idx) {
+        conversations.forEach(function(c) { c.classList.remove('active'); });
+        dots.forEach(function(d) { d.classList.remove('active'); });
+        conversations[idx].classList.add('active');
+        dots[idx].classList.add('active');
+        currentIdx = idx;
+      }
+
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          showConv(parseInt(dot.getAttribute('data-dot')));
+          clearInterval(autoTimer);
+          startAuto();
+        });
+      });
+
+      function startAuto() {
+        autoTimer = setInterval(function() {
+          showConv((currentIdx + 1) % conversations.length);
+        }, 5000);
+      }
+      startAuto();
+    })();
+
+    // --- Page-level translations for index.astro ---
+    window.__fragTranslations = {
+      de: {
+        hero_badge: 'KI per SMS in Deutschland',
+        hero_title_1: 'KI-Assistent',
+        hero_title_2: 'per SMS',
+        hero_subtitle: 'Wie ChatGPT \u2014 aber per SMS. Kein App, kein Internet, kein Login.',
+        hero_cta_text: 'Frag einfach.',
+        hero_send_sms: 'Sende eine SMS an',
+        hero_free_msgs: '10 kostenlose Nachrichten pro Monat \u2014 kein Abo n\u00f6tig',
+        sms_label_0: 'Kochen & Rezepte',
+        sms_q_0: 'Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen? Schnelles Abendessen!',
+        sms_a_0: 'Spanische Tortilla! 4 Kartoffeln schaelen und duenn schneiden. In Oel 15 Min braten. 1 Zwiebel dazu, 5 Min. 6 Eier verquirlen, salzen, ueber die Kartoffeln giessen. Bei kleiner Hitze 8 Min stocken lassen, dann wenden. Fertig in 30 Min!',
+        sms_label_1: 'Alltagshilfe',
+        sms_q_1: 'Wie sage ich auf Englisch: Ich moechte einen Termin beim Arzt verschieben?',
+        sms_a_1: 'I would like to reschedule my doctor\'s appointment. Oder hoeflicher: Could I please reschedule my appointment? Wenn du anrufst: Hi, I\'m calling to reschedule my appointment on [Datum].',
+        sms_label_2: 'Wissen & Fakten',
+        sms_q_2: 'Wie hoch ist die Zugspitze und kann man da im Winter wandern?',
+        sms_a_2: 'Die Zugspitze ist 2.962 m hoch, Deutschlands hoechster Berg. Im Winter: Wandern nur auf geraeumten Wegen moeglich (z.B. Partnachklamm). Gipfel per Seilbahn erreichbar. Skigebiet an der Zugspitze hat ca. Nov-Mai Saison.',
+        sms_label_3: 'Senioren-Hilfe',
+        sms_q_3: 'Mein Enkel hat Geburtstag, er wird 8. Was schenkt man Kindern in dem Alter?',
+        sms_a_3: 'Tolle Ideen fuer 8-Jaehrige: 1) LEGO-Set (ab 20 EUR) 2) Kinderbuch-Reihe (Die drei ???-Kids) 3) Experiment-Baukasten 4) Eintrittskarten fuer Zoo/Freizeitpark 5) Ferngesteuertes Auto. Budget-Tipp: Buch + Suessigkeiten = immer ein Hit!',
+        sms_label_4: 'Ohne Internet',
+        sms_q_4: 'Bin auf dem Land, kein Internet. Wann faehrt der naechste Zug von Aachen nach Koeln?',
+        sms_a_4: 'RE1 Aachen-Koeln faehrt alle 30 Min. Fahrzeit ca. 50 Min. Letzter Zug ca. 23:30. Tipp: Am Bahnhof haengen auch Papier-Fahrplaene. Fuer genaue Zeiten ruf die DB-Hotline an: 030 2970.',
+        how_title_1: 'So funktioniert',
+        how_title_2: 'KI per SMS',
+        how_subtitle: 'In 3 einfachen Schritten zur KI-Antwort \u2014 ganz ohne Smartphone oder Internet.',
+        step1_title: 'SMS senden',
+        step1_desc: 'Sende deine Frage per SMS an unsere deutsche +49 Nummer. Funktioniert mit jedem Handy \u2014 auch Feature Phones.',
+        step2_title: 'KI antwortet sofort',
+        step2_desc: 'Unsere k\u00fcnstliche Intelligenz versteht deine Frage und antwortet auf Deutsch \u2014 direkt per SMS in Sekunden.',
+        step3_title: 'Fertig \u2014 so einfach',
+        step3_desc: 'Kein Download, kein Account, kein Internet n\u00f6tig. KI f\u00fcr alle \u2014 auch Senioren, Feature Phones und l\u00e4ndliche Gebiete.',
+        features_title_1: 'Warum',
+        features_subtitle: 'Datenschutz, EU-Datenstandort und Einfachheit \u2014',
+        tab_eu: 'EU-Daten',
+        tab_privacy: 'Datenschutz',
+        tab_encryption: 'Verschl\u00fcsselung',
+        tab_payment: 'Zahlung',
+        feat0_title: 'Daten bleiben in Europa \u2014 garantiert',
+        feat0_desc: 'Alle deine Daten werden ausschlie\u00dflich auf <strong style="color: var(--color-text);">EU-Servern</strong> gespeichert (Cloudflare D1, EU-Jurisdiction). Keine Daten\u00fcbertragung in die USA. Vollst\u00e4ndig <strong style="color: var(--color-text);">DSGVO-konform</strong> \u2014 von Anfang an.',
+        feat0_b1: 'EU-Server',
+        feat0_b2: 'DSGVO',
+        feat0_b3: 'Verschl\u00fcsselt',
+        feat1_title: 'STOP senden = Alle Daten gel\u00f6scht',
+        feat1_desc: 'Sende <strong style="color: var(--color-text);">STOP</strong> und alle deine Daten werden sofort entfernt. Kein Nachfragen, keine Wartezeit, keine versteckten Kopien. Deine <strong style="color: var(--color-text);">Privatsph\u00e4re</strong> ist bei uns kein Feature \u2014 sie ist das Fundament.',
+        feat1_b1: 'Sofort-L\u00f6schung',
+        feat1_b2: 'Kein Tracking',
+        feat1_b3: 'Kein Profiling',
+        feat2_title: 'Deine Nummer bleibt geheim',
+        feat2_desc: 'Wir speichern deine Telefonnummer <strong style="color: var(--color-text);">niemals im Klartext</strong>. Sie wird sofort verschl\u00fcsselt (SHA-256) \u2014 selbst wir k\u00f6nnen sie nicht zur\u00fcckrechnen. Maximaler Datenschutz.',
+        feat2_b2: 'Kein Klartext',
+        feat2_b3: 'Nicht umkehrbar',
+        feat3_title: 'Zahle wie du willst',
+        feat3_desc: 'Kreditkarte, <strong style="color: var(--color-text);">SEPA-Lastschrift</strong>, <strong style="color: var(--color-text);">PayPal</strong>, Sofort\u00fcberweisung \u2014 die beliebtesten Zahlungsmethoden in Deutschland. Sicher \u00fcber Stripe.',
+        feat3_b1: 'Kreditkarte',
+        pricing_title: 'Preise',
+        pricing_subtitle: 'Kostenlos starten. Jederzeit upgraden. Jederzeit k\u00fcndbar.',
+        price_per_month: 'pro Monat',
+        free_f1: '10 Nachrichten / Monat',
+        free_f2: 'Max. 2 pro Tag',
+        free_f3: 'Kein Account n\u00f6tig',
+        starter_f1: '30 Nachrichten / Monat',
+        starter_f2: 'Max. 3 pro Tag',
+        starter_f3: 'Jederzeit k\u00fcndbar',
+        basic_f1: '150 Nachrichten / Monat',
+        basic_f2: 'Max. 8 pro Tag',
+        basic_f3: 'Gespr\u00e4chsverlauf',
+        pro_f1: '500 Nachrichten / Monat',
+        pro_f2: 'Max. 20 pro Tag',
+        pro_f3: 'Priorit\u00e4ts-Antworten',
+        btn_upgrade: 'Jetzt upgraden',
+        badge_popular: 'Beliebt',
+        pricing_footnote: 'Alle Preise sind Endpreise. Gem\u00e4\u00df \u00a7 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.',
+        about_title: 'ChatGPT per SMS nutzen \u2014 so geht\'s in',
+        about_title_2: 'Deutschland',
+        about_p1: 'Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber was, wenn du kein Smartphone hast? Kein Internet? Oder einfach keine App installieren m\u00f6chtest? <strong style="color: var(--color-text);">FragSMS</strong> macht k\u00fcnstliche Intelligenz per SMS zug\u00e4nglich \u2014 f\u00fcr jeden, mit jedem Handy.',
+        about_p2: 'Ob du Fragen zur Allgemeinbildung hast, einen Text \u00fcbersetzen lassen m\u00f6chtest, Kochrezepte brauchst oder Hilfe beim Formulieren von Nachrichten suchst \u2014 FragSMS antwortet in Sekunden, komplett auf Deutsch.',
+        about_p3: '<strong style="color: var(--color-text);">Ideal f\u00fcr Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong style="color: var(--color-text);">Perfekt f\u00fcr l\u00e4ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf\u00fcgbar ist. Und <strong style="color: var(--color-primary);">100% DSGVO-konform</strong>: Alle Daten werden auf EU-Servern gespeichert, deine Telefonnummer wird verschl\u00fcsselt und nie im Klartext abgelegt.',
+        about_p4: '<strong style="color: var(--color-text);">Starte jetzt kostenlos</strong> \u2014 sende einfach eine SMS an unsere +49 Nummer und erhalte 10 Nachrichten pro Monat gratis. Kein Abo, kein Account, kein Risiko.',
+        faq_title_1: 'H\u00e4ufige Fragen zu',
+        faq1_q: 'Brauche ich ein Smartphone f\u00fcr FragSMS?',
+        faq1_a: 'Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann \u2014 auch mit \u00e4lteren Feature Phones und Prepaid-Handys.',
+        faq2_q: 'Brauche ich Internet oder WLAN?',
+        faq2_a: 'Nein. SMS funktioniert \u00fcber das Mobilfunknetz \u2014 kein WLAN, kein Datenplan und keine App n\u00f6tig.',
+        faq3_q: 'Kann ich ChatGPT per SMS nutzen?',
+        faq3_a: 'Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen \u2014 \u00e4hnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort auf Deutsch erhalten.',
+        faq4_q: 'Wie k\u00fcndige ich mein Abo?',
+        faq4_a: 'Sende STOP per SMS oder nutze den "Jetzt k\u00fcndigen" Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.',
+        faq5_q: 'Sind meine Daten sicher?',
+        faq5_a: 'Ja. Alle Daten werden ausschlie\u00dflich in der EU gespeichert. Deine Telefonnummer wird per SHA-256 verschl\u00fcsselt \u2014 wir speichern sie nie im Klartext. Vollst\u00e4ndig DSGVO-konform.',
+        faq6_q: 'Was kostet FragSMS?',
+        faq6_a: 'FragSMS startet kostenlos mit 10 Nachrichten pro Monat. Starter kostet 2,99 \u20ac/Monat (30 Nachrichten), Basic 7,99 \u20ac/Monat (150 Nachrichten) und Pro 19,99 \u20ac/Monat (500 Nachrichten). Alle Preise sind Endpreise.',
+        faq7_q: 'Welche Zahlungsmethoden gibt es?',
+        faq7_a: 'Kreditkarte, SEPA-Lastschrift, PayPal und Sofort\u00fcberweisung \u2014 die beliebtesten Zahlungsmethoden in Deutschland. Sichere Abwicklung \u00fcber Stripe.'
+      },
+      en: {
+        hero_badge: 'AI via SMS in Germany',
+        hero_title_1: 'AI Assistant',
+        hero_title_2: 'via SMS',
+        hero_subtitle: 'Like ChatGPT \u2014 but via text message. No app, no internet, no login.',
+        hero_cta_text: 'Just ask.',
+        hero_send_sms: 'Send an SMS to',
+        hero_free_msgs: '10 free messages per month \u2014 no subscription needed',
+        sms_label_0: 'Cooking & Recipes',
+        sms_q_0: 'What can I cook with potatoes, onions and eggs? Quick dinner!',
+        sms_a_0: 'Spanish Tortilla! Peel and thinly slice 4 potatoes. Fry in oil for 15 min. Add 1 onion, 5 min more. Beat 6 eggs, season with salt, pour over potatoes. Cook on low heat 8 min, then flip. Done in 30 min!',
+        sms_label_1: 'Everyday Help',
+        sms_q_1: 'How do I say in English: I\'d like to reschedule my doctor\'s appointment?',
+        sms_a_1: 'I would like to reschedule my doctor\'s appointment. More polite: Could I please reschedule my appointment? When calling: Hi, I\'m calling to reschedule my appointment on [date].',
+        sms_label_2: 'Knowledge & Facts',
+        sms_q_2: 'How high is the Zugspitze and can you hike there in winter?',
+        sms_a_2: 'The Zugspitze is 2,962 m high, Germany\'s tallest mountain. In winter: hiking only on cleared paths (e.g. Partnachklamm). Summit reachable by cable car. Ski area at Zugspitze runs approx. Nov-May.',
+        sms_label_3: 'Senior Help',
+        sms_q_3: 'My grandson\'s birthday is coming up, he\'s turning 8. What do you get kids that age?',
+        sms_a_3: 'Great ideas for 8-year-olds: 1) LEGO set (from \u20ac20) 2) Children\'s book series 3) Science experiment kit 4) Zoo/theme park tickets 5) Remote-controlled car. Budget tip: book + candy = always a hit!',
+        sms_label_4: 'No Internet',
+        sms_q_4: 'I\'m in the countryside, no internet. When does the next train from Aachen to Cologne leave?',
+        sms_a_4: 'RE1 Aachen-Cologne runs every 30 min. Travel time approx. 50 min. Last train approx. 23:30. Tip: Paper timetables are posted at the station. For exact times call DB hotline: 030 2970.',
+        how_title_1: 'How',
+        how_title_2: 'AI via SMS works',
+        how_subtitle: 'Get AI answers in 3 simple steps \u2014 no smartphone or internet needed.',
+        step1_title: 'Send an SMS',
+        step1_desc: 'Text your question to our German +49 number. Works with any phone \u2014 even basic feature phones.',
+        step2_title: 'AI replies instantly',
+        step2_desc: 'Our AI understands your question and replies in German \u2014 directly via SMS in seconds.',
+        step3_title: 'Done \u2014 that simple',
+        step3_desc: 'No download, no account, no internet needed. AI for everyone \u2014 seniors, feature phones, and rural areas.',
+        features_title_1: 'Why',
+        features_subtitle: 'Privacy, EU data location, and simplicity \u2014',
+        tab_eu: 'EU Data',
+        tab_privacy: 'Privacy',
+        tab_encryption: 'Encryption',
+        tab_payment: 'Payment',
+        feat0_title: 'Your data stays in Europe \u2014 guaranteed',
+        feat0_desc: 'All your data is stored exclusively on <strong style="color: var(--color-text);">EU servers</strong> (Cloudflare D1, EU jurisdiction). No data transfer to the USA. Fully <strong style="color: var(--color-text);">GDPR compliant</strong> \u2014 from day one.',
+        feat0_b1: 'EU Servers',
+        feat0_b2: 'GDPR',
+        feat0_b3: 'Encrypted',
+        feat1_title: 'Text STOP = All data deleted',
+        feat1_desc: 'Send <strong style="color: var(--color-text);">STOP</strong> and all your data is immediately removed. No questions, no waiting, no hidden copies. Your <strong style="color: var(--color-text);">privacy</strong> isn\'t a feature for us \u2014 it\'s the foundation.',
+        feat1_b1: 'Instant Deletion',
+        feat1_b2: 'No Tracking',
+        feat1_b3: 'No Profiling',
+        feat2_title: 'Your number stays secret',
+        feat2_desc: 'We <strong style="color: var(--color-text);">never store your phone number in plain text</strong>. It\'s immediately encrypted (SHA-256) \u2014 even we can\'t reverse it. Maximum privacy.',
+        feat2_b2: 'No Plain Text',
+        feat2_b3: 'Irreversible',
+        feat3_title: 'Pay your way',
+        feat3_desc: 'Credit card, <strong style="color: var(--color-text);">SEPA direct debit</strong>, <strong style="color: var(--color-text);">PayPal</strong>, instant bank transfer \u2014 Germany\'s most popular payment methods. Secure via Stripe.',
+        feat3_b1: 'Credit Card',
+        pricing_title: 'Pricing',
+        pricing_subtitle: 'Start for free. Upgrade anytime. Cancel anytime.',
+        price_per_month: 'per month',
+        free_f1: '10 messages / month',
+        free_f2: 'Max. 2 per day',
+        free_f3: 'No account needed',
+        starter_f1: '30 messages / month',
+        starter_f2: 'Max. 3 per day',
+        starter_f3: 'Cancel anytime',
+        basic_f1: '150 messages / month',
+        basic_f2: 'Max. 8 per day',
+        basic_f3: 'Conversation history',
+        pro_f1: '500 messages / month',
+        pro_f2: 'Max. 20 per day',
+        pro_f3: 'Priority answers',
+        btn_upgrade: 'Upgrade now',
+        badge_popular: 'Popular',
+        pricing_footnote: 'All prices are final. As per \u00a7 19 para. 1 UStG, no VAT is charged (small business regulation).',
+        about_title: 'Use ChatGPT via SMS \u2014 here\'s how in',
+        about_title_2: 'Germany',
+        about_p1: 'Millions of people in Germany already use AI assistants like ChatGPT. But what if you don\'t have a smartphone? No internet? Or simply don\'t want to install an app? <strong style="color: var(--color-text);">FragSMS</strong> makes artificial intelligence accessible via SMS \u2014 for everyone, with any phone.',
+        about_p2: 'Whether you have general knowledge questions, need a text translated, want cooking recipes, or need help composing messages \u2014 FragSMS replies in seconds, entirely in German.',
+        about_p3: '<strong style="color: var(--color-text);">Ideal for seniors</strong> who aren\'t familiar with smartphone apps. <strong style="color: var(--color-text);">Perfect for rural areas</strong> where mobile internet is unreliable. And <strong style="color: var(--color-primary);">100% GDPR compliant</strong>: all data stored on EU servers, your phone number encrypted and never stored in plain text.',
+        about_p4: '<strong style="color: var(--color-text);">Start for free now</strong> \u2014 just send an SMS to our +49 number and get 10 messages per month for free. No subscription, no account, no risk.',
+        faq_title_1: 'Frequently asked questions about',
+        faq1_q: 'Do I need a smartphone for FragSMS?',
+        faq1_a: 'No. FragSMS works with any phone that can send SMS \u2014 including older feature phones and prepaid phones.',
+        faq2_q: 'Do I need internet or WiFi?',
+        faq2_a: 'No. SMS works via the mobile network \u2014 no WiFi, no data plan, and no app needed.',
+        faq3_q: 'Can I use ChatGPT via SMS?',
+        faq3_a: 'With FragSMS you can use an AI assistant via SMS \u2014 similar to ChatGPT, but without an app and without internet. Just send a text and instantly receive an AI response in German.',
+        faq4_q: 'How do I cancel my subscription?',
+        faq4_a: 'Send STOP via SMS or use the "Cancel now" button at fragsms.de/upgrade. Effective immediately, no waiting period.',
+        faq5_q: 'Is my data secure?',
+        faq5_a: 'Yes. All data is stored exclusively in the EU. Your phone number is encrypted via SHA-256 \u2014 we never store it in plain text. Fully GDPR compliant.',
+        faq6_q: 'How much does FragSMS cost?',
+        faq6_a: 'FragSMS starts free with 10 messages per month. Starter costs \u20ac2.99/month (30 messages), Basic \u20ac7.99/month (150 messages), and Pro \u20ac19.99/month (500 messages). All prices are final.',
+        faq7_q: 'Which payment methods are available?',
+        faq7_a: 'Credit card, SEPA direct debit, PayPal, and instant bank transfer \u2014 Germany\'s most popular payment methods. Secure processing via Stripe.'
+      }
+    };
+    // Re-apply language after registering translations
+    if (window.__fragApplyLang) window.__fragApplyLang();
+  </script>
 
 </Base>
