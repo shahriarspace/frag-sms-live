@@ -16,7 +16,9 @@ import Base from '../layouts/Base.astro';
 
       <h2>1. &Uuml;berblick</h2>
       <p>
-        FragSMS ist ein KI-Assistent, der per SMS erreichbar ist. Wir nehmen den Schutz deiner pers&ouml;nlichen Daten sehr ernst.
+        FragSMS ist ein KI-Assistent, der per SMS erreichbar ist. Der Dienst nutzt k&uuml;nstliche Intelligenz
+        (Claude Haiku von Anthropic), um deine Fragen zu beantworten. Du chattest mit einer KI, nicht mit einem
+        Menschen. Wir nehmen den Schutz deiner pers&ouml;nlichen Daten sehr ernst.
         Diese Datenschutzerkl&auml;rung informiert dich dar&uuml;ber, welche Daten wir erheben, wie wir sie verwenden und welche Rechte du hast.
       </p>
 
@@ -42,7 +44,65 @@ import Base from '../layouts/Base.astro';
         Wir verwenden keine Cookies, kein Tracking und kein Analytics.
       </p>
 
-      <h2>3. Auftragsverarbeiter</h2>
+      <h2>3. Rechtsgrundlagen (Art. 6 DSGVO)</h2>
+      <p>Wir verarbeiten deine Daten auf folgenden Rechtsgrundlagen:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Verarbeitung</th>
+            <th>Rechtsgrundlage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SMS-Kommunikation und KI-Antworten</td>
+            <td>Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) &mdash; erteilt durch Double Opt-In (JA-Best&auml;tigung)</td>
+          </tr>
+          <tr>
+            <td>Vertragsdurchf&uuml;hrung (kostenpflichtige Tarife)</td>
+            <td>Vertragserf&uuml;llung (Art. 6 Abs. 1 lit. b DSGVO)</td>
+          </tr>
+          <tr>
+            <td>Zahlungsabwicklung &uuml;ber Stripe</td>
+            <td>Vertragserf&uuml;llung (Art. 6 Abs. 1 lit. b DSGVO)</td>
+          </tr>
+          <tr>
+            <td>Consent-Log Aufbewahrung (5 Jahre)</td>
+            <td>Rechtliche Verpflichtung (Art. 6 Abs. 1 lit. c DSGVO) &mdash; UWG &sect;7a</td>
+          </tr>
+          <tr>
+            <td>Zahlungsdaten Aufbewahrung (10 Jahre)</td>
+            <td>Rechtliche Verpflichtung (Art. 6 Abs. 1 lit. c DSGVO) &mdash; AO, HGB</td>
+          </tr>
+          <tr>
+            <td>Telefonnummer-Hashing</td>
+            <td>Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) &mdash; Datensicherheit und DSGVO-Konformit&auml;t</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Du kannst deine Einwilligung jederzeit widerrufen, indem du <strong>STOP</strong> per SMS sendest.
+        Der Widerruf ber&uuml;hrt nicht die Rechtm&auml;&szlig;igkeit der bis dahin erfolgten Verarbeitung.
+      </p>
+
+      <h2>4. KI-Verarbeitung und EU AI Act</h2>
+      <p>
+        FragSMS verwendet k&uuml;nstliche Intelligenz (KI) zur Beantwortung deiner Fragen. Konkret:
+      </p>
+      <ul>
+        <li><strong>KI-Modell:</strong> Claude Haiku von Anthropic</li>
+        <li><strong>Verarbeitungsort:</strong> Anthropic-Server (USA, abgesichert durch DPA und Standardvertragsklauseln/SCCs)</li>
+        <li><strong>Transparenzhinweis:</strong> Du chattest mit einer k&uuml;nstlichen Intelligenz, nicht mit einem Menschen. Dies wird dir bei der Registrierung per SMS mitgeteilt.</li>
+        <li><strong>Keine automatisierte Einzelentscheidung:</strong> Die KI-Antworten dienen ausschlie&szlig;lich der allgemeinen Information und haben keine rechtlichen oder vergleichbaren Auswirkungen.</li>
+        <li><strong>Datenverwendung:</strong> Deine SMS-Nachrichten werden an die Anthropic API gesendet, um Antworten zu generieren. Anthropic verarbeitet diese Daten gem&auml;&szlig; dem Auftragsverarbeitungsvertrag (DPA) und verwendet sie nicht zum Training von KI-Modellen.</li>
+      </ul>
+      <p>
+        FragSMS ist gem&auml;&szlig; EU AI Act (Verordnung (EU) 2024/1689) als Anwendung mit begrenztem Risiko
+        (Limited Risk) eingestuft. Die Transparenzpflichten gem&auml;&szlig; Art. 50 EU AI Act werden erf&uuml;llt,
+        indem Nutzer bei der Registrierung ausdr&uuml;cklich darauf hingewiesen werden, dass sie mit einer KI kommunizieren.
+      </p>
+
+      <h2>5. Auftragsverarbeiter</h2>
       <p>Wir nutzen folgende Dienstleister zur Datenverarbeitung. Mit allen wurden Auftragsverarbeitungsvertr&auml;ge (AVV/DPA) geschlossen:</p>
 
       <table>
@@ -55,8 +115,13 @@ import Base from '../layouts/Base.astro';
         </thead>
         <tbody>
           <tr>
-            <td>seven.io (seven communications GmbH)</td>
+            <td>Twilio Inc.</td>
             <td>SMS-Versand und -Empfang</td>
+            <td>USA (DPA + SCCs)</td>
+          </tr>
+          <tr>
+            <td>seven.io (seven communications GmbH)</td>
+            <td>SMS-Versand und -Empfang (alternativer Anbieter)</td>
             <td>Deutschland</td>
           </tr>
           <tr>
@@ -82,7 +147,7 @@ import Base from '../layouts/Base.astro';
         </tbody>
       </table>
 
-      <h2>4. Aufbewahrungsfristen</h2>
+      <h2>6. Aufbewahrungsfristen</h2>
       <table>
         <thead>
           <tr>
@@ -110,7 +175,7 @@ import Base from '../layouts/Base.astro';
         </tbody>
       </table>
 
-      <h2>5. Deine Rechte (DSGVO)</h2>
+      <h2>7. Deine Rechte (DSGVO)</h2>
       <p>Du hast folgende Rechte:</p>
       <ul>
         <li><strong>Auskunft</strong> (Art. 15 DSGVO) &mdash; Welche Daten wir &uuml;ber dich gespeichert haben</li>
@@ -122,13 +187,15 @@ import Base from '../layouts/Base.astro';
         <li><strong>Beschwerde</strong> &mdash; Recht auf Beschwerde bei der zust&auml;ndigen Aufsichtsbeh&ouml;rde (LDI NRW)</li>
       </ul>
 
-      <h2>6. Abmeldung (STOP)</h2>
+      <h2>8. Abmeldung (STOP)</h2>
       <p>
         Du kannst dich jederzeit abmelden, indem du <strong>STOP</strong> per SMS sendest.
-        Deine aktive Nutzung wird sofort beendet. Consent-Logs werden gem&auml;&szlig; &sect;7a UWG f&uuml;r 5 Jahre aufbewahrt.
+        Deine aktive Nutzung wird sofort beendet und dein Gespr&auml;chsverlauf wird gel&ouml;scht.
+        Ein eventuell bestehendes kostenpflichtiges Abo wird ebenfalls gek&uuml;ndigt.
+        Consent-Logs werden gem&auml;&szlig; &sect;7a UWG f&uuml;r 5 Jahre aufbewahrt.
       </p>
 
-      <h2>7. Kontakt</h2>
+      <h2>9. Kontakt</h2>
       <p>
         Bei Fragen zum Datenschutz wende dich an:
         <a href="mailto:datenschutz@fragsms.de">datenschutz@fragsms.de</a>
