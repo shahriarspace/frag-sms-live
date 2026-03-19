@@ -65,7 +65,7 @@ const breadcrumbJsonLd = {
 
       <!-- Big phone number input bar -->
       <div class="hero-input-wrap fade-in">
-        <div class="hero-input-inner">
+        <div class="hero-input-inner" id="phone-wrap">
           <svg class="hero-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
           </svg>
@@ -77,13 +77,14 @@ const breadcrumbJsonLd = {
             aria-label="Deine Handynummer"
             data-i18n-placeholder="hero_input_placeholder"
           />
-          <button class="hero-btn" id="start-btn" aria-label="START senden">
+          <button class="hero-btn" id="start-btn" disabled aria-label="START senden">
             <span data-i18n="hero_btn">START senden</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
               <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
             </svg>
           </button>
         </div>
+        <p class="hero-input-error" id="phone-error" aria-live="polite"></p>
         <p class="hero-input-sub fade-in" data-i18n="hero_input_sub">
           10 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko
         </p>
@@ -580,18 +581,19 @@ const breadcrumbJsonLd = {
       <h2 class="cta-title fade-in" data-i18n="cta_title">Bereit loszulegen?</h2>
       <p class="cta-sub fade-in" data-i18n="cta_sub">Sende START an unsere +49 Nummer und starte kostenlos &mdash; in 10 Sekunden.</p>
       <div class="hero-input-wrap fade-in" style="max-width: 560px; margin: 2rem auto 0;">
-        <div class="hero-input-inner">
+        <div class="hero-input-inner" id="phone-wrap-2">
           <svg class="hero-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
           </svg>
-          <input type="tel" class="hero-input" placeholder="+49 XXX XXXXXXX" aria-label="Deine Handynummer" data-i18n-placeholder="hero_input_placeholder" />
-          <button class="hero-btn" aria-label="START senden">
+          <input id="phone-input-2" type="tel" class="hero-input" placeholder="+49 XXX XXXXXXX" aria-label="Deine Handynummer" data-i18n-placeholder="hero_input_placeholder" />
+          <button class="hero-btn" id="start-btn-2" disabled aria-label="START senden">
             <span data-i18n="hero_btn">START senden</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
               <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
             </svg>
           </button>
         </div>
+        <p class="hero-input-error" id="phone-error-2" aria-live="polite"></p>
       </div>
     </div>
   </section>
@@ -707,6 +709,33 @@ const breadcrumbJsonLd = {
       font-size: 0.8rem;
       color: var(--color-text-muted);
       text-align: center;
+    }
+    .hero-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .hero-btn:disabled:hover {
+      background: var(--color-primary);
+      transform: none;
+      box-shadow: none;
+    }
+    .hero-input-error {
+      color: #ef4444;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      min-height: 1.2em;
+      text-align: center;
+    }
+    .hero-input-inner.error {
+      border-color: #ef4444;
+    }
+    .hero-input-inner.error:focus-within {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+    }
+    .hero-input-inner.valid {
+      border-color: var(--color-primary);
     }
 
     /* ── Pill badge ──────────────────────────────── */
@@ -1371,11 +1400,86 @@ const breadcrumbJsonLd = {
       autoTimer = setInterval(function() { showConv((currentIdx + 1) % conversations.length); }, 5000);
     })();
 
-    // START button — open SMS app
-    document.getElementById('start-btn')?.addEventListener('click', function() {
-      var val = document.getElementById('phone-input')?.value?.trim();
-      alert('Bitte sende START per SMS an unsere +49 Nummer. (Nummer wird bald bekanntgegeben)');
-    });
+    // START button — phone validation + open SMS app
+    (function() {
+      var pairs = [
+        { input: 'phone-input', btn: 'start-btn', error: 'phone-error', wrap: 'phone-wrap' },
+        { input: 'phone-input-2', btn: 'start-btn-2', error: 'phone-error-2', wrap: 'phone-wrap-2' }
+      ];
+
+      function normalizePhone(raw) {
+        // Strip spaces, dashes, parens, dots
+        var s = raw.replace(/[\s\-\(\)\.]/g, '');
+        // Convert 0049 to +49
+        if (s.indexOf('0049') === 0) s = '+49' + s.substring(4);
+        // Convert leading 0 to +49
+        if (s.indexOf('0') === 0 && s.indexOf('+') !== 0) s = '+49' + s.substring(1);
+        return s;
+      }
+
+      function isValidGermanMobile(raw) {
+        if (!raw) return false;
+        var n = normalizePhone(raw);
+        // Must start with +49 followed by a mobile prefix (15x, 16x, 17x)
+        // Total digits after +49: 10 or 11 (common German mobile lengths)
+        var m = n.match(/^\+49(1[5-7]\d)(\d{7,8})$/);
+        return !!m;
+      }
+
+      function getLang() {
+        try { return localStorage.getItem('fragsms-lang') || 'de'; } catch(e) { return 'de'; }
+      }
+
+      function getErrorMsg() {
+        var trans = window.__fragTranslations;
+        var lang = getLang();
+        if (trans && trans[lang] && trans[lang].phone_error_invalid) {
+          return trans[lang].phone_error_invalid;
+        }
+        return lang === 'en'
+          ? 'Please enter a valid German mobile number'
+          : 'Bitte gib eine g\u00fcltige deutsche Handynummer ein';
+      }
+
+      pairs.forEach(function(p) {
+        var input = document.getElementById(p.input);
+        var btn = document.getElementById(p.btn);
+        var errorEl = document.getElementById(p.error);
+        var wrap = document.getElementById(p.wrap);
+        if (!input || !btn) return;
+
+        var touched = false;
+
+        input.addEventListener('input', function() {
+          var raw = input.value.trim();
+          touched = raw.length > 0;
+          var valid = isValidGermanMobile(raw);
+
+          btn.disabled = !valid;
+
+          if (wrap) {
+            wrap.classList.remove('error', 'valid');
+            if (touched && valid) wrap.classList.add('valid');
+            else if (touched && raw.length >= 4 && !valid) wrap.classList.add('error');
+          }
+
+          if (errorEl) {
+            if (touched && raw.length >= 4 && !valid) {
+              errorEl.textContent = getErrorMsg();
+            } else {
+              errorEl.textContent = '';
+            }
+          }
+        });
+
+        btn.addEventListener('click', function() {
+          var raw = input.value.trim();
+          if (!isValidGermanMobile(raw)) return;
+          var normalized = normalizePhone(raw);
+          window.location.href = 'sms:' + normalized + '?body=START';
+        });
+      });
+    })();
   </script>
 
   <script>
@@ -1455,6 +1559,7 @@ const breadcrumbJsonLd = {
         faq6_q: 'Was kostet FragSMS?', faq6_a: 'FragSMS startet kostenlos mit 10 Nachrichten pro Monat. Starter 2,99 \u20ac/Monat, Basic 7,99 \u20ac/Monat, Pro 19,99 \u20ac/Monat.',
         cta_title: 'Bereit loszulegen?',
         cta_sub: 'Sende START an unsere +49 Nummer und starte kostenlos \u2014 in 10 Sekunden.',
+        phone_error_invalid: 'Bitte gib eine g\u00fcltige deutsche Handynummer ein',
         about_title: 'ChatGPT per SMS nutzen \u2014 so geht\'s in',
         about_title_2: 'Deutschland',
         about_p1: 'Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber was, wenn du kein Smartphone hast? <strong>FragSMS</strong> macht k\u00fcnstliche Intelligenz per SMS zug\u00e4nglich \u2014 f\u00fcr jeden, mit jedem Handy.',
@@ -1548,6 +1653,7 @@ const breadcrumbJsonLd = {
         faq6_q: 'How much does FragSMS cost?', faq6_a: 'FragSMS starts free with 10 messages/month. Starter \u20ac2.99/month, Basic \u20ac7.99/month, Pro \u20ac19.99/month.',
         cta_title: 'Ready to get started?',
         cta_sub: 'Send START to our +49 number and start for free \u2014 in 10 seconds.',
+        phone_error_invalid: 'Please enter a valid German mobile number',
         about_title: 'Use ChatGPT via SMS \u2014 here\'s how in',
         about_title_2: 'Germany',
         about_p1: 'Millions of people in Germany already use AI assistants like ChatGPT. But what if you don\'t have a smartphone? <strong>FragSMS</strong> makes AI accessible via SMS \u2014 for everyone, with any phone.',
