@@ -273,8 +273,7 @@ const breadcrumbJsonLd = {
             <div class="phone-header-num">+49 XXX</div>
           </div>
           <div class="phone-screen" id="onboarding-screen">
-            <!-- Slide 1: START + consent + JA + activation + question + answer -->
-            <div class="sms-conversation active" data-oconv="0">
+            <div class="sms-conversation active">
               <div class="sms-label" data-i18n="sb2_conv_label">So funktioniert's</div>
               <div class="sms-bubble sms-sent">START</div>
               <div class="sms-bubble sms-received" data-i18n="sb2_conv_welcome">Willkommen bei FragSMS! Du chattest mit einer KI, nicht mit einem Menschen.<br><br>Antworte JA = Nutzungsbedingungen + Datenschutz akzeptiert.<br><br>Abmelden: STOP senden.</div>
@@ -282,17 +281,9 @@ const breadcrumbJsonLd = {
               <div class="sms-bubble sms-received" data-i18n="sb2_conv_confirm">Du bist dabei! 10 Nachrichten/Monat kostenlos (max. 2/Tag). Stell jetzt deine erste Frage!</div>
               <div class="sms-bubble sms-sent" data-i18n="sb2_conv_question">Was ist die Hauptstadt von Australien?</div>
               <div class="sms-bubble sms-received" data-i18n="sb2_conv_answer">Die Hauptstadt von Australien ist Canberra &mdash; nicht Sydney, wie viele denken!</div>
-            </div>
-            <!-- Slide 2: STOP + unsubscribe confirmation -->
-            <div class="sms-conversation" data-oconv="1">
-              <div class="sms-label" data-i18n="sb2_stop_label">Abmeldung</div>
               <div class="sms-bubble sms-sent">STOP</div>
               <div class="sms-bubble sms-received" data-i18n="sb2_stop_reply">Abgemeldet. Dein Chatverlauf wurde gel&ouml;scht. Du erh&auml;ltst keine weiteren SMS. Jederzeit zur&uuml;ckkehren mit START. fragsms.de</div>
             </div>
-          </div>
-          <div class="phone-dots" id="onboarding-dots">
-            <button class="dot active" data-odot="0" aria-label="Anmeldung"></button>
-            <button class="dot" data-odot="1" aria-label="Abmeldung"></button>
           </div>
         </div>
       </div>
@@ -1567,32 +1558,6 @@ const breadcrumbJsonLd = {
       autoTimer = setInterval(function() { showConv((currentIdx + 1) % conversations.length); }, 5000);
     })();
 
-    // Onboarding carousel — Switchback 2
-    (function() {
-      var screen = document.getElementById('onboarding-screen');
-      if (!screen) return;
-      var slides = screen.querySelectorAll('.sms-conversation');
-      var dotsWrap = document.getElementById('onboarding-dots');
-      var dots = dotsWrap ? dotsWrap.querySelectorAll('.dot') : [];
-      var currentIdx = 0;
-      var autoTimer;
-      function showSlide(idx) {
-        slides.forEach(function(s) { s.classList.remove('active'); });
-        dots.forEach(function(d) { d.classList.remove('active'); });
-        slides[idx].classList.add('active');
-        dots[idx].classList.add('active');
-        currentIdx = idx;
-      }
-      dots.forEach(function(dot) {
-        dot.addEventListener('click', function() {
-          showSlide(parseInt(dot.getAttribute('data-odot')));
-          clearInterval(autoTimer);
-          autoTimer = setInterval(function() { showSlide((currentIdx + 1) % slides.length); }, 5000);
-        });
-      });
-      autoTimer = setInterval(function() { showSlide((currentIdx + 1) % slides.length); }, 5000);
-    })();
-
     // Web signup — phone validation + POST to Worker
     var turnstileToken1 = '';
     var turnstileToken2 = '';
@@ -1803,7 +1768,6 @@ const breadcrumbJsonLd = {
         sb2_conv_confirm: 'Du bist dabei! 10 Nachrichten/Monat kostenlos (max. 2/Tag). Stell jetzt deine erste Frage!',
         sb2_conv_question: 'Was ist die Hauptstadt von Australien?',
         sb2_conv_answer: 'Die Hauptstadt von Australien ist Canberra \u2014 nicht Sydney, wie viele denken!',
-        sb2_stop_label: 'Abmeldung',
         sb2_stop_reply: 'Abgemeldet. Dein Chatverlauf wurde gel\u00f6scht. Du erh\u00e4ltst keine weiteren SMS. Jederzeit zur\u00fcckkehren mit START. fragsms.de',
         sms_label_0: 'Kochen & Rezepte', sms_q_0: 'Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?', sms_a_0: 'Spanische Tortilla! Kartoffeln d\u00fcnn schneiden, in \u00d6l 15 Min braten. Zwiebel dazu. 6 Eier verquirlen, salzen, dazugeben. Kleine Hitze 8 Min, wenden. Fertig!',
         sms_label_1: 'Alltagshilfe', sms_q_1: 'Wie sage ich auf Englisch: Ich m\u00f6chte einen Arzttermin verschieben?', sms_a_1: 'I would like to reschedule my doctor\'s appointment. H\u00f6flicher: Could I please reschedule my appointment?',
@@ -1911,7 +1875,6 @@ const breadcrumbJsonLd = {
         sb2_conv_confirm: 'You\'re in! 10 messages/month free (max. 2/day). Ask your first question now!',
         sb2_conv_question: 'What is the capital of Australia?',
         sb2_conv_answer: 'The capital of Australia is Canberra \u2014 not Sydney, as many think!',
-        sb2_stop_label: 'Unsubscribe',
         sb2_stop_reply: 'Unsubscribed. Your chat history has been deleted. No more SMS. Return anytime with START. fragsms.de',
         sms_label_0: 'Cooking & Recipes', sms_q_0: 'What can I cook with potatoes, onions and eggs?', sms_a_0: 'Spanish Tortilla! Thinly slice 4 potatoes, fry in oil 15 min. Add 1 onion. Beat 6 eggs, season, add to pan. Low heat 8 min then flip. Done in 30 min!',
         sms_label_1: 'Everyday Help', sms_q_1: 'How do I say: I\'d like to reschedule my doctor\'s appointment?', sms_a_1: 'I would like to reschedule my doctor\'s appointment. More polite: Could I please reschedule my appointment?',
