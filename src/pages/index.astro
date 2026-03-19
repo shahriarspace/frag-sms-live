@@ -427,18 +427,25 @@ const breadcrumbJsonLd = {
           <a href="/upgrade" class="btn-secondary pc-btn" data-i18n="btn_upgrade">Jetzt upgraden</a>
         </article>
 
-        <article class="pricing-card fade-in" style="border: 1px dashed var(--color-primary-border); background: var(--color-primary-glow);">
-          <div class="pc-name" style="color: var(--color-primary);">&#128269; Web-Suche</div>
-          <div class="pc-price">&euro;4,99</div>
-          <div class="pc-period" data-i18n="addon_period">Add-on / Monat</div>
-          <ul class="pc-features">
-            <li><span class="check">&#10003;</span> <span data-i18n="addon_f1">200 Web-Suchen / Monat</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="addon_f2">Aktuelle Infos per SMS</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="addon_f3">Zu jedem Abo zubuchbar</span></li>
-          </ul>
-          <a href="/upgrade" class="btn-secondary pc-btn" data-i18n="btn_addon">Add-on buchen</a>
-        </article>
+      </div>
 
+      <!-- Web Search Add-on Banner -->
+      <div class="fade-in addon-banner" style="margin-top: 1.5rem; border: 1px dashed var(--color-primary-border); border-radius: 16px; background: var(--color-primary-glow); padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 1rem; flex: 1; min-width: 200px;">
+          <span style="font-size: 1.5rem;">&#128269;</span>
+          <div>
+            <div style="font-weight: 700; font-size: 1.05rem; color: var(--color-primary);" data-i18n="addon_banner_title">Web-Suche Add-on</div>
+            <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.15rem;" data-i18n="addon_banner_desc">Aktuelle Infos per SMS &mdash; Nachrichten, Wetter, Preise und mehr. Zu jedem Abo zubuchbar.</div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0;">
+          <div style="text-align: center;">
+            <span style="font-weight: 800; font-size: 1.3rem; color: var(--color-text);">+&euro;4,99</span>
+            <span style="font-size: 0.8rem; color: var(--color-text-muted);" data-i18n="addon_period">/Monat</span>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--color-text-muted);" data-i18n="addon_f1">200 Web-Suchen / Monat</div>
+          <a href="/upgrade" class="btn-secondary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" data-i18n="btn_addon">Add-on buchen</a>
+        </div>
       </div>
 
       <p class="fade-in pricing-footnote" data-i18n="pricing_footnote">
@@ -1796,7 +1803,7 @@ const breadcrumbJsonLd = {
         basic_f1: '150 Nachrichten / Monat', basic_f2: 'Gespr\u00e4chsverlauf', basic_f3: 'Web-Suche verf\u00fcgbar',
         pro_f1: '500 Nachrichten / Monat', pro_f2: 'Priorit\u00e4ts-Antworten', pro_f3: 'Web-Suche verf\u00fcgbar',
         btn_upgrade: 'Jetzt upgraden', badge_popular: 'Beliebt', btn_addon: 'Add-on buchen',
-        addon_period: 'Add-on / Monat', addon_f1: '200 Web-Suchen / Monat', addon_f2: 'Aktuelle Infos per SMS', addon_f3: 'Zu jedem Abo zubuchbar',
+        addon_period: '/Monat', addon_banner_title: 'Web-Suche Add-on', addon_banner_desc: 'Aktuelle Infos per SMS \u2014 Nachrichten, Wetter, Preise und mehr. Zu jedem Abo zubuchbar.', addon_f1: '200 Web-Suchen / Monat',
         pricing_footnote: 'Alle Preise sind Endpreise. Gem\u00e4\u00df \u00a7 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.',
         guarantee_1: '14 Tage Widerrufsrecht', guarantee_2: 'Keine Abofalle', guarantee_3: 'Sofort k\u00fcndbar per SMS',
         social_title_1: 'So k\u00f6nnte', social_title_2: 'FragSMS helfen', social_subtitle: 'Typische Anwendungsf\u00e4lle unserer Zielgruppe.',
@@ -1904,7 +1911,7 @@ const breadcrumbJsonLd = {
         basic_f1: '150 messages / month', basic_f2: 'Conversation history', basic_f3: 'Web search available',
         pro_f1: '500 messages / month', pro_f2: 'Priority answers', pro_f3: 'Web search available',
         btn_upgrade: 'Upgrade now', badge_popular: 'Popular', btn_addon: 'Get add-on',
-        addon_period: 'Add-on / month', addon_f1: '200 web searches / month', addon_f2: 'Real-time info via SMS', addon_f3: 'Add to any paid plan',
+        addon_period: '/month', addon_banner_title: 'Web Search Add-on', addon_banner_desc: 'Real-time info via SMS \u2014 news, weather, prices and more. Add to any paid plan.', addon_f1: '200 web searches / month',
         pricing_footnote: 'All prices are final. As per \u00a7 19 para. 1 UStG, no VAT is charged.',
         guarantee_1: '14-Day Right of Withdrawal', guarantee_2: 'No Subscription Trap', guarantee_3: 'Cancel instantly via SMS',
         social_title_1: 'How', social_title_2: 'FragSMS could help', social_subtitle: 'Typical use cases from our target audience.',
