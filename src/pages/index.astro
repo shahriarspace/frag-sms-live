@@ -232,7 +232,7 @@ const breadcrumbJsonLd = {
         </a>
       </div>
 
-      <!-- Right: Phone mockup — onboarding conversation -->
+      <!-- Right: Phone mockup — onboarding carousel -->
       <div class="sb-media fade-in">
         <div class="phone-mockup">
           <div class="phone-notch"></div>
@@ -241,18 +241,25 @@ const breadcrumbJsonLd = {
             <div class="phone-header-title">FragSMS</div>
             <div class="phone-header-num">+49 XXX</div>
           </div>
-          <div class="phone-screen phone-screen-onboarding">
-            <div class="sms-label onboarding-label" data-i18n="sb2_conv_label">So funktioniert's</div>
-            <!-- Step 1: User sends START -->
-            <div class="sms-bubble sms-sent">START</div>
-            <!-- Step 2: FragSMS welcome reply -->
-            <div class="sms-bubble sms-received sms-welcome" data-i18n="sb2_conv_welcome">Willkommen bei FragSMS! &#x1F916;<br>Du chattest mit einer KI (K&uuml;nstlichen Intelligenz), nicht mit einem Menschen.<br><br>10 kostenlose Nachrichten/Monat. Sende jederzeit STOP zum Abmelden.</div>
-            <!-- Step 3: User asks a question -->
-            <div class="sms-bubble sms-sent" data-i18n="sb2_conv_question">Was ist die Hauptstadt von Australien?</div>
-            <!-- Step 4: AI answers -->
-            <div class="sms-bubble sms-received" data-i18n="sb2_conv_answer">Die Hauptstadt von Australien ist Canberra &mdash; nicht Sydney, wie viele denken! Canberra wurde 1913 als Kompromiss zwischen Sydney und Melbourne gew&auml;hlt.</div>
-            <!-- Hint about STOP -->
-            <div class="sms-hint" data-i18n="sb2_conv_hint">Jederzeit <strong style="color:var(--color-error)">STOP</strong> senden = sofort abgemeldet &amp; alle Daten gel&ouml;scht</div>
+          <div class="phone-screen" id="onboarding-screen">
+            <!-- Slide 1: START + welcome + question + answer -->
+            <div class="sms-conversation active" data-oconv="0">
+              <div class="sms-label" data-i18n="sb2_conv_label">So funktioniert's</div>
+              <div class="sms-bubble sms-sent">START</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_conv_welcome">Willkommen bei FragSMS! &#x1F916;<br>Du chattest mit einer KI (K&uuml;nstlichen Intelligenz), nicht mit einem Menschen.<br><br>10 kostenlose Nachrichten/Monat. Sende jederzeit STOP zum Abmelden.</div>
+              <div class="sms-bubble sms-sent" data-i18n="sb2_conv_question">Was ist die Hauptstadt von Australien?</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_conv_answer">Die Hauptstadt von Australien ist Canberra &mdash; nicht Sydney, wie viele denken!</div>
+            </div>
+            <!-- Slide 2: STOP + unsubscribe confirmation -->
+            <div class="sms-conversation" data-oconv="1">
+              <div class="sms-label" data-i18n="sb2_stop_label">Abmeldung</div>
+              <div class="sms-bubble sms-sent">STOP</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_stop_reply">Du wurdest abgemeldet. &#x2713;<br><br>Dein gesamter Chatverlauf wird innerhalb von 24 Stunden gel&ouml;scht.<br><br>Wir werden dir keine weiteren Nachrichten senden.<br><br>M&ouml;chtest du zur&uuml;ckkehren? Schreib einfach START.<br><br>FragSMS &mdash; fragsms.de</div>
+            </div>
+          </div>
+          <div class="phone-dots" id="onboarding-dots">
+            <button class="dot active" data-odot="0" aria-label="Anmeldung"></button>
+            <button class="dot" data-odot="1" aria-label="Abmeldung"></button>
           </div>
         </div>
       </div>
@@ -980,27 +987,6 @@ const breadcrumbJsonLd = {
     .dot.active { background: var(--color-primary); transform: scale(1.2); }
     .dot:hover:not(.active) { background: var(--color-dot-hover); }
 
-    /* ── Onboarding phone screen ───────────────── */
-    .phone-screen-onboarding {
-      min-height: 300px;
-      max-height: none;
-      overflow-y: visible;
-    }
-    .onboarding-label {
-      margin-bottom: 12px;
-    }
-    .sms-hint {
-      text-align: center;
-      font-size: 0.68rem;
-      color: var(--color-text-muted);
-      margin-top: 12px;
-      padding: 6px 10px;
-      background: var(--color-surface);
-      border-radius: 8px;
-      border: 1px dashed var(--color-border);
-      line-height: 1.5;
-    }
-
     /* ── Switchback 2 steps ─────────────────────── */
     .sb2-steps {
       margin-top: 1.5rem;
@@ -1408,10 +1394,13 @@ const breadcrumbJsonLd = {
        SCRIPTS
   ════════════════════════════════════════════════ -->
   <script>
-    // Phone SMS carousel
+    // Phone SMS carousel — Switchback 1
     (function() {
-      var conversations = document.querySelectorAll('.sms-conversation');
-      var dots = document.querySelectorAll('.dot');
+      var screen = document.getElementById('sms-screen');
+      if (!screen) return;
+      var conversations = screen.querySelectorAll('.sms-conversation');
+      var dotsWrap = screen.nextElementSibling;
+      var dots = dotsWrap ? dotsWrap.querySelectorAll('.dot') : [];
       var currentIdx = 0;
       var autoTimer;
       function showConv(idx) {
@@ -1429,6 +1418,32 @@ const breadcrumbJsonLd = {
         });
       });
       autoTimer = setInterval(function() { showConv((currentIdx + 1) % conversations.length); }, 5000);
+    })();
+
+    // Onboarding carousel — Switchback 2
+    (function() {
+      var screen = document.getElementById('onboarding-screen');
+      if (!screen) return;
+      var slides = screen.querySelectorAll('.sms-conversation');
+      var dotsWrap = document.getElementById('onboarding-dots');
+      var dots = dotsWrap ? dotsWrap.querySelectorAll('.dot') : [];
+      var currentIdx = 0;
+      var autoTimer;
+      function showSlide(idx) {
+        slides.forEach(function(s) { s.classList.remove('active'); });
+        dots.forEach(function(d) { d.classList.remove('active'); });
+        slides[idx].classList.add('active');
+        dots[idx].classList.add('active');
+        currentIdx = idx;
+      }
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          showSlide(parseInt(dot.getAttribute('data-odot')));
+          clearInterval(autoTimer);
+          autoTimer = setInterval(function() { showSlide((currentIdx + 1) % slides.length); }, 5000);
+        });
+      });
+      autoTimer = setInterval(function() { showSlide((currentIdx + 1) % slides.length); }, 5000);
     })();
 
     // START button — phone validation + open SMS app
@@ -1562,8 +1577,9 @@ const breadcrumbJsonLd = {
         sb2_conv_label: 'So funktioniert\'s',
         sb2_conv_welcome: 'Willkommen bei FragSMS! \u{1F916}<br>Du chattest mit einer KI (K\u00fcnstlichen Intelligenz), nicht mit einem Menschen.<br><br>10 kostenlose Nachrichten/Monat. Sende jederzeit STOP zum Abmelden.',
         sb2_conv_question: 'Was ist die Hauptstadt von Australien?',
-        sb2_conv_answer: 'Die Hauptstadt von Australien ist Canberra \u2014 nicht Sydney, wie viele denken! Canberra wurde 1913 als Kompromiss zwischen Sydney und Melbourne gew\u00e4hlt.',
-        sb2_conv_hint: 'Jederzeit <strong style="color:var(--color-error)">STOP</strong> senden = sofort abgemeldet & alle Daten gel\u00f6scht',
+        sb2_conv_answer: 'Die Hauptstadt von Australien ist Canberra \u2014 nicht Sydney, wie viele denken!',
+        sb2_stop_label: 'Abmeldung',
+        sb2_stop_reply: 'Du wurdest abgemeldet. \u2713<br><br>Dein gesamter Chatverlauf wird innerhalb von 24 Stunden gel\u00f6scht.<br><br>Wir werden dir keine weiteren Nachrichten senden.<br><br>M\u00f6chtest du zur\u00fcckkehren? Schreib einfach START.<br><br>FragSMS \u2014 fragsms.de',
         sms_label_0: 'Kochen & Rezepte', sms_q_0: 'Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?', sms_a_0: 'Spanische Tortilla! 4 Kartoffeln d\u00fcnn schneiden, in \u00d6l 15 Min braten. 1 Zwiebel dazu. 6 Eier verquirlen, salzen, dazugeben. Bei kleiner Hitze 8 Min, dann wenden. Fertig in 30 Min!',
         sms_label_1: 'Alltagshilfe', sms_q_1: 'Wie sage ich auf Englisch: Ich m\u00f6chte einen Arzttermin verschieben?', sms_a_1: 'I would like to reschedule my doctor\'s appointment. H\u00f6flicher: Could I please reschedule my appointment?',
         sms_label_2: 'Wissen & Fakten', sms_q_2: 'Wie hoch ist die Zugspitze?', sms_a_2: 'Die Zugspitze ist 2.962 m hoch \u2014 Deutschlands h\u00f6chster Berg. Im Winter per Seilbahn erreichbar.',
@@ -1661,8 +1677,9 @@ const breadcrumbJsonLd = {
         sb2_conv_label: 'How it works',
         sb2_conv_welcome: 'Welcome to FragSMS! \u{1F916}<br>You are chatting with an AI (Artificial Intelligence), not a human.<br><br>10 free messages/month. Send STOP anytime to unsubscribe.',
         sb2_conv_question: 'What is the capital of Australia?',
-        sb2_conv_answer: 'The capital of Australia is Canberra \u2014 not Sydney, as many think! Canberra was chosen in 1913 as a compromise between Sydney and Melbourne.',
-        sb2_conv_hint: 'Send <strong style="color:var(--color-error)">STOP</strong> anytime = instantly unsubscribed & all data deleted',
+        sb2_conv_answer: 'The capital of Australia is Canberra \u2014 not Sydney, as many think!',
+        sb2_stop_label: 'Unsubscribe',
+        sb2_stop_reply: 'You have been unsubscribed. \u2713<br><br>Your entire chat history will be deleted within 24 hours.<br><br>We will not send you any further messages.<br><br>Want to come back? Just text START.<br><br>FragSMS \u2014 fragsms.de',
         sms_label_0: 'Cooking & Recipes', sms_q_0: 'What can I cook with potatoes, onions and eggs?', sms_a_0: 'Spanish Tortilla! Thinly slice 4 potatoes, fry in oil 15 min. Add 1 onion. Beat 6 eggs, season, add to pan. Low heat 8 min then flip. Done in 30 min!',
         sms_label_1: 'Everyday Help', sms_q_1: 'How do I say: I\'d like to reschedule my doctor\'s appointment?', sms_a_1: 'I would like to reschedule my doctor\'s appointment. More polite: Could I please reschedule my appointment?',
         sms_label_2: 'Knowledge & Facts', sms_q_2: 'How high is the Zugspitze?', sms_a_2: 'The Zugspitze is 2,962 m high \u2014 Germany\'s tallest mountain. Reachable by cable car in winter.',
