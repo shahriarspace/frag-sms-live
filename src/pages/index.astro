@@ -164,7 +164,7 @@ const breadcrumbJsonLd = {
             <div class="sms-conversation active" data-conv="0">
               <div class="sms-label" data-i18n="sms_label_0">Kochen &amp; Rezepte</div>
               <div class="sms-bubble sms-sent" data-i18n="sms_q_0">Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?</div>
-              <div class="sms-bubble sms-received" data-i18n="sms_a_0">Spanische Tortilla! 4 Kartoffeln d&uuml;nn schneiden, in &Ouml;l 15 Min braten. 1 Zwiebel dazu. 6 Eier verquirlen, salzen, dazugeben. Bei kleiner Hitze 8 Min, dann wenden. Fertig in 30 Min!</div>
+              <div class="sms-bubble sms-received" data-i18n="sms_a_0">Spanische Tortilla! Kartoffeln d&uuml;nn schneiden, in &Ouml;l 15 Min braten. Zwiebel dazu. 6 Eier verquirlen, salzen, dazugeben. Kleine Hitze 8 Min, wenden. Fertig!</div>
             </div>
             <div class="sms-conversation" data-conv="1">
               <div class="sms-label" data-i18n="sms_label_1">Alltagshilfe</div>
@@ -267,11 +267,13 @@ const breadcrumbJsonLd = {
             <div class="phone-header-num">+49 XXX</div>
           </div>
           <div class="phone-screen" id="onboarding-screen">
-            <!-- Slide 1: START + welcome + question + answer -->
+            <!-- Slide 1: START + consent + JA + activation + question + answer -->
             <div class="sms-conversation active" data-oconv="0">
               <div class="sms-label" data-i18n="sb2_conv_label">So funktioniert's</div>
               <div class="sms-bubble sms-sent">START</div>
-              <div class="sms-bubble sms-received" data-i18n="sb2_conv_welcome">Willkommen bei FragSMS! &#x1F916;<br>Du chattest mit einer KI (K&uuml;nstlichen Intelligenz), nicht mit einem Menschen.<br><br>10 kostenlose Nachrichten/Monat. Sende jederzeit STOP zum Abmelden.</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_conv_welcome">Willkommen bei FragSMS! Du chattest mit einer KI, nicht mit einem Menschen.<br><br>Antworte JA = Nutzungsbedingungen + Datenschutz akzeptiert.<br><br>Abmelden: STOP senden.</div>
+              <div class="sms-bubble sms-sent">JA</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_conv_confirm">Du bist dabei! 10 Nachrichten/Monat kostenlos (max. 2/Tag). Stell jetzt deine erste Frage!</div>
               <div class="sms-bubble sms-sent" data-i18n="sb2_conv_question">Was ist die Hauptstadt von Australien?</div>
               <div class="sms-bubble sms-received" data-i18n="sb2_conv_answer">Die Hauptstadt von Australien ist Canberra &mdash; nicht Sydney, wie viele denken!</div>
             </div>
@@ -279,7 +281,7 @@ const breadcrumbJsonLd = {
             <div class="sms-conversation" data-oconv="1">
               <div class="sms-label" data-i18n="sb2_stop_label">Abmeldung</div>
               <div class="sms-bubble sms-sent">STOP</div>
-              <div class="sms-bubble sms-received" data-i18n="sb2_stop_reply">Du wurdest abgemeldet. &#x2713;<br><br>Dein gesamter Chatverlauf wird innerhalb von 24 Stunden gel&ouml;scht.<br><br>Wir werden dir keine weiteren Nachrichten senden.<br><br>M&ouml;chtest du zur&uuml;ckkehren? Schreib einfach START.<br><br>FragSMS &mdash; fragsms.de</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_stop_reply">Abgemeldet. Dein Chatverlauf wurde gel&ouml;scht. Du erh&auml;ltst keine weiteren SMS. Jederzeit zur&uuml;ckkehren mit START. fragsms.de</div>
             </div>
           </div>
           <div class="phone-dots" id="onboarding-dots">
@@ -1049,7 +1051,7 @@ const breadcrumbJsonLd = {
     .phone-header-num   { font-size: 0.7rem; color: var(--color-text-muted); }
     .phone-screen {
       min-height: 300px;
-      max-height: 340px;
+      max-height: 420px;
       overflow-y: auto;
       padding: 8px 4px;
       scrollbar-width: none;
@@ -1789,12 +1791,13 @@ const breadcrumbJsonLd = {
         step3_title: 'STOP = Alles gel\u00f6scht',
         step3_desc: 'Sende STOP \u2014 sofort abgemeldet, alle Daten unwiderruflich gel\u00f6scht.',
         sb2_conv_label: 'So funktioniert\'s',
-        sb2_conv_welcome: 'Willkommen bei FragSMS! \u{1F916}<br>Du chattest mit einer KI (K\u00fcnstlichen Intelligenz), nicht mit einem Menschen.<br><br>10 kostenlose Nachrichten/Monat. Sende jederzeit STOP zum Abmelden.',
+        sb2_conv_welcome: 'Willkommen bei FragSMS! Du chattest mit einer KI, nicht mit einem Menschen.<br><br>Antworte JA = Nutzungsbedingungen + Datenschutz akzeptiert.<br><br>Abmelden: STOP senden.',
+        sb2_conv_confirm: 'Du bist dabei! 10 Nachrichten/Monat kostenlos (max. 2/Tag). Stell jetzt deine erste Frage!',
         sb2_conv_question: 'Was ist die Hauptstadt von Australien?',
         sb2_conv_answer: 'Die Hauptstadt von Australien ist Canberra \u2014 nicht Sydney, wie viele denken!',
         sb2_stop_label: 'Abmeldung',
-        sb2_stop_reply: 'Du wurdest abgemeldet. \u2713<br><br>Dein gesamter Chatverlauf wird innerhalb von 24 Stunden gel\u00f6scht.<br><br>Wir werden dir keine weiteren Nachrichten senden.<br><br>M\u00f6chtest du zur\u00fcckkehren? Schreib einfach START.<br><br>FragSMS \u2014 fragsms.de',
-        sms_label_0: 'Kochen & Rezepte', sms_q_0: 'Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?', sms_a_0: 'Spanische Tortilla! 4 Kartoffeln d\u00fcnn schneiden, in \u00d6l 15 Min braten. 1 Zwiebel dazu. 6 Eier verquirlen, salzen, dazugeben. Bei kleiner Hitze 8 Min, dann wenden. Fertig in 30 Min!',
+        sb2_stop_reply: 'Abgemeldet. Dein Chatverlauf wurde gel\u00f6scht. Du erh\u00e4ltst keine weiteren SMS. Jederzeit zur\u00fcckkehren mit START. fragsms.de',
+        sms_label_0: 'Kochen & Rezepte', sms_q_0: 'Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?', sms_a_0: 'Spanische Tortilla! Kartoffeln d\u00fcnn schneiden, in \u00d6l 15 Min braten. Zwiebel dazu. 6 Eier verquirlen, salzen, dazugeben. Kleine Hitze 8 Min, wenden. Fertig!',
         sms_label_1: 'Alltagshilfe', sms_q_1: 'Wie sage ich auf Englisch: Ich m\u00f6chte einen Arzttermin verschieben?', sms_a_1: 'I would like to reschedule my doctor\'s appointment. H\u00f6flicher: Could I please reschedule my appointment?',
         sms_label_2: 'Wissen & Fakten', sms_q_2: 'Wie hoch ist die Zugspitze?', sms_a_2: 'Die Zugspitze ist 2.962 m hoch \u2014 Deutschlands h\u00f6chster Berg. Im Winter per Seilbahn erreichbar.',
         sms_label_3: 'Senioren-Hilfe', sms_q_3: 'Mein Enkel wird 8. Was schenkt man da?', sms_a_3: 'Tolle Ideen: 1) LEGO-Set 2) Kinderbuch-Reihe 3) Experiment-Baukasten 4) Freizeitpark-Tickets.',
@@ -1895,11 +1898,12 @@ const breadcrumbJsonLd = {
         step3_title: 'STOP = Everything deleted',
         step3_desc: 'Send STOP \u2014 instantly unsubscribed, all data permanently deleted.',
         sb2_conv_label: 'How it works',
-        sb2_conv_welcome: 'Welcome to FragSMS! \u{1F916}<br>You are chatting with an AI (Artificial Intelligence), not a human.<br><br>10 free messages/month. Send STOP anytime to unsubscribe.',
+        sb2_conv_welcome: 'Welcome to FragSMS! You are chatting with an AI, not a human.<br><br>Reply YES = Terms + Privacy accepted.<br><br>Unsubscribe: send STOP.',
+        sb2_conv_confirm: 'You\'re in! 10 messages/month free (max. 2/day). Ask your first question now!',
         sb2_conv_question: 'What is the capital of Australia?',
         sb2_conv_answer: 'The capital of Australia is Canberra \u2014 not Sydney, as many think!',
         sb2_stop_label: 'Unsubscribe',
-        sb2_stop_reply: 'You have been unsubscribed. \u2713<br><br>Your entire chat history will be deleted within 24 hours.<br><br>We will not send you any further messages.<br><br>Want to come back? Just text START.<br><br>FragSMS \u2014 fragsms.de',
+        sb2_stop_reply: 'Unsubscribed. Your chat history has been deleted. No more SMS. Return anytime with START. fragsms.de',
         sms_label_0: 'Cooking & Recipes', sms_q_0: 'What can I cook with potatoes, onions and eggs?', sms_a_0: 'Spanish Tortilla! Thinly slice 4 potatoes, fry in oil 15 min. Add 1 onion. Beat 6 eggs, season, add to pan. Low heat 8 min then flip. Done in 30 min!',
         sms_label_1: 'Everyday Help', sms_q_1: 'How do I say: I\'d like to reschedule my doctor\'s appointment?', sms_a_1: 'I would like to reschedule my doctor\'s appointment. More polite: Could I please reschedule my appointment?',
         sms_label_2: 'Knowledge & Facts', sms_q_2: 'How high is the Zugspitze?', sms_a_2: 'The Zugspitze is 2,962 m high \u2014 Germany\'s tallest mountain. Reachable by cable car in winter.',
