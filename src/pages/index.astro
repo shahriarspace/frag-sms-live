@@ -820,6 +820,94 @@ const breadcrumbJsonLd = {
       background: #3a3a3a;
     }
 
+    /* Feature tabs */
+    .feature-tabs-container {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+    }
+    .feature-tabs-container::-webkit-scrollbar {
+      display: none;
+    }
+    .feature-tab {
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .feature-tab:hover {
+      background: var(--color-primary-glow);
+      color: var(--color-text);
+      border-color: var(--color-primary-border);
+    }
+    .feature-tab.active {
+      background: var(--color-primary);
+      color: #0a0a0a;
+      border-color: var(--color-primary);
+    }
+    @media (max-width: 600px) {
+      .feature-tabs-container {
+        mask-image: linear-gradient(to right, black 85%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+      }
+    }
+
+    /* Trust strip */
+    .trust-strip {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .trust-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--color-primary-glow);
+      border: 1px solid var(--color-primary-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    .trust-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
+    }
+    .trust-sub {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+    }
+    @media (max-width: 600px) {
+      .trust-strip {
+        gap: 1.25rem;
+      }
+      .trust-item {
+        width: calc(50% - 0.75rem);
+      }
+    }
+
     /* FAQ accordion styling */
     details.faq-item summary::marker {
       display: none;
