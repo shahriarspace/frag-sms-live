@@ -314,29 +314,57 @@ const breadcrumbJsonLd = {
 
         <article class="card fade-in" style="text-align: center;">
           <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary-glow); border: 1px solid var(--color-primary-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-primary);">1</div>
-          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-i18n="step1_title">SMS senden</h3>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-i18n="step1_title">START senden</h3>
           <p style="color: var(--color-text-muted); font-size: 0.9rem;" data-i18n="step1_desc">
-            Sende deine Frage per SMS an unsere deutsche +49 Nummer. Funktioniert mit jedem Handy &mdash; auch Feature Phones.
+            Sende <strong style="color: var(--color-primary);">START</strong> per SMS an unsere +49 Nummer. Du erh&auml;ltst sofort eine Best&auml;tigung &mdash; fertig, du bist dabei.
           </p>
         </article>
 
         <article class="card fade-in" style="text-align: center;">
           <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary-glow); border: 1px solid var(--color-primary-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-primary);">2</div>
-          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-i18n="step2_title">KI antwortet sofort</h3>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-i18n="step2_title">Frag was du willst</h3>
           <p style="color: var(--color-text-muted); font-size: 0.9rem;" data-i18n="step2_desc">
-            Unsere k&uuml;nstliche Intelligenz versteht deine Frage und antwortet auf Deutsch &mdash; direkt per SMS in Sekunden.
+            Schreibe deine Frage als SMS. Unsere KI antwortet auf Deutsch &mdash; direkt per SMS in Sekunden. Rezepte, &Uuml;bersetzungen, Fakten, Reisetipps &mdash; alles m&ouml;glich.
           </p>
         </article>
 
         <article class="card fade-in" style="text-align: center;">
           <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary-glow); border: 1px solid var(--color-primary-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-primary);">3</div>
-          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-i18n="step3_title">Fertig &mdash; so einfach</h3>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-i18n="step3_title">STOP = Alles gel&ouml;scht</h3>
           <p style="color: var(--color-text-muted); font-size: 0.9rem;" data-i18n="step3_desc">
-            Kein Download, kein Account, kein Internet n&ouml;tig. KI f&uuml;r alle &mdash; auch Senioren, Feature Phones und l&auml;ndliche Gebiete.
+            Willst du aufh&ouml;ren? Sende <strong style="color: var(--color-error);">STOP</strong> &mdash; sofort abgemeldet, dein gesamter Chatverlauf wird unwiderruflich gel&ouml;scht. Keine Frist, keine Datenr&uuml;ckst&auml;nde.
           </p>
         </article>
 
       </div>
+
+      <!-- START/STOP visual explainer -->
+      <div class="fade-in" style="max-width: 650px; margin: 3rem auto 0;">
+        <div class="start-stop-visual">
+          <div class="ss-card ss-start">
+            <div class="ss-cmd">START</div>
+            <div class="ss-arrow">&#8594;</div>
+            <div class="ss-result">
+              <span class="ss-label" data-i18n="ss_start_label">Anmeldung</span>
+              <span class="ss-detail" data-i18n="ss_start_detail">Sofort loschatten, 10 gratis Nachrichten</span>
+            </div>
+          </div>
+          <div class="ss-divider">
+            <div class="ss-line"></div>
+            <span class="ss-between" data-i18n="ss_between">Du chattest mit KI per SMS</span>
+            <div class="ss-line"></div>
+          </div>
+          <div class="ss-card ss-stop">
+            <div class="ss-cmd ss-cmd-stop">STOP</div>
+            <div class="ss-arrow">&#8594;</div>
+            <div class="ss-result">
+              <span class="ss-label" data-i18n="ss_stop_label">Sofort abgemeldet</span>
+              <span class="ss-detail" data-i18n="ss_stop_detail">Alle Daten &amp; Chatverlauf unwiderruflich gel&ouml;scht</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -839,6 +867,81 @@ const breadcrumbJsonLd = {
       background: #3a3a3a;
     }
 
+    /* START/STOP visual explainer */
+    .start-stop-visual {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .ss-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .ss-cmd {
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      font-weight: 800;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: var(--color-primary-glow);
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary-border);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+    .ss-cmd-stop {
+      background: var(--color-error-glow);
+      color: var(--color-error);
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    .ss-arrow {
+      color: var(--color-text-muted);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .ss-result {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .ss-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+    .ss-detail {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .ss-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 0;
+    }
+    .ss-line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+    .ss-between {
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    @media (max-width: 500px) {
+      .ss-card {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .ss-arrow {
+        display: none;
+      }
+    }
+
     /* QR Code section */
     .qr-section {
       margin-top: 0.25rem;
@@ -1094,12 +1197,17 @@ const breadcrumbJsonLd = {
         how_title_1: 'So funktioniert',
         how_title_2: 'KI per SMS',
         how_subtitle: 'In 3 einfachen Schritten zur KI-Antwort \u2014 ganz ohne Smartphone oder Internet.',
-        step1_title: 'SMS senden',
-        step1_desc: 'Sende deine Frage per SMS an unsere deutsche +49 Nummer. Funktioniert mit jedem Handy \u2014 auch Feature Phones.',
-        step2_title: 'KI antwortet sofort',
-        step2_desc: 'Unsere k\u00fcnstliche Intelligenz versteht deine Frage und antwortet auf Deutsch \u2014 direkt per SMS in Sekunden.',
-        step3_title: 'Fertig \u2014 so einfach',
-        step3_desc: 'Kein Download, kein Account, kein Internet n\u00f6tig. KI f\u00fcr alle \u2014 auch Senioren, Feature Phones und l\u00e4ndliche Gebiete.',
+        step1_title: 'START senden',
+        step1_desc: 'Sende <strong style="color: var(--color-primary);">START</strong> per SMS an unsere +49 Nummer. Du erh\u00e4ltst sofort eine Best\u00e4tigung \u2014 fertig, du bist dabei.',
+        step2_title: 'Frag was du willst',
+        step2_desc: 'Schreibe deine Frage als SMS. Unsere KI antwortet auf Deutsch \u2014 direkt per SMS in Sekunden. Rezepte, \u00dcbersetzungen, Fakten, Reisetipps \u2014 alles m\u00f6glich.',
+        step3_title: 'STOP = Alles gel\u00f6scht',
+        step3_desc: 'Willst du aufh\u00f6ren? Sende <strong style="color: var(--color-error);">STOP</strong> \u2014 sofort abgemeldet, dein gesamter Chatverlauf wird unwiderruflich gel\u00f6scht. Keine Frist, keine Datenr\u00fcckst\u00e4nde.',
+        ss_start_label: 'Anmeldung',
+        ss_start_detail: 'Sofort loschatten, 10 gratis Nachrichten',
+        ss_between: 'Du chattest mit KI per SMS',
+        ss_stop_label: 'Sofort abgemeldet',
+        ss_stop_detail: 'Alle Daten & Chatverlauf unwiderruflich gel\u00f6scht',
         features_title_1: 'Warum',
         features_subtitle: 'Datenschutz, EU-Datenstandort und Einfachheit \u2014',
         tab_eu: 'EU-Daten',
@@ -1219,12 +1327,17 @@ const breadcrumbJsonLd = {
         how_title_1: 'How',
         how_title_2: 'AI via SMS works',
         how_subtitle: 'Get AI answers in 3 simple steps \u2014 no smartphone or internet needed.',
-        step1_title: 'Send an SMS',
-        step1_desc: 'Text your question to our German +49 number. Works with any phone \u2014 even basic feature phones.',
-        step2_title: 'AI replies instantly',
-        step2_desc: 'Our AI understands your question and replies in German \u2014 directly via SMS in seconds.',
-        step3_title: 'Done \u2014 that simple',
-        step3_desc: 'No download, no account, no internet needed. AI for everyone \u2014 seniors, feature phones, and rural areas.',
+        step1_title: 'Send START',
+        step1_desc: 'Send <strong style="color: var(--color-primary);">START</strong> via SMS to our +49 number. You\'ll receive an instant confirmation \u2014 done, you\'re in.',
+        step2_title: 'Ask anything',
+        step2_desc: 'Type your question as a text message. Our AI answers in German \u2014 directly via SMS in seconds. Recipes, translations, facts, travel tips \u2014 anything goes.',
+        step3_title: 'STOP = Everything deleted',
+        step3_desc: 'Want to quit? Send <strong style="color: var(--color-error);">STOP</strong> \u2014 instantly unsubscribed, your entire chat history is permanently deleted. No waiting period, no data leftovers.',
+        ss_start_label: 'Sign up',
+        ss_start_detail: 'Start chatting right away, 10 free messages',
+        ss_between: 'You chat with AI via SMS',
+        ss_stop_label: 'Instantly unsubscribed',
+        ss_stop_detail: 'All data & chat history permanently deleted',
         features_title_1: 'Why',
         features_subtitle: 'Privacy, EU data location, and simplicity \u2014',
         tab_eu: 'EU Data',
