@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="FragSMS Upgrade — Starter, Basic oder Pro Abo | Ab 2,99 EUR/Monat" description="Upgrade dein FragSMS Abo auf Starter (30 Nachrichten, 2,99 EUR), Basic (150 Nachrichten, 7,99 EUR) oder Pro (500 Nachrichten, 19,99 EUR). Zahle mit Kreditkarte, SEPA, PayPal oder Sofort. Jederzeit kuendbar." keywords="FragSMS Upgrade, KI SMS Abo, FragSMS Starter, FragSMS Basic, FragSMS Pro, KI Assistent Abo Deutschland">
+<Base title="FragSMS Upgrade — Starter, Basic oder Pro Abo | Ab 3,99 EUR/Monat" description="Upgrade dein FragSMS Abo auf Starter (30 Nachrichten, 3,99 EUR), Basic (150 Nachrichten, 9,99 EUR) oder Pro (500 Nachrichten, 19,99 EUR). Web-Suche Add-on fuer 4,99 EUR/Monat. Jederzeit kuendbar." keywords="FragSMS Upgrade, KI SMS Abo, FragSMS Starter, FragSMS Basic, FragSMS Pro, KI Assistent Abo Deutschland">
 
   <section class="section">
     <div class="container" style="max-width: 640px;">
@@ -43,24 +43,37 @@ import Base from '../layouts/Base.astro';
             <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg);" id="plan-starter-label">
               <input type="radio" name="plan" value="starter" required style="display: none;" />
               <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Starter</div>
-              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;2,99</div>
+              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;3,99</div>
               <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_starter_msgs">30 Nachr./Monat</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);" data-i18n="upgrade_starter_daily">Max. 3/Tag</div>
             </label>
             <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg); position: relative;" id="plan-basic-label">
               <input type="radio" name="plan" value="basic" style="display: none;" />
               <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: var(--color-btn-text); padding: 0.15rem 0.75rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;" data-i18n="badge_popular">Beliebt</div>
               <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Basic</div>
-              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;7,99</div>
+              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;9,99</div>
               <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_basic_msgs">150 Nachr./Monat</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);" data-i18n="upgrade_basic_daily">Max. 8/Tag</div>
             </label>
             <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg);" id="plan-pro-label">
               <input type="radio" name="plan" value="pro" style="display: none;" />
               <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Pro</div>
               <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;19,99</div>
               <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_pro_msgs">500 Nachr./Monat</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);" data-i18n="upgrade_pro_daily">Max. 20/Tag</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Web Search Add-on -->
+        <div id="addon-section" style="margin-bottom: 1.5rem; display: none;">
+          <div style="border: 1px dashed var(--color-primary-border); border-radius: 12px; padding: 1rem; background: var(--color-primary-glow);">
+            <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
+              <input type="checkbox" id="cb-addon" style="width: 20px; height: 20px; accent-color: var(--color-primary);" />
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 0.95rem;">
+                  <span data-i18n="addon_label">&#128269; Web-Suche Add-on</span>
+                  <span style="color: var(--color-primary); font-weight: 800; margin-left: 0.5rem;">+&euro;4,99<span style="font-weight: 400; font-size: 0.8rem;">/Mo</span></span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.2rem;" data-i18n="addon_desc">200 Web-Suchen/Monat. Aktuelle Infos direkt per SMS.</div>
+              </div>
             </label>
           </div>
         </div>
@@ -122,6 +135,16 @@ import Base from '../layouts/Base.astro';
             Jetzt k&uuml;ndigen
           </button>
         </div>
+        <div style="text-align: center; margin-top: 0.5rem;">
+          <button
+            type="button"
+            id="cancel-addon-btn"
+            style="padding: 0.4rem 1rem; background: transparent; color: var(--color-text-muted); border: 1px solid var(--color-border); border-radius: 8px; font-size: 0.8rem; cursor: pointer; transition: border-color 0.2s;"
+            data-i18n="cancel_addon_btn"
+          >
+            Add-on k&uuml;ndigen
+          </button>
+        </div>
         <div id="cancel-msg" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; text-align: center;"></div>
       </div>
     </div>
@@ -169,6 +192,8 @@ import Base from '../layouts/Base.astro';
     // --- Plan selection highlighting ---
     const planInputs = document.querySelectorAll('input[name="plan"]');
     const planLabels = ['plan-starter-label', 'plan-basic-label', 'plan-pro-label'];
+    const addonSection = document.getElementById('addon-section');
+    const cbAddon = document.getElementById('cb-addon');
 
     planInputs.forEach(input => {
       input.addEventListener('change', () => {
@@ -179,6 +204,7 @@ import Base from '../layouts/Base.astro';
         const labelId = `plan-${input.value}-label`;
         document.getElementById(labelId).style.borderColor = 'var(--color-primary)';
         document.getElementById(labelId).style.boxShadow = '0 0 20px rgba(16, 185, 129, 0.1)';
+        addonSection.style.display = 'block';
         checkFormValidity();
       });
     });
@@ -237,6 +263,21 @@ import Base from '../layouts/Base.astro';
         submitBtn.textContent = 'Kostenpflichtig bestellen';
         checkFormValidity();
       }
+
+      // If addon is checked, also create addon checkout after plan checkout
+      if (cbAddon && cbAddon.checked) {
+        try {
+          const addonResp = await fetch(`${STRIPE_WORKER_URL}/create-checkout`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone, plan: 'web_addon' }),
+          });
+          // Addon checkout will be available after plan is completed
+          // The user will be redirected to plan checkout first
+        } catch (err) {
+          // Addon checkout can be done later
+        }
+      }
     });
 
     // --- Cancel subscription ---
@@ -282,6 +323,52 @@ import Base from '../layouts/Base.astro';
       cancelBtn.disabled = false;
       cancelBtn.textContent = 'Jetzt kuendigen';
     });
+
+    // --- Cancel addon only ---
+    const cancelAddonBtn = document.getElementById('cancel-addon-btn');
+    if (cancelAddonBtn) {
+      cancelAddonBtn.addEventListener('click', async () => {
+        const phone = document.getElementById('cancel-phone').value.trim();
+        const cancelMsg = document.getElementById('cancel-msg');
+
+        if (!phone) {
+          cancelMsg.textContent = 'Bitte gib deine Handynummer ein.';
+          cancelMsg.style.color = 'var(--color-error)';
+          cancelMsg.style.display = 'block';
+          return;
+        }
+
+        if (!confirm('Web-Suche Add-on kuendigen?')) return;
+
+        cancelAddonBtn.disabled = true;
+        cancelAddonBtn.textContent = 'Wird gekuendigt...';
+
+        try {
+          const response = await fetch(`${STRIPE_WORKER_URL}/cancel`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone, cancel_type: 'addon' }),
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            cancelMsg.textContent = data.message;
+            cancelMsg.style.color = 'var(--color-success)';
+          } else {
+            cancelMsg.textContent = data.error || 'Fehler beim Kuendigen.';
+            cancelMsg.style.color = 'var(--color-error)';
+          }
+        } catch (err) {
+          cancelMsg.textContent = 'Verbindungsfehler. Bitte versuche es erneut.';
+          cancelMsg.style.color = 'var(--color-error)';
+        }
+
+        cancelMsg.style.display = 'block';
+        cancelAddonBtn.disabled = false;
+        cancelAddonBtn.textContent = 'Add-on kuendigen';
+      });
+    }
   </script>
 
   <!-- Page translations for upgrade -->
@@ -294,17 +381,17 @@ import Base from '../layouts/Base.astro';
         upgrade_phone_hint: 'Die Nummer, mit der du FragSMS per SMS nutzt.',
         upgrade_plan_label: 'Tarif w\u00e4hlen',
         upgrade_starter_msgs: '30 Nachr./Monat',
-        upgrade_starter_daily: 'Max. 3/Tag',
         upgrade_basic_msgs: '150 Nachr./Monat',
-        upgrade_basic_daily: 'Max. 8/Tag',
         upgrade_pro_msgs: '500 Nachr./Monat',
-        upgrade_pro_daily: 'Max. 20/Tag',
         badge_popular: 'Beliebt',
+        addon_label: '\uD83D\uDD0D Web-Suche Add-on',
+        addon_desc: '200 Web-Suchen/Monat. Aktuelle Infos direkt per SMS.',
         upgrade_cb_widerruf: 'Ich stimme zu, dass FragSMS sofort beginnt und verzichte auf mein 14-t\u00e4giges Widerrufsrecht (\u00a7356 Abs. 5 BGB).',
         upgrade_cb_datenschutz: 'Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerkl\u00e4rung</a> gelesen und stimme zu.',
         upgrade_stripe_note: 'Sichere Zahlung \u00fcber Stripe. Karte, SEPA-Lastschrift oder Sofort\u00fcberweisung.',
         cancel_heading: 'Abo k\u00fcndigen',
-        cancel_desc: 'Du hast bereits ein Abo und m\u00f6chtest k\u00fcndigen? Gib deine Handynummer ein.'
+        cancel_desc: 'Du hast bereits ein Abo und m\u00f6chtest k\u00fcndigen? Gib deine Handynummer ein.',
+        cancel_addon_btn: 'Add-on k\u00fcndigen'
       },
       en: {
         upgrade_badge: 'Manage subscription',
@@ -313,17 +400,17 @@ import Base from '../layouts/Base.astro';
         upgrade_phone_hint: 'The number you use to text FragSMS.',
         upgrade_plan_label: 'Choose plan',
         upgrade_starter_msgs: '30 msgs/month',
-        upgrade_starter_daily: 'Max. 3/day',
         upgrade_basic_msgs: '150 msgs/month',
-        upgrade_basic_daily: 'Max. 8/day',
         upgrade_pro_msgs: '500 msgs/month',
-        upgrade_pro_daily: 'Max. 20/day',
         badge_popular: 'Popular',
+        addon_label: '\uD83D\uDD0D Web Search Add-on',
+        addon_desc: '200 web searches/month. Real-time info via SMS.',
         upgrade_cb_widerruf: 'I agree that FragSMS starts immediately and waive my 14-day right of withdrawal (\u00a7356 para. 5 BGB).',
         upgrade_cb_datenschutz: 'I have read and agree to the <a href="/datenschutz" target="_blank">Privacy Policy</a>.',
         upgrade_stripe_note: 'Secure payment via Stripe. Card, SEPA direct debit, or instant transfer.',
         cancel_heading: 'Cancel subscription',
-        cancel_desc: 'Already have a subscription and want to cancel? Enter your phone number.'
+        cancel_desc: 'Already have a subscription and want to cancel? Enter your phone number.',
+        cancel_addon_btn: 'Cancel add-on'
       }
     };
     if (window.__fragApplyLang) window.__fragApplyLang();
