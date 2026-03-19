@@ -166,9 +166,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         transform: translateY(0);
       }
 
-      /* Gold gradient text utility */
+      /* Red-to-gold gradient text utility (German flag colors) */
       .text-gradient {
-        background: linear-gradient(135deg, #FFD700, #FFA500);
+        background: linear-gradient(135deg, #DD0000, #FFD700);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -184,7 +184,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       }
       .card:hover {
         border-color: var(--color-border-hover);
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.05);
+        box-shadow: 0 0 20px rgba(221, 0, 0, 0.06), 0 0 40px rgba(255, 215, 0, 0.04);
       }
 
       /* Badge styles */
@@ -291,9 +291,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         background: var(--color-border-hover);
       }
 
-      /* Selection color */
+      /* Selection color — German flag red */
       ::selection {
-        background: rgba(255, 215, 0, 0.3);
+        background: rgba(221, 0, 0, 0.3);
         color: var(--color-text);
       }
 
@@ -359,7 +359,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
   </head>
   <body>
     <!-- Header -->
-    <header style="border-bottom: 1px solid var(--color-border); padding: 1rem 0; backdrop-filter: blur(8px); background: rgba(10, 10, 10, 0.85); position: sticky; top: 0; z-index: 100;">
+    <header style="border-bottom: 1px solid var(--color-border); padding: 1rem 0; backdrop-filter: blur(8px); background: rgba(10, 10, 10, 0.85); position: sticky; top: 0; z-index: 100; border-top: 2px solid transparent; border-image: linear-gradient(90deg, #DD0000, #FFD700) 1;">
       <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
         <a href="/frag-sms-live/" style="font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em;" aria-label="FragSMS Startseite">
           <span style="color: var(--color-text);">Frag</span><span style="color: var(--color-primary);">SMS</span>
@@ -378,7 +378,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </main>
 
     <!-- Footer -->
-    <footer style="border-top: 1px solid var(--color-border); padding: 3rem 0; margin-top: 0; background: var(--color-bg-alt);">
+    <footer style="border-top: 2px solid transparent; border-image: linear-gradient(90deg, #DD0000, #FFD700) 1; padding: 3rem 0; margin-top: 0; background: var(--color-bg-alt);">
       <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
         <nav aria-label="Footer-Navigation" style="display: flex; justify-content: center; gap: 1.75rem; margin-bottom: 1.25rem;">
           <a href="/frag-sms-live/impressum" style="color: var(--color-text-muted);">Impressum</a>

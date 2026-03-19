@@ -155,8 +155,8 @@ const breadcrumbJsonLd = {
 
   <!-- Hero Section -->
   <section class="section" style="padding: 6rem 0 5rem; text-align: center; position: relative; overflow: hidden;">
-    <!-- Subtle gradient background -->
-    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.06) 0%, transparent 60%); pointer-events: none;"></div>
+    <!-- Subtle dual-color gradient background -->
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 0%, rgba(221, 0, 0, 0.05) 0%, transparent 50%), radial-gradient(ellipse at 70% 0%, rgba(255, 215, 0, 0.06) 0%, transparent 50%); pointer-events: none;"></div>
     <div class="container" style="position: relative; z-index: 1;">
       <div class="fade-in">
         <span class="badge badge-gold" style="margin-bottom: 1.5rem;">KI per SMS in Deutschland</span>
@@ -188,6 +188,13 @@ const breadcrumbJsonLd = {
     </div>
   </section>
 
+  <!-- German flag tricolor divider -->
+  <div style="display: flex; height: 3px;">
+    <div style="flex: 1; background: #000000;"></div>
+    <div style="flex: 1; background: #DD0000;"></div>
+    <div style="flex: 1; background: #FFD700;"></div>
+  </div>
+
   <!-- How it works -->
   <section class="section" style="background: var(--color-bg-alt);" aria-labelledby="how-it-works">
     <div class="container">
@@ -198,7 +205,7 @@ const breadcrumbJsonLd = {
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 950px; margin: 0 auto;">
 
         <article class="card fade-in" style="text-align: center;">
-          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary-glow); border: 1px solid rgba(255,215,0,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-primary);">1</div>
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-accent-glow); border: 1px solid rgba(221,0,0,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-accent);">1</div>
           <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">SMS senden</h3>
           <p style="color: var(--color-text-muted); font-size: 0.9rem;">
             Sende deine Frage per SMS an unsere deutsche +49 Nummer. Funktioniert mit jedem Handy &mdash; auch Feature Phones.
@@ -214,7 +221,7 @@ const breadcrumbJsonLd = {
         </article>
 
         <article class="card fade-in" style="text-align: center;">
-          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary-glow); border: 1px solid rgba(255,215,0,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-primary);">3</div>
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--color-accent-glow); border: 1px solid rgba(221,0,0,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--color-accent);">3</div>
           <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Fertig &mdash; so einfach</h3>
           <p style="color: var(--color-text-muted); font-size: 0.9rem;">
             Kein Download, kein Account, kein Internet n&ouml;tig. KI f&uuml;r alle &mdash; auch Senioren, Feature Phones und l&auml;ndliche Gebiete.
@@ -224,6 +231,13 @@ const breadcrumbJsonLd = {
       </div>
     </div>
   </section>
+
+  <!-- German flag tricolor divider -->
+  <div style="display: flex; height: 3px;">
+    <div style="flex: 1; background: #000000;"></div>
+    <div style="flex: 1; background: #DD0000;"></div>
+    <div style="flex: 1; background: #FFD700;"></div>
+  </div>
 
   <!-- Features — Tabbed panels like KobiDev -->
   <section class="section" aria-labelledby="features-heading" style="overflow: hidden;">
@@ -237,7 +251,7 @@ const breadcrumbJsonLd = {
       <div class="fade-in" style="max-width: 700px; margin: 0 auto;">
         <!-- Tab buttons -->
         <div id="feature-tabs" style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; overflow-x: auto; padding-bottom: 0.5rem;" role="tablist" aria-label="Feature-Tabs">
-          <button class="feature-tab active" data-index="0" role="tab" aria-selected="true" aria-controls="feature-panel-0" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-primary); background: var(--color-primary-glow); color: var(--color-primary); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;">EU-Daten</button>
+          <button class="feature-tab active" data-index="0" role="tab" aria-selected="true" aria-controls="feature-panel-0" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-accent); background: var(--color-accent-glow); color: var(--color-accent); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;">EU-Daten</button>
           <button class="feature-tab" data-index="1" role="tab" aria-selected="false" aria-controls="feature-panel-1" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;">Datenschutz</button>
           <button class="feature-tab" data-index="2" role="tab" aria-selected="false" aria-controls="feature-panel-2" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;">Verschl&uuml;sselung</button>
           <button class="feature-tab" data-index="3" role="tab" aria-selected="false" aria-controls="feature-panel-3" style="padding: 0.6rem 1.25rem; border-radius: 8px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s;">Zahlung</button>
@@ -313,14 +327,14 @@ const breadcrumbJsonLd = {
       tab.addEventListener('click', () => {
         const idx = parseInt(tab.dataset.index);
 
-        // Update tabs
+        // Update tabs — active tab uses red accent
         tabs.forEach((t, i) => {
           const isActive = i === idx;
           t.classList.toggle('active', isActive);
           t.setAttribute('aria-selected', isActive ? 'true' : 'false');
-          t.style.borderColor = isActive ? 'var(--color-primary)' : 'var(--color-border)';
-          t.style.background = isActive ? 'var(--color-primary-glow)' : 'transparent';
-          t.style.color = isActive ? 'var(--color-primary)' : 'var(--color-text-muted)';
+          t.style.borderColor = isActive ? 'var(--color-accent)' : 'var(--color-border)';
+          t.style.background = isActive ? 'var(--color-accent-glow)' : 'transparent';
+          t.style.color = isActive ? 'var(--color-accent)' : 'var(--color-text-muted)';
         });
 
         // Update panels
@@ -330,6 +344,13 @@ const breadcrumbJsonLd = {
       });
     });
   </script>
+
+  <!-- German flag tricolor divider -->
+  <div style="display: flex; height: 3px;">
+    <div style="flex: 1; background: #000000;"></div>
+    <div style="flex: 1; background: #DD0000;"></div>
+    <div style="flex: 1; background: #FFD700;"></div>
+  </div>
 
   <!-- Pricing -->
   <section class="section" style="background: var(--color-bg-alt);" aria-labelledby="pricing-heading">
@@ -368,11 +389,11 @@ const breadcrumbJsonLd = {
         </article>
 
         <!-- Basic — highlighted -->
-        <article class="card fade-in" style="text-align: center; border-color: var(--color-primary); position: relative; box-shadow: 0 0 30px rgba(255, 215, 0, 0.08);">
-          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: #0a0a0a; padding: 0.25rem 1.25rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.025em;">
+        <article class="card fade-in" style="text-align: center; border-color: var(--color-accent); position: relative; box-shadow: 0 0 30px rgba(221, 0, 0, 0.1);">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: #ffffff; padding: 0.25rem 1.25rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.025em;">
             Beliebt
           </div>
-          <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-primary);">Basic</h3>
+          <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-accent);">Basic</h3>
           <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;7,99</p>
           <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;">pro Monat</p>
           <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
@@ -407,6 +428,13 @@ const breadcrumbJsonLd = {
     </div>
   </section>
 
+  <!-- German flag tricolor divider -->
+  <div style="display: flex; height: 3px;">
+    <div style="flex: 1; background: #000000;"></div>
+    <div style="flex: 1; background: #DD0000;"></div>
+    <div style="flex: 1; background: #FFD700;"></div>
+  </div>
+
   <!-- SEO long-form content section -->
   <section class="section" aria-labelledby="about-heading">
     <div class="container" style="max-width: 700px;">
@@ -435,6 +463,13 @@ const breadcrumbJsonLd = {
     </div>
   </section>
 
+  <!-- German flag tricolor divider -->
+  <div style="display: flex; height: 3px;">
+    <div style="flex: 1; background: #000000;"></div>
+    <div style="flex: 1; background: #DD0000;"></div>
+    <div style="flex: 1; background: #FFD700;"></div>
+  </div>
+
   <!-- FAQ -->
   <section class="section" style="background: var(--color-bg-alt);" aria-labelledby="faq-heading">
     <div class="container">
@@ -446,7 +481,7 @@ const breadcrumbJsonLd = {
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <span itemprop="name">Brauche ich ein Smartphone f&uuml;r FragSMS?</span>
-            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann &mdash; auch mit &auml;lteren Feature Phones und Prepaid-Handys.</p>
@@ -456,7 +491,7 @@ const breadcrumbJsonLd = {
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <span itemprop="name">Brauche ich Internet oder WLAN?</span>
-            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Nein. SMS funktioniert &uuml;ber das Mobilfunknetz &mdash; kein WLAN, kein Datenplan und keine App n&ouml;tig.</p>
@@ -466,7 +501,7 @@ const breadcrumbJsonLd = {
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <span itemprop="name">Kann ich ChatGPT per SMS nutzen?</span>
-            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen &mdash; &auml;hnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort auf Deutsch erhalten.</p>
@@ -476,7 +511,7 @@ const breadcrumbJsonLd = {
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <span itemprop="name">Wie k&uuml;ndige ich mein Abo?</span>
-            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Sende STOP per SMS oder nutze den &quot;Jetzt k&uuml;ndigen&quot; Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.</p>
@@ -486,7 +521,7 @@ const breadcrumbJsonLd = {
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <span itemprop="name">Sind meine Daten sicher?</span>
-            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Ja. Alle Daten werden ausschlie&szlig;lich in der EU gespeichert. Deine Telefonnummer wird per SHA-256 verschl&uuml;sselt &mdash; wir speichern sie nie im Klartext. Vollst&auml;ndig DSGVO-konform.</p>
@@ -496,7 +531,7 @@ const breadcrumbJsonLd = {
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <span itemprop="name">Was kostet FragSMS?</span>
-            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">FragSMS startet kostenlos mit 10 Nachrichten pro Monat. Starter kostet 2,99 &euro;/Monat (30 Nachrichten), Basic 7,99 &euro;/Monat (150 Nachrichten) und Pro 19,99 &euro;/Monat (500 Nachrichten). Alle Preise sind Endpreise.</p>
@@ -506,7 +541,7 @@ const breadcrumbJsonLd = {
         <details class="faq-item fade-in" style="border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden;">
           <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--color-surface); transition: background 0.2s;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <span itemprop="name">Welche Zahlungsmethoden gibt es?</span>
-            <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
+            <span style="color: var(--color-accent); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Kreditkarte, SEPA-Lastschrift, PayPal und Sofort&uuml;berweisung &mdash; die beliebtesten Zahlungsmethoden in Deutschland. Sichere Abwicklung &uuml;ber Stripe.</p>
