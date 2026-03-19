@@ -262,7 +262,7 @@ const breadcrumbJsonLd = {
           <div class="privacy-divider"></div>
           <div class="privacy-row">
             <div class="privacy-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             </div>
             <div>
               <div class="privacy-label" data-i18n="pv_enc_title">SHA-256 Verschlüsselung</div>
@@ -273,7 +273,7 @@ const breadcrumbJsonLd = {
           <div class="privacy-divider"></div>
           <div class="privacy-row">
             <div class="privacy-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
             </div>
             <div>
               <div class="privacy-label" data-i18n="pv_del_title">STOP = Sofortlöschung</div>
@@ -284,7 +284,7 @@ const breadcrumbJsonLd = {
           <div class="privacy-divider"></div>
           <div class="privacy-row">
             <div class="privacy-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
             </div>
             <div>
               <div class="privacy-label" data-i18n="pv_pay_title">Sichere Zahlung</div>
@@ -685,7 +685,7 @@ const breadcrumbJsonLd = {
       align-items: center;
       gap: 0.5rem;
       background: var(--color-primary);
-      color: #0a0a0a;
+      color: var(--color-btn-text);
       border: none;
       border-radius: 10px;
       padding: 0.75rem 1.5rem;
@@ -833,23 +833,23 @@ const breadcrumbJsonLd = {
     /* ── Phone mockup ────────────────────────────── */
     .phone-mockup {
       width: 280px;
-      background: #111;
+      background: var(--color-phone-bg);
       border-radius: 32px;
       padding: 12px;
-      border: 2px solid #2a2a2a;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(16,185,129,0.06);
+      border: 2px solid var(--color-phone-border);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25), 0 0 60px rgba(16,185,129,0.06);
     }
     .phone-notch {
       width: 80px;
       height: 6px;
-      background: #2a2a2a;
+      background: var(--color-phone-border);
       border-radius: 3px;
       margin: 4px auto 8px;
     }
     .phone-header {
       text-align: center;
       padding: 8px 0 12px;
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid var(--color-phone-border);
       margin-bottom: 8px;
     }
     .phone-header-label { font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
@@ -891,15 +891,15 @@ const breadcrumbJsonLd = {
     }
     .sms-sent {
       background: var(--color-primary);
-      color: #0a0a0a;
+      color: var(--color-btn-text);
       margin-left: auto;
       border-bottom-right-radius: 4px;
       font-weight: 500;
     }
     .sms-received {
-      background: #1e1e1e;
+      background: var(--color-sms-received-bg);
       color: var(--color-text);
-      border: 1px solid #2a2a2a;
+      border: 1px solid var(--color-sms-received-border);
       margin-right: auto;
       border-bottom-left-radius: 4px;
     }
@@ -913,13 +913,13 @@ const breadcrumbJsonLd = {
       width: 8px; height: 8px;
       border-radius: 50%;
       border: none;
-      background: #2a2a2a;
+      background: var(--color-dot-bg);
       cursor: pointer;
       transition: background 0.2s, transform 0.2s;
       padding: 0;
     }
     .dot.active { background: var(--color-primary); transform: scale(1.2); }
-    .dot:hover:not(.active) { background: #3a3a3a; }
+    .dot:hover:not(.active) { background: var(--color-dot-hover); }
 
     /* ── Steps card ──────────────────────────────── */
     .steps-card {
@@ -1046,7 +1046,7 @@ const breadcrumbJsonLd = {
       left: 50%;
       transform: translateX(-50%);
       background: var(--color-primary);
-      color: #0a0a0a;
+      color: var(--color-btn-text);
       padding: 0.2rem 1.2rem;
       border-radius: 20px;
       font-size: 0.72rem;
@@ -1097,7 +1097,7 @@ const breadcrumbJsonLd = {
     .pricing-footnote {
       text-align: center;
       font-size: 0.78rem;
-      color: #666;
+      color: var(--color-footer-dim);
       margin-top: 2rem;
     }
     .guarantee-row {
@@ -1281,9 +1281,9 @@ const breadcrumbJsonLd = {
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      background: rgba(16,185,129,0.12);
+      background: var(--color-primary-glow);
       color: var(--color-primary);
-      border: 1px solid rgba(16,185,129,0.25);
+      border: 1px solid var(--color-primary-border);
       margin-bottom: 1rem;
       align-self: flex-start;
     }
