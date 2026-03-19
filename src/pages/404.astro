@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Seite nicht gefunden &mdash; FragSMS"
+  description="Diese Seite existiert leider nicht. Zur&uuml;ck zur Startseite von FragSMS."
+  noindex={true}
+>
+  <section style="padding: 6rem 0 8rem; text-align: center;">
+    <div class="container" style="max-width: 600px;">
+
+      <!-- Big 404 -->
+      <div style="font-size: clamp(5rem, 15vw, 8rem); font-weight: 900; letter-spacing: -0.05em; line-height: 1; margin-bottom: 1rem;">
+        <span class="text-gradient">404</span>
+      </div>
+
+      <h1 style="font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
+        Seite nicht gefunden
+      </h1>
+
+      <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 2.5rem;">
+        Die Seite, die du suchst, existiert leider nicht oder wurde verschoben.<br>
+        Kein Problem &mdash; du kannst einfach zur&uuml;ck zur Startseite gehen.
+      </p>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/frag-sms-live/" class="btn-primary">Zur Startseite &rarr;</a>
+        <a href="/frag-sms-live/blog/" class="btn-secondary">Blog lesen</a>
+      </div>
+
+      <!-- SMS style hint -->
+      <div style="margin-top: 3.5rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 16px; padding: 1.5rem 2rem; display: inline-block; text-align: left; max-width: 360px;">
+        <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">SMS Vorschau</div>
+        <div style="background: var(--color-primary); color: var(--color-btn-text); padding: 0.6rem 1rem; border-radius: 12px 12px 4px 12px; font-size: 0.88rem; margin-bottom: 0.5rem; display: inline-block; font-weight: 600;">
+          Wo ist diese Seite?
+        </div>
+        <div style="clear: both;"></div>
+        <div style="background: var(--color-sms-received-bg); border: 1px solid var(--color-sms-received-border); color: var(--color-text); padding: 0.6rem 1rem; border-radius: 12px 12px 12px 4px; font-size: 0.88rem; display: inline-block; line-height: 1.5;">
+          Diese Seite gibt es nicht &mdash; aber FragSMS schon! Sende START an unsere +49 Nummer und stell deine Frage per SMS.
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Base>
