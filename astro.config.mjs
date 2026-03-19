@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://fragsms.de',
+  site: 'https://shahriarspace.github.io',
+  base: '/frag-sms-live',
   output: 'static',
   build: {
     // GitHub Pages compatible output

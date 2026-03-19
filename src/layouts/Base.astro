@@ -12,7 +12,7 @@ const {
   title,
   description = 'FragSMS — Dein KI-Assistent per SMS in Deutschland. Kein App, kein Internet, kein Login. Frag einfach per SMS und erhalte sofort KI-Antworten. DSGVO-konform, EU-Daten.',
   keywords = 'KI per SMS, ChatGPT per SMS, KI Assistent Deutschland, SMS KI, AI SMS ohne App, DSGVO KI, FragSMS',
-  ogImage = '/og-image.png',
+  ogImage = '/frag-sms-live/og-image.png',
   noindex = false,
   jsonLd,
 } = Astro.props;
@@ -35,7 +35,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     }
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="sitemap" href="/frag-sms-live/sitemap.xml" />
     <link rel="alternate" hreflang="de" href={canonicalUrl} />
     <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
     <title>{title}</title>
@@ -361,13 +361,13 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <!-- Header -->
     <header style="border-bottom: 1px solid var(--color-border); padding: 1rem 0; backdrop-filter: blur(8px); background: rgba(10, 10, 10, 0.85); position: sticky; top: 0; z-index: 100;">
       <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="/" style="font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em;" aria-label="FragSMS Startseite">
+        <a href="/frag-sms-live/" style="font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em;" aria-label="FragSMS Startseite">
           <span style="color: var(--color-text);">Frag</span><span style="color: var(--color-primary);">SMS</span>
         </a>
         <nav aria-label="Hauptnavigation" style="display: flex; gap: 1.75rem; font-size: 0.9rem;">
-          <a href="/upgrade" style="color: var(--color-text-muted); transition: color 0.2s;">Upgrade</a>
-          <a href="/impressum" style="color: var(--color-text-muted); transition: color 0.2s;">Impressum</a>
-          <a href="/datenschutz" style="color: var(--color-text-muted); transition: color 0.2s;">Datenschutz</a>
+          <a href="/frag-sms-live/upgrade" style="color: var(--color-text-muted); transition: color 0.2s;">Upgrade</a>
+          <a href="/frag-sms-live/impressum" style="color: var(--color-text-muted); transition: color 0.2s;">Impressum</a>
+          <a href="/frag-sms-live/datenschutz" style="color: var(--color-text-muted); transition: color 0.2s;">Datenschutz</a>
         </nav>
       </div>
     </header>
@@ -381,9 +381,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <footer style="border-top: 1px solid var(--color-border); padding: 3rem 0; margin-top: 0; background: var(--color-bg-alt);">
       <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
         <nav aria-label="Footer-Navigation" style="display: flex; justify-content: center; gap: 1.75rem; margin-bottom: 1.25rem;">
-          <a href="/impressum" style="color: var(--color-text-muted);">Impressum</a>
-          <a href="/datenschutz" style="color: var(--color-text-muted);">Datenschutz</a>
-          <a href="/nutzungsbedingungen" style="color: var(--color-text-muted);">Nutzungsbedingungen</a>
+          <a href="/frag-sms-live/impressum" style="color: var(--color-text-muted);">Impressum</a>
+          <a href="/frag-sms-live/datenschutz" style="color: var(--color-text-muted);">Datenschutz</a>
+          <a href="/frag-sms-live/nutzungsbedingungen" style="color: var(--color-text-muted);">Nutzungsbedingungen</a>
         </nav>
         <p style="color: #666;">&copy; {new Date().getFullYear()} FragSMS. Alle Rechte vorbehalten.</p>
         <p style="margin-top: 0.25rem; color: #555;">Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.</p>

@@ -1,6 +1,6 @@
 User-agent: *
-Allow: /
-Disallow: /success
-Disallow: /cancel
+Allow: /frag-sms-live/
+Disallow: /frag-sms-live/success
+Disallow: /frag-sms-live/cancel
 
-Sitemap: https://fragsms.de/sitemap.xml
+Sitemap: https://shahriarspace.github.io/frag-sms-live/sitemap.xml

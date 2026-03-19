@@ -51,7 +51,7 @@ const faqJsonLd = {
       "name": "Was kostet FragSMS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "FragSMS bietet einen kostenlosen Tarif mit 20 Nachrichten pro Monat. Basic kostet 4,99 \u20ac/Monat (200 Nachrichten) und Pro kostet 9,99 \u20ac/Monat (unbegrenzt). Alle Preise sind Endpreise."
+        "text": "FragSMS bietet einen kostenlosen Tarif mit 10 Nachrichten pro Monat. Starter kostet 2,99 \u20ac/Monat (30 Nachrichten), Basic kostet 7,99 \u20ac/Monat (150 Nachrichten) und Pro kostet 19,99 \u20ac/Monat (500 Nachrichten). Alle Preise sind Endpreise."
       }
     },
     {
@@ -87,33 +87,46 @@ const serviceJsonLd = {
       "name": "FragSMS Free",
       "price": "0",
       "priceCurrency": "EUR",
-      "description": "20 kostenlose KI-Nachrichten pro Monat per SMS"
+      "description": "10 kostenlose KI-Nachrichten pro Monat per SMS (max. 2 pro Tag)"
+    },
+    {
+      "@type": "Offer",
+      "name": "FragSMS Starter",
+      "price": "2.99",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "2.99",
+        "priceCurrency": "EUR",
+        "billingDuration": "P1M"
+      },
+      "description": "30 KI-Nachrichten pro Monat per SMS (max. 3 pro Tag)"
     },
     {
       "@type": "Offer",
       "name": "FragSMS Basic",
-      "price": "4.99",
+      "price": "7.99",
       "priceCurrency": "EUR",
       "priceSpecification": {
         "@type": "UnitPriceSpecification",
-        "price": "4.99",
+        "price": "7.99",
         "priceCurrency": "EUR",
         "billingDuration": "P1M"
       },
-      "description": "200 KI-Nachrichten pro Monat per SMS"
+      "description": "150 KI-Nachrichten pro Monat per SMS (max. 8 pro Tag)"
     },
     {
       "@type": "Offer",
       "name": "FragSMS Pro",
-      "price": "9.99",
+      "price": "19.99",
       "priceCurrency": "EUR",
       "priceSpecification": {
         "@type": "UnitPriceSpecification",
-        "price": "9.99",
+        "price": "19.99",
         "priceCurrency": "EUR",
         "billingDuration": "P1M"
       },
-      "description": "Unbegrenzte KI-Nachrichten pro Monat per SMS"
+      "description": "500 KI-Nachrichten pro Monat per SMS (max. 20 pro Tag)"
     }
   ]
 };
@@ -162,7 +175,7 @@ const breadcrumbJsonLd = {
           +49 XXX XXXXXXX
         </p>
         <p style="font-size: 0.85rem; color: var(--color-text-muted);">
-          20 kostenlose Nachrichten pro Monat &mdash; kein Abo n&ouml;tig
+          10 kostenlose Nachrichten pro Monat &mdash; kein Abo n&ouml;tig
         </p>
       </div>
 
@@ -325,7 +338,7 @@ const breadcrumbJsonLd = {
         <h2 id="pricing-heading"><span class="text-gradient">FragSMS</span> Preise</h2>
         <p>Kostenlos starten. Jederzeit upgraden. Jederzeit k&uuml;ndbar.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 850px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; max-width: 1000px; margin: 0 auto;">
 
         <!-- Free -->
         <article class="card fade-in" style="text-align: center;">
@@ -333,10 +346,25 @@ const breadcrumbJsonLd = {
           <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;0</p>
           <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;">pro Monat</p>
           <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 20 Nachrichten / Monat</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> KI-Antworten auf Deutsch</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 10 Nachrichten / Monat</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Max. 2 pro Tag</li>
             <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Kein Account n&ouml;tig</li>
           </ul>
+        </article>
+
+        <!-- Starter -->
+        <article class="card fade-in" style="text-align: center;">
+          <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-text-muted);">Starter</h3>
+          <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;2,99</p>
+          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;">pro Monat</p>
+          <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 30 Nachrichten / Monat</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Max. 3 pro Tag</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Jederzeit k&uuml;ndbar</li>
+          </ul>
+          <a href="/frag-sms-live/upgrade" class="btn-secondary" style="display: block; margin-top: 1.5rem; text-align: center;">
+            Jetzt upgraden
+          </a>
         </article>
 
         <!-- Basic — highlighted -->
@@ -345,14 +373,14 @@ const breadcrumbJsonLd = {
             Beliebt
           </div>
           <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-primary);">Basic</h3>
-          <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;4,99</p>
+          <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;7,99</p>
           <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;">pro Monat</p>
           <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 200 Nachrichten / Monat</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 150 Nachrichten / Monat</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Max. 8 pro Tag</li>
             <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Gespr&auml;chsverlauf</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Jederzeit k&uuml;ndbar</li>
           </ul>
-          <a href="/upgrade" class="btn-primary" style="display: block; margin-top: 1.5rem; text-align: center;">
+          <a href="/frag-sms-live/upgrade" class="btn-primary" style="display: block; margin-top: 1.5rem; text-align: center;">
             Jetzt upgraden
           </a>
         </article>
@@ -360,14 +388,14 @@ const breadcrumbJsonLd = {
         <!-- Pro -->
         <article class="card fade-in" style="text-align: center;">
           <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-text-muted);">Pro</h3>
-          <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;9,99</p>
+          <p style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">&euro;19,99</p>
           <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.75rem;">pro Monat</p>
           <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--color-text-muted);">
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Unbegrenzte Nachrichten</li>
-            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Gespr&auml;chsverlauf</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> 500 Nachrichten / Monat</li>
+            <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Max. 20 pro Tag</li>
             <li style="padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-primary);">&#10003;</span> Priorit&auml;ts-Antworten</li>
           </ul>
-          <a href="/upgrade" class="btn-secondary" style="display: block; margin-top: 1.5rem; text-align: center;">
+          <a href="/frag-sms-live/upgrade" class="btn-secondary" style="display: block; margin-top: 1.5rem; text-align: center;">
             Jetzt upgraden
           </a>
         </article>
@@ -400,7 +428,7 @@ const breadcrumbJsonLd = {
           deine Telefonnummer wird verschl&uuml;sselt und nie im Klartext abgelegt.
         </p>
         <p>
-          <strong style="color: var(--color-text);">Starte jetzt kostenlos</strong> &mdash; sende einfach eine SMS an unsere +49 Nummer und erhalte 20 Nachrichten pro Monat gratis.
+          <strong style="color: var(--color-text);">Starte jetzt kostenlos</strong> &mdash; sende einfach eine SMS an unsere +49 Nummer und erhalte 10 Nachrichten pro Monat gratis.
           Kein Abo, kein Account, kein Risiko.
         </p>
       </div>
@@ -471,7 +499,7 @@ const breadcrumbJsonLd = {
             <span style="color: var(--color-primary); font-size: 1.2rem; transition: transform 0.2s;" class="faq-icon">+</span>
           </summary>
           <div style="padding: 0 1.5rem 1.25rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">FragSMS bietet einen kostenlosen Tarif mit 20 Nachrichten pro Monat. Basic kostet 4,99 &euro;/Monat (200 Nachrichten) und Pro 9,99 &euro;/Monat (unbegrenzt). Alle Preise sind Endpreise.</p>
+            <p itemprop="text">FragSMS startet kostenlos mit 10 Nachrichten pro Monat. Starter kostet 2,99 &euro;/Monat (30 Nachrichten), Basic 7,99 &euro;/Monat (150 Nachrichten) und Pro 19,99 &euro;/Monat (500 Nachrichten). Alle Preise sind Endpreise.</p>
           </div>
         </details>
 

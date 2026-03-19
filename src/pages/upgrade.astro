@@ -2,10 +2,10 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="FragSMS Upgrade — Basic oder Pro Abo | Ab 4,99 EUR/Monat" description="Upgrade dein FragSMS Abo auf Basic (200 Nachrichten, 4,99 EUR) oder Pro (unbegrenzt, 9,99 EUR). Zahle mit Kreditkarte, SEPA, PayPal oder Sofort. Jederzeit kuendbar." keywords="FragSMS Upgrade, KI SMS Abo, FragSMS Basic, FragSMS Pro, KI Assistent Abo Deutschland">
+<Base title="FragSMS Upgrade — Starter, Basic oder Pro Abo | Ab 2,99 EUR/Monat" description="Upgrade dein FragSMS Abo auf Starter (30 Nachrichten, 2,99 EUR), Basic (150 Nachrichten, 7,99 EUR) oder Pro (500 Nachrichten, 19,99 EUR). Zahle mit Kreditkarte, SEPA, PayPal oder Sofort. Jederzeit kuendbar." keywords="FragSMS Upgrade, KI SMS Abo, FragSMS Starter, FragSMS Basic, FragSMS Pro, KI Assistent Abo Deutschland">
 
   <section class="section">
-    <div class="container" style="max-width: 560px;">
+    <div class="container" style="max-width: 640px;">
       <div class="fade-in" style="text-align: center; margin-bottom: 2.5rem;">
         <span class="badge badge-gold" style="margin-bottom: 1rem;">Abo verwalten</span>
         <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;">
@@ -39,18 +39,28 @@ import Base from '../layouts/Base.astro';
         <!-- Plan selection -->
         <div style="margin-bottom: 1.5rem;">
           <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 0.9rem;">Tarif w&auml;hlen</p>
-          <div style="display: flex; gap: 1rem;">
-            <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1.25rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg);" id="plan-basic-label">
-              <input type="radio" name="plan" value="basic" required style="display: none;" />
-              <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.25rem;">Basic</div>
-              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.25rem;">&euro;4,99</div>
-              <div style="font-size: 0.8rem; color: var(--color-text-muted);">200 Nachrichten/Monat</div>
+          <div style="display: flex; gap: 0.75rem;">
+            <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg);" id="plan-starter-label">
+              <input type="radio" name="plan" value="starter" required style="display: none;" />
+              <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Starter</div>
+              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;2,99</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">30 Nachr./Monat</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Max. 3/Tag</div>
             </label>
-            <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1.25rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg);" id="plan-pro-label">
+            <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg); position: relative;" id="plan-basic-label">
+              <input type="radio" name="plan" value="basic" style="display: none;" />
+              <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: #0a0a0a; padding: 0.15rem 0.75rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">Beliebt</div>
+              <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Basic</div>
+              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;7,99</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">150 Nachr./Monat</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Max. 8/Tag</div>
+            </label>
+            <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg);" id="plan-pro-label">
               <input type="radio" name="plan" value="pro" style="display: none;" />
-              <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.25rem;">Pro</div>
-              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.35rem; margin-bottom: 0.25rem;">&euro;9,99</div>
-              <div style="font-size: 0.8rem; color: var(--color-text-muted);">Unbegrenzt</div>
+              <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Pro</div>
+              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;19,99</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">500 Nachr./Monat</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Max. 20/Tag</div>
             </label>
           </div>
         </div>
@@ -66,7 +76,7 @@ import Base from '../layouts/Base.astro';
           <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
             <input type="checkbox" id="cb-datenschutz" required style="margin-top: 3px; accent-color: var(--color-primary);" />
             <span>
-              Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerkl&auml;rung</a> gelesen und stimme zu.
+              Ich habe die <a href="/frag-sms-live/datenschutz" target="_blank">Datenschutzerkl&auml;rung</a> gelesen und stimme zu.
             </span>
           </label>
         </div>
@@ -122,7 +132,7 @@ import Base from '../layouts/Base.astro';
       border-color: var(--color-primary);
       box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
     }
-    #plan-basic-label:hover, #plan-pro-label:hover {
+    #plan-starter-label:hover, #plan-basic-label:hover, #plan-pro-label:hover {
       border-color: var(--color-border-hover);
     }
     #cancel-btn:hover {
@@ -135,15 +145,19 @@ import Base from '../layouts/Base.astro';
 
     // --- Plan selection highlighting ---
     const planInputs = document.querySelectorAll('input[name="plan"]');
+    const planLabels = ['plan-starter-label', 'plan-basic-label', 'plan-pro-label'];
+
     planInputs.forEach(input => {
       input.addEventListener('change', () => {
-        document.getElementById('plan-basic-label').style.borderColor = '';
-        document.getElementById('plan-basic-label').style.boxShadow = '';
-        document.getElementById('plan-pro-label').style.borderColor = '';
-        document.getElementById('plan-pro-label').style.boxShadow = '';
-        const label = input.value === 'basic' ? 'plan-basic-label' : 'plan-pro-label';
-        document.getElementById(label).style.borderColor = 'var(--color-primary)';
-        document.getElementById(label).style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.1)';
+        // Reset all labels
+        planLabels.forEach(id => {
+          document.getElementById(id).style.borderColor = '';
+          document.getElementById(id).style.boxShadow = '';
+        });
+        // Highlight selected
+        const labelId = `plan-${input.value}-label`;
+        document.getElementById(labelId).style.borderColor = 'var(--color-primary)';
+        document.getElementById(labelId).style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.1)';
         checkFormValidity();
       });
     });
