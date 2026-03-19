@@ -64,7 +64,7 @@ const articles = [
 
       <!-- Breadcrumb -->
       <nav aria-label="Breadcrumb" style="margin-bottom: 2rem; font-size: 0.82rem; color: var(--color-text-muted);">
-        <a href="/frag-sms-live/" style="color: var(--color-text-muted);">Startseite</a>
+        <a href="/" style="color: var(--color-text-muted);">Startseite</a>
         <span style="margin: 0 0.5rem;">/</span>
         <span style="color: var(--color-text);" data-i18n="blog_breadcrumb">Blog</span>
       </nav>
@@ -82,7 +82,7 @@ const articles = [
       <!-- Article grid -->
       <div class="blog-list">
         {articles.map((article) => (
-          <a href={`/frag-sms-live/blog/${article.slug}/`} class="blog-list-card fade-in">
+          <a href={`/blog/${article.slug}/`} class="blog-list-card fade-in">
             <div class="blog-list-card-inner">
               <div>
                 <div class="blog-list-tag" data-i18n={`blog_idx_tag_${article.slug}`}>{article.tag}</div>
@@ -104,7 +104,7 @@ const articles = [
       <div class="blog-cta fade-in">
         <p style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;" data-i18n="blog_cta_title">Jetzt FragSMS kostenlos testen</p>
         <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.25rem;" data-i18n="blog_cta_desc">10 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko.</p>
-        <a href="/frag-sms-live/" class="btn-primary" data-i18n="blog_cta_btn">Zur Startseite &rarr;</a>
+        <a href="/" class="btn-primary" data-i18n="blog_cta_btn">Zur Startseite &rarr;</a>
       </div>
 
     </div>

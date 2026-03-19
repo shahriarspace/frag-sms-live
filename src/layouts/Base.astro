@@ -13,7 +13,7 @@ const {
   title,
   description = 'FragSMS — Dein KI-Assistent per SMS in Deutschland. Kein App, kein Internet, kein Login. Frag einfach per SMS und erhalte sofort KI-Antworten. DSGVO-konform, EU-Daten.',
   keywords = 'KI per SMS, ChatGPT per SMS, KI Assistent Deutschland, SMS KI, AI SMS ohne App, DSGVO KI, FragSMS',
-  ogImage = '/frag-sms-live/og-image.svg',
+  ogImage = '/og-image.svg',
   noindex = false,
   jsonLd,
   legalPage = false,
@@ -34,15 +34,15 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <meta name="theme-color" content="#0a0a0a" id="meta-theme-color" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/frag-sms-live/favicon.svg" />
-    <link rel="apple-touch-icon" href="/frag-sms-live/icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
 
     {noindex
       ? <meta name="robots" content="noindex, nofollow" />
       : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     }
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="sitemap" href="/frag-sms-live/sitemap.xml" />
+    <link rel="sitemap" href="/sitemap.xml" />
     <link rel="alternate" hreflang="de" href={canonicalUrl} />
     <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
     <title>{title}</title>
@@ -578,7 +578,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <!-- Header -->
     <header style="border-bottom: 1px solid var(--color-border); padding: 1.1rem 0; backdrop-filter: blur(12px); background: var(--color-header-bg); position: sticky; top: 0; z-index: 100;">
       <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="/frag-sms-live/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;" aria-label="FragSMS Startseite">
+        <a href="/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;" aria-label="FragSMS Startseite">
           <!-- Speech bubble icon -->
           <svg width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
             <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--color-bg)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
@@ -594,10 +594,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
           </span>
         </a>
         <nav aria-label="Hauptnavigation" class="header-nav" style="display: flex; align-items: center; gap: 1.75rem; font-size: 0.9rem;">
-          <a href="/frag-sms-live/upgrade" class="nav-link-desktop" data-i18n="nav_upgrade">Upgrade</a>
-          <a href="/frag-sms-live/blog/" class="nav-link-desktop">Blog</a>
-          <a href="/frag-sms-live/impressum" class="nav-link-desktop">Impressum</a>
-          <a href="/frag-sms-live/datenschutz" class="nav-link-desktop" data-i18n="nav_datenschutz">Datenschutz</a>
+          <a href="/upgrade" class="nav-link-desktop" data-i18n="nav_upgrade">Upgrade</a>
+          <a href="/blog/" class="nav-link-desktop">Blog</a>
+          <a href="/impressum" class="nav-link-desktop">Impressum</a>
+          <a href="/datenschutz" class="nav-link-desktop" data-i18n="nav_datenschutz">Datenschutz</a>
           <!-- Theme toggle -->
           <button class="theme-toggle" id="theme-toggle" aria-label="Theme wechseln" title="Dark/Light Mode">
             <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="5" fill="#fbbf24"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -621,10 +621,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       </div>
       <!-- Mobile nav dropdown -->
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
-        <a href="/frag-sms-live/upgrade" data-i18n="nav_upgrade">Upgrade</a>
-        <a href="/frag-sms-live/blog/">Blog</a>
-        <a href="/frag-sms-live/impressum">Impressum</a>
-        <a href="/frag-sms-live/datenschutz" data-i18n="nav_datenschutz">Datenschutz</a>
+        <a href="/upgrade" data-i18n="nav_upgrade">Upgrade</a>
+        <a href="/blog/">Blog</a>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz" data-i18n="nav_datenschutz">Datenschutz</a>
       </nav>
     </header>
 
@@ -637,7 +637,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <footer style="border-top: 1px solid var(--color-border); padding: 3rem 0; margin-top: 0; background: var(--color-bg-alt);">
       <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
         <!-- Footer logo -->
-        <a href="/frag-sms-live/" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; text-decoration: none;" aria-label="FragSMS">
+        <a href="/" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; text-decoration: none;" aria-label="FragSMS">
           <svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--color-bg)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
             <rect x="6" y="5" width="20" height="14" rx="2" fill="var(--color-primary)"/>
@@ -652,11 +652,11 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
           </span>
         </a>
         <nav aria-label="Footer-Navigation" style="display: flex; justify-content: center; gap: 1.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
-          <a href="/frag-sms-live/upgrade" style="color: var(--color-text-muted);" data-i18n="nav_upgrade">Upgrade</a>
-          <a href="/frag-sms-live/blog/" style="color: var(--color-text-muted);">Blog</a>
-          <a href="/frag-sms-live/impressum" style="color: var(--color-text-muted);">Impressum</a>
-          <a href="/frag-sms-live/datenschutz" style="color: var(--color-text-muted);" data-i18n="nav_datenschutz">Datenschutz</a>
-          <a href="/frag-sms-live/nutzungsbedingungen" style="color: var(--color-text-muted);" data-i18n="footer_nutzungsbedingungen">Nutzungsbedingungen</a>
+          <a href="/upgrade" style="color: var(--color-text-muted);" data-i18n="nav_upgrade">Upgrade</a>
+          <a href="/blog/" style="color: var(--color-text-muted);">Blog</a>
+          <a href="/impressum" style="color: var(--color-text-muted);">Impressum</a>
+          <a href="/datenschutz" style="color: var(--color-text-muted);" data-i18n="nav_datenschutz">Datenschutz</a>
+          <a href="/nutzungsbedingungen" style="color: var(--color-text-muted);" data-i18n="footer_nutzungsbedingungen">Nutzungsbedingungen</a>
         </nav>
         <p style="color: var(--color-footer-dim);">&copy; {new Date().getFullYear()} FragSMS. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></p>
         <p style="margin-top: 0.25rem; color: var(--color-footer-dimmer);" data-i18n="footer_tax">Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.</p>
