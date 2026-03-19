@@ -191,20 +191,6 @@ const breadcrumbJsonLd = {
               <div class="sms-bubble sms-sent" data-i18n="sms_q_5">Aktuelle Nachrichten von Bild?</div>
               <div class="sms-bubble sms-received" data-i18n="sms_a_5">Iran-Israel Konflikt eskaliert &mdash; Gaspreise +35%. Gletscher schmelzen bis 2030er. 1/3 Kliniken vor Insolvenz. VW zahlt Boni. Nagelsmann w&auml;hlt DFB-Team. bild.de</div>
             </div>
-            <div class="sms-conversation" data-conv="6">
-              <div class="sms-label" data-i18n="sb2_conv_label">So funktioniert's</div>
-              <div class="sms-bubble sms-sent">START</div>
-              <div class="sms-bubble sms-received" data-i18n="sb2_conv_welcome">Willkommen bei FragSMS! Du chattest mit einer KI, nicht mit einem Menschen.<br><br>Antworte JA = Nutzungsbedingungen + Datenschutz akzeptiert.<br><br>Abmelden: STOP senden.</div>
-              <div class="sms-bubble sms-sent">JA</div>
-              <div class="sms-bubble sms-received" data-i18n="sb2_conv_confirm">Du bist dabei! 10 Nachrichten/Monat kostenlos (max. 2/Tag). Stell jetzt deine erste Frage!</div>
-              <div class="sms-bubble sms-sent" data-i18n="sb2_conv_question">Was ist die Hauptstadt von Australien?</div>
-              <div class="sms-bubble sms-received" data-i18n="sb2_conv_answer">Die Hauptstadt von Australien ist Canberra &mdash; nicht Sydney, wie viele denken!</div>
-            </div>
-            <div class="sms-conversation" data-conv="7">
-              <div class="sms-label" data-i18n="sb2_stop_label">Abmeldung</div>
-              <div class="sms-bubble sms-sent">STOP</div>
-              <div class="sms-bubble sms-received" data-i18n="sb2_stop_reply">Abgemeldet. Dein Chatverlauf wurde gel&ouml;scht. Du erh&auml;ltst keine weiteren SMS. Jederzeit zur&uuml;ckkehren mit START. fragsms.de</div>
-            </div>
           </div>
           <div class="phone-dots">
             <button class="dot active" data-dot="0" aria-label="Beispiel 1"></button>
@@ -213,8 +199,6 @@ const breadcrumbJsonLd = {
             <button class="dot" data-dot="3" aria-label="Beispiel 4"></button>
             <button class="dot" data-dot="4" aria-label="Beispiel 5"></button>
             <button class="dot" data-dot="5" aria-label="Beispiel 6"></button>
-            <button class="dot" data-dot="6" aria-label="Anmeldung"></button>
-            <button class="dot" data-dot="7" aria-label="Abmeldung"></button>
           </div>
         </div>
       </div>
@@ -226,6 +210,30 @@ const breadcrumbJsonLd = {
         <p class="sb-desc" data-i18n="sb1_desc">
           Schreibe deine Frage als SMS. Unsere KI antwortet auf Deutsch &mdash; direkt in Sekunden.
           Rezepte, &Uuml;bersetzungen, Fakten, Reisetipps &mdash; alles m&ouml;glich.
+        </p>
+        <ul class="sb-list">
+          <li><span class="check">&#10003;</span> <span data-i18n="sb1_l1">Kein Smartphone erforderlich</span></li>
+          <li><span class="check">&#10003;</span> <span data-i18n="sb1_l2">Kein Internet oder WLAN</span></li>
+          <li><span class="check">&#10003;</span> <span data-i18n="sb1_l3">Antwort in unter 5 Sekunden</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SWITCHBACK 2 — How it works (text left, steps right)
+  ════════════════════════════════════════════════ -->
+  <section class="sb-section sb-alt" aria-labelledby="how-it-works">
+    <div class="container sb-grid sb-reverse">
+
+      <!-- Left: Text + Steps -->
+      <div class="sb-text fade-in">
+        <span class="pill" data-i18n="sb2_pill">In 3 Schritten</span>
+        <h2 class="sb-title" id="how-it-works" data-i18n="sb2_title">In Sekunden<br>startklar.</h2>
+        <p class="sb-desc" data-i18n="sb2_desc">
+          Keine Registrierung, kein App-Download, kein Passwort.
+          Einfach eine SMS senden und sofort loslegen.
         </p>
         <div class="sb2-steps">
           <div class="sb2-step">
@@ -253,6 +261,40 @@ const breadcrumbJsonLd = {
         <a href="#pricing-heading" class="btn-primary" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;" data-i18n="sb2_cta">
           Kostenlos starten &rarr;
         </a>
+      </div>
+
+      <!-- Right: Phone mockup — onboarding carousel -->
+      <div class="sb-media fade-in">
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-header">
+            <div class="phone-header-label">SMS</div>
+            <div class="phone-header-title">FragSMS</div>
+            <div class="phone-header-num">+49 XXX</div>
+          </div>
+          <div class="phone-screen" id="onboarding-screen">
+            <!-- Slide 1: START + consent + JA + activation + question + answer -->
+            <div class="sms-conversation active" data-oconv="0">
+              <div class="sms-label" data-i18n="sb2_conv_label">So funktioniert's</div>
+              <div class="sms-bubble sms-sent">START</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_conv_welcome">Willkommen bei FragSMS! Du chattest mit einer KI, nicht mit einem Menschen.<br><br>Antworte JA = Nutzungsbedingungen + Datenschutz akzeptiert.<br><br>Abmelden: STOP senden.</div>
+              <div class="sms-bubble sms-sent">JA</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_conv_confirm">Du bist dabei! 10 Nachrichten/Monat kostenlos (max. 2/Tag). Stell jetzt deine erste Frage!</div>
+              <div class="sms-bubble sms-sent" data-i18n="sb2_conv_question">Was ist die Hauptstadt von Australien?</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_conv_answer">Die Hauptstadt von Australien ist Canberra &mdash; nicht Sydney, wie viele denken!</div>
+            </div>
+            <!-- Slide 2: STOP + unsubscribe confirmation -->
+            <div class="sms-conversation" data-oconv="1">
+              <div class="sms-label" data-i18n="sb2_stop_label">Abmeldung</div>
+              <div class="sms-bubble sms-sent">STOP</div>
+              <div class="sms-bubble sms-received" data-i18n="sb2_stop_reply">Abgemeldet. Dein Chatverlauf wurde gel&ouml;scht. Du erh&auml;ltst keine weiteren SMS. Jederzeit zur&uuml;ckkehren mit START. fragsms.de</div>
+            </div>
+          </div>
+          <div class="phone-dots" id="onboarding-dots">
+            <button class="dot active" data-odot="0" aria-label="Anmeldung"></button>
+            <button class="dot" data-odot="1" aria-label="Abmeldung"></button>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -929,6 +971,9 @@ const breadcrumbJsonLd = {
     .sb-section {
       padding: 6rem 0;
     }
+    .sb-alt {
+      background: var(--color-bg-alt);
+    }
     .sb-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -936,6 +981,12 @@ const breadcrumbJsonLd = {
       align-items: center;
       max-width: 1060px;
       margin: 0 auto;
+    }
+    .sb-reverse {
+      direction: rtl;
+    }
+    .sb-reverse > * {
+      direction: ltr;
     }
     .sb-text {
       display: flex;
@@ -1471,6 +1522,7 @@ const breadcrumbJsonLd = {
         gap: 3rem;
         direction: ltr !important;
       }
+      .sb-reverse { direction: ltr !important; }
       .sb-text { align-items: center; text-align: center; }
       .sb-list { align-items: center; }
       .sb-media { justify-content: center; }
@@ -1513,6 +1565,32 @@ const breadcrumbJsonLd = {
         });
       });
       autoTimer = setInterval(function() { showConv((currentIdx + 1) % conversations.length); }, 5000);
+    })();
+
+    // Onboarding carousel — Switchback 2
+    (function() {
+      var screen = document.getElementById('onboarding-screen');
+      if (!screen) return;
+      var slides = screen.querySelectorAll('.sms-conversation');
+      var dotsWrap = document.getElementById('onboarding-dots');
+      var dots = dotsWrap ? dotsWrap.querySelectorAll('.dot') : [];
+      var currentIdx = 0;
+      var autoTimer;
+      function showSlide(idx) {
+        slides.forEach(function(s) { s.classList.remove('active'); });
+        dots.forEach(function(d) { d.classList.remove('active'); });
+        slides[idx].classList.add('active');
+        dots[idx].classList.add('active');
+        currentIdx = idx;
+      }
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          showSlide(parseInt(dot.getAttribute('data-odot')));
+          clearInterval(autoTimer);
+          autoTimer = setInterval(function() { showSlide((currentIdx + 1) % slides.length); }, 5000);
+        });
+      });
+      autoTimer = setInterval(function() { showSlide((currentIdx + 1) % slides.length); }, 5000);
     })();
 
     // Web signup — phone validation + POST to Worker
@@ -1692,6 +1770,12 @@ const breadcrumbJsonLd = {
         sb1_pill: 'Wie es funktioniert',
         sb1_title: 'Frag einfach.\nPer SMS.',
         sb1_desc: 'Schreibe deine Frage als SMS. Unsere KI antwortet auf Deutsch \u2014 direkt in Sekunden. Rezepte, \u00dcbersetzungen, Fakten, Reisetipps \u2014 alles m\u00f6glich.',
+        sb1_l1: 'Kein Smartphone erforderlich',
+        sb1_l2: 'Kein Internet oder WLAN',
+        sb1_l3: 'Antwort in unter 5 Sekunden',
+        sb2_pill: 'In 3 Schritten',
+        sb2_title: 'In Sekunden\nstartklar.',
+        sb2_desc: 'Keine Registrierung, kein App-Download, kein Passwort. Einfach eine SMS senden und sofort loslegen.',
         sb2_cta: 'Kostenlos starten \u2192',
         sb3_pill: 'Datenschutz & Sicherheit',
         sb3_title: 'Deine Daten.\nIn Europa. Sicher.',
@@ -1794,6 +1878,12 @@ const breadcrumbJsonLd = {
         sb1_pill: 'How it works',
         sb1_title: 'Just ask.\nVia SMS.',
         sb1_desc: 'Type your question as a text. Our AI answers in German \u2014 directly in seconds. Recipes, translations, facts, travel tips \u2014 anything goes.',
+        sb1_l1: 'No smartphone required',
+        sb1_l2: 'No internet or WiFi',
+        sb1_l3: 'Reply in under 5 seconds',
+        sb2_pill: 'In 3 steps',
+        sb2_title: 'Ready in\nseconds.',
+        sb2_desc: 'No registration, no app download, no password. Just send an SMS and start immediately.',
         sb2_cta: 'Start for free \u2192',
         sb3_pill: 'Privacy & Security',
         sb3_title: 'Your data.\nIn Europe. Safe.',
