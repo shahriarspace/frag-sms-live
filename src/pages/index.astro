@@ -102,8 +102,9 @@ const breadcrumbJsonLd = {
           </label>
         </div>
 
-        <!-- Turnstile widget -->
+        <!-- Turnstile widget (hidden until real site key is configured)
         <div id="turnstile-container" class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-callback="onTurnstileSuccess" data-theme="dark"></div>
+        -->
 
         <!-- Success state (hidden by default) -->
         <div class="signup-success" id="signup-success" style="display:none;">
@@ -679,8 +680,9 @@ const breadcrumbJsonLd = {
           </label>
         </div>
 
-        <!-- Turnstile widget (bottom CTA) -->
+        <!-- Turnstile widget (bottom CTA, hidden until real site key is configured)
         <div id="turnstile-container-2" class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-callback="onTurnstileSuccess2" data-theme="dark"></div>
+        -->
 
         <!-- Success state (hidden by default) -->
         <div class="signup-success" id="signup-success-2" style="display:none;">
@@ -888,10 +890,10 @@ const breadcrumbJsonLd = {
       flex-shrink: 0;
     }
 
-    /* ── Turnstile widget ────────────────────────── */
+    /* ── Turnstile widget (hidden until configured) ── */
     .cf-turnstile {
       margin-top: 0.5rem;
-      display: flex;
+      display: none;
       justify-content: center;
     }
 
@@ -1652,6 +1654,7 @@ const breadcrumbJsonLd = {
         if (!input || !btn) return;
 
         var touched = false;
+        var submitting = false; // Prevent double-submit
 
         // Update button state on checkbox change
         if (privacyCb) privacyCb.addEventListener('change', function() { updateBtnState(p); });
@@ -1680,11 +1683,13 @@ const breadcrumbJsonLd = {
         });
 
         btn.addEventListener('click', function() {
+          if (submitting) return; // Block double-clicks
           var raw = input.value.trim();
           if (!isValidGermanMobile(raw)) return;
           if (privacyCb && !privacyCb.checked) return;
           if (ageCb && !ageCb.checked) return;
 
+          submitting = true; // Lock immediately
           var normalized = normalizePhone(raw);
 
           // Show loading state
@@ -1721,14 +1726,17 @@ const breadcrumbJsonLd = {
                   if (msgP) msgP.innerHTML = getMsg('signup_already_active', 'Du bist bereits angemeldet! Sende einfach eine SMS an diese Nummer.', 'You are already signed up! Just send an SMS to this number.');
                 }
               }
+              // Keep submitting=true on success — form is hidden, no further clicks possible
             } else {
-              // Show error
+              // Show error, allow retry
+              submitting = false;
               if (errorEl) errorEl.textContent = result.data.error || getMsg('signup_error', 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.', 'An error occurred. Please try again.');
               updateBtnState(p);
             }
           })
           .catch(function() {
             btn.classList.remove('loading');
+            submitting = false; // Allow retry on network error
             if (errorEl) errorEl.textContent = getMsg('signup_error', 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.', 'An error occurred. Please try again.');
             updateBtnState(p);
           });
@@ -1960,7 +1968,8 @@ const breadcrumbJsonLd = {
     if (window.__fragApplyLang) window.__fragApplyLang();
   </script>
 
-  <!-- Cloudflare Turnstile (invisible CAPTCHA) -->
+  <!-- Cloudflare Turnstile (hidden until real site key is configured)
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  -->
 
 </Base>
