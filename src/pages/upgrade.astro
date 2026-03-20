@@ -235,6 +235,12 @@ import Base from '../layouts/Base.astro';
 
       if (!phone || !plan) return;
 
+      if (!isValidGermanPhone(phone)) {
+        errorMsg.textContent = 'Bitte gib eine gueltige deutsche Handynummer ein (z.B. +49 151 2345 6789).';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Bitte warten...';
 
@@ -248,6 +254,10 @@ import Base from '../layouts/Base.astro';
         const data = await response.json();
 
         if (data.url) {
+          // Save addon preference before navigating away
+          if (cbAddon && cbAddon.checked) {
+            try { localStorage.setItem('fragsms-addon-pending', phone); } catch (e) {}
+          }
           window.location.href = data.url;
         } else {
           errorMsg.textContent = data.error || 'Ein Fehler ist aufgetreten.';
@@ -264,21 +274,14 @@ import Base from '../layouts/Base.astro';
         checkFormValidity();
       }
 
-      // If addon is checked, also create addon checkout after plan checkout
-      if (cbAddon && cbAddon.checked) {
-        try {
-          const addonResp = await fetch(`${STRIPE_WORKER_URL}/create-checkout`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ phone, plan: 'web_addon' }),
-          });
-          // Addon checkout will be available after plan is completed
-          // The user will be redirected to plan checkout first
-        } catch (err) {
-          // Addon checkout can be done later
-        }
-      }
     });
+
+    // --- Phone validation helper ---
+    function isValidGermanPhone(phone) {
+      // Accept +49XXXXXXXXX format, 12-15 chars total
+      const cleaned = phone.replace(/[\s\-()]/g, '');
+      return /^\+49\d{9,12}$/.test(cleaned);
+    }
 
     // --- Cancel subscription ---
     document.getElementById('cancel-btn').addEventListener('click', async () => {
@@ -287,6 +290,13 @@ import Base from '../layouts/Base.astro';
 
       if (!phone) {
         cancelMsg.textContent = 'Bitte gib deine Handynummer ein.';
+        cancelMsg.style.color = 'var(--color-error)';
+        cancelMsg.style.display = 'block';
+        return;
+      }
+
+      if (!isValidGermanPhone(phone)) {
+        cancelMsg.textContent = 'Bitte gib eine gueltige deutsche Handynummer ein (z.B. +49 151 2345 6789).';
         cancelMsg.style.color = 'var(--color-error)';
         cancelMsg.style.display = 'block';
         return;
@@ -333,6 +343,13 @@ import Base from '../layouts/Base.astro';
 
         if (!phone) {
           cancelMsg.textContent = 'Bitte gib deine Handynummer ein.';
+          cancelMsg.style.color = 'var(--color-error)';
+          cancelMsg.style.display = 'block';
+          return;
+        }
+
+        if (!isValidGermanPhone(phone)) {
+          cancelMsg.textContent = 'Bitte gib eine gueltige deutsche Handynummer ein (z.B. +49 151 2345 6789).';
           cancelMsg.style.color = 'var(--color-error)';
           cancelMsg.style.display = 'block';
           return;

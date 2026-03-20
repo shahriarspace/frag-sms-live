@@ -2,63 +2,112 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="Zahlung erfolgreich — FragSMS" noindex={true}>
-  <section class="section" style="text-align: center;">
-    <div class="container" style="max-width: 500px;">
+<Base title="Zahlung erfolgreich — FragSMS" description="Deine Zahlung war erfolgreich. Dein FragSMS Abo ist jetzt aktiv." noindex={true}>
+
+  <section style="padding: 5rem 0;">
+    <div class="container" style="max-width: 540px; text-align: center;">
       <div class="fade-in">
-        <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); border: 2px solid var(--color-success); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.75rem; color: var(--color-success);">
-          &#10003;
-        </div>
-        <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: var(--color-success);" data-i18n="success_title">
-          Zahlung erfolgreich!
+        <div style="font-size: 3rem; margin-bottom: 1.5rem;">&#10003;</div>
+        <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem;">
+          Zahlung <span class="text-gradient">erfolgreich</span>!
         </h1>
-        <p style="font-size: 1.1rem; margin-bottom: 2.5rem; color: var(--color-text-muted);" data-i18n="success_desc">
-          Dein FragSMS Upgrade ist jetzt aktiv. Du erh&auml;ltst in K&uuml;rze eine Best&auml;tigung per SMS.
+        <p style="color: var(--color-text-muted); margin-bottom: 1.5rem; line-height: 1.7;">
+          Dein FragSMS Abo ist jetzt aktiv. Du erh&auml;ltst in K&uuml;rze eine Best&auml;tigung per SMS.
         </p>
-      </div>
-
-      <div class="card fade-in" style="margin-bottom: 2.5rem; text-align: left;">
-        <h2 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--color-text);" data-i18n="success_next_title">So geht's weiter:</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);" data-i18n="success_next_desc">
-          Sende einfach eine SMS an deine FragSMS-Nummer. Dein erh&ouml;htes Nachrichtenlimit ist sofort verf&uuml;gbar.
+        <p style="color: var(--color-text-muted); margin-bottom: 2rem; font-size: 0.9rem;">
+          Schreib einfach deine n&auml;chste Frage per SMS &mdash; FragSMS antwortet sofort.
         </p>
-      </div>
 
-      <a href="/" class="btn-primary" data-i18n="success_back">
-        Zur&uuml;ck zur Startseite
-      </a>
+        <!-- Addon prompt — shown only when user selected addon during checkout -->
+        <div id="addon-prompt" style="display: none; margin-bottom: 2rem; padding: 1.25rem; border: 1px dashed var(--color-primary-border); border-radius: 12px; background: var(--color-primary-glow);">
+          <p style="font-weight: 700; margin-bottom: 0.5rem;">&#128269; Web-Suche Add-on aktivieren</p>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1rem;">
+            Du hast das Web-Suche Add-on ausgew&auml;hlt. Klicke unten, um es f&uuml;r +&euro;4,99/Monat zu aktivieren.
+          </p>
+          <button
+            type="button"
+            id="addon-checkout-btn"
+            class="btn-primary"
+            style="font-size: 0.9rem; padding: 0.65rem 1.5rem;"
+          >
+            Add-on jetzt aktivieren
+          </button>
+          <div id="addon-msg" style="display: none; margin-top: 0.75rem; font-size: 0.85rem;"></div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/" class="btn-primary">Zur Startseite</a>
+          <a href="/upgrade" class="btn-secondary">Abo verwalten</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <style>
-    .section {
-      padding: 5rem 0;
-    }
-    .card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      padding: 1.5rem;
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
     }
   </style>
 
   <script>
-    window.__fragTranslations = {
-      de: {
-        success_title: 'Zahlung erfolgreich!',
-        success_desc: 'Dein FragSMS Upgrade ist jetzt aktiv. Du erh\u00e4ltst in K\u00fcrze eine Best\u00e4tigung per SMS.',
-        success_next_title: 'So geht\'s weiter:',
-        success_next_desc: 'Sende einfach eine SMS an deine FragSMS-Nummer. Dein erh\u00f6htes Nachrichtenlimit ist sofort verf\u00fcgbar.',
-        success_back: 'Zur\u00fcck zur Startseite'
-      },
-      en: {
-        success_title: 'Payment successful!',
-        success_desc: 'Your FragSMS upgrade is now active. You\'ll receive a confirmation via SMS shortly.',
-        success_next_title: 'What\'s next:',
-        success_next_desc: 'Just send an SMS to your FragSMS number. Your increased message limit is available immediately.',
-        success_back: 'Back to homepage'
+    const STRIPE_WORKER_URL = 'https://stripe.fragsms.de';
+
+    // Check for pending addon
+    (function() {
+      var pendingPhone = null;
+      try { pendingPhone = localStorage.getItem('fragsms-addon-pending'); } catch(e) {}
+      if (!pendingPhone) return;
+
+      // Show addon prompt
+      var prompt = document.getElementById('addon-prompt');
+      if (prompt) prompt.style.display = 'block';
+
+      var btn = document.getElementById('addon-checkout-btn');
+      var msg = document.getElementById('addon-msg');
+
+      if (btn) {
+        btn.addEventListener('click', async function() {
+          btn.disabled = true;
+          btn.textContent = 'Bitte warten...';
+
+          try {
+            var response = await fetch(STRIPE_WORKER_URL + '/create-checkout', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ phone: pendingPhone, plan: 'web_addon' }),
+            });
+
+            var data = await response.json();
+
+            if (data.url) {
+              // Clear pending flag before redirect
+              try { localStorage.removeItem('fragsms-addon-pending'); } catch(e) {}
+              window.location.href = data.url;
+            } else {
+              msg.textContent = data.error || 'Fehler beim Add-on Checkout. Versuche es spaeter unter /upgrade.';
+              msg.style.color = 'var(--color-error)';
+              msg.style.display = 'block';
+              btn.disabled = false;
+              btn.textContent = 'Add-on jetzt aktivieren';
+            }
+          } catch (err) {
+            msg.textContent = 'Verbindungsfehler. Versuche es spaeter unter /upgrade.';
+            msg.style.color = 'var(--color-error)';
+            msg.style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Add-on jetzt aktivieren';
+          }
+        });
       }
-    };
-    if (window.__fragApplyLang) window.__fragApplyLang();
+
+      // Clear pending flag on page load (so it doesn't show again on refresh)
+      // We only clear it after the button is clicked or after 5 minutes
+      setTimeout(function() {
+        try { localStorage.removeItem('fragsms-addon-pending'); } catch(e) {}
+      }, 300000);
+    })();
   </script>
+
 </Base>

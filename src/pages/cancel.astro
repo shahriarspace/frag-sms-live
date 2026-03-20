@@ -2,54 +2,35 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="Zahlung abgebrochen — FragSMS" noindex={true}>
-  <section class="section" style="text-align: center;">
-    <div class="container" style="max-width: 500px;">
-      <div class="fade-in">
-        <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(163, 163, 163, 0.1); border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; color: var(--color-text-muted);">
-          &#10005;
-        </div>
-        <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;" data-i18n="cancel_page_title">
-          Zahlung abgebrochen
-        </h1>
-        <p style="font-size: 1.1rem; margin-bottom: 2.5rem; color: var(--color-text-muted);" data-i18n="cancel_page_desc">
-          Kein Problem! Du kannst jederzeit zur&uuml;ckkommen und upgraden.
-          Dein kostenloser Zugang bleibt aktiv.
-        </p>
-      </div>
+<Base title="Zahlung abgebrochen — FragSMS" description="Die Zahlung wurde abgebrochen. Du kannst es jederzeit erneut versuchen." noindex={true}>
 
-      <div class="fade-in" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="/upgrade" class="btn-primary" data-i18n="cancel_page_retry">
-          Erneut versuchen
-        </a>
-        <a href="/" class="btn-secondary" data-i18n="cancel_page_back">
-          Zur&uuml;ck zur Startseite
-        </a>
+  <section style="padding: 5rem 0;">
+    <div class="container" style="max-width: 540px; text-align: center;">
+      <div class="fade-in">
+        <div style="font-size: 3rem; margin-bottom: 1.5rem;">&#8592;</div>
+        <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem;">
+          Zahlung <span style="color: var(--color-text-muted);">abgebrochen</span>
+        </h1>
+        <p style="color: var(--color-text-muted); margin-bottom: 1.5rem; line-height: 1.7;">
+          Kein Problem! Es wurde nichts berechnet. Du kannst den Upgrade-Vorgang jederzeit erneut starten.
+        </p>
+        <p style="color: var(--color-text-muted); margin-bottom: 2rem; font-size: 0.9rem;">
+          Dein kostenloser FragSMS Zugang bleibt aktiv.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/upgrade" class="btn-primary">Erneut versuchen</a>
+          <a href="/" class="btn-secondary">Zur Startseite</a>
+        </div>
       </div>
     </div>
   </section>
 
   <style>
-    .section {
-      padding: 5rem 0;
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
     }
   </style>
 
-  <script>
-    window.__fragTranslations = {
-      de: {
-        cancel_page_title: 'Zahlung abgebrochen',
-        cancel_page_desc: 'Kein Problem! Du kannst jederzeit zur\u00fcckkommen und upgraden. Dein kostenloser Zugang bleibt aktiv.',
-        cancel_page_retry: 'Erneut versuchen',
-        cancel_page_back: 'Zur\u00fcck zur Startseite'
-      },
-      en: {
-        cancel_page_title: 'Payment cancelled',
-        cancel_page_desc: 'No problem! You can come back and upgrade anytime. Your free access remains active.',
-        cancel_page_retry: 'Try again',
-        cancel_page_back: 'Back to homepage'
-      }
-    };
-    if (window.__fragApplyLang) window.__fragApplyLang();
-  </script>
 </Base>
