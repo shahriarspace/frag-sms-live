@@ -23,14 +23,17 @@ import Base from '../layouts/Base.astro';
           <label for="phone" style="display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;" data-i18n="upgrade_phone_label">
             Deine Handynummer
           </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="+49 151 2345 6789"
-            required
-            style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 8px; font-size: 1rem; background: var(--color-bg); color: var(--color-text); outline: none; transition: border-color 0.2s;"
-          />
+          <div style="display: flex; align-items: center; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s;" id="phone-wrap">
+            <span style="padding: 0.75rem 0 0.75rem 1rem; font-weight: 700; font-size: 1rem; color: var(--color-text); user-select: none; flex-shrink: 0;">+49</span>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="151 2345 6789"
+              required
+              style="flex: 1; padding: 0.75rem 1rem 0.75rem 0.5rem; border: none; font-size: 1rem; background: var(--color-bg); color: var(--color-text); outline: none;"
+            />
+          </div>
           <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.35rem;" data-i18n="upgrade_phone_hint">
             Die Nummer, mit der du FragSMS per SMS nutzt.
           </p>
@@ -121,12 +124,15 @@ import Base from '../layouts/Base.astro';
           Du hast bereits ein Abo und m&ouml;chtest k&uuml;ndigen? Gib deine Handynummer ein.
         </p>
         <div style="display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto;">
-          <input
-            type="tel"
-            id="cancel-phone"
-            placeholder="+49 151 2345 6789"
-            style="flex: 1; padding: 0.6rem 1rem; border: 1px solid var(--color-border); border-radius: 8px; font-size: 0.9rem; background: var(--color-bg); color: var(--color-text); outline: none;"
-          />
+          <div style="display: flex; align-items: center; flex: 1; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden;" id="cancel-phone-wrap">
+            <span style="padding: 0.6rem 0 0.6rem 0.75rem; font-weight: 700; font-size: 0.9rem; color: var(--color-text); user-select: none; flex-shrink: 0;">+49</span>
+            <input
+              type="tel"
+              id="cancel-phone"
+              placeholder="151 2345 6789"
+              style="flex: 1; padding: 0.6rem 0.75rem 0.6rem 0.4rem; border: none; font-size: 0.9rem; background: var(--color-bg); color: var(--color-text); outline: none;"
+            />
+          </div>
           <button
             type="button"
             id="cancel-btn"
@@ -174,7 +180,7 @@ import Base from '../layouts/Base.astro';
       color: var(--color-primary);
       border: 1px solid var(--color-primary-border);
     }
-    #phone:focus, #cancel-phone:focus {
+    #phone-wrap:focus-within, #cancel-phone-wrap:focus-within {
       border-color: var(--color-primary);
       box-shadow: 0 0 0 3px var(--color-primary-glow);
     }
@@ -230,16 +236,22 @@ import Base from '../layouts/Base.astro';
       const errorMsg = document.getElementById('error-msg');
       errorMsg.style.display = 'none';
 
-      const phone = document.getElementById('phone').value.trim();
+      const phoneRaw = document.getElementById('phone').value.trim();
       const plan = document.querySelector('input[name="plan"]:checked')?.value;
 
-      if (!phone || !plan) return;
+      if (!phoneRaw || !plan) return;
 
-      if (!isValidGermanPhone(phone)) {
-        errorMsg.textContent = 'Bitte gib eine gueltige deutsche Handynummer ein (z.B. +49 151 2345 6789).';
+      if (!isValidGermanMobile(phoneRaw)) {
+        if (isLandline(phoneRaw)) {
+          errorMsg.textContent = 'FragSMS funktioniert nur mit Mobilfunknummern (015x, 016x, 017x).';
+        } else {
+          errorMsg.textContent = 'Bitte gib eine gueltige deutsche Handynummer ein (z.B. 151 2345 6789).';
+        }
         errorMsg.style.display = 'block';
         return;
       }
+
+      const phone = normalizePhone(phoneRaw);
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Bitte warten...';
@@ -276,31 +288,71 @@ import Base from '../layouts/Base.astro';
 
     });
 
-    // --- Phone validation helper ---
-    function isValidGermanPhone(phone) {
-      // Accept +49XXXXXXXXX format, 12-15 chars total
-      const cleaned = phone.replace(/[\s\-()]/g, '');
-      return /^\+49\d{9,12}$/.test(cleaned);
+    // --- Phone normalization helper (user types WITHOUT +49 prefix) ---
+    function normalizePhone(raw) {
+      var s = raw.replace(/[\s\-\(\)\.]/g, '');
+      if (s.indexOf('0') === 0) s = s.substring(1);
+      if (s.indexOf('+49') === 0) s = s.substring(3);
+      if (s.indexOf('0049') === 0) s = s.substring(4);
+      return '+49' + s;
     }
+
+    function isValidGermanMobile(raw) {
+      if (!raw) return false;
+      var n = normalizePhone(raw);
+      return /^\+49(1[567]\d)(\d{7,8})$/.test(n);
+    }
+
+    function isLandline(raw) {
+      if (!raw) return false;
+      var n = normalizePhone(raw);
+      var m = n.match(/^\+49(\d{9,12})$/);
+      if (!m) return false;
+      return !/^1[567]/.test(m[1]);
+    }
+
+    // Auto-strip leading zero and pasted +49 prefix
+    ['phone', 'cancel-phone'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', function() {
+        var v = el.value;
+        if (v.length > 0 && v.charAt(0) === '0') {
+          el.value = v.replace(/^0+/, '');
+        }
+        var stripped = el.value.replace(/[\s\-\(\)\.]/g, '');
+        if (stripped.indexOf('+49') === 0) {
+          el.value = stripped.substring(3);
+        } else if (stripped.indexOf('0049') === 0) {
+          el.value = stripped.substring(4);
+        }
+      });
+    });
 
     // --- Cancel subscription ---
     document.getElementById('cancel-btn').addEventListener('click', async () => {
-      const phone = document.getElementById('cancel-phone').value.trim();
+      const phoneRaw = document.getElementById('cancel-phone').value.trim();
       const cancelMsg = document.getElementById('cancel-msg');
 
-      if (!phone) {
+      if (!phoneRaw) {
         cancelMsg.textContent = 'Bitte gib deine Handynummer ein.';
         cancelMsg.style.color = 'var(--color-error)';
         cancelMsg.style.display = 'block';
         return;
       }
 
-      if (!isValidGermanPhone(phone)) {
-        cancelMsg.textContent = 'Bitte gib eine gueltige deutsche Handynummer ein (z.B. +49 151 2345 6789).';
+      if (!isValidGermanMobile(phoneRaw)) {
+        if (isLandline(phoneRaw)) {
+          cancelMsg.textContent = 'FragSMS funktioniert nur mit Mobilfunknummern (015x, 016x, 017x).';
+        } else {
+          cancelMsg.textContent = 'Bitte gib eine gueltige deutsche Handynummer ein (z.B. 151 2345 6789).';
+        }
         cancelMsg.style.color = 'var(--color-error)';
         cancelMsg.style.display = 'block';
         return;
       }
+
+      const phone = normalizePhone(phoneRaw);
 
       if (!confirm('Bist du sicher, dass du dein Abo kuendigen moechtest?')) return;
 
@@ -338,22 +390,28 @@ import Base from '../layouts/Base.astro';
     const cancelAddonBtn = document.getElementById('cancel-addon-btn');
     if (cancelAddonBtn) {
       cancelAddonBtn.addEventListener('click', async () => {
-        const phone = document.getElementById('cancel-phone').value.trim();
+        const phoneRaw = document.getElementById('cancel-phone').value.trim();
         const cancelMsg = document.getElementById('cancel-msg');
 
-        if (!phone) {
+        if (!phoneRaw) {
           cancelMsg.textContent = 'Bitte gib deine Handynummer ein.';
           cancelMsg.style.color = 'var(--color-error)';
           cancelMsg.style.display = 'block';
           return;
         }
 
-        if (!isValidGermanPhone(phone)) {
-          cancelMsg.textContent = 'Bitte gib eine gueltige deutsche Handynummer ein (z.B. +49 151 2345 6789).';
+        if (!isValidGermanMobile(phoneRaw)) {
+          if (isLandline(phoneRaw)) {
+            cancelMsg.textContent = 'FragSMS funktioniert nur mit Mobilfunknummern (015x, 016x, 017x).';
+          } else {
+            cancelMsg.textContent = 'Bitte gib eine gueltige deutsche Handynummer ein (z.B. 151 2345 6789).';
+          }
           cancelMsg.style.color = 'var(--color-error)';
           cancelMsg.style.display = 'block';
           return;
         }
+
+        const phone = normalizePhone(phoneRaw);
 
         if (!confirm('Web-Suche Add-on kuendigen?')) return;
 

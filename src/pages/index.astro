@@ -71,11 +71,12 @@ const breadcrumbJsonLd = {
           <svg class="hero-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
           </svg>
+          <span class="phone-prefix">+49</span>
           <input
             id="phone-input"
             type="tel"
             class="hero-input"
-            placeholder="+49 XXX XXXXXXX"
+            placeholder="151 XXXXXXXX"
             aria-label="Deine Handynummer"
             data-i18n-placeholder="hero_input_placeholder"
           />
@@ -519,6 +520,57 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- ═══════════════════════════════════════════════
+       USE CASES — Real-world scenarios
+  ════════════════════════════════════════════════ -->
+  <section class="pg-section" aria-labelledby="usecases-heading">
+    <div class="container">
+      <div class="section-heading fade-in">
+        <h2 id="usecases-heading"><span data-i18n="uc_title_1">Wann ist</span> <span class="text-gradient" data-i18n="uc_title_2">FragSMS perfekt?</span></h2>
+        <p data-i18n="uc_subtitle">Echte Situationen, in denen FragSMS den Unterschied macht.</p>
+      </div>
+      <div class="usecases-grid">
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#9992;</div>
+          <h3 class="usecase-title" data-i18n="uc1_title">Urlaub ohne Internet</h3>
+          <p class="usecase-desc" data-i18n="uc1_desc">Im Ausland ohne Roaming oder WLAN? Per SMS fragst du nach Restaurants, &Uuml;bersetzungen oder Notfall-Infos &mdash; ganz ohne Datenverbindung.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#128372;</div>
+          <h3 class="usecase-title" data-i18n="uc2_title">Kein Smartphone</h3>
+          <p class="usecase-desc" data-i18n="uc2_desc">Millionen Menschen in Deutschland nutzen kein Smartphone. Mit FragSMS kann jedes Handy, das SMS senden kann, KI nutzen &mdash; auch ein Nokia 3310.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#127966;</div>
+          <h3 class="usecase-title" data-i18n="uc3_title">Auf dem Land</h3>
+          <p class="usecase-desc" data-i18n="uc3_desc">In l&auml;ndlichen Gebieten gibt es oft kein stabiles Internet. SMS funktioniert &uuml;berall, wo es Mobilfunkempfang gibt &mdash; auch ohne 4G oder 5G.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#128242;</div>
+          <h3 class="usecase-title" data-i18n="uc4_title">Datenvolumen aufgebraucht</h3>
+          <p class="usecase-desc" data-i18n="uc4_desc">Monatliches Datenvolumen leer? SMS funktioniert trotzdem. Fakten-Checks, &Uuml;bersetzungen und schnelle Antworten &mdash; ohne einen Cent f&uuml;r Daten.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#128116;</div>
+          <h3 class="usecase-title" data-i18n="uc5_title">Senioren &amp; Technik-Einsteiger</h3>
+          <p class="usecase-desc" data-i18n="uc5_desc">Keine App installieren, kein Passwort merken, kein Account anlegen. Wer eine SMS tippen kann, kann FragSMS nutzen &mdash; ab der ersten Nachricht.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#127959;</div>
+          <h3 class="usecase-title" data-i18n="uc6_title">Auf der Baustelle</h3>
+          <p class="usecase-desc" data-i18n="uc6_desc">Schnell eine Materialberechnung oder Umrechnung brauchen? Per SMS bekommst du sofort Antworten &mdash; auch mit Handschuhen und ohne WLAN.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
        FAQ
   ════════════════════════════════════════════════ -->
   <section class="pg-section" aria-labelledby="faq-heading">
@@ -644,54 +696,6 @@ const breadcrumbJsonLd = {
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       BOTTOM CTA
-  ════════════════════════════════════════════════ -->
-  <section class="cta-section">
-    <div class="container cta-inner">
-      <h2 class="cta-title fade-in" data-i18n="cta_title">Bereit loszulegen?</h2>
-      <p class="cta-sub fade-in" data-i18n="cta_sub">Gib deine Handynummer ein und starte kostenlos &mdash; in 30 Sekunden.</p>
-      <div class="hero-input-wrap fade-in" style="max-width: 560px; margin: 2rem auto 0;">
-        <div class="hero-input-inner" id="phone-wrap-2">
-          <svg class="hero-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
-          </svg>
-          <input id="phone-input-2" type="tel" class="hero-input" placeholder="+49 XXX XXXXXXX" aria-label="Deine Handynummer" data-i18n-placeholder="hero_input_placeholder" />
-          <!-- Honeypot -->
-          <input type="text" name="website_url" id="hp-field-2" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
-          <button class="hero-btn" id="start-btn-2" disabled aria-label="Kostenlos starten">
-            <span data-i18n="hero_btn">Kostenlos starten</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </button>
-        </div>
-        <p class="hero-input-error" id="phone-error-2" aria-live="polite"></p>
-
-        <!-- Consent checkboxes (bottom CTA) -->
-        <div class="signup-checks" id="signup-checks-2">
-          <label class="signup-check">
-            <input type="checkbox" id="privacy-check-2" />
-            <span data-i18n="signup_privacy">Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl&auml;rung</a> zu.</span>
-          </label>
-          <label class="signup-check">
-            <input type="checkbox" id="age-check-2" />
-            <span data-i18n="signup_age">Ich bin mindestens 16 Jahre alt.</span>
-          </label>
-        </div>
-
-        <!-- Turnstile widget (bottom CTA, hidden until real site key is configured)
-        <div id="turnstile-container-2" class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-callback="onTurnstileSuccess2" data-theme="dark"></div>
-        -->
-
-        <!-- Success state (hidden by default) -->
-        <div class="signup-success" id="signup-success-2" style="display:none;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.5" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <p data-i18n="signup_success"><strong>SMS gesendet!</strong> Pr&uuml;fe dein Handy und antworte mit <strong>JA</strong> um dein Konto zu aktivieren.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ═══════════════════════════════════════════════
        PAGE STYLES
@@ -762,6 +766,16 @@ const breadcrumbJsonLd = {
       height: 22px;
       color: var(--color-text-muted);
       flex-shrink: 0;
+    }
+    .phone-prefix {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      flex-shrink: 0;
+      user-select: none;
+      pointer-events: none;
+      letter-spacing: 0.01em;
+      font-family: var(--font-sans);
     }
     .hero-input {
       flex: 1;
@@ -1379,6 +1393,44 @@ const breadcrumbJsonLd = {
     .testimonial-name { font-weight: 700; font-size: 0.88rem; }
     .testimonial-role { font-size: 0.75rem; color: var(--color-text-muted); }
 
+    /* ── Use Cases ───────────────────────────────── */
+    .usecases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+    .usecase-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .usecase-card:hover {
+      border-color: var(--color-primary-border);
+      box-shadow: 0 4px 24px rgba(16, 185, 129, 0.08);
+    }
+    .usecase-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .usecase-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -0.01em;
+    }
+    .usecase-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
     /* ── FAQ ─────────────────────────────────────── */
     .faq-list {
       max-width: 660px;
@@ -1431,24 +1483,6 @@ const breadcrumbJsonLd = {
     .seo-text strong { color: var(--color-text); }
 
     /* ── Bottom CTA ──────────────────────────────── */
-    .cta-section {
-      padding: 6rem 0;
-      background: var(--color-bg-alt);
-      text-align: center;
-      border-top: 1px solid var(--color-border);
-    }
-    .cta-inner { display: flex; flex-direction: column; align-items: center; }
-    .cta-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      margin-bottom: 0.75rem;
-    }
-    .cta-sub {
-      font-size: 1rem;
-      color: var(--color-text-muted);
-      max-width: 480px;
-    }
 
     /* ── Section heading (shared) ────────────────── */
     .section-heading {
@@ -1582,40 +1616,41 @@ const breadcrumbJsonLd = {
 
     // Web signup — phone validation + POST to Worker
     var turnstileToken1 = '';
-    var turnstileToken2 = '';
     window.onTurnstileSuccess = function(token) { turnstileToken1 = token; };
-    window.onTurnstileSuccess2 = function(token) { turnstileToken2 = token; };
 
     (function() {
       var SIGNUP_URL = 'https://sms.fragsms.de/signup';
 
-      var pairs = [
-        {
-          input: 'phone-input', btn: 'start-btn', error: 'phone-error', wrap: 'phone-wrap',
-          privacy: 'privacy-check', age: 'age-check', hp: 'hp-field',
-          success: 'signup-success', checks: 'signup-checks', sub: 'hero-input-sub',
-          getToken: function() { return turnstileToken1; }
-        },
-        {
-          input: 'phone-input-2', btn: 'start-btn-2', error: 'phone-error-2', wrap: 'phone-wrap-2',
-          privacy: 'privacy-check-2', age: 'age-check-2', hp: 'hp-field-2',
-          success: 'signup-success-2', checks: 'signup-checks-2', sub: null,
-          getToken: function() { return turnstileToken2; }
-        }
-      ];
+      var p = {
+        input: 'phone-input', btn: 'start-btn', error: 'phone-error', wrap: 'phone-wrap',
+        privacy: 'privacy-check', age: 'age-check', hp: 'hp-field',
+        success: 'signup-success', checks: 'signup-checks', sub: 'hero-input-sub',
+        getToken: function() { return turnstileToken1; }
+      };
 
       function normalizePhone(raw) {
+        // User only types digits after +49 (the prefix is static in the UI)
         var s = raw.replace(/[\s\-\(\)\.]/g, '');
-        if (s.indexOf('0049') === 0) s = '+49' + s.substring(4);
-        if (s.indexOf('0') === 0 && s.indexOf('+') !== 0) s = '+49' + s.substring(1);
-        return s;
+        // Strip leading zero (user typed 0151... but +49 is already shown)
+        if (s.indexOf('0') === 0) s = s.substring(1);
+        // Strip +49 or 0049 if user pasted a full number
+        if (s.indexOf('+49') === 0) s = s.substring(3);
+        if (s.indexOf('0049') === 0) s = s.substring(4);
+        return '+49' + s;
       }
 
-      function isValidGermanMobile(raw) {
-        if (!raw) return false;
+      function classifyGermanNumber(raw) {
+        // Returns: 'mobile', 'landline', or 'invalid'
+        if (!raw) return 'invalid';
         var n = normalizePhone(raw);
-        var m = n.match(/^\+49(1[5-7]\d)(\d{7,8})$/);
-        return !!m;
+        // Must be +49 followed by 9-12 digits
+        var m = n.match(/^\+49(\d{9,12})$/);
+        if (!m) return 'invalid';
+        var local = m[1];
+        // German mobile prefixes: 15x, 16x, 17x
+        if (/^1[567]/.test(local)) return 'mobile';
+        // Landline prefixes: 02x-09x, 1[0-4]x, 1[89]x, etc.
+        return 'landline';
       }
 
       function getLang() {
@@ -1629,117 +1664,128 @@ const breadcrumbJsonLd = {
         return lang === 'en' ? fallbackEn : fallbackDe;
       }
 
-      function updateBtnState(p) {
+      function updateBtnState() {
         var input = document.getElementById(p.input);
         var btn = document.getElementById(p.btn);
         var privacyCb = document.getElementById(p.privacy);
         var ageCb = document.getElementById(p.age);
         if (!input || !btn) return;
-        var valid = isValidGermanMobile(input.value.trim());
+        var valid = classifyGermanNumber(input.value.trim()) === 'mobile';
         var checked = privacyCb && privacyCb.checked && ageCb && ageCb.checked;
         btn.disabled = !(valid && checked);
       }
 
-      pairs.forEach(function(p) {
-        var input = document.getElementById(p.input);
-        var btn = document.getElementById(p.btn);
-        var errorEl = document.getElementById(p.error);
-        var wrap = document.getElementById(p.wrap);
-        var privacyCb = document.getElementById(p.privacy);
-        var ageCb = document.getElementById(p.age);
-        var hpField = document.getElementById(p.hp);
-        var successEl = document.getElementById(p.success);
-        var checksEl = document.getElementById(p.checks);
-        var subEl = p.sub ? document.getElementById(p.sub) : null;
-        if (!input || !btn) return;
+      var input = document.getElementById(p.input);
+      var btn = document.getElementById(p.btn);
+      var errorEl = document.getElementById(p.error);
+      var wrap = document.getElementById(p.wrap);
+      var privacyCb = document.getElementById(p.privacy);
+      var ageCb = document.getElementById(p.age);
+      var hpField = document.getElementById(p.hp);
+      var successEl = document.getElementById(p.success);
+      var checksEl = document.getElementById(p.checks);
+      var subEl = document.getElementById(p.sub);
+      if (!input || !btn) return;
 
-        var touched = false;
-        var submitting = false; // Prevent double-submit
+      var touched = false;
+      var submitting = false;
 
-        // Update button state on checkbox change
-        if (privacyCb) privacyCb.addEventListener('change', function() { updateBtnState(p); });
-        if (ageCb) ageCb.addEventListener('change', function() { updateBtnState(p); });
+      // Auto-strip leading zero on input
+      input.addEventListener('input', function() {
+        var v = input.value;
+        // If user types or pastes leading zero, strip it
+        if (v.length > 0 && v.charAt(0) === '0') {
+          input.value = v.replace(/^0+/, '');
+          v = input.value;
+        }
+        // If user pasted full +49 or 0049 number, strip prefix
+        var stripped = v.replace(/[\s\-\(\)\.]/g, '');
+        if (stripped.indexOf('+49') === 0) {
+          input.value = stripped.substring(3);
+          v = input.value;
+        } else if (stripped.indexOf('0049') === 0) {
+          input.value = stripped.substring(4);
+          v = input.value;
+        }
 
-        input.addEventListener('input', function() {
-          var raw = input.value.trim();
-          touched = raw.length > 0;
-          var valid = isValidGermanMobile(raw);
+        var raw = v.trim();
+        touched = raw.length > 0;
+        var cls = classifyGermanNumber(raw);
 
-          updateBtnState(p);
+        updateBtnState();
 
-          if (wrap) {
-            wrap.classList.remove('error', 'valid');
-            if (touched && valid) wrap.classList.add('valid');
-            else if (touched && raw.length >= 4 && !valid) wrap.classList.add('error');
+        if (wrap) {
+          wrap.classList.remove('error', 'valid');
+          if (touched && cls === 'mobile') wrap.classList.add('valid');
+          else if (touched && raw.length >= 4 && cls !== 'mobile') wrap.classList.add('error');
+        }
+
+        if (errorEl) {
+          if (touched && raw.length >= 4 && cls === 'landline') {
+            errorEl.textContent = getMsg('phone_error_landline', 'FragSMS funktioniert nur mit Mobilfunknummern (015x, 016x, 017x)', 'FragSMS only works with mobile numbers (015x, 016x, 017x)');
+          } else if (touched && raw.length >= 4 && cls === 'invalid') {
+            errorEl.textContent = getMsg('phone_error_invalid', 'Bitte gib eine gueltige deutsche Handynummer ein', 'Please enter a valid German mobile number');
+          } else {
+            errorEl.textContent = '';
           }
+        }
+      });
 
-          if (errorEl) {
-            if (touched && raw.length >= 4 && !valid) {
-              errorEl.textContent = getMsg('phone_error_invalid', 'Bitte gib eine g\u00fcltige deutsche Handynummer ein', 'Please enter a valid German mobile number');
-            } else {
-              errorEl.textContent = '';
-            }
-          }
-        });
+      if (privacyCb) privacyCb.addEventListener('change', function() { updateBtnState(); });
+      if (ageCb) ageCb.addEventListener('change', function() { updateBtnState(); });
 
-        btn.addEventListener('click', function() {
-          if (submitting) return; // Block double-clicks
-          var raw = input.value.trim();
-          if (!isValidGermanMobile(raw)) return;
-          if (privacyCb && !privacyCb.checked) return;
-          if (ageCb && !ageCb.checked) return;
+      btn.addEventListener('click', function() {
+        if (submitting) return;
+        var raw = input.value.trim();
+        if (classifyGermanNumber(raw) !== 'mobile') return;
+        if (privacyCb && !privacyCb.checked) return;
+        if (ageCb && !ageCb.checked) return;
 
-          submitting = true; // Lock immediately
-          var normalized = normalizePhone(raw);
+        submitting = true;
+        var normalized = normalizePhone(raw);
 
-          // Show loading state
-          btn.classList.add('loading');
-          btn.disabled = true;
-          if (errorEl) errorEl.textContent = '';
+        btn.classList.add('loading');
+        btn.disabled = true;
+        if (errorEl) errorEl.textContent = '';
 
-          var payload = {
-            phone: normalized,
-            turnstile_token: p.getToken(),
-            website_url: hpField ? hpField.value : ''
-          };
+        var payload = {
+          phone: normalized,
+          turnstile_token: p.getToken(),
+          website_url: hpField ? hpField.value : ''
+        };
 
-          fetch(SIGNUP_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          })
-          .then(function(res) { return res.json().then(function(data) { return { ok: res.ok, data: data }; }); })
-          .then(function(result) {
-            btn.classList.remove('loading');
-            if (result.ok && result.data.success) {
-              // Show success state, hide form elements
-              if (wrap) wrap.style.display = 'none';
-              if (checksEl) checksEl.style.display = 'none';
-              if (subEl) subEl.style.display = 'none';
-              if (errorEl) errorEl.style.display = 'none';
-              if (successEl) successEl.style.display = 'flex';
+        fetch(SIGNUP_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(function(res) { return res.json().then(function(data) { return { ok: res.ok, data: data }; }); })
+        .then(function(result) {
+          btn.classList.remove('loading');
+          if (result.ok && result.data.success) {
+            if (wrap) wrap.style.display = 'none';
+            if (checksEl) checksEl.style.display = 'none';
+            if (subEl) subEl.style.display = 'none';
+            if (errorEl) errorEl.style.display = 'none';
+            if (successEl) successEl.style.display = 'flex';
 
-              if (result.data.already_active) {
-                // User is already active
-                if (successEl) {
-                  var msgP = successEl.querySelector('p');
-                  if (msgP) msgP.innerHTML = getMsg('signup_already_active', 'Du bist bereits angemeldet! Sende einfach eine SMS an diese Nummer.', 'You are already signed up! Just send an SMS to this number.');
-                }
+            if (result.data.already_active) {
+              if (successEl) {
+                var msgP = successEl.querySelector('p');
+                if (msgP) msgP.innerHTML = getMsg('signup_already_active', 'Du bist bereits angemeldet! Sende einfach eine SMS an diese Nummer.', 'You are already signed up! Just send an SMS to this number.');
               }
-              // Keep submitting=true on success — form is hidden, no further clicks possible
-            } else {
-              // Show error, allow retry
-              submitting = false;
-              if (errorEl) errorEl.textContent = result.data.error || getMsg('signup_error', 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.', 'An error occurred. Please try again.');
-              updateBtnState(p);
             }
-          })
-          .catch(function() {
-            btn.classList.remove('loading');
-            submitting = false; // Allow retry on network error
-            if (errorEl) errorEl.textContent = getMsg('signup_error', 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.', 'An error occurred. Please try again.');
-            updateBtnState(p);
-          });
+          } else {
+            submitting = false;
+            if (errorEl) errorEl.textContent = result.data.error || getMsg('signup_error', 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.', 'An error occurred. Please try again.');
+            updateBtnState();
+          }
+        })
+        .catch(function() {
+          btn.classList.remove('loading');
+          submitting = false;
+          if (errorEl) errorEl.textContent = getMsg('signup_error', 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.', 'An error occurred. Please try again.');
+          updateBtnState();
         });
       });
     })();
@@ -1753,7 +1799,7 @@ const breadcrumbJsonLd = {
         hero_title_1: 'Dein KI-Assistent.',
         hero_title_2: 'Per SMS.',
         hero_subtitle: 'Wie ChatGPT \u2014 aber per SMS. Kein App, kein Internet, kein Login. Einfach fragen.',
-        hero_input_placeholder: '+49 XXX XXXXXXX',
+        hero_input_placeholder: '151 XXXXXXXX',
         hero_btn: 'Kostenlos starten',
         hero_input_sub: '10 kostenlose Nachrichten pro Monat \u2014 kein Abo, kein Risiko',
         stat1: 'DSGVO-konform',
@@ -1821,6 +1867,14 @@ const breadcrumbJsonLd = {
         review2_role: 'Handwerker, 45 \u2014 Eifel',
         review3_text: '\u201eNutze es wenn mein Datenvolumen aufgebraucht ist. Schnelle Fakten-Checks, \u00dcbersetzungen, Mathe-Hilfe \u2014 alles per SMS. Dass es DSGVO-konform ist, finde ich richtig gut.\u201c',
         review3_role: 'Studentin, 23 \u2014 Berlin',
+        uc_title_1: 'Wann ist', uc_title_2: 'FragSMS perfekt?',
+        uc_subtitle: 'Echte Situationen, in denen FragSMS den Unterschied macht.',
+        uc1_title: 'Urlaub ohne Internet', uc1_desc: 'Im Ausland ohne Roaming oder WLAN? Per SMS fragst du nach Restaurants, \u00dcbersetzungen oder Notfall-Infos \u2014 ganz ohne Datenverbindung.',
+        uc2_title: 'Kein Smartphone', uc2_desc: 'Millionen Menschen in Deutschland nutzen kein Smartphone. Mit FragSMS kann jedes Handy, das SMS senden kann, KI nutzen \u2014 auch ein Nokia 3310.',
+        uc3_title: 'Auf dem Land', uc3_desc: 'In l\u00e4ndlichen Gebieten gibt es oft kein stabiles Internet. SMS funktioniert \u00fcberall, wo es Mobilfunkempfang gibt \u2014 auch ohne 4G oder 5G.',
+        uc4_title: 'Datenvolumen aufgebraucht', uc4_desc: 'Monatliches Datenvolumen leer? SMS funktioniert trotzdem. Fakten-Checks, \u00dcbersetzungen und schnelle Antworten \u2014 ohne einen Cent f\u00fcr Daten.',
+        uc5_title: 'Senioren & Technik-Einsteiger', uc5_desc: 'Keine App installieren, kein Passwort merken, kein Account anlegen. Wer eine SMS tippen kann, kann FragSMS nutzen \u2014 ab der ersten Nachricht.',
+        uc6_title: 'Auf der Baustelle', uc6_desc: 'Schnell eine Materialberechnung oder Umrechnung brauchen? Per SMS bekommst du sofort Antworten \u2014 auch mit Handschuhen und ohne WLAN.',
         faq_title_1: 'H\u00e4ufige Fragen zu',
         faq1_q: 'Brauche ich ein Smartphone f\u00fcr FragSMS?', faq1_a: 'Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann \u2014 auch mit \u00e4lteren Feature Phones und Prepaid-Handys.',
         faq2_q: 'Brauche ich Internet oder WLAN?', faq2_a: 'Nein. SMS funktioniert \u00fcber das Mobilfunknetz \u2014 kein WLAN, kein Datenplan und keine App n\u00f6tig.',
@@ -1836,7 +1890,8 @@ const breadcrumbJsonLd = {
         signup_already_active: 'Du bist bereits angemeldet! Sende einfach eine SMS an diese Nummer.',
         signup_error: 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.',
         signup_checkbox_required: 'Bitte stimme den Nutzungsbedingungen und der Datenschutzerkl\u00e4rung zu.',
-        phone_error_invalid: 'Bitte gib eine g\u00fcltige deutsche Handynummer ein',
+        phone_error_invalid: 'Bitte gib eine gueltige deutsche Handynummer ein',
+        phone_error_landline: 'FragSMS funktioniert nur mit Mobilfunknummern (015x, 016x, 017x)',
         about_title: 'ChatGPT per SMS nutzen \u2014 so geht\'s in',
         about_title_2: 'Deutschland',
         about_p1: 'Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber was, wenn du kein Smartphone hast? <strong>FragSMS</strong> macht k\u00fcnstliche Intelligenz per SMS zug\u00e4nglich \u2014 f\u00fcr jeden, mit jedem Handy.',
@@ -1861,7 +1916,7 @@ const breadcrumbJsonLd = {
         hero_title_1: 'Your AI Assistant.',
         hero_title_2: 'Via SMS.',
         hero_subtitle: 'Like ChatGPT \u2014 but via text. No app, no internet, no login. Just ask.',
-        hero_input_placeholder: '+49 XXX XXXXXXX',
+        hero_input_placeholder: '151 XXXXXXXX',
         hero_btn: 'Start for free',
         hero_input_sub: '10 free messages per month \u2014 no subscription, no risk',
         stat1: 'GDPR Compliant',
@@ -1929,6 +1984,14 @@ const breadcrumbJsonLd = {
         review2_role: 'Craftsman, 45 \u2014 Eifel',
         review3_text: '\u201cI use it when my data plan runs out. Quick fact-checks, translations, math help \u2014 all via SMS. That it\'s GDPR compliant is a real plus.\u201d',
         review3_role: 'Student, 23 \u2014 Berlin',
+        uc_title_1: 'When is', uc_title_2: 'FragSMS perfect?',
+        uc_subtitle: 'Real situations where FragSMS makes the difference.',
+        uc1_title: 'Vacation without internet', uc1_desc: 'Abroad without roaming or WiFi? Via SMS you can ask for restaurants, translations or emergency info \u2014 no data connection needed.',
+        uc2_title: 'No smartphone', uc2_desc: 'Millions of people in Germany don\'t use a smartphone. With FragSMS, any phone that can send SMS can use AI \u2014 even a Nokia 3310.',
+        uc3_title: 'In rural areas', uc3_desc: 'In rural areas there is often no stable internet. SMS works everywhere there is mobile reception \u2014 even without 4G or 5G.',
+        uc4_title: 'Data plan used up', uc4_desc: 'Monthly data plan empty? SMS still works. Fact-checks, translations and quick answers \u2014 without spending a cent on data.',
+        uc5_title: 'Seniors & tech beginners', uc5_desc: 'No app to install, no password to remember, no account to create. If you can type a text, you can use FragSMS \u2014 from the very first message.',
+        uc6_title: 'On the construction site', uc6_desc: 'Need a quick material calculation or conversion? Via SMS you get instant answers \u2014 even with gloves on and no WiFi.',
         faq_title_1: 'Frequently asked questions about',
         faq1_q: 'Do I need a smartphone for FragSMS?', faq1_a: 'No. FragSMS works with any phone that can send SMS \u2014 including older feature phones.',
         faq2_q: 'Do I need internet or WiFi?', faq2_a: 'No. SMS works via the mobile network \u2014 no WiFi, no data plan, no app needed.',
@@ -1945,6 +2008,7 @@ const breadcrumbJsonLd = {
         signup_error: 'An error occurred. Please try again.',
         signup_checkbox_required: 'Please agree to the Terms of Service and Privacy Policy.',
         phone_error_invalid: 'Please enter a valid German mobile number',
+        phone_error_landline: 'FragSMS only works with mobile numbers (015x, 016x, 017x)',
         about_title: 'Use ChatGPT via SMS \u2014 here\'s how in',
         about_title_2: 'Germany',
         about_p1: 'Millions of people in Germany already use AI assistants like ChatGPT. But what if you don\'t have a smartphone? <strong>FragSMS</strong> makes AI accessible via SMS \u2014 for everyone, with any phone.',
