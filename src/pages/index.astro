@@ -10,7 +10,7 @@ const faqJsonLd = {
     { "@type": "Question", "name": "Kann ich ChatGPT per SMS nutzen?", "acceptedAnswer": { "@type": "Answer", "text": "Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen - ähnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort erhalten." } },
     { "@type": "Question", "name": "Wie kündige ich mein FragSMS Abo?", "acceptedAnswer": { "@type": "Answer", "text": "Sende einfach STOP per SMS oder nutze den 'Jetzt kündigen' Button auf fragsms.de/upgrade. Die Kündigung ist sofort wirksam, ohne Wartezeit." } },
     { "@type": "Question", "name": "Sind meine Daten bei FragSMS sicher?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Alle Daten werden ausschließlich auf EU-Servern gespeichert. Deine Telefonnummer wird per SHA-256 verschlüsselt und nie im Klartext gespeichert. FragSMS ist vollständig DSGVO-konform." } },
-    { "@type": "Question", "name": "Was kostet FragSMS?", "acceptedAnswer": { "@type": "Answer", "text": "FragSMS bietet einen kostenlosen Tarif mit 50 Nachrichten pro Monat. Plus kostet 4,99 EUR/Monat (50 Nachrichten, inkl. Web-Suche) und Flat kostet 14,99 EUR/Monat (1000 Nachrichten, inkl. Web-Suche). Alle Preise sind Endpreise." } }
+    { "@type": "Question", "name": "Was kostet FragSMS?", "acceptedAnswer": { "@type": "Answer", "text": "FragSMS bietet einen kostenlosen Tarif mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus kostet 4,99 EUR/Monat (50 Nachrichten, mehr Verlauf) und Flat kostet 14,99 EUR/Monat (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise." } }
   ]
 };
 
@@ -386,6 +386,7 @@ const breadcrumbJsonLd = {
             <li><span class="check">&#10003;</span> <span data-i18n="free_f1">50 Nachrichten / Monat</span></li>
             <li><span class="check">&#10003;</span> <span data-i18n="free_f2">Kein Account n&ouml;tig</span></li>
             <li><span class="check">&#10003;</span> <span data-i18n="free_f3">3 Gespr&auml;chsrunden</span></li>
+            <li><span class="check">&#10003;</span> <span data-i18n="free_f4">Web-Suche inklusive</span></li>
           </ul>
           <span class="btn-secondary pc-btn" data-i18n="free_cta">Einfach SMS senden</span>
         </article>
@@ -605,7 +606,7 @@ const breadcrumbJsonLd = {
             <span class="faq-icon">+</span>
           </summary>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text" data-i18n="faq6_a">FragSMS startet kostenlos mit 50 Nachrichten pro Monat. Plus 4,99 &euro;/Monat (50 Nachrichten, inkl. Web-Suche), Flat 14,99 &euro;/Monat (1000 Nachrichten, inkl. Web-Suche). Alle Preise sind Endpreise.</p>
+            <p itemprop="text" data-i18n="faq6_a">FragSMS startet kostenlos mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus 4,99 &euro;/Monat (50 Nachrichten, mehr Verlauf), Flat 14,99 &euro;/Monat (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise.</p>
           </div>
         </details>
 
@@ -1829,7 +1830,7 @@ const breadcrumbJsonLd = {
         pricing_title: 'Preise',
         pricing_subtitle: 'Kostenlos starten. Jederzeit upgraden. Jederzeit k\u00fcndbar.',
         price_per_month: 'pro Monat',
-        free_f1: '50 Nachrichten / Monat', free_f2: 'Kein Account n\u00f6tig', free_f3: '3 Gespr\u00e4chsrunden', free_cta: 'Einfach SMS senden',
+        free_f1: '50 Nachrichten / Monat', free_f2: 'Kein Account n\u00f6tig', free_f3: '3 Gespr\u00e4chsrunden', free_f4: 'Web-Suche inklusive', free_cta: 'Einfach SMS senden',
         plus_f1: '50 Nachrichten / Monat', plus_f2: 'Web-Suche inklusive', plus_f3: 'Gespr\u00e4chsverlauf (20 Nachr.)', plus_f4: 'Priorit\u00e4ts-Antworten',
         flat_f1: '1000 Nachrichten / Monat', flat_f2: 'Web-Suche inklusive', flat_f3: 'Gespr\u00e4chsverlauf (50 Nachr.)', flat_f4: 'Priorit\u00e4ts-Antworten',
         btn_upgrade: 'Jetzt upgraden', badge_popular: 'Beliebt',
@@ -1856,7 +1857,7 @@ const breadcrumbJsonLd = {
         faq3_q: 'Kann ich ChatGPT per SMS nutzen?', faq3_a: 'Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen \u2014 \u00e4hnlich wie ChatGPT, aber ohne App und ohne Internet.',
         faq4_q: 'Wie k\u00fcndige ich mein Abo?', faq4_a: 'Sende STOP per SMS oder nutze den "Jetzt k\u00fcndigen" Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.',
         faq5_q: 'Sind meine Daten sicher?', faq5_a: 'Ja. Alle Daten werden ausschlie\u00dflich in der EU gespeichert. Vollst\u00e4ndig DSGVO-konform.',
-        faq6_q: 'Was kostet FragSMS?', faq6_a: 'FragSMS startet kostenlos mit 50 Nachrichten pro Monat. Plus 4,99 \u20ac/Monat (50 Nachrichten, inkl. Web-Suche), Flat 14,99 \u20ac/Monat (1000 Nachrichten, inkl. Web-Suche). Alle Preise sind Endpreise.',
+        faq6_q: 'Was kostet FragSMS?', faq6_a: 'FragSMS startet kostenlos mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus 4,99 \u20ac/Monat (50 Nachrichten, mehr Verlauf), Flat 14,99 \u20ac/Monat (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise.',
         cta_title: 'Bereit loszulegen?',
         cta_sub: 'Gib deine Handynummer ein und starte kostenlos \u2014 in 30 Sekunden.',
         signup_privacy: 'Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl\u00e4rung</a> zu.',
@@ -1944,7 +1945,7 @@ const breadcrumbJsonLd = {
         pricing_title: 'Pricing',
         pricing_subtitle: 'Start free. Upgrade anytime. Cancel anytime.',
         price_per_month: 'per month',
-        free_f1: '50 messages / month', free_f2: 'No account needed', free_f3: '3 conversation turns', free_cta: 'Just send an SMS',
+        free_f1: '50 messages / month', free_f2: 'No account needed', free_f3: '3 conversation turns', free_f4: 'Web search included', free_cta: 'Just send an SMS',
         plus_f1: '50 messages / month', plus_f2: 'Web search included', plus_f3: 'Conversation history (20 msgs)', plus_f4: 'Priority answers',
         flat_f1: '1000 messages / month', flat_f2: 'Web search included', flat_f3: 'Conversation history (50 msgs)', flat_f4: 'Priority answers',
         btn_upgrade: 'Upgrade now', badge_popular: 'Popular',
@@ -1971,7 +1972,7 @@ const breadcrumbJsonLd = {
         faq3_q: 'Can I use ChatGPT via SMS?', faq3_a: 'With FragSMS you can use an AI assistant via SMS \u2014 similar to ChatGPT, but without an app or internet.',
         faq4_q: 'How do I cancel my subscription?', faq4_a: 'Send STOP via SMS or use the "Cancel now" button at fragsms.de/upgrade. Effective immediately.',
         faq5_q: 'Is my data secure?', faq5_a: 'Yes. All data is stored exclusively in the EU. Fully GDPR compliant.',
-        faq6_q: 'How much does FragSMS cost?', faq6_a: 'FragSMS starts free with 50 messages/month. Plus \u20ac4.99/month (50 messages, incl. web search), Flat \u20ac14.99/month (1000 messages, incl. web search). All prices are final.',
+        faq6_q: 'How much does FragSMS cost?', faq6_a: 'FragSMS starts free with 50 messages/month incl. web search. Plus \u20ac4.99/month (50 messages, more history), Flat \u20ac14.99/month (1000 messages, maximum history). All prices are final.',
         cta_title: 'Ready to get started?',
         cta_sub: 'Enter your mobile number and start for free \u2014 in 30 seconds.',
         signup_privacy: 'I agree to the <a href="/nutzungsbedingungen/" target="_blank">Terms of Service</a> and <a href="/datenschutz/" target="_blank">Privacy Policy</a>.',
