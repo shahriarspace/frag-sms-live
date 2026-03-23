@@ -9,7 +9,7 @@ const faqJsonLd = {
     { "@type": "Question", "name": "Brauche ich Internet oder WLAN für FragSMS?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. FragSMS funktioniert komplett über SMS im Mobilfunknetz. Kein WLAN, kein Datenplan und keine App nötig." } },
     { "@type": "Question", "name": "Kann ich ChatGPT per SMS nutzen?", "acceptedAnswer": { "@type": "Answer", "text": "Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen - ähnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort erhalten." } },
     { "@type": "Question", "name": "Wie kündige ich mein FragSMS Abo?", "acceptedAnswer": { "@type": "Answer", "text": "Sende einfach STOP per SMS oder nutze den 'Jetzt kündigen' Button auf fragsms.de/upgrade. Die Kündigung ist sofort wirksam, ohne Wartezeit." } },
-    { "@type": "Question", "name": "Sind meine Daten bei FragSMS sicher?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Alle Daten werden ausschließlich auf EU-Servern gespeichert. Deine Telefonnummer wird per SHA-256 verschlüsselt und nie im Klartext gespeichert. FragSMS ist vollständig DSGVO-konform." } },
+    { "@type": "Question", "name": "Sind meine Daten bei FragSMS sicher?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. FragSMS erkennt persoenliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch und blockiert die Nachricht, bevor sie die KI erreicht. Alle Daten werden ausschliesslich auf EU-Servern gespeichert. Deine Telefonnummer wird per SHA-256 verschluesselt und nie im Klartext gespeichert. FragSMS ist vollstaendig DSGVO-konform." } },
     { "@type": "Question", "name": "Was kostet FragSMS?", "acceptedAnswer": { "@type": "Answer", "text": "FragSMS bietet einen kostenlosen Tarif mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus kostet 4,99 EUR/Monat (50 Nachrichten, mehr Verlauf) und Flat kostet 14,99 EUR/Monat (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise." } }
   ]
 };
@@ -140,8 +140,8 @@ const breadcrumbJsonLd = {
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item fade-in">
-        <span class="stat-num">&lt;5s</span>
-        <span class="stat-label" data-i18n="stat4">Antwortzeit</span>
+        <span class="stat-num">7</span>
+        <span class="stat-label" data-i18n="stat4">PII-Typen erkannt</span>
       </div>
     </div>
   </section>
@@ -192,6 +192,11 @@ const breadcrumbJsonLd = {
               <div class="sms-bubble sms-sent" data-i18n="sms_q_5">Aktuelle Nachrichten von Bild?</div>
               <div class="sms-bubble sms-received" data-i18n="sms_a_5">Iran-Israel Konflikt eskaliert &mdash; Gaspreise +35%. Gletscher schmelzen bis 2030er. 1/3 Kliniken vor Insolvenz. VW zahlt Boni. Nagelsmann w&auml;hlt DFB-Team. bild.de</div>
             </div>
+            <div class="sms-conversation" data-conv="6">
+              <div class="sms-label" data-i18n="sms_label_6">Datenschutz</div>
+              <div class="sms-bubble sms-sent" data-i18n="sms_q_6">Schick meine IBAN DE89370400440532013000 an meinen Steuerberater</div>
+              <div class="sms-bubble sms-received sms-privacy-warn" data-i18n="sms_a_6">Deine Nachricht enth&auml;lt pers&ouml;nliche Daten (IBAN). Bitte sende keine sensiblen Infos per SMS. Formuliere deine Frage ohne IBAN neu.</div>
+            </div>
           </div>
           <div class="phone-dots">
             <button class="dot active" data-dot="0" aria-label="Beispiel 1"></button>
@@ -200,6 +205,7 @@ const breadcrumbJsonLd = {
             <button class="dot" data-dot="3" aria-label="Beispiel 4"></button>
             <button class="dot" data-dot="4" aria-label="Beispiel 5"></button>
             <button class="dot" data-dot="5" aria-label="Beispiel 6"></button>
+            <button class="dot" data-dot="6" aria-label="Beispiel 7"></button>
           </div>
         </div>
       </div>
@@ -301,6 +307,17 @@ const breadcrumbJsonLd = {
       <!-- Left: Privacy visual -->
       <div class="sb-media fade-in">
         <div class="privacy-card">
+          <div class="privacy-row privacy-row--highlight">
+            <div class="privacy-icon privacy-icon--shield">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <div class="privacy-label" data-i18n="pv_pii_title">Identit&auml;tsschutz</div>
+              <div class="privacy-sub" data-i18n="pv_pii_sub">Telefon, E-Mail, IBAN &mdash; automatisch blockiert</div>
+            </div>
+            <div class="privacy-badge ok" data-i18n="pv_ok_pii">&#10003; Aktiv</div>
+          </div>
+          <div class="privacy-divider"></div>
           <div class="privacy-row">
             <div class="privacy-icon">
               <svg viewBox="0 0 810 540" width="32" height="22"><rect width="810" height="540" fill="#003399"/><g fill="#FC0" transform="translate(405,270)"><g id="fs12b"><g id="fs6b"><g id="fs2b"><path id="fs1b" d="M0,-120 11.2,-36.9 95.1,-73.1 36.9,-11.2 73.1,-95.1 0,-33.5 -73.1,-95.1 -36.9,-11.2 -95.1,-73.1 -11.2,-36.9z"/><use href="#fs1b" transform="rotate(30)"/></g><use href="#fs2b" transform="rotate(60)"/></g><use href="#fs6b" transform="rotate(180)"/></g></g></svg>
@@ -317,7 +334,7 @@ const breadcrumbJsonLd = {
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             </div>
             <div>
-              <div class="privacy-label" data-i18n="pv_enc_title">SHA-256 Verschlüsselung</div>
+              <div class="privacy-label" data-i18n="pv_enc_title">SHA-256 Verschl&uuml;sselung</div>
               <div class="privacy-sub" data-i18n="pv_enc_sub">Nummer nie im Klartext</div>
             </div>
             <div class="privacy-badge ok" data-i18n="pv_ok2">&#10003; Aktiv</div>
@@ -328,7 +345,7 @@ const breadcrumbJsonLd = {
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
             </div>
             <div>
-              <div class="privacy-label" data-i18n="pv_del_title">STOP = Sofortlöschung</div>
+              <div class="privacy-label" data-i18n="pv_del_title">STOP = Sofortl&ouml;schung</div>
               <div class="privacy-sub" data-i18n="pv_del_sub">Kein Tracking, kein Profiling</div>
             </div>
             <div class="privacy-badge ok" data-i18n="pv_ok3">&#10003; Aktiv</div>
@@ -340,7 +357,7 @@ const breadcrumbJsonLd = {
             </div>
             <div>
               <div class="privacy-label" data-i18n="pv_pay_title">Sichere Zahlung</div>
-              <div class="privacy-sub" data-i18n="pv_pay_sub">Stripe · SEPA · PayPal</div>
+              <div class="privacy-sub" data-i18n="pv_pay_sub">Stripe &middot; SEPA &middot; PayPal</div>
             </div>
             <div class="privacy-badge ok" data-i18n="pv_ok4">&#10003; Aktiv</div>
           </div>
@@ -349,17 +366,17 @@ const breadcrumbJsonLd = {
 
       <!-- Right: Text -->
       <div class="sb-text fade-in">
-        <span class="pill" data-i18n="sb3_pill">Datenschutz &amp; Sicherheit</span>
-        <h2 class="sb-title" id="features-heading" data-i18n="sb3_title">Deine Daten.<br>In Europa. Sicher.</h2>
+        <span class="pill" data-i18n="sb3_pill">Privacy First</span>
+        <h2 class="sb-title" id="features-heading" data-i18n="sb3_title">Wir sch&uuml;tzen<br>deine Identit&auml;t.</h2>
         <p class="sb-desc" data-i18n="sb3_desc">
-          Alle Daten werden ausschließlich auf EU-Servern gespeichert.
-          Deine Telefonnummer wird per SHA-256 verschlüsselt und nie im Klartext abgelegt.
-          Vollständig DSGVO-konform &mdash; von Anfang an.
+          FragSMS erkennt pers&ouml;nliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch &mdash;
+          und blockiert die Nachricht, <strong>bevor</strong> sie die KI erreicht. Keine Kosten, kein Risiko.
+          Dazu: EU-Server, SHA-256-Verschl&uuml;sselung, kein Tracking.
         </p>
         <ul class="sb-list">
-          <li><span class="check">&#10003;</span> <span data-i18n="sb3_l1">100% EU-Datenspeicherung</span></li>
-          <li><span class="check">&#10003;</span> <span data-i18n="sb3_l2">Kein Tracking, kein Profiling</span></li>
-          <li><span class="check">&#10003;</span> <span data-i18n="sb3_l3">14 Tage Widerrufsrecht</span></li>
+          <li><span class="check">&#10003;</span> <span data-i18n="sb3_l1">Automatische PII-Erkennung &amp; Blockierung</span></li>
+          <li><span class="check">&#10003;</span> <span data-i18n="sb3_l2">100% EU-Datenspeicherung, DSGVO-konform</span></li>
+          <li><span class="check">&#10003;</span> <span data-i18n="sb3_l3">STOP senden = alle Daten sofort gel&ouml;scht</span></li>
         </ul>
       </div>
 
@@ -596,7 +613,7 @@ const breadcrumbJsonLd = {
             <span class="faq-icon">+</span>
           </summary>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text" data-i18n="faq5_a">Ja. Alle Daten werden ausschließlich in der EU gespeichert. Deine Telefonnummer wird per SHA-256 verschlüsselt. Vollständig DSGVO-konform.</p>
+            <p itemprop="text" data-i18n="faq5_a">Ja. FragSMS erkennt pers&ouml;nliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch und blockiert die Nachricht, bevor sie die KI erreicht. Dazu: alle Daten ausschlie&szlig;lich in der EU, Telefonnummer per SHA-256 verschl&uuml;sselt, kein Tracking, kein Profiling. Vollst&auml;ndig DSGVO-konform.</p>
           </div>
         </details>
 
@@ -625,7 +642,7 @@ const breadcrumbJsonLd = {
       <div class="fade-in seo-text">
         <p data-i18n="about_p1">Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber was, wenn du kein Smartphone hast? Kein Internet? Oder einfach keine App installieren möchtest? <strong>FragSMS</strong> macht künstliche Intelligenz per SMS zugänglich &mdash; für jeden, mit jedem Handy.</p>
         <p data-i18n="about_p2">Ob du Fragen zur Allgemeinbildung hast, einen Text übersetzen lassen möchtest, Kochrezepte brauchst oder Hilfe beim Formulieren von Nachrichten suchst &mdash; FragSMS antwortet in Sekunden, komplett auf Deutsch.</p>
-        <p data-i18n="about_p3"><strong>Ideal für Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong>Perfekt für ländliche Gebiete</strong>, in denen mobiles Internet schlecht verfügbar ist. Und <strong style="color:var(--color-primary)">100% DSGVO-konform</strong>: Alle Daten werden auf EU-Servern gespeichert.</p>
+        <p data-i18n="about_p3"><strong>Ideal f&uuml;r Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong>Perfekt f&uuml;r l&auml;ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf&uuml;gbar ist. Und <strong style="color:var(--color-primary)">100% DSGVO-konform</strong>: Alle Daten auf EU-Servern, automatische Erkennung und Blockierung pers&ouml;nlicher Daten (Telefonnummern, E-Mails, IBANs) &mdash; bevor die KI sie sieht.</p>
       </div>
     </div>
   </section>
@@ -1220,6 +1237,24 @@ const breadcrumbJsonLd = {
       height: 1px;
       background: var(--color-border);
       margin: 1rem 0;
+    }
+    .privacy-row--highlight {
+      background: var(--color-primary-glow);
+      border-radius: 12px;
+      padding: 0.75rem;
+      margin: -0.5rem -0.5rem 0 -0.5rem;
+    }
+    .privacy-icon--shield {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .privacy-icon--shield svg {
+      stroke: var(--color-btn-text);
+    }
+    .sms-privacy-warn {
+      background: rgba(239,68,68,0.1) !important;
+      border-color: rgba(239,68,68,0.3) !important;
+      color: var(--color-text) !important;
     }
 
     /* ── Pricing ─────────────────────────────────── */
