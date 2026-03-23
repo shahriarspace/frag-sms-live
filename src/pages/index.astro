@@ -405,7 +405,7 @@ const breadcrumbJsonLd = {
     </div>
 
     <!-- Checklist -->
-    <div class="container flow-checklist fade-in">
+    <div class="container flow-checklist fade-in-chain">
       <ul class="sb-list">
         <li><span class="check">&#10003;</span> <span data-i18n="sb3_l1">Automatische PII-Erkennung &amp; Blockierung</span></li>
         <li><span class="check">&#10003;</span> <span data-i18n="sb3_l2">100% EU-Datenspeicherung, DSGVO-konform</span></li>
@@ -414,7 +414,7 @@ const breadcrumbJsonLd = {
     </div>
 
     <!-- ── SMS vs App/Web comparison ── -->
-    <div class="container flow-heading flow-heading--compare fade-in">
+    <div class="container flow-heading flow-heading--compare fade-in-chain">
       <h3 class="sb-title flow-compare-title" data-i18n="cmp_title">Warum SMS<br>sicherer ist.</h3>
       <p class="sb-desc" data-i18n="cmp_desc">
         App- und Web-basierte KI sammelt Dutzende Datenpunkte &uuml;ber dich.
@@ -1572,6 +1572,18 @@ const breadcrumbJsonLd = {
         transform: translateY(0);
       }
     }
+
+    /* Chained fade-in (triggered by JS after first diagram finishes) */
+    .fade-in-chain {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-in-chain.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .flow-diagram > .flow-col,
     .flow-diagram > .flow-h-arrow {
       opacity: 0;

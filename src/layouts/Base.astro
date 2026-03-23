@@ -676,16 +676,36 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
 
       document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
 
-      // Staggered slide-in observer for flow diagrams
-      const flowObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
+      // Staggered slide-in observer for flow diagrams — sequential reveal
+      var flowObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('flow-visible');
             flowObserver.unobserve(entry.target);
+
+            // After first diagram finishes (9 children x 100ms + 500ms anim),
+            // chain: checklist -> comparison heading -> comparison diagram
+            if (entry.target.classList.contains('flow-diagram')) {
+              var section = entry.target.closest('.flow-section');
+              if (section) {
+                var checklist = section.querySelector('.flow-checklist');
+                var cmpHeading = section.querySelector('.flow-heading--compare');
+                var cmpDiagram = section.querySelector('.flow-compare');
+                if (checklist) {
+                  setTimeout(function() { checklist.classList.add('visible'); }, 900);
+                }
+                if (cmpHeading) {
+                  setTimeout(function() { cmpHeading.classList.add('visible'); }, 1200);
+                }
+                if (cmpDiagram) {
+                  setTimeout(function() { cmpDiagram.classList.add('flow-visible'); }, 1500);
+                }
+              }
+            }
           }
         });
       }, { threshold: 0.15 });
-      document.querySelectorAll('.flow-diagram, .flow-compare').forEach((el) => flowObserver.observe(el));
+      document.querySelectorAll('.flow-diagram').forEach(function(el) { flowObserver.observe(el); });
     </script>
 
     <!-- Language switcher logic -->
