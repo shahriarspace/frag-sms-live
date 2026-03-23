@@ -675,6 +675,17 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       }, { threshold: 0.1 });
 
       document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+      // Staggered slide-in observer for flow diagrams
+      const flowObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('flow-visible');
+            flowObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.flow-diagram, .flow-compare').forEach((el) => flowObserver.observe(el));
     </script>
 
     <!-- Language switcher logic -->
