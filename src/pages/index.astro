@@ -310,35 +310,35 @@ const breadcrumbJsonLd = {
           <!-- Step 1: User sends SMS -->
           <div class="flow-step">
             <div class="flow-node flow-node--user">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-              <span>SMS empfangen</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <span data-i18n="flow_sms">SMS empfangen</span>
             </div>
             <div class="flow-detail">
               <code>+4915905817629</code>
-              <span class="flow-detail-label">Deine Nummer</span>
+              <span class="flow-detail-label" data-i18n="flow_sms_sub">Deine Nummer</span>
             </div>
           </div>
 
           <div class="flow-arrow">
-            <svg width="2" height="32" viewBox="0 0 2 32"><line x1="1" y1="0" x2="1" y2="32" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
+            <svg width="2" height="36" viewBox="0 0 2 36"><line x1="1" y1="0" x2="1" y2="36" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
           </div>
 
           <!-- Step 2: PII Scanner -->
           <div class="flow-step">
             <div class="flow-node flow-node--shield">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-              <span>PII-Scanner</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+              <span data-i18n="flow_pii">PII-Scanner</span>
             </div>
             <div class="flow-detail flow-detail--scan">
               <div class="flow-scan-items">
-                <span class="flow-scan-tag">Telefon</span>
-                <span class="flow-scan-tag">E-Mail</span>
-                <span class="flow-scan-tag">IBAN</span>
-                <span class="flow-scan-tag">Kreditkarte</span>
-                <span class="flow-scan-tag">Steuer-ID</span>
-                <span class="flow-scan-tag">Geburtsdatum</span>
+                <span class="flow-scan-tag" data-i18n="flow_tag_phone">Telefon</span>
+                <span class="flow-scan-tag" data-i18n="flow_tag_email">E-Mail</span>
+                <span class="flow-scan-tag" data-i18n="flow_tag_iban">IBAN</span>
+                <span class="flow-scan-tag" data-i18n="flow_tag_cc">Kreditkarte</span>
+                <span class="flow-scan-tag" data-i18n="flow_tag_tax">Steuer-ID</span>
+                <span class="flow-scan-tag" data-i18n="flow_tag_dob">Geburtsdatum</span>
               </div>
-              <span class="flow-detail-label">7 Muster werden gepr&uuml;ft</span>
+              <span class="flow-detail-label" data-i18n="flow_pii_sub">7 Muster werden gepr&uuml;ft</span>
             </div>
           </div>
 
@@ -346,61 +346,61 @@ const breadcrumbJsonLd = {
           <div class="flow-branch">
             <div class="flow-branch-path flow-branch--blocked">
               <div class="flow-branch-arrow flow-branch-arrow--red">
-                <svg width="2" height="24" viewBox="0 0 2 24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--color-error)" stroke-width="2"/></svg>
+                <svg width="2" height="28" viewBox="0 0 2 28"><line x1="1" y1="0" x2="1" y2="28" stroke="var(--color-error)" stroke-width="2"/></svg>
               </div>
               <div class="flow-node flow-node--blocked">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                <span>Blockiert</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <span data-i18n="flow_blocked">Blockiert</span>
               </div>
               <div class="flow-detail flow-detail--sm">
-                <span class="flow-blocked-text">PII erkannt &rarr; Warnung an Nutzer</span>
-                <span class="flow-blocked-sub">Keine Kosten, kein API-Call</span>
+                <span class="flow-blocked-text" data-i18n="flow_blocked_text">PII erkannt &rarr; Warnung an Nutzer</span>
+                <span class="flow-blocked-sub" data-i18n="flow_blocked_sub">Keine Kosten, kein API-Call</span>
               </div>
             </div>
             <div class="flow-branch-path flow-branch--ok">
               <div class="flow-branch-arrow flow-branch-arrow--green">
-                <svg width="2" height="24" viewBox="0 0 2 24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--color-primary)" stroke-width="2"/></svg>
+                <svg width="2" height="28" viewBox="0 0 2 28"><line x1="1" y1="0" x2="1" y2="28" stroke="var(--color-primary)" stroke-width="2"/></svg>
               </div>
               <div class="flow-node flow-node--ok">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Sauber</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="flow_clean">Sauber</span>
               </div>
             </div>
           </div>
 
           <div class="flow-arrow">
-            <svg width="2" height="32" viewBox="0 0 2 32"><line x1="1" y1="0" x2="1" y2="32" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
+            <svg width="2" height="36" viewBox="0 0 2 36"><line x1="1" y1="0" x2="1" y2="36" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
           </div>
 
           <!-- Step 3: SHA-256 Hash -->
           <div class="flow-step">
             <div class="flow-node flow-node--hash">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
               <span>SHA-256</span>
             </div>
             <div class="flow-detail flow-detail--hash">
               <div class="flow-hash-transform">
                 <code class="flow-hash-from">+491590...629</code>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 <code class="flow-hash-to">9d80c09...418a</code>
               </div>
-              <span class="flow-detail-label">Nummer nie im Klartext</span>
+              <span class="flow-detail-label" data-i18n="flow_hash_sub">Nummer nie im Klartext</span>
             </div>
           </div>
 
           <div class="flow-arrow">
-            <svg width="2" height="32" viewBox="0 0 2 32"><line x1="1" y1="0" x2="1" y2="32" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
+            <svg width="2" height="36" viewBox="0 0 2 36"><line x1="1" y1="0" x2="1" y2="36" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
           </div>
 
           <!-- Step 4: KI receives only the question -->
           <div class="flow-step">
             <div class="flow-node flow-node--ai">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4v2H8V6a4 4 0 014-4z"/><rect x="4" y="8" width="16" height="12" rx="2"/><line x1="9" y1="13" x2="9" y2="16"/><line x1="15" y1="13" x2="15" y2="16"/></svg>
-              <span>KI / Claude</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4v2H8V6a4 4 0 014-4z"/><rect x="4" y="8" width="16" height="12" rx="2"/><line x1="9" y1="13" x2="9" y2="16"/><line x1="15" y1="13" x2="15" y2="16"/></svg>
+              <span data-i18n="flow_ai">KI / Claude</span>
             </div>
             <div class="flow-detail flow-detail--ai">
-              <span class="flow-ai-receives">Erh&auml;lt nur: <strong>&bdquo;Wie wird das Wetter?&ldquo;</strong></span>
-              <span class="flow-ai-blocked">Erh&auml;lt nie: Telefonnummer, Name, IBAN</span>
+              <span class="flow-ai-receives" data-i18n="flow_ai_receives">Erh&auml;lt nur: <strong>&bdquo;Wie wird das Wetter?&ldquo;</strong></span>
+              <span class="flow-ai-blocked" data-i18n="flow_ai_blocked">Erh&auml;lt nie: Telefonnummer, Name, IBAN</span>
             </div>
           </div>
         </div>
@@ -1239,9 +1239,9 @@ const breadcrumbJsonLd = {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: 20px;
-      padding: 1.75rem 1.5rem;
+      padding: 2.5rem 2rem;
       width: 100%;
-      max-width: 420px;
+      max-width: 560px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1249,16 +1249,16 @@ const breadcrumbJsonLd = {
     .flow-step {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 1rem;
       width: 100%;
     }
     .flow-node {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.85rem;
-      border-radius: 10px;
-      font-size: 0.8rem;
+      gap: 0.6rem;
+      padding: 0.65rem 1.1rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
       font-weight: 700;
       white-space: nowrap;
       flex-shrink: 0;
@@ -1305,9 +1305,9 @@ const breadcrumbJsonLd = {
     }
     .flow-detail code {
       font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       background: var(--color-bg-alt);
-      padding: 0.2rem 0.5rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 6px;
       color: var(--color-text);
       border: 1px solid var(--color-border);
@@ -1317,7 +1317,7 @@ const breadcrumbJsonLd = {
       text-overflow: ellipsis;
     }
     .flow-detail-label {
-      font-size: 0.68rem;
+      font-size: 0.78rem;
       color: var(--color-text-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -1326,19 +1326,19 @@ const breadcrumbJsonLd = {
     .flow-arrow {
       display: flex;
       justify-content: flex-start;
-      padding-left: 2.5rem;
+      padding-left: 3rem;
     }
-    .flow-detail--scan { gap: 0.35rem; }
+    .flow-detail--scan { gap: 0.4rem; }
     .flow-scan-items {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.3rem;
+      gap: 0.35rem;
     }
     .flow-scan-tag {
-      font-size: 0.65rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      padding: 0.15rem 0.45rem;
-      border-radius: 5px;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
       background: rgba(16,185,129,0.1);
       border: 1px solid var(--color-primary-border);
       color: var(--color-primary);
@@ -1357,9 +1357,9 @@ const breadcrumbJsonLd = {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.5rem;
-      border-radius: 12px;
+      gap: 0.4rem;
+      padding: 0.65rem;
+      border-radius: 14px;
     }
     .flow-branch--blocked {
       background: rgba(239,68,68,0.05);
@@ -1373,12 +1373,12 @@ const breadcrumbJsonLd = {
       text-align: center;
     }
     .flow-blocked-text {
-      font-size: 0.7rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--color-error);
     }
     .flow-blocked-sub {
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       color: var(--color-text-muted);
     }
 
@@ -1386,7 +1386,7 @@ const breadcrumbJsonLd = {
     .flow-hash-transform {
       display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.5rem;
     }
     .flow-hash-from {
       text-decoration: line-through;
@@ -1402,14 +1402,14 @@ const breadcrumbJsonLd = {
       gap: 0.3rem;
     }
     .flow-ai-receives {
-      font-size: 0.75rem;
+      font-size: 0.88rem;
       color: var(--color-primary);
     }
     .flow-ai-receives strong {
       color: var(--color-text);
     }
     .flow-ai-blocked {
-      font-size: 0.68rem;
+      font-size: 0.78rem;
       color: var(--color-error);
       text-decoration: line-through;
       opacity: 0.7;
@@ -1757,7 +1757,7 @@ const breadcrumbJsonLd = {
       .hero-input-inner { flex-wrap: wrap; border-radius: 12px; }
       .hero-btn { width: 100%; justify-content: center; border-radius: 8px; }
       .hero-input { font-size: 1rem; }
-      .privacy-card { max-width: 100%; }
+      .flow-diagram { max-width: 100%; }
     }
   </style>
 
@@ -1982,7 +1982,7 @@ const breadcrumbJsonLd = {
         stat1: 'DSGVO-konform',
         stat2: 'Server & Datenschutz',
         stat3: 'Kostenlos starten',
-        stat4: 'Antwortzeit',
+        stat4: 'PII-Typen erkannt',
         sb1_pill: 'Wie es funktioniert',
         sb1_title: 'Frag einfach.\nPer SMS.',
         sb1_desc: 'Schreibe deine Frage als SMS. Unsere KI antwortet auf Deutsch \u2014 direkt in Sekunden. Rezepte, \u00dcbersetzungen, Fakten, Reisetipps \u2014 alles m\u00f6glich.',
@@ -1993,12 +1993,12 @@ const breadcrumbJsonLd = {
         sb2_title: 'In Sekunden\nstartklar.',
         sb2_desc: 'Keine Registrierung, kein App-Download, kein Passwort. Einfach eine SMS senden und sofort loslegen.',
         sb2_cta: 'Kostenlos starten \u2192',
-        sb3_pill: 'Datenschutz & Sicherheit',
-        sb3_title: 'Deine Daten.\nIn Europa. Sicher.',
-        sb3_desc: 'Alle Daten werden ausschlie\u00dflich auf EU-Servern gespeichert. Deine Telefonnummer wird per SHA-256 verschl\u00fcsselt. Vollst\u00e4ndig DSGVO-konform.',
-        sb3_l1: '100% EU-Datenspeicherung',
-        sb3_l2: 'Kein Tracking, kein Profiling',
-        sb3_l3: '14 Tage Widerrufsrecht',
+        sb3_pill: 'Privacy First',
+        sb3_title: 'Wir sch\u00fctzen<br>deine Identit\u00e4t.',
+        sb3_desc: 'FragSMS erkennt pers\u00f6nliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch \u2014 und blockiert die Nachricht, <strong>bevor</strong> sie die KI erreicht. Keine Kosten, kein Risiko. Dazu: EU-Server, SHA-256-Verschl\u00fcsselung, kein Tracking.',
+        sb3_l1: 'Automatische PII-Erkennung & Blockierung',
+        sb3_l2: '100% EU-Datenspeicherung, DSGVO-konform',
+        sb3_l3: 'STOP senden = alle Daten sofort gel\u00f6scht',
         pv_eu_title: 'EU-Server & DSGVO',
         pv_eu_sub: 'Alle Daten bleiben in Europa',
         pv_ok: '\u2713 Aktiv', pv_ok2: '\u2713 Aktiv', pv_ok3: '\u2713 Aktiv', pv_ok4: '\u2713 Aktiv',
@@ -2055,7 +2055,7 @@ const breadcrumbJsonLd = {
         faq2_q: 'Brauche ich Internet oder WLAN?', faq2_a: 'Nein. SMS funktioniert \u00fcber das Mobilfunknetz \u2014 kein WLAN, kein Datenplan und keine App n\u00f6tig.',
         faq3_q: 'Kann ich ChatGPT per SMS nutzen?', faq3_a: 'Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen \u2014 \u00e4hnlich wie ChatGPT, aber ohne App und ohne Internet.',
         faq4_q: 'Wie k\u00fcndige ich mein Abo?', faq4_a: 'Sende STOP per SMS oder nutze den "Jetzt k\u00fcndigen" Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.',
-        faq5_q: 'Sind meine Daten sicher?', faq5_a: 'Ja. Alle Daten werden ausschlie\u00dflich in der EU gespeichert. Vollst\u00e4ndig DSGVO-konform.',
+        faq5_q: 'Sind meine Daten sicher?', faq5_a: 'Ja. FragSMS erkennt automatisch 7 Arten pers\u00f6nlicher Daten (Telefonnummern, E-Mails, IBANs etc.) und blockiert solche Nachrichten, bevor sie die KI erreichen. Alle Daten werden ausschlie\u00dflich in der EU gespeichert. Vollst\u00e4ndig DSGVO-konform.',
         faq6_q: 'Was kostet FragSMS?', faq6_a: 'FragSMS startet kostenlos mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus 4,99 \u20ac/Monat (50 Nachrichten, mehr Verlauf), Flat 14,99 \u20ac/Monat (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise.',
         cta_title: 'Bereit loszulegen?',
         cta_sub: 'Gib deine Handynummer ein und starte kostenlos \u2014 in 30 Sekunden.',
@@ -2071,7 +2071,7 @@ const breadcrumbJsonLd = {
         about_title_2: 'Deutschland',
         about_p1: 'Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber was, wenn du kein Smartphone hast? <strong>FragSMS</strong> macht k\u00fcnstliche Intelligenz per SMS zug\u00e4nglich \u2014 f\u00fcr jeden, mit jedem Handy.',
         about_p2: 'Ob du Fragen zur Allgemeinbildung hast, einen Text \u00fcbersetzen lassen m\u00f6chtest oder Kochrezepte brauchst \u2014 FragSMS antwortet in Sekunden, komplett auf Deutsch.',
-        about_p3: '<strong>Ideal f\u00fcr Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong>Perfekt f\u00fcr l\u00e4ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf\u00fcgbar ist. Und <strong style="color:var(--color-primary)">100% DSGVO-konform</strong>.',
+        about_p3: '<strong>Ideal f\u00fcr Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong>Perfekt f\u00fcr l\u00e4ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf\u00fcgbar ist. <strong style="color:var(--color-primary)">Automatische PII-Erkennung</strong> blockiert pers\u00f6nliche Daten, bevor sie die KI erreichen. Und <strong style="color:var(--color-primary)">100% DSGVO-konform</strong>.',
         blog_title_1: 'Ratgeber &amp;',
         blog_title_2: 'Wissen',
         blog_subtitle: 'Alles \u00fcber KI per SMS, Datenschutz und digitale Teilhabe in Deutschland.',
@@ -2084,7 +2084,16 @@ const breadcrumbJsonLd = {
         blog_card2_desc: 'Kein Konto, keine App, kein Login \u2014 wie FragSMS im direkten Vergleich zu ChatGPT abschneidet.',
         blog_card3_title: 'DSGVO-konformer KI-Assistent: Warum Datenschutz bei KI wichtig ist',
         blog_card3_desc: 'Was passiert mit deinen KI-Anfragen? Und was macht einen wirklich DSGVO-konformen KI-Assistenten aus?',
-        blog_read_more: 'Artikel lesen \u2192'
+        blog_read_more: 'Artikel lesen \u2192',
+        sms_label_6: 'Datenschutz', sms_q_6: 'Meine IBAN ist DE89 3704 0044 0532 0130 00', sms_a_6: '\u26a0\ufe0f Deine Nachricht enth\u00e4lt pers\u00f6nliche Daten (IBAN). Aus Datenschutzgr\u00fcnden wurde sie nicht an die KI weitergeleitet. Bitte sende deine Frage ohne pers\u00f6nliche Daten.',
+        pv_pii_title: 'PII-Erkennung', pv_pii_sub: '7 Muster automatisch erkannt', pv_ok_pii: '\u2713 Aktiv',
+        flow_sms: 'SMS empfangen', flow_sms_sub: 'Deine Nummer',
+        flow_pii: 'PII-Scanner', flow_pii_sub: '7 Muster werden gepr\u00fcft',
+        flow_tag_phone: 'Telefon', flow_tag_email: 'E-Mail', flow_tag_iban: 'IBAN', flow_tag_cc: 'Kreditkarte', flow_tag_tax: 'Steuer-ID', flow_tag_dob: 'Geburtsdatum',
+        flow_blocked: 'Blockiert', flow_blocked_text: 'PII erkannt \u2192 Warnung an Nutzer', flow_blocked_sub: 'Keine Kosten, kein API-Call',
+        flow_clean: 'Sauber',
+        flow_hash_sub: 'Nummer nie im Klartext',
+        flow_ai: 'KI / Claude', flow_ai_receives: 'Erh\u00e4lt nur: <strong>\u201eWie wird das Wetter?\u201c</strong>', flow_ai_blocked: 'Erh\u00e4lt nie: Telefonnummer, Name, IBAN'
       },
       en: {
         hero_badge: 'AI via SMS in Germany',
@@ -2097,7 +2106,7 @@ const breadcrumbJsonLd = {
         stat1: 'GDPR Compliant',
         stat2: 'EU Servers',
         stat3: 'Start Free',
-        stat4: 'Response Time',
+        stat4: 'PII Types Detected',
         sb1_pill: 'How it works',
         sb1_title: 'Just ask.\nVia SMS.',
         sb1_desc: 'Type your question as a text. Our AI answers in German \u2014 directly in seconds. Recipes, translations, facts, travel tips \u2014 anything goes.',
@@ -2108,12 +2117,12 @@ const breadcrumbJsonLd = {
         sb2_title: 'Ready in\nseconds.',
         sb2_desc: 'No registration, no app download, no password. Just send an SMS and start immediately.',
         sb2_cta: 'Start for free \u2192',
-        sb3_pill: 'Privacy & Security',
-        sb3_title: 'Your data.\nIn Europe. Safe.',
-        sb3_desc: 'All data is stored exclusively on EU servers. Your phone number is encrypted via SHA-256 and never stored in plain text. Fully GDPR compliant.',
-        sb3_l1: '100% EU data storage',
-        sb3_l2: 'No tracking, no profiling',
-        sb3_l3: '14-day right of withdrawal',
+        sb3_pill: 'Privacy First',
+        sb3_title: 'We protect<br>your identity.',
+        sb3_desc: 'FragSMS automatically detects personal data like phone numbers, email addresses and IBANs \u2014 and blocks the message <strong>before</strong> it reaches the AI. No cost, no risk. Plus: EU servers, SHA-256 encryption, no tracking.',
+        sb3_l1: 'Automatic PII detection & blocking',
+        sb3_l2: '100% EU data storage, GDPR compliant',
+        sb3_l3: 'Send STOP = all data instantly deleted',
         pv_eu_title: 'EU Servers & GDPR',
         pv_eu_sub: 'All data stays in Europe',
         pv_ok: '\u2713 Active', pv_ok2: '\u2713 Active', pv_ok3: '\u2713 Active', pv_ok4: '\u2713 Active',
@@ -2170,7 +2179,7 @@ const breadcrumbJsonLd = {
         faq2_q: 'Do I need internet or WiFi?', faq2_a: 'No. SMS works via the mobile network \u2014 no WiFi, no data plan, no app needed.',
         faq3_q: 'Can I use ChatGPT via SMS?', faq3_a: 'With FragSMS you can use an AI assistant via SMS \u2014 similar to ChatGPT, but without an app or internet.',
         faq4_q: 'How do I cancel my subscription?', faq4_a: 'Send STOP via SMS or use the "Cancel now" button at fragsms.de/upgrade. Effective immediately.',
-        faq5_q: 'Is my data secure?', faq5_a: 'Yes. All data is stored exclusively in the EU. Fully GDPR compliant.',
+        faq5_q: 'Is my data secure?', faq5_a: 'Yes. FragSMS automatically detects 7 types of personal data (phone numbers, emails, IBANs etc.) and blocks such messages before they reach the AI. All data is stored exclusively in the EU. Fully GDPR compliant.',
         faq6_q: 'How much does FragSMS cost?', faq6_a: 'FragSMS starts free with 50 messages/month incl. web search. Plus \u20ac4.99/month (50 messages, more history), Flat \u20ac14.99/month (1000 messages, maximum history). All prices are final.',
         cta_title: 'Ready to get started?',
         cta_sub: 'Enter your mobile number and start for free \u2014 in 30 seconds.',
@@ -2186,7 +2195,7 @@ const breadcrumbJsonLd = {
         about_title_2: 'Germany',
         about_p1: 'Millions of people in Germany already use AI assistants like ChatGPT. But what if you don\'t have a smartphone? <strong>FragSMS</strong> makes AI accessible via SMS \u2014 for everyone, with any phone.',
         about_p2: 'Whether you have questions, need translations, or want cooking recipes \u2014 FragSMS replies in seconds, entirely in German.',
-        about_p3: '<strong>Ideal for seniors</strong> unfamiliar with smartphone apps. <strong>Perfect for rural areas</strong> with poor mobile internet. And <strong style="color:var(--color-primary)">100% GDPR compliant</strong>.',
+        about_p3: '<strong>Ideal for seniors</strong> unfamiliar with smartphone apps. <strong>Perfect for rural areas</strong> with poor mobile internet. <strong style="color:var(--color-primary)">Automatic PII detection</strong> blocks personal data before it reaches the AI. And <strong style="color:var(--color-primary)">100% GDPR compliant</strong>.',
         blog_title_1: 'Guides &amp;',
         blog_title_2: 'Knowledge',
         blog_subtitle: 'Everything about AI via SMS, privacy and digital inclusion in Germany.',
@@ -2199,7 +2208,16 @@ const breadcrumbJsonLd = {
         blog_card2_desc: 'No account, no app, no login \u2014 how FragSMS compares directly to ChatGPT.',
         blog_card3_title: 'GDPR-compliant AI assistant: Why privacy in AI matters',
         blog_card3_desc: 'What happens to your AI queries? And what makes a truly GDPR-compliant AI assistant?',
-        blog_read_more: 'Read article \u2192'
+        blog_read_more: 'Read article \u2192',
+        sms_label_6: 'Privacy', sms_q_6: 'My IBAN is DE89 3704 0044 0532 0130 00', sms_a_6: '\u26a0\ufe0f Your message contains personal data (IBAN). For privacy reasons, it was not forwarded to the AI. Please resend your question without personal data.',
+        pv_pii_title: 'PII Detection', pv_pii_sub: '7 patterns automatically detected', pv_ok_pii: '\u2713 Active',
+        flow_sms: 'SMS received', flow_sms_sub: 'Your number',
+        flow_pii: 'PII Scanner', flow_pii_sub: '7 patterns checked',
+        flow_tag_phone: 'Phone', flow_tag_email: 'Email', flow_tag_iban: 'IBAN', flow_tag_cc: 'Credit Card', flow_tag_tax: 'Tax ID', flow_tag_dob: 'Date of Birth',
+        flow_blocked: 'Blocked', flow_blocked_text: 'PII detected \u2192 User warned', flow_blocked_sub: 'No cost, no API call',
+        flow_clean: 'Clean',
+        flow_hash_sub: 'Number never in plain text',
+        flow_ai: 'AI / Claude', flow_ai_receives: 'Receives only: <strong>"What\'s the weather like?"</strong>', flow_ai_blocked: 'Never receives: phone number, name, IBAN'
       }
     };
     if (window.__fragApplyLang) window.__fragApplyLang();
