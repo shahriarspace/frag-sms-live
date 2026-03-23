@@ -302,34 +302,35 @@ const breadcrumbJsonLd = {
        SWITCHBACK 3 — Privacy & EU data (icon visual right)
   ════════════════════════════════════════════════ -->
   <section class="sb-section" aria-labelledby="features-heading">
-    <div class="container sb-grid">
+    <div class="container">
 
-      <!-- Left: Privacy flow diagram -->
-      <div class="sb-media fade-in">
+      <!-- Full-width landscape flow diagram -->
+      <div class="flow-landscape fade-in">
         <div class="flow-diagram">
-          <!-- Step 1: User sends SMS -->
-          <div class="flow-step">
+
+          <!-- Col 1: SMS received -->
+          <div class="flow-col">
             <div class="flow-node flow-node--user">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
               <span data-i18n="flow_sms">SMS empfangen</span>
             </div>
-            <div class="flow-detail">
+            <div class="flow-col-detail">
               <code>+4915905817629</code>
               <span class="flow-detail-label" data-i18n="flow_sms_sub">Deine Nummer</span>
             </div>
           </div>
 
-          <div class="flow-arrow">
-            <svg width="2" height="36" viewBox="0 0 2 36"><line x1="1" y1="0" x2="1" y2="36" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
+          <div class="flow-h-arrow">
+            <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
           </div>
 
-          <!-- Step 2: PII Scanner -->
-          <div class="flow-step">
+          <!-- Col 2: PII Scanner -->
+          <div class="flow-col flow-col--wide">
             <div class="flow-node flow-node--shield">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
               <span data-i18n="flow_pii">PII-Scanner</span>
             </div>
-            <div class="flow-detail flow-detail--scan">
+            <div class="flow-col-detail">
               <div class="flow-scan-items">
                 <span class="flow-scan-tag" data-i18n="flow_tag_phone">Telefon</span>
                 <span class="flow-scan-tag" data-i18n="flow_tag_email">E-Mail</span>
@@ -342,72 +343,71 @@ const breadcrumbJsonLd = {
             </div>
           </div>
 
-          <!-- Branch: two paths -->
-          <div class="flow-branch">
-            <div class="flow-branch-path flow-branch--blocked">
-              <div class="flow-branch-arrow flow-branch-arrow--red">
-                <svg width="2" height="28" viewBox="0 0 2 28"><line x1="1" y1="0" x2="1" y2="28" stroke="var(--color-error)" stroke-width="2"/></svg>
-              </div>
-              <div class="flow-node flow-node--blocked">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                <span data-i18n="flow_blocked">Blockiert</span>
-              </div>
-              <div class="flow-detail flow-detail--sm">
-                <span class="flow-blocked-text" data-i18n="flow_blocked_text">PII erkannt &rarr; Warnung an Nutzer</span>
+          <div class="flow-h-arrow">
+            <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
+          </div>
+
+          <!-- Col 3: Branch (blocked / clean stacked) -->
+          <div class="flow-col">
+            <div class="flow-branch-stack">
+              <div class="flow-branch-path flow-branch--blocked">
+                <div class="flow-node flow-node--blocked">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <span data-i18n="flow_blocked">Blockiert</span>
+                </div>
+                <span class="flow-blocked-text" data-i18n="flow_blocked_text">PII erkannt &rarr; Warnung</span>
                 <span class="flow-blocked-sub" data-i18n="flow_blocked_sub">Keine Kosten, kein API-Call</span>
               </div>
-            </div>
-            <div class="flow-branch-path flow-branch--ok">
-              <div class="flow-branch-arrow flow-branch-arrow--green">
-                <svg width="2" height="28" viewBox="0 0 2 28"><line x1="1" y1="0" x2="1" y2="28" stroke="var(--color-primary)" stroke-width="2"/></svg>
-              </div>
-              <div class="flow-node flow-node--ok">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="flow_clean">Sauber</span>
+              <div class="flow-branch-path flow-branch--ok">
+                <div class="flow-node flow-node--ok">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span data-i18n="flow_clean">Sauber</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="flow-arrow">
-            <svg width="2" height="36" viewBox="0 0 2 36"><line x1="1" y1="0" x2="1" y2="36" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
+          <div class="flow-h-arrow">
+            <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
           </div>
 
-          <!-- Step 3: SHA-256 Hash -->
-          <div class="flow-step">
+          <!-- Col 4: SHA-256 -->
+          <div class="flow-col">
             <div class="flow-node flow-node--hash">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
               <span>SHA-256</span>
             </div>
-            <div class="flow-detail flow-detail--hash">
+            <div class="flow-col-detail">
               <div class="flow-hash-transform">
                 <code class="flow-hash-from">+491590...629</code>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 <code class="flow-hash-to">9d80c09...418a</code>
               </div>
               <span class="flow-detail-label" data-i18n="flow_hash_sub">Nummer nie im Klartext</span>
             </div>
           </div>
 
-          <div class="flow-arrow">
-            <svg width="2" height="36" viewBox="0 0 2 36"><line x1="1" y1="0" x2="1" y2="36" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
+          <div class="flow-h-arrow">
+            <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--color-border)" stroke-width="2" stroke-dasharray="4 3"/></svg>
           </div>
 
-          <!-- Step 4: KI receives only the question -->
-          <div class="flow-step">
+          <!-- Col 5: AI / Claude -->
+          <div class="flow-col">
             <div class="flow-node flow-node--ai">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4v2H8V6a4 4 0 014-4z"/><rect x="4" y="8" width="16" height="12" rx="2"/><line x1="9" y1="13" x2="9" y2="16"/><line x1="15" y1="13" x2="15" y2="16"/></svg>
               <span data-i18n="flow_ai">KI / Claude</span>
             </div>
-            <div class="flow-detail flow-detail--ai">
+            <div class="flow-col-detail flow-col-detail--ai">
               <span class="flow-ai-receives" data-i18n="flow_ai_receives">Erh&auml;lt nur: <strong>&bdquo;Wie wird das Wetter?&ldquo;</strong></span>
               <span class="flow-ai-blocked" data-i18n="flow_ai_blocked">Erh&auml;lt nie: Telefonnummer, Name, IBAN</span>
             </div>
           </div>
+
         </div>
       </div>
 
-      <!-- Right: Text -->
-      <div class="sb-text fade-in">
+      <!-- Text below diagram -->
+      <div class="flow-text-row fade-in">
         <span class="pill" data-i18n="sb3_pill">Privacy First</span>
         <h2 class="sb-title" id="features-heading" data-i18n="sb3_title">Wir sch&uuml;tzen<br>deine Identit&auml;t.</h2>
         <p class="sb-desc" data-i18n="sb3_desc">
@@ -1234,31 +1234,71 @@ const breadcrumbJsonLd = {
     .sb2-step-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.15rem; }
     .sb2-step-desc { font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.55; }
 
-    /* ── Privacy flow diagram ────────────────────── */
+    /* ── Privacy flow diagram (landscape) ───────────── */
+    .flow-landscape {
+      width: 100%;
+      max-width: 1060px;
+      margin: 0 auto 3rem;
+    }
     .flow-diagram {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: 20px;
-      padding: 2.5rem 2rem;
+      padding: 2rem 1.5rem;
       width: 100%;
-      max-width: 560px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .flow-col {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 0.5rem;
+      flex: 1;
+      min-width: 0;
     }
-    .flow-step {
+    .flow-col--wide { flex: 1.4; }
+    .flow-col-detail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      text-align: center;
+      min-width: 0;
+      width: 100%;
+    }
+    .flow-col-detail code {
+      font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
+      font-size: 0.72rem;
+      background: var(--color-bg-alt);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .flow-col-detail--ai {
+      gap: 0.25rem;
+    }
+    .flow-h-arrow {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      width: 100%;
+      padding-top: 1rem;
+      flex-shrink: 0;
     }
     .flow-node {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.65rem 1.1rem;
-      border-radius: 12px;
-      font-size: 0.95rem;
+      gap: 0.5rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.82rem;
       font-weight: 700;
       white-space: nowrap;
       flex-shrink: 0;
@@ -1296,70 +1336,44 @@ const breadcrumbJsonLd = {
       border-color: var(--color-primary-border);
       color: var(--color-text);
     }
-    .flow-detail {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-      min-width: 0;
-      flex: 1;
-    }
-    .flow-detail code {
-      font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
-      font-size: 0.82rem;
-      background: var(--color-bg-alt);
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
-      color: var(--color-text);
-      border: 1px solid var(--color-border);
-      display: inline-block;
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
     .flow-detail-label {
-      font-size: 0.78rem;
+      font-size: 0.68rem;
       color: var(--color-text-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
       font-weight: 600;
     }
-    .flow-arrow {
-      display: flex;
-      justify-content: flex-start;
-      padding-left: 3rem;
-    }
-    .flow-detail--scan { gap: 0.4rem; }
     .flow-scan-items {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem;
+      justify-content: center;
+      gap: 0.25rem;
     }
     .flow-scan-tag {
-      font-size: 0.78rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      padding: 0.2rem 0.55rem;
-      border-radius: 6px;
+      padding: 0.15rem 0.4rem;
+      border-radius: 5px;
       background: rgba(16,185,129,0.1);
       border: 1px solid var(--color-primary-border);
       color: var(--color-primary);
       white-space: nowrap;
     }
 
-    /* Branch: two paths side by side */
-    .flow-branch {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
+    /* Branch: stacked blocked/ok */
+    .flow-branch-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
       width: 100%;
-      margin: 0.25rem 0;
     }
     .flow-branch-path {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.65rem;
-      border-radius: 14px;
+      gap: 0.3rem;
+      padding: 0.5rem;
+      border-radius: 10px;
     }
     .flow-branch--blocked {
       background: rgba(239,68,68,0.05);
@@ -1369,24 +1383,25 @@ const breadcrumbJsonLd = {
       background: rgba(16,185,129,0.05);
       border: 1px solid rgba(16,185,129,0.15);
     }
-    .flow-detail--sm {
-      text-align: center;
-    }
     .flow-blocked-text {
-      font-size: 0.82rem;
+      font-size: 0.7rem;
       font-weight: 600;
       color: var(--color-error);
+      text-align: center;
     }
     .flow-blocked-sub {
-      font-size: 0.72rem;
+      font-size: 0.62rem;
       color: var(--color-text-muted);
+      text-align: center;
     }
 
     /* Hash transform row */
     .flow-hash-transform {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .flow-hash-from {
       text-decoration: line-through;
@@ -1398,22 +1413,32 @@ const breadcrumbJsonLd = {
     }
 
     /* AI detail */
-    .flow-detail--ai {
-      gap: 0.3rem;
-    }
     .flow-ai-receives {
-      font-size: 0.88rem;
+      font-size: 0.75rem;
       color: var(--color-primary);
+      text-align: center;
     }
     .flow-ai-receives strong {
       color: var(--color-text);
     }
     .flow-ai-blocked {
-      font-size: 0.78rem;
+      font-size: 0.68rem;
       color: var(--color-error);
       text-decoration: line-through;
       opacity: 0.7;
+      text-align: center;
     }
+
+    /* Text row below diagram */
+    .flow-text-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .flow-text-row .sb-list { align-items: center; }
 
     .sms-privacy-warn {
       background: rgba(239,68,68,0.1) !important;
@@ -1752,12 +1777,22 @@ const breadcrumbJsonLd = {
       .sb-media { justify-content: center; }
       .stat-item { padding: 0.5rem 1.5rem; }
       .stat-divider { display: none; }
+      .flow-diagram {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 1rem;
+      }
+      .flow-h-arrow {
+        transform: rotate(90deg);
+        padding-top: 0;
+        margin: 0.25rem 0;
+      }
+      .flow-col--wide { flex: unset; }
     }
     @media (max-width: 560px) {
       .hero-input-inner { flex-wrap: wrap; border-radius: 12px; }
       .hero-btn { width: 100%; justify-content: center; border-radius: 8px; }
       .hero-input { font-size: 1rem; }
-      .flow-diagram { max-width: 100%; }
     }
   </style>
 
@@ -2090,7 +2125,7 @@ const breadcrumbJsonLd = {
         flow_sms: 'SMS empfangen', flow_sms_sub: 'Deine Nummer',
         flow_pii: 'PII-Scanner', flow_pii_sub: '7 Muster werden gepr\u00fcft',
         flow_tag_phone: 'Telefon', flow_tag_email: 'E-Mail', flow_tag_iban: 'IBAN', flow_tag_cc: 'Kreditkarte', flow_tag_tax: 'Steuer-ID', flow_tag_dob: 'Geburtsdatum',
-        flow_blocked: 'Blockiert', flow_blocked_text: 'PII erkannt \u2192 Warnung an Nutzer', flow_blocked_sub: 'Keine Kosten, kein API-Call',
+        flow_blocked: 'Blockiert', flow_blocked_text: 'PII erkannt \u2192 Warnung', flow_blocked_sub: 'Keine Kosten, kein API-Call',
         flow_clean: 'Sauber',
         flow_hash_sub: 'Nummer nie im Klartext',
         flow_ai: 'KI / Claude', flow_ai_receives: 'Erh\u00e4lt nur: <strong>\u201eWie wird das Wetter?\u201c</strong>', flow_ai_blocked: 'Erh\u00e4lt nie: Telefonnummer, Name, IBAN'
@@ -2214,7 +2249,7 @@ const breadcrumbJsonLd = {
         flow_sms: 'SMS received', flow_sms_sub: 'Your number',
         flow_pii: 'PII Scanner', flow_pii_sub: '7 patterns checked',
         flow_tag_phone: 'Phone', flow_tag_email: 'Email', flow_tag_iban: 'IBAN', flow_tag_cc: 'Credit Card', flow_tag_tax: 'Tax ID', flow_tag_dob: 'Date of Birth',
-        flow_blocked: 'Blocked', flow_blocked_text: 'PII detected \u2192 User warned', flow_blocked_sub: 'No cost, no API call',
+        flow_blocked: 'Blocked', flow_blocked_text: 'PII detected \u2192 Warning', flow_blocked_sub: 'No cost, no API call',
         flow_clean: 'Clean',
         flow_hash_sub: 'Number never in plain text',
         flow_ai: 'AI / Claude', flow_ai_receives: 'Receives only: <strong>"What\'s the weather like?"</strong>', flow_ai_blocked: 'Never receives: phone number, name, IBAN'
