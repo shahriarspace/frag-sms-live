@@ -1,0 +1,253 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Naechster Zug per SMS abfragen — Fahrplan ohne App",
+  "description": "Zugverbindungen und Abfahrtszeiten per SMS abfragen: ICE, RE, S-Bahn und Bus. FragSMS liefert Fahrplandaten direkt aufs Handy — ohne App und ohne Internet.",
+  "author": { "@type": "Organization", "name": "FragSMS" },
+  "publisher": { "@type": "Organization", "name": "FragSMS", "url": "https://fragsms.de" },
+  "datePublished": "2026-03-24",
+  "dateModified": "2026-03-24",
+  "image": "https://fragsms.de/og-image.png",
+  "url": "https://fragsms.de/blog/naechster-zug-per-sms/",
+  "inLanguage": "de",
+  "keywords": "Zug SMS abfragen, Fahrplan SMS, naechster Zug SMS, Zugverbindung SMS, Deutsche Bahn SMS, OEPNV SMS",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fragsms.de/blog/naechster-zug-per-sms/" }
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://fragsms.de/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fragsms.de/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "N\u00e4chster Zug per SMS", "item": "https://fragsms.de/blog/naechster-zug-per-sms/" }
+  ]
+};
+---
+
+<Base
+  title="N&auml;chster Zug per SMS abfragen &mdash; Fahrplan ohne App | FragSMS Blog"
+  description="Zugverbindungen und Abfahrtszeiten per SMS abfragen: ICE, RE, S-Bahn und Bus. FragSMS liefert Fahrplandaten direkt aufs Handy &mdash; ohne App und ohne Internet."
+  keywords="Zug SMS abfragen, Fahrplan SMS, naechster Zug SMS, Zugverbindung SMS, Deutsche Bahn SMS, OEPNV SMS, FragSMS"
+  jsonLd={[articleJsonLd, breadcrumbJsonLd]}
+  legalPage={true}
+>
+  <article style="padding: 4rem 0 6rem;">
+    <div class="container" style="max-width: 720px;">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 2rem; font-size: 0.82rem; color: var(--color-text-muted);">
+        <a href="/" style="color: var(--color-text-muted);">Startseite</a>
+        <span style="margin: 0 0.5rem;">/</span>
+        <a href="/blog/" style="color: var(--color-text-muted);">Blog</a>
+        <span style="margin: 0 0.5rem;">/</span>
+        <span style="color: var(--color-text);">N&auml;chster Zug per SMS</span>
+      </nav>
+
+      <!-- Header -->
+      <header style="margin-bottom: 3rem;">
+        <div style="display: inline-block; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: var(--color-primary-glow); color: var(--color-primary); border: 1px solid var(--color-primary-border); margin-bottom: 1.25rem;">
+          Mobilit&auml;t
+        </div>
+        <h1 style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 1.25rem;">
+          N&auml;chster Zug per SMS &mdash;<br>Fahrplan ohne App
+        </h1>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.7; max-width: 600px;">
+          Schnell wissen, wann der n&auml;chste Zug f&auml;hrt &mdash; ohne DB Navigator, ohne Internet. FragSMS liefert Zugverbindungen per SMS direkt aufs Handy.
+        </p>
+        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); font-size: 0.82rem; color: var(--color-text-muted);">
+          Von <strong style="color: var(--color-text);">FragSMS</strong> &middot; 24. M&auml;rz 2026 &middot; 5 Min. Lesezeit
+        </div>
+      </header>
+
+      <!-- Article body -->
+      <div class="article-body">
+
+        <h2>Warum der Fahrplan per SMS?</h2>
+        <p>
+          Der DB Navigator ist praktisch &mdash; wenn man ein Smartphone hat, Internet und genug Akku. Aber im Alltag gibt es genug Situationen, in denen das nicht zutrifft: Akku fast leer, kein Empfang f&uuml;r mobiles Internet, oder schlicht ein &auml;lteres Handy ohne Apps.
+        </p>
+        <p>
+          Mit <strong>FragSMS</strong> fragst du per SMS nach Zugverbindungen und bekommst in Sekunden eine Antwort. Kein Login, kein Download, keine Registrierung. Einfach SMS schreiben.
+        </p>
+
+        <h2>So fragst du Zugverbindungen ab</h2>
+        <p>
+          Schreibe einfach deine Frage als SMS. FragSMS versteht nat&uuml;rliche Sprache &mdash; du musst keine speziellen Befehle kennen:
+        </p>
+        <ul>
+          <li><strong>&bdquo;N&auml;chster Zug von K&ouml;ln nach D&uuml;sseldorf&ldquo;</strong></li>
+          <li><strong>&bdquo;S-Bahn Berlin Hauptbahnhof&ldquo;</strong></li>
+          <li><strong>&bdquo;ICE Hamburg M&uuml;nchen morgen fr&uuml;h&ldquo;</strong></li>
+          <li><strong>&bdquo;Wann f&auml;hrt der n&auml;chste RE von Aachen nach K&ouml;ln?&ldquo;</strong></li>
+          <li><strong>&bdquo;Bus von Freiburg nach Offenburg&ldquo;</strong></li>
+        </ul>
+
+        <div class="callout">
+          <strong>SMS-Beispiel:</strong>
+          <div style="margin-top: 0.75rem; font-family: monospace; font-size: 0.88rem; line-height: 1.8;">
+            <div style="color: var(--color-primary); font-weight: 600;">Du schreibst:</div>
+            <div style="margin-bottom: 0.5rem;">&bdquo;N&auml;chster Zug von Aachen nach K&ouml;ln&ldquo;</div>
+            <div style="color: var(--color-primary); font-weight: 600;">FragSMS antwortet:</div>
+            <div>&bdquo;RE1 ab Aachen Hbf 14:23, an K&ouml;ln Hbf 15:06 (43 Min). Danach: RE1 14:53 an 15:36, RE9 15:04 an 16:02 (Umstieg D&uuml;ren). Echtzeitdaten.&ldquo;</div>
+          </div>
+        </div>
+
+        <h2>Welche Verbindungen werden unterst&uuml;tzt?</h2>
+        <p>
+          FragSMS greift auf &ouml;ffentliche Fahrplandaten zu und unterst&uuml;tzt alle g&auml;ngigen Verkehrsmittel in Deutschland:
+        </p>
+        <ul>
+          <li><strong>Fernverkehr:</strong> ICE, IC, EC</li>
+          <li><strong>Regionalverkehr:</strong> RE, RB, IRE</li>
+          <li><strong>Nahverkehr:</strong> S-Bahn, U-Bahn, Stra&szlig;enbahn, Bus</li>
+        </ul>
+        <p>
+          Egal ob Fernreise oder t&auml;glicher Pendlerweg &mdash; FragSMS findet die passende Verbindung.
+        </p>
+
+        <h2>Pendler-Alltag: Jeden Morgen eine SMS</h2>
+        <p>
+          F&uuml;r Berufspendler ist FragSMS besonders praktisch. Statt jeden Morgen die DB-App zu &ouml;ffnen, tippst du einfach:
+        </p>
+        <p style="text-align: center; font-style: italic; color: var(--color-primary);">
+          &bdquo;N&auml;chster Zug von Essen nach Dortmund&ldquo;
+        </p>
+        <p>
+          In 3&ndash;5 Sekunden hast du die Antwort. Das funktioniert auch, wenn du gerade auf dem Bahnsteig stehst und das Internet nicht l&auml;dt. SMS kommt fast immer durch &mdash; selbst bei schlechtem Mobilfunkempfang.
+        </p>
+
+        <h2>Auch ohne Smartphone</h2>
+        <p>
+          Nicht jeder besitzt ein Smartphone. &Auml;ltere Menschen, Menschen mit einfachen Prepaid-Handys oder alle, die bewusst auf Smartphone-Nutzung verzichten, k&ouml;nnen mit FragSMS trotzdem Fahrplandaten abrufen. Alles, was du brauchst, ist ein Handy, das SMS senden kann.
+        </p>
+
+        <h2>Versp&auml;tungen und Alternativen</h2>
+        <p>
+          FragSMS liefert Echtzeitdaten, sofern verf&uuml;gbar. Das bedeutet: Wenn ein Zug Versp&auml;tung hat, siehst du das in der Antwort. Du kannst auch direkt nach Alternativen fragen:
+        </p>
+        <ul>
+          <li><strong>&bdquo;Alternativer Zug K&ouml;ln Bonn&ldquo;</strong></li>
+          <li><strong>&bdquo;Sp&auml;terer Zug nach Frankfurt&ldquo;</strong></li>
+        </ul>
+        <p>
+          FragSMS versteht den Kontext und ber&uuml;cksichtigt vorherige Nachrichten im Gespr&auml;ch.
+        </p>
+
+        <h2>Kostenlos im Free-Tarif</h2>
+        <p>
+          50 Nachrichten pro Monat sind kostenlos &mdash; ohne Abo und ohne Registrierung. F&uuml;r t&auml;gliche Pendler, die mehr Anfragen brauchen, gibt es den Plus-Tarif ab 4,99&thinsp;&euro;/Monat.
+        </p>
+
+        <h2>Fazit</h2>
+        <p>
+          Zugverbindungen per SMS abzufragen ist schneller und einfacher als jede App. Besonders f&uuml;r Pendler, Reisende und alle ohne Smartphone ist FragSMS die ideale L&ouml;sung. Eine SMS, eine Antwort, keine Umwege.
+        </p>
+
+        <!-- CTA -->
+        <div class="article-cta">
+          <p style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Jetzt kostenlos testen</p>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 1.25rem;">50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko.</p>
+          <a href="/" class="btn-primary">Zur Startseite &rarr;</a>
+        </div>
+
+      </div>
+
+      <!-- Back to blog / related -->
+      <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Weitere Artikel</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+          <a href="/blog/ki-ohne-internet/" class="related-card">
+            <div class="related-tag">Ratgeber</div>
+            <div class="related-title">KI ohne Internet nutzen &mdash; so geht&apos;s per SMS</div>
+          </a>
+          <a href="/blog/wetter-per-sms/" class="related-card">
+            <div class="related-tag">Alltag</div>
+            <div class="related-title">Wetter per SMS abfragen &mdash; schnell und &uuml;berall</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <style>
+    .article-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--color-text-muted);
+    }
+    .article-body h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+      margin: 2.5rem 0 0.9rem;
+    }
+    .article-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 1.75rem 0 0.6rem;
+    }
+    .article-body p {
+      margin-bottom: 1.1rem;
+    }
+    .article-body ul, .article-body ol {
+      margin: 0.5rem 0 1.25rem 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.4rem;
+    }
+    .article-body strong {
+      color: var(--color-text);
+    }
+    .callout {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-primary);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+      font-size: 0.95rem;
+    }
+    .article-cta {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .related-card {
+      display: block;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .related-card:hover {
+      border-color: var(--color-primary);
+      text-decoration: none;
+    }
+    .related-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+    .related-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+  </style>
+</Base>

@@ -1,0 +1,284 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "KI-Fragen per SMS — Allgemeinwissen, Uebersetzungen und mehr",
+  "description": "Fragen an die KI per SMS stellen: Allgemeinwissen, Uebersetzungen, Rezepte, Mathe und mehr. FragSMS beantwortet alles per SMS — ohne App und ohne Internet.",
+  "author": { "@type": "Organization", "name": "FragSMS" },
+  "publisher": { "@type": "Organization", "name": "FragSMS", "url": "https://fragsms.de" },
+  "datePublished": "2026-03-24",
+  "dateModified": "2026-03-24",
+  "image": "https://fragsms.de/og-image.png",
+  "url": "https://fragsms.de/blog/ki-fragen-per-sms/",
+  "inLanguage": "de",
+  "keywords": "KI SMS, KI Fragen SMS, ChatGPT SMS, Uebersetzung SMS, Allgemeinwissen SMS, FragSMS",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fragsms.de/blog/ki-fragen-per-sms/" }
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://fragsms.de/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fragsms.de/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "KI-Fragen per SMS", "item": "https://fragsms.de/blog/ki-fragen-per-sms/" }
+  ]
+};
+---
+
+<Base
+  title="KI-Fragen per SMS &mdash; Allgemeinwissen, &Uuml;bersetzungen und mehr | FragSMS Blog"
+  description="Fragen an die KI per SMS stellen: Allgemeinwissen, &Uuml;bersetzungen, Rezepte, Mathe und mehr. FragSMS beantwortet alles per SMS &mdash; ohne App und ohne Internet."
+  keywords="KI SMS, KI Fragen SMS, ChatGPT SMS, Uebersetzung SMS, Allgemeinwissen SMS, FragSMS"
+  jsonLd={[articleJsonLd, breadcrumbJsonLd]}
+  legalPage={true}
+>
+  <article style="padding: 4rem 0 6rem;">
+    <div class="container" style="max-width: 720px;">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 2rem; font-size: 0.82rem; color: var(--color-text-muted);">
+        <a href="/" style="color: var(--color-text-muted);">Startseite</a>
+        <span style="margin: 0 0.5rem;">/</span>
+        <a href="/blog/" style="color: var(--color-text-muted);">Blog</a>
+        <span style="margin: 0 0.5rem;">/</span>
+        <span style="color: var(--color-text);">KI-Fragen per SMS</span>
+      </nav>
+
+      <!-- Header -->
+      <header style="margin-bottom: 3rem;">
+        <div style="display: inline-block; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: var(--color-primary-glow); color: var(--color-primary); border: 1px solid var(--color-primary-border); margin-bottom: 1.25rem;">
+          Wissen
+        </div>
+        <h1 style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 1.25rem;">
+          KI-Fragen per SMS &mdash;<br>Allgemeinwissen, &Uuml;bersetzungen und mehr
+        </h1>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.7; max-width: 600px;">
+          FragSMS ist dein pers&ouml;nlicher KI-Assistent per SMS. Stelle jede Frage &mdash; von Allgemeinwissen &uuml;ber &Uuml;bersetzungen bis zu Rezepten &mdash; und erhalte die Antwort in Sekunden.
+        </p>
+        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); font-size: 0.82rem; color: var(--color-text-muted);">
+          Von <strong style="color: var(--color-text);">FragSMS</strong> &middot; 24. M&auml;rz 2026 &middot; 6 Min. Lesezeit
+        </div>
+      </header>
+
+      <!-- Article body -->
+      <div class="article-body">
+
+        <h2>Dein Wissenslexikon in der Hosentasche</h2>
+        <p>
+          Fr&uuml;her hat man f&uuml;r eine schnelle Frage jemanden angerufen oder in einem Buch nachgeschlagen. Heute googelt man &mdash; wenn man Internet hat. Aber was, wenn nicht? FragSMS beantwortet deine Fragen per SMS, mit der gleichen KI-Technologie, die auch ChatGPT oder Google Gemini antreibt.
+        </p>
+        <p>
+          Der Unterschied: Du brauchst kein Smartphone, kein Internet und kein Konto. Einfach SMS schreiben.
+        </p>
+
+        <h2>Was du alles fragen kannst</h2>
+        <p>
+          FragSMS beantwortet praktisch jede Frage, die du sonst an ChatGPT oder Google stellen w&uuml;rdest. Hier einige Beispiele:
+        </p>
+
+        <h3>Allgemeinwissen</h3>
+        <ul>
+          <li>&bdquo;Wie hoch ist die Zugspitze?&ldquo;</li>
+          <li>&bdquo;Wann war die Wiedervereinigung?&ldquo;</li>
+          <li>&bdquo;Was ist Photosynthese?&ldquo;</li>
+          <li>&bdquo;Wie viele Einwohner hat Hamburg?&ldquo;</li>
+        </ul>
+
+        <h3>&Uuml;bersetzungen</h3>
+        <ul>
+          <li>&bdquo;Wie sage ich auf Englisch: Ich m&ouml;chte einen Termin verschieben?&ldquo;</li>
+          <li>&bdquo;&Uuml;bersetze auf Franz&ouml;sisch: Wo ist der Bahnhof?&ldquo;</li>
+          <li>&bdquo;Was hei&szlig;t Danke auf T&uuml;rkisch?&ldquo;</li>
+        </ul>
+
+        <h3>Rezepte und Kochen</h3>
+        <ul>
+          <li>&bdquo;Was kann ich mit Kartoffeln und Eiern kochen?&ldquo;</li>
+          <li>&bdquo;Schnelles Abendessen f&uuml;r 4 Personen&ldquo;</li>
+          <li>&bdquo;Rezept f&uuml;r Pfannkuchen ohne Milch&ldquo;</li>
+        </ul>
+
+        <h3>Mathe und Umrechnungen</h3>
+        <ul>
+          <li>&bdquo;Was sind 150 Dollar in Euro?&ldquo;</li>
+          <li>&bdquo;Wie viel ist 15% von 380?&ldquo;</li>
+          <li>&bdquo;Wie viele Kilometer sind 100 Meilen?&ldquo;</li>
+        </ul>
+
+        <h3>Gesundheit und Alltag</h3>
+        <ul>
+          <li>&bdquo;Was hilft gegen Sodbrennen?&ldquo;</li>
+          <li>&bdquo;Wie entferne ich Rotweinflecken?&ldquo;</li>
+          <li>&bdquo;Wo beantrage ich einen neuen Personalausweis?&ldquo;</li>
+        </ul>
+
+        <div class="callout">
+          <strong>SMS-Beispiel:</strong>
+          <div style="margin-top: 0.75rem; font-family: monospace; font-size: 0.88rem; line-height: 1.8;">
+            <div style="color: var(--color-primary); font-weight: 600;">Du schreibst:</div>
+            <div style="margin-bottom: 0.5rem;">&bdquo;Wie sage ich auf Englisch: Ich m&ouml;chte den Termin auf n&auml;chste Woche verschieben?&ldquo;</div>
+            <div style="color: var(--color-primary); font-weight: 600;">FragSMS antwortet:</div>
+            <div>&bdquo;I would like to reschedule the appointment to next week. Formeller: I would like to postpone the appointment to the following week.&ldquo;</div>
+          </div>
+        </div>
+
+        <h2>KI mit Websuche</h2>
+        <p>
+          FragSMS nutzt nicht nur gespeichertes Wissen, sondern kann bei Bedarf auch aktuelle Informationen aus dem Internet abrufen. Das bedeutet: Auch Fragen zu aktuellen Ereignissen, Nachrichten oder Preisen werden beantwortet &mdash; alles per SMS.
+        </p>
+
+        <h2>F&uuml;r wen ist FragSMS gedacht?</h2>
+
+        <h3>Senioren</h3>
+        <p>
+          Viele &auml;ltere Menschen nutzen kein Smartphone oder tun sich schwer mit Apps. SMS ist vertraut und einfach. FragSMS bringt k&uuml;nstliche Intelligenz zu Menschen, die sonst keinen Zugang dazu h&auml;tten.
+        </p>
+
+        <h3>Sch&uuml;ler und Studenten</h3>
+        <p>
+          Schnelle Antwort auf eine Frage gebraucht? Formel vergessen? Einen Satz &uuml;bersetzen? FragSMS liefert &mdash; auch wenn der Akku fast leer ist oder das Datenvolumen aufgebraucht.
+        </p>
+
+        <h3>Menschen ohne Internet</h3>
+        <p>
+          Im l&auml;ndlichen Raum, bei gest&ouml;rtem WLAN oder nach Verbrauch des Datenvolumens &mdash; SMS funktioniert immer. &Uuml;ber 8 Millionen Menschen in Deutschland nutzen das Internet selten oder gar nicht. FragSMS gibt ihnen Zugang zu KI.
+        </p>
+
+        <h3>Alle, die es einfach m&ouml;gen</h3>
+        <p>
+          Manchmal ist eine SMS schlicht schneller als eine App zu &ouml;ffnen. Frage tippen, Antwort in 3&ndash;5 Sekunden erhalten, fertig.
+        </p>
+
+        <h2>FragSMS merkt sich den Kontext</h2>
+        <p>
+          FragSMS speichert die letzten Nachrichten deines Gespr&auml;chs. Das bedeutet: Du kannst Folgefragen stellen, ohne alles zu wiederholen.
+        </p>
+        <div class="callout">
+          <strong>Kontext-Beispiel:</strong>
+          <div style="margin-top: 0.75rem; font-family: monospace; font-size: 0.88rem; line-height: 1.8;">
+            <div style="color: var(--color-primary); font-weight: 600;">SMS 1:</div>
+            <div style="margin-bottom: 0.25rem;">&bdquo;Was ist die Hauptstadt von Australien?&ldquo;</div>
+            <div style="margin-bottom: 0.5rem;">&rarr; &bdquo;Die Hauptstadt von Australien ist Canberra.&ldquo;</div>
+            <div style="color: var(--color-primary); font-weight: 600;">SMS 2:</div>
+            <div style="margin-bottom: 0.25rem;">&bdquo;Wie viele Einwohner hat sie?&ldquo;</div>
+            <div>&rarr; &bdquo;Canberra hat rund 470.000 Einwohner.&ldquo;</div>
+          </div>
+        </div>
+
+        <h2>Kostenlos starten</h2>
+        <p>
+          Im Free-Tarif bekommst du 50 Nachrichten pro Monat &mdash; v&ouml;llig kostenlos, ohne Abo und ohne Registrierung. Sende einfach <strong style="color: var(--color-primary);">START</strong> an die FragSMS-Nummer und stelle deine erste Frage.
+        </p>
+
+        <h2>Fazit</h2>
+        <p>
+          FragSMS ist KI f&uuml;r alle &mdash; per SMS, ohne App, ohne Internet. Ob Allgemeinwissen, &Uuml;bersetzungen, Rezepte oder Mathe: Eine SMS gen&uuml;gt. Einfacher geht es nicht.
+        </p>
+
+        <!-- CTA -->
+        <div class="article-cta">
+          <p style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Jetzt kostenlos testen</p>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 1.25rem;">50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko.</p>
+          <a href="/" class="btn-primary">Zur Startseite &rarr;</a>
+        </div>
+
+      </div>
+
+      <!-- Back to blog / related -->
+      <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Weitere Artikel</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+          <a href="/blog/chatgpt-alternative-ohne-app/" class="related-card">
+            <div class="related-tag">Vergleich</div>
+            <div class="related-title">ChatGPT Alternative ohne App: KI per SMS in Deutschland</div>
+          </a>
+          <a href="/blog/ki-ohne-internet/" class="related-card">
+            <div class="related-tag">Ratgeber</div>
+            <div class="related-title">KI ohne Internet nutzen &mdash; so geht&apos;s per SMS</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <style>
+    .article-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--color-text-muted);
+    }
+    .article-body h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+      margin: 2.5rem 0 0.9rem;
+    }
+    .article-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 1.75rem 0 0.6rem;
+    }
+    .article-body p {
+      margin-bottom: 1.1rem;
+    }
+    .article-body ul, .article-body ol {
+      margin: 0.5rem 0 1.25rem 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.4rem;
+    }
+    .article-body strong {
+      color: var(--color-text);
+    }
+    .callout {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-primary);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+      font-size: 0.95rem;
+    }
+    .article-cta {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .related-card {
+      display: block;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .related-card:hover {
+      border-color: var(--color-primary);
+      text-decoration: none;
+    }
+    .related-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+    .related-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+  </style>
+</Base>
