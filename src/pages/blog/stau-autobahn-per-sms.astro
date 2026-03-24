@@ -1,0 +1,256 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Stau auf der Autobahn per SMS abfragen \u2014 Verkehrslage ohne App",
+  "description": "Staus, Baustellen und Sperrungen auf deutschen Autobahnen per SMS abfragen. FragSMS liefert aktuelle Verkehrsdaten direkt aufs Handy \u2014 ohne App und ohne Internet.",
+  "author": { "@type": "Organization", "name": "FragSMS" },
+  "publisher": { "@type": "Organization", "name": "FragSMS", "url": "https://fragsms.de" },
+  "datePublished": "2026-03-24",
+  "dateModified": "2026-03-24",
+  "image": "https://fragsms.de/og-image.png",
+  "url": "https://fragsms.de/blog/stau-autobahn-per-sms/",
+  "inLanguage": "de",
+  "keywords": "Stau SMS, Autobahn Stau per SMS, Verkehrslage SMS, Baustellen Autobahn SMS, Sperrung Autobahn SMS, FragSMS Verkehr",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fragsms.de/blog/stau-autobahn-per-sms/" }
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://fragsms.de/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fragsms.de/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Stau Autobahn per SMS", "item": "https://fragsms.de/blog/stau-autobahn-per-sms/" }
+  ]
+};
+---
+
+<Base
+  title="Stau auf der Autobahn per SMS abfragen &mdash; Verkehrslage ohne App | FragSMS Blog"
+  description="Staus, Baustellen und Sperrungen auf deutschen Autobahnen per SMS abfragen. FragSMS liefert aktuelle Verkehrsdaten direkt aufs Handy &mdash; ohne App und ohne Internet."
+  keywords="Stau SMS, Autobahn Stau per SMS, Verkehrslage SMS, Baustellen Autobahn SMS, Sperrung Autobahn SMS, FragSMS Verkehr"
+  jsonLd={[articleJsonLd, breadcrumbJsonLd]}
+  legalPage={true}
+>
+  <article style="padding: 4rem 0 6rem;">
+    <div class="container" style="max-width: 720px;">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 2rem; font-size: 0.82rem; color: var(--color-text-muted);">
+        <a href="/" style="color: var(--color-text-muted);">Startseite</a>
+        <span style="margin: 0 0.5rem;">/</span>
+        <a href="/blog/" style="color: var(--color-text-muted);">Blog</a>
+        <span style="margin: 0 0.5rem;">/</span>
+        <span style="color: var(--color-text);">Stau Autobahn per SMS</span>
+      </nav>
+
+      <!-- Header -->
+      <header style="margin-bottom: 3rem;">
+        <div style="display: inline-block; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: var(--color-primary-glow); color: var(--color-primary); border: 1px solid var(--color-primary-border); margin-bottom: 1.25rem;">
+          Mobilit&auml;t
+        </div>
+        <h1 style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 1.25rem;">
+          Stau auf der Autobahn per SMS &mdash;<br>Verkehrslage ohne App
+        </h1>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.7; max-width: 600px;">
+          Stau auf der A3? Baustelle auf der A1? FragSMS liefert aktuelle Verkehrsmeldungen f&uuml;r jede deutsche Autobahn per SMS &mdash; ideal f&uuml;r Beifahrer, Pendler und alle, die ohne App unterwegs sind.
+        </p>
+        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); font-size: 0.82rem; color: var(--color-text-muted);">
+          Von <strong style="color: var(--color-text);">FragSMS</strong> &middot; 24. M&auml;rz 2026 &middot; 5 Min. Lesezeit
+        </div>
+      </header>
+
+      <!-- Article body -->
+      <div class="article-body">
+
+        <h2>Verkehrslage per SMS statt per App</h2>
+        <p>
+          Google Maps, ADAC-App, Waze &mdash; es gibt viele M&ouml;glichkeiten, Staus zu checken. Aber alle brauchen ein Smartphone mit Internetverbindung. Was, wenn das Datenvolumen aufgebraucht ist? Oder der Beifahrer ein einfaches Handy hat?
+        </p>
+        <p>
+          Mit <strong>FragSMS</strong> gen&uuml;gt eine SMS. Du schreibst die Autobahnnummer, und bekommst innerhalb von Sekunden die aktuellen Staus, Baustellen und Sperrungen zur&uuml;ck &mdash; auf jedem Handy.
+        </p>
+
+        <h2>So funktioniert es</h2>
+        <p>
+          Sende eine SMS mit deiner Verkehrsfrage an die FragSMS-Nummer. Hier einige Beispiele:
+        </p>
+        <ul>
+          <li><strong>&bdquo;Stau A3&ldquo;</strong> &mdash; aktuelle Staus auf der A3</li>
+          <li><strong>&bdquo;Baustellen A1&ldquo;</strong> &mdash; Baustellen auf der A1</li>
+          <li><strong>&bdquo;Sperrung A5&ldquo;</strong> &mdash; gesperrte Abschnitte der A5</li>
+          <li><strong>&bdquo;Autobahn A7 Verkehr&ldquo;</strong> &mdash; allgemeine Verkehrslage auf der A7</li>
+          <li><strong>&bdquo;Stau A2 Richtung Hannover&ldquo;</strong> &mdash; Staus in einer bestimmten Fahrtrichtung</li>
+        </ul>
+
+        <div class="callout">
+          <strong>SMS-Beispiel:</strong>
+          <div style="margin-top: 0.75rem; font-family: monospace; font-size: 0.88rem; line-height: 1.8;">
+            <div style="color: var(--color-primary); font-weight: 600;">Du schreibst:</div>
+            <div style="margin-bottom: 0.5rem;">&bdquo;Stau A3&ldquo;</div>
+            <div style="color: var(--color-primary); font-weight: 600;">FragSMS antwortet:</div>
+            <div>&bdquo;A3 N&uuml;rnberg->Passau: Schwanenkirchen - Schaufelholz. A3 N&uuml;rnberg->Passau: Spitzig Berg - K&uuml;hberg. A3 K&ouml;ln->Oberhausen: Duisburg-Wedau - Kaiserberg.&ldquo;</div>
+          </div>
+        </div>
+
+        <h2>Welche Daten bekommst du?</h2>
+        <p>
+          FragSMS greift auf die offizielle <strong>Autobahn-API</strong> der Autobahn GmbH des Bundes zu. Die Daten sind dieselben, die auch auf der offiziellen Webseite angezeigt werden:
+        </p>
+        <ul>
+          <li><strong>Staumeldungen</strong> &mdash; aktuelle Staus mit Abschnittsangabe und Fahrtrichtung</li>
+          <li><strong>Baustellen</strong> &mdash; geplante und aktive Baustellen mit betroffenen Abschnitten</li>
+          <li><strong>Sperrungen</strong> &mdash; Vollsperrungen und Teilsperrungen</li>
+        </ul>
+        <p>
+          Die Daten werden in Echtzeit abgerufen &mdash; du bekommst immer die aktuelle Verkehrslage.
+        </p>
+
+        <h2>Besser als Verkehrsfunk</h2>
+
+        <h3>Gezielt statt allgemein</h3>
+        <p>
+          Im Radio kommen Verkehrsmeldungen f&uuml;r alle Autobahnen der Region &mdash; und du musst warten, bis deine Strecke dran ist. Per SMS fragst du gezielt nach deiner Autobahn und bekommst sofort Antwort.
+        </p>
+
+        <h3>Jederzeit abrufbar</h3>
+        <p>
+          Verkehrsfunk kommt alle 30 Minuten. FragSMS antwortet in Sekunden, wann immer du fragst &mdash; auch um 3 Uhr nachts vor der fr&uuml;hen Abfahrt in den Urlaub.
+        </p>
+
+        <h3>Kein Smartphone n&ouml;tig</h3>
+        <p>
+          Wer kein Navi und keine Stau-App hat, ist auf den Verkehrsfunk angewiesen. Mit FragSMS bekommt jedes Handy Stauinfos &mdash; auch das alte Nokia im Handschuhfach.
+        </p>
+
+        <h2>F&uuml;r wen ist das n&uuml;tzlich?</h2>
+        <ul>
+          <li><strong>Beifahrer:</strong> Der Beifahrer schickt eine SMS, w&auml;hrend der Fahrer sich auf die Stra&szlig;e konzentriert</li>
+          <li><strong>Pendler:</strong> Vor der Abfahrt kurz checken, ob die Stammstrecke frei ist</li>
+          <li><strong>LKW-Fahrer:</strong> Stauinfos ohne teure Telematik-Systeme</li>
+          <li><strong>Urlaubsreisende:</strong> Vor der langen Fahrt die Route pr&uuml;fen</li>
+          <li><strong>Firmenwagen ohne Navi:</strong> Schnelle Stauauskunft ohne zus&auml;tzliche Ger&auml;te</li>
+        </ul>
+
+        <h2>Offizielle Daten der Autobahn GmbH</h2>
+        <p>
+          Die Verkehrsdaten stammen von der <strong>Autobahn GmbH des Bundes</strong> &mdash; derselben Quelle, die auch Verkehrsleitsysteme und offizielle Webseiten speist. Keine Sch&auml;tzungen, keine Community-Meldungen, sondern verifizierte Daten.
+        </p>
+
+        <h2>Kostenlos im Free-Tarif</h2>
+        <p>
+          Stauabfragen sind im kostenlosen Free-Tarif enthalten &mdash; 50 Nachrichten pro Monat, ohne Abo und ohne Registrierung. Einfach SMS schicken und Antwort bekommen.
+        </p>
+
+        <h2>Fazit</h2>
+        <p>
+          Stau auf der Autobahn per SMS abfragen ist schnell, gezielt und funktioniert auf jedem Handy. Kein Warten auf den Verkehrsfunk, keine App, kein Internet. Eine SMS an FragSMS gen&uuml;gt, und du wei&szlig;t, ob deine Strecke frei ist.
+        </p>
+
+        <!-- CTA -->
+        <div class="article-cta">
+          <p style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Jetzt kostenlos testen</p>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 1.25rem;">50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko.</p>
+          <a href="/" class="btn-primary">Zur Startseite &rarr;</a>
+        </div>
+
+      </div>
+
+      <!-- Back to blog / related -->
+      <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Weitere Artikel</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+          <a href="/blog/naechster-zug-per-sms/" class="related-card">
+            <div class="related-tag">Mobilit&auml;t</div>
+            <div class="related-title">N&auml;chster Zug per SMS &mdash; Fahrplan ohne App</div>
+          </a>
+          <a href="/blog/wetter-per-sms/" class="related-card">
+            <div class="related-tag">Alltag</div>
+            <div class="related-title">Wetter per SMS abfragen &mdash; schnell und &uuml;berall</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <style>
+    .article-body {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--color-text-muted);
+    }
+    .article-body h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+      margin: 2.5rem 0 0.9rem;
+    }
+    .article-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 1.75rem 0 0.6rem;
+    }
+    .article-body p {
+      margin-bottom: 1.1rem;
+    }
+    .article-body ul, .article-body ol {
+      margin: 0.5rem 0 1.25rem 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.4rem;
+    }
+    .article-body strong {
+      color: var(--color-text);
+    }
+    .callout {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-primary);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+      font-size: 0.95rem;
+    }
+    .article-cta {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .related-card {
+      display: block;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .related-card:hover {
+      border-color: var(--color-primary);
+      text-decoration: none;
+    }
+    .related-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+    .related-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+  </style>
+</Base>
