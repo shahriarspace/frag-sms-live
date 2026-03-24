@@ -2469,7 +2469,7 @@ const breadcrumbJsonLd = {
             }
           } else {
             submitting = false;
-            if (errorEl) errorEl.textContent = result.data.error || getMsg('signup_error', 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.', 'An error occurred. Please try again.');
+            if (errorEl) errorEl.innerHTML = result.data.error || getMsg('signup_error', 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.', 'An error occurred. Please try again.');
             updateBtnState();
           }
         })
