@@ -113,7 +113,7 @@ const breadcrumbJsonLd = {
         <!-- Success state (hidden by default) -->
         <div class="signup-success" id="signup-success" style="display:none;">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.5" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <p data-i18n="signup_success"><strong>SMS gesendet!</strong> Pr&uuml;fe dein Handy und antworte mit <strong>JA</strong> an <strong>+49 1590 8138432</strong> um dein Konto zu aktivieren.</p>
+          <p data-i18n="signup_success"><strong>SMS gesendet!</strong> Pr&uuml;fe dein Handy und antworte mit <strong>JA</strong> an <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> um dein Konto zu aktivieren.</p>
         </div>
 
         <p class="hero-input-sub fade-in" id="hero-input-sub" data-i18n="hero_input_sub">
@@ -164,7 +164,7 @@ const breadcrumbJsonLd = {
           <div class="phone-header">
             <div class="phone-header-label">SMS</div>
             <div class="phone-header-title">FragSMS</div>
-            <div class="phone-header-num">+49 1590 8138432</div>
+            <a href="sms:+4915908138432" class="phone-header-num sms-link">+49 1590 8138432</a>
           </div>
           <div class="phone-screen" id="sms-screen">
             <div class="sms-conversation active" data-conv="0">
@@ -252,7 +252,7 @@ const breadcrumbJsonLd = {
             <div class="sb2-step-num">1</div>
             <div class="sb2-step-body">
               <div class="sb2-step-title" data-i18n="step1_title">START senden</div>
-              <div class="sb2-step-desc" data-i18n="step1_desc">Sende <strong style="color:var(--color-primary)">START</strong> per SMS an <strong>+49 1590 8138432</strong> und du bist sofort dabei.</div>
+              <div class="sb2-step-desc" data-i18n="step1_desc">Sende <strong style="color:var(--color-primary)">START</strong> per SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a> und du bist sofort dabei.</div>
             </div>
           </div>
           <div class="sb2-step">
@@ -282,7 +282,7 @@ const breadcrumbJsonLd = {
           <div class="phone-header">
             <div class="phone-header-label">SMS</div>
             <div class="phone-header-title">FragSMS</div>
-            <div class="phone-header-num">+49 1590 8138432</div>
+            <a href="sms:+4915908138432" class="phone-header-num sms-link">+49 1590 8138432</a>
           </div>
           <div class="phone-screen" id="onboarding-screen">
             <div class="sms-conversation active">
@@ -1212,6 +1212,8 @@ const breadcrumbJsonLd = {
     .phone-header-label { font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
     .phone-header-title { font-size: 1rem; font-weight: 700; color: var(--color-text); }
     .phone-header-num   { font-size: 0.7rem; color: var(--color-text-muted); }
+    .sms-link { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+    .sms-link:hover { opacity: 0.8; }
     .phone-screen {
       height: 340px;
       overflow-y: auto;
@@ -2450,7 +2452,7 @@ const breadcrumbJsonLd = {
             if (result.data.already_active) {
               if (successEl) {
                 var msgP = successEl.querySelector('p');
-                if (msgP) msgP.innerHTML = getMsg('signup_already_active', 'Du bist bereits angemeldet! Sende einfach eine SMS an <strong>+49 1590 8138432</strong>.', 'You are already signed up! Just send an SMS to <strong>+49 1590 8138432</strong>.');
+                if (msgP) msgP.innerHTML = getMsg('signup_already_active', 'Du bist bereits angemeldet! Sende einfach eine SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>.', 'You are already signed up! Just send an SMS to <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>.');
               }
             }
           } else {
@@ -2510,7 +2512,7 @@ const breadcrumbJsonLd = {
         pv_pay_title: 'Sichere Zahlung',
         pv_pay_sub: 'Stripe \u00b7 SEPA \u00b7 PayPal',
         step1_title: 'START senden',
-        step1_desc: 'Sende START per SMS an <strong>+49 1590 8138432</strong> und du bist sofort dabei.',
+        step1_desc: 'Sende START per SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a> und du bist sofort dabei.',
         step2_title: 'Frag was du willst',
         step2_desc: 'Schreibe deine Frage. Die KI antwortet auf Deutsch \u2014 in Sekunden.',
         step3_title: 'STOP = Alles gel\u00f6scht',
@@ -2562,8 +2564,8 @@ const breadcrumbJsonLd = {
         cta_sub: 'Gib deine Handynummer ein und starte kostenlos \u2014 in 30 Sekunden.',
         signup_privacy: 'Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl\u00e4rung</a> zu. <span class="required-star">*</span>',
         signup_age: 'Ich bin mindestens 16 Jahre alt. <span class="required-star">*</span>',
-        signup_success: '<strong>SMS gesendet!</strong> Pr\u00fcfe dein Handy und antworte mit <strong>JA</strong> an <strong>+49 1590 8138432</strong> um dein Konto zu aktivieren.',
-        signup_already_active: 'Du bist bereits angemeldet! Sende einfach eine SMS an <strong>+49 1590 8138432</strong>.',
+        signup_success: '<strong>SMS gesendet!</strong> Pr\u00fcfe dein Handy und antworte mit <strong>JA</strong> an <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> um dein Konto zu aktivieren.',
+        signup_already_active: 'Du bist bereits angemeldet! Sende einfach eine SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>.',
         signup_error: 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.',
         signup_checkbox_required: 'Bitte stimme den Nutzungsbedingungen und der Datenschutzerkl\u00e4rung zu.',
         phone_error_invalid: 'Bitte gib eine gueltige deutsche Handynummer ein',
@@ -2642,7 +2644,7 @@ const breadcrumbJsonLd = {
         pv_pay_title: 'Secure Payment',
         pv_pay_sub: 'Stripe \u00b7 SEPA \u00b7 PayPal',
         step1_title: 'Send START',
-        step1_desc: 'Send START via SMS to <strong>+49 1590 8138432</strong> and you\'re in immediately.',
+        step1_desc: 'Send START via SMS to <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a> and you\'re in immediately.',
         step2_title: 'Ask anything',
         step2_desc: 'Type your question. The AI replies in German \u2014 in seconds.',
         step3_title: 'STOP = Everything deleted',
@@ -2694,8 +2696,8 @@ const breadcrumbJsonLd = {
         cta_sub: 'Enter your mobile number and start for free \u2014 in 30 seconds.',
         signup_privacy: 'I agree to the <a href="/nutzungsbedingungen/" target="_blank">Terms of Service</a> and <a href="/datenschutz/" target="_blank">Privacy Policy</a>. <span class="required-star">*</span>',
         signup_age: 'I am at least 16 years old. <span class="required-star">*</span>',
-        signup_success: '<strong>SMS sent!</strong> Check your phone and reply with <strong>JA</strong> to <strong>+49 1590 8138432</strong> to activate your account.',
-        signup_already_active: 'You are already signed up! Just send an SMS to <strong>+49 1590 8138432</strong>.',
+        signup_success: '<strong>SMS sent!</strong> Check your phone and reply with <strong>JA</strong> to <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> to activate your account.',
+        signup_already_active: 'You are already signed up! Just send an SMS to <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>.',
         signup_error: 'An error occurred. Please try again.',
         signup_checkbox_required: 'Please agree to the Terms of Service and Privacy Policy.',
         phone_error_invalid: 'Please enter a valid German mobile number',
