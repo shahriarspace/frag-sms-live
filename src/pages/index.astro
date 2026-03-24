@@ -80,6 +80,23 @@ const breadcrumbJsonLd = {
           />
           <!-- Honeypot: hidden from humans, bots fill it -->
           <input type="text" name="website_url" id="hp-field" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
+        </div>
+        <p class="hero-input-error" id="phone-error" aria-live="polite"></p>
+
+        <!-- Consent checkboxes (above the button so users see them first) -->
+        <div class="signup-checks" id="signup-checks">
+          <label class="signup-check">
+            <input type="checkbox" id="privacy-check" />
+            <span data-i18n="signup_privacy">Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl&auml;rung</a> zu. <span class="required-star">*</span></span>
+          </label>
+          <label class="signup-check">
+            <input type="checkbox" id="age-check" />
+            <span data-i18n="signup_age">Ich bin mindestens 16 Jahre alt. <span class="required-star">*</span></span>
+          </label>
+        </div>
+
+        <!-- CTA button (below checkboxes) -->
+        <div class="hero-btn-wrap">
           <button class="hero-btn" id="start-btn" disabled aria-label="Kostenlos starten">
             <span data-i18n="hero_btn">Kostenlos starten</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
@@ -87,19 +104,7 @@ const breadcrumbJsonLd = {
             </svg>
           </button>
         </div>
-        <p class="hero-input-error" id="phone-error" aria-live="polite"></p>
-
-        <!-- Consent checkboxes -->
-        <div class="signup-checks" id="signup-checks">
-          <label class="signup-check">
-            <input type="checkbox" id="privacy-check" />
-            <span data-i18n="signup_privacy">Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl&auml;rung</a> zu.</span>
-          </label>
-          <label class="signup-check">
-            <input type="checkbox" id="age-check" />
-            <span data-i18n="signup_age">Ich bin mindestens 16 Jahre alt.</span>
-          </label>
-        </div>
+        <p class="hero-checkbox-hint" id="checkbox-hint" aria-live="polite"></p>
 
         <!-- Turnstile widget (hidden until real site key is configured)
         <div id="turnstile-container" class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-callback="onTurnstileSuccess" data-theme="dark"></div>
@@ -907,15 +912,55 @@ const breadcrumbJsonLd = {
       text-align: center;
     }
     .hero-btn:disabled {
-      opacity: 0.4;
+      opacity: 0.35;
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
+    }
+    .hero-btn:not(:disabled):not(.ready) {
+      opacity: 0.6;
+    }
+    .hero-btn:not(:disabled).ready {
+      opacity: 1;
     }
     .hero-btn:disabled:hover {
       background: var(--color-primary);
       transform: none;
       box-shadow: none;
+    }
+    .hero-btn-wrap {
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+    .hero-btn-wrap .hero-btn {
+      width: 100%;
+      max-width: 560px;
+      padding: 0.85rem 1.5rem;
+      font-size: 1.05rem;
+      border-radius: 12px;
+    }
+    .hero-checkbox-hint {
+      color: #ef4444;
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+      min-height: 0;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+    .required-star {
+      color: #ef4444;
+      font-weight: 700;
+    }
+    .signup-checks.shake {
+      animation: shake 0.4s ease-in-out;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-4px); }
+      40%, 80% { transform: translateX(4px); }
+    }
+    .signup-check.unchecked-highlight {
+      color: #ef4444;
     }
     .hero-input-error {
       color: #ef4444;
@@ -2170,7 +2215,7 @@ const breadcrumbJsonLd = {
     }
     @media (max-width: 560px) {
       .hero-input-inner { flex-wrap: wrap; border-radius: 12px; }
-      .hero-btn { width: 100%; justify-content: center; border-radius: 8px; }
+      .hero-btn-wrap .hero-btn { border-radius: 10px; }
       .hero-input { font-size: 1rem; }
     }
   </style>
@@ -2263,7 +2308,14 @@ const breadcrumbJsonLd = {
         if (!input || !btn) return;
         var valid = classifyGermanNumber(input.value.trim()) === 'mobile';
         var checked = privacyCb && privacyCb.checked && ageCb && ageCb.checked;
-        btn.disabled = !(valid && checked);
+        // Button is enabled when phone is valid (checkboxes validated on click)
+        btn.disabled = !valid;
+        // Visual feedback: button looks fully active only when both phone + checks are good
+        if (valid && checked) {
+          btn.classList.add('ready');
+        } else {
+          btn.classList.remove('ready');
+        }
       }
 
       var input = document.getElementById(p.input);
@@ -2322,15 +2374,50 @@ const breadcrumbJsonLd = {
         }
       });
 
-      if (privacyCb) privacyCb.addEventListener('change', function() { updateBtnState(); });
-      if (ageCb) ageCb.addEventListener('change', function() { updateBtnState(); });
+      if (privacyCb) privacyCb.addEventListener('change', function() { updateBtnState(); clearCheckboxHint(); });
+      if (ageCb) ageCb.addEventListener('change', function() { updateBtnState(); clearCheckboxHint(); });
+
+      var checkboxHintEl = document.getElementById('checkbox-hint');
+
+      function clearCheckboxHint() {
+        if (checkboxHintEl) checkboxHintEl.textContent = '';
+        if (checksEl) checksEl.classList.remove('shake');
+        var labels = checksEl ? checksEl.querySelectorAll('.signup-check') : [];
+        for (var i = 0; i < labels.length; i++) labels[i].classList.remove('unchecked-highlight');
+      }
+
+      function showCheckboxHint() {
+        var unchecked = [];
+        if (privacyCb && !privacyCb.checked) unchecked.push(privacyCb);
+        if (ageCb && !ageCb.checked) unchecked.push(ageCb);
+        if (unchecked.length === 0) return;
+
+        if (checkboxHintEl) {
+          checkboxHintEl.textContent = getMsg('signup_checkbox_required',
+            'Bitte stimme den Nutzungsbedingungen und der Datenschutzerkl\u00e4rung zu.',
+            'Please agree to the Terms of Service and Privacy Policy.');
+        }
+        // Highlight unchecked labels and shake
+        for (var i = 0; i < unchecked.length; i++) {
+          var lbl = unchecked[i].closest('.signup-check');
+          if (lbl) lbl.classList.add('unchecked-highlight');
+        }
+        if (checksEl) {
+          checksEl.classList.remove('shake');
+          void checksEl.offsetWidth; // force reflow for re-trigger
+          checksEl.classList.add('shake');
+        }
+      }
 
       btn.addEventListener('click', function() {
         if (submitting) return;
         var raw = input.value.trim();
         if (classifyGermanNumber(raw) !== 'mobile') return;
-        if (privacyCb && !privacyCb.checked) return;
-        if (ageCb && !ageCb.checked) return;
+        var checked = privacyCb && privacyCb.checked && ageCb && ageCb.checked;
+        if (!checked) {
+          showCheckboxHint();
+          return;
+        }
 
         submitting = true;
         var normalized = normalizePhone(raw);
@@ -2473,8 +2560,8 @@ const breadcrumbJsonLd = {
         faq6_q: 'Was kostet FragSMS?', faq6_a: 'FragSMS startet kostenlos mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus 4,99 \u20ac/Monat (50 Nachrichten, mehr Verlauf), Flat 14,99 \u20ac/Monat (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise.',
         cta_title: 'Bereit loszulegen?',
         cta_sub: 'Gib deine Handynummer ein und starte kostenlos \u2014 in 30 Sekunden.',
-        signup_privacy: 'Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl\u00e4rung</a> zu.',
-        signup_age: 'Ich bin mindestens 16 Jahre alt.',
+        signup_privacy: 'Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl\u00e4rung</a> zu. <span class="required-star">*</span>',
+        signup_age: 'Ich bin mindestens 16 Jahre alt. <span class="required-star">*</span>',
         signup_success: '<strong>SMS gesendet!</strong> Pr\u00fcfe dein Handy und antworte mit <strong>JA</strong> um dein Konto zu aktivieren.',
         signup_already_active: 'Du bist bereits angemeldet! Sende einfach eine SMS an diese Nummer.',
         signup_error: 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.',
@@ -2605,8 +2692,8 @@ const breadcrumbJsonLd = {
         faq6_q: 'How much does FragSMS cost?', faq6_a: 'FragSMS starts free with 50 messages/month incl. web search. Plus \u20ac4.99/month (50 messages, more history), Flat \u20ac14.99/month (1000 messages, maximum history). All prices are final.',
         cta_title: 'Ready to get started?',
         cta_sub: 'Enter your mobile number and start for free \u2014 in 30 seconds.',
-        signup_privacy: 'I agree to the <a href="/nutzungsbedingungen/" target="_blank">Terms of Service</a> and <a href="/datenschutz/" target="_blank">Privacy Policy</a>.',
-        signup_age: 'I am at least 16 years old.',
+        signup_privacy: 'I agree to the <a href="/nutzungsbedingungen/" target="_blank">Terms of Service</a> and <a href="/datenschutz/" target="_blank">Privacy Policy</a>. <span class="required-star">*</span>',
+        signup_age: 'I am at least 16 years old. <span class="required-star">*</span>',
         signup_success: '<strong>SMS sent!</strong> Check your phone and reply with <strong>JA</strong> to activate your account.',
         signup_already_active: 'You are already signed up! Just send an SMS to this number.',
         signup_error: 'An error occurred. Please try again.',
