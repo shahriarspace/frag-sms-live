@@ -68,8 +68,15 @@ const breadcrumbJsonLd = {
           <a href="sms:+4915908138432?body=START" class="btn-primary hero-cta" data-i18n="hero_cta">
             Jetzt per SMS starten &rarr;
           </a>
+          <div class="hero-desktop-hint">
+            <p class="hero-desktop-num" data-i18n="hero_desktop_num">Am Computer? Sende <strong>START</strong> an:</p>
+            <p class="hero-desktop-number" onclick="navigator.clipboard&&navigator.clipboard.writeText('+4915908138432')">+49 1590 8138432 <span class="hero-copy-hint" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
+          </div>
           <p class="hero-cta-sub" data-i18n="hero_input_sub">
             50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko
+          </p>
+          <p class="hero-sms-cost" data-i18n="hero_sms_cost">
+            SMS-Kosten: dein normaler SMS-Tarif (in den meisten Flatrates enthalten)
           </p>
         </div>
 
@@ -155,8 +162,8 @@ const breadcrumbJsonLd = {
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item fade-in">
-        <span class="stat-num">7</span>
-        <span class="stat-label" data-i18n="stat4">PII-Typen erkannt</span>
+        <span class="stat-num">&#128241;</span>
+        <span class="stat-label" data-i18n="stat4">Jedes Handy</span>
       </div>
     </div>
   </section>
@@ -309,7 +316,7 @@ const breadcrumbJsonLd = {
           </div>
           <span class="flow-col-title" data-i18n="flow_sms">SMS empfangen</span>
           <div class="flow-col-detail">
-            <code>+4915905817629</code>
+            <code>+49151XXXXXXX</code>
           </div>
           <span class="flow-col-sub" data-i18n="flow_sms_sub">Deine Nummer</span>
         </div>
@@ -364,9 +371,9 @@ const breadcrumbJsonLd = {
           </div>
           <span class="flow-col-title">SHA-256</span>
           <div class="flow-col-detail">
-            <code class="flow-hash-from">+491590...629</code>
+            <code class="flow-hash-from">+49151...XXX</code>
             <span class="flow-hash-arrow">&rarr;</span>
-            <code class="flow-hash-to">9d80c09...418a</code>
+            <code class="flow-hash-to">a3f8c2b...9e1d</code>
           </div>
           <span class="flow-col-sub" data-i18n="flow_hash_sub">Nummer nie im Klartext</span>
         </div>
@@ -378,7 +385,7 @@ const breadcrumbJsonLd = {
           <div class="flow-col-icon flow-col-icon--ai">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4v2H8V6a4 4 0 014-4z"/><rect x="4" y="8" width="16" height="12" rx="2"/><line x1="9" y1="13" x2="9" y2="16"/><line x1="15" y1="13" x2="15" y2="16"/></svg>
           </div>
-          <span class="flow-col-title" data-i18n="flow_ai">KI / Claude</span>
+           <span class="flow-col-title" data-i18n="flow_ai">KI-Modell</span>
           <div class="flow-col-detail flow-col-detail--ai">
             <span class="flow-ai-receives" data-i18n="flow_ai_receives">Erh&auml;lt nur: <strong>&bdquo;Wie wird das Wetter?&ldquo;</strong></span>
             <span class="flow-ai-blocked" data-i18n="flow_ai_blocked">Erh&auml;lt nie: Telefonnummer, Name, IBAN</span>
@@ -551,40 +558,45 @@ const breadcrumbJsonLd = {
          <a href="sms:+4915908138432?body=START" class="btn-primary hero-cta cta-sms-btn" data-i18n="hero_cta">
            Jetzt per SMS starten &rarr;
          </a>
+         <div class="hero-desktop-hint">
+           <p class="hero-desktop-num" data-i18n="hero_desktop_num">Am Computer? Sende <strong>START</strong> an:</p>
+           <p class="hero-desktop-number" onclick="navigator.clipboard&&navigator.clipboard.writeText('+4915908138432')">+49 1590 8138432 <span class="hero-copy-hint" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
+         </div>
          <p class="hero-cta-sub" data-i18n="hero_input_sub">50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko</p>
+         <p class="hero-sms-cost" data-i18n="hero_sms_cost">SMS-Kosten: dein normaler SMS-Tarif (in den meisten Flatrates enthalten)</p>
        </div>
      </div>
    </section>
 
   <!-- ═══════════════════════════════════════════════
-       USE CASES / TESTIMONIALS
+       SCENARIOS — Real-world usage stories
   ════════════════════════════════════════════════ -->
   <section class="pg-section pg-alt" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="section-heading fade-in">
-        <h2 id="testimonials-heading"><span data-i18n="social_title_1">So könnte</span> <span class="text-gradient" data-i18n="social_title_2">FragSMS helfen</span></h2>
-        <p data-i18n="social_subtitle">Typische Anwendungsfälle unserer Zielgruppe.</p>
+        <h2 id="testimonials-heading"><span data-i18n="social_title_1">So stellen wir uns</span> <span class="text-gradient" data-i18n="social_title_2">den Einsatz vor</span></h2>
+        <p data-i18n="social_subtitle">Typische Szenarien, f&uuml;r die FragSMS gemacht ist.</p>
       </div>
       <div class="testimonials-grid">
 
         <article class="testimonial-card fade-in">
           <p class="testimonial-text" data-i18n="review1_text">&bdquo;Endlich kann ich auch KI nutzen! Mein Enkel hat mir gezeigt, wie ich eine SMS schreibe &mdash; mehr brauche ich nicht. Ich frage nach Rezepten und Gesundheitstipps. Wunderbar einfach!&ldquo;</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">HM</div>
+            <div class="testimonial-avatar">&#128116;</div>
             <div>
-              <div class="testimonial-name">Helga M.</div>
-              <div class="testimonial-role" data-i18n="review1_role">Rentnerin, 72 &mdash; M&uuml;nchen</div>
+              <div class="testimonial-name" data-i18n="review1_name">Szenario: Seniorin</div>
+              <div class="testimonial-role" data-i18n="review1_role">Rentnerin, 72 &mdash; kein Smartphone</div>
             </div>
           </div>
         </article>
 
         <article class="testimonial-card fade-in">
-          <p class="testimonial-text" data-i18n="review2_text">&bdquo;Bei uns auf dem Land gibt es kaum Internet. FragSMS ist perfekt &mdash; ich frage unterwegs nach Materialberechnungen. Funktioniert &uuml;berall, wo ich Empfang habe.&ldquo;</p>
+          <p class="testimonial-text" data-i18n="review2_text">&bdquo;Auf dem Land gibt es kaum Internet. FragSMS ist perfekt &mdash; ich frage unterwegs nach Materialberechnungen. Funktioniert &uuml;berall, wo ich Empfang habe.&ldquo;</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">TK</div>
+            <div class="testimonial-avatar">&#127959;</div>
             <div>
-              <div class="testimonial-name">Thomas K.</div>
-              <div class="testimonial-role" data-i18n="review2_role">Handwerker, 45 &mdash; Eifel</div>
+              <div class="testimonial-name" data-i18n="review2_name">Szenario: Handwerker</div>
+              <div class="testimonial-role" data-i18n="review2_role">Auf der Baustelle &mdash; kein WLAN</div>
             </div>
           </div>
         </article>
@@ -592,10 +604,10 @@ const breadcrumbJsonLd = {
         <article class="testimonial-card fade-in">
           <p class="testimonial-text" data-i18n="review3_text">&bdquo;Nutze es wenn mein Datenvolumen aufgebraucht ist. Schnelle Fakten-Checks, &Uuml;bersetzungen, Mathe-Hilfe &mdash; alles per SMS. Dass es DSGVO-konform ist, finde ich richtig gut.&ldquo;</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">SK</div>
+            <div class="testimonial-avatar">&#127891;</div>
             <div>
-              <div class="testimonial-name">Sarah K.</div>
-              <div class="testimonial-role" data-i18n="review3_role">Studentin, 23 &mdash; Berlin</div>
+              <div class="testimonial-name" data-i18n="review3_name">Szenario: Studentin</div>
+              <div class="testimonial-role" data-i18n="review3_role">Datenvolumen leer &mdash; SMS geht immer</div>
             </div>
           </div>
         </article>
@@ -799,6 +811,43 @@ const breadcrumbJsonLd = {
       margin-top: 0.75rem;
       font-size: 0.8rem;
       color: var(--color-text-muted);
+    }
+    .hero-sms-cost {
+      margin-top: 0.35rem;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      opacity: 0.7;
+    }
+    .hero-desktop-hint {
+      display: none;
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+    .hero-desktop-num {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .hero-desktop-number {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      user-select: all;
+    }
+    .hero-desktop-number:hover {
+      text-decoration: underline;
+    }
+    .hero-copy-hint {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+    @media (min-width: 769px) {
+      .hero-desktop-hint {
+        display: block;
+      }
     }
     .hero-mockup {
       display: flex;
@@ -2065,10 +2114,13 @@ const breadcrumbJsonLd = {
         hero_subtitle: 'Wie ChatGPT \u2014 aber per SMS. Kein App, kein Internet, kein Login. Einfach fragen.',
         hero_cta: 'Jetzt per SMS starten \u2192',
         hero_input_sub: '50 kostenlose Nachrichten pro Monat \u2014 kein Abo, kein Risiko',
+        hero_sms_cost: 'SMS-Kosten: dein normaler SMS-Tarif (in den meisten Flatrates enthalten)',
+        hero_desktop_num: 'Am Computer? Sende <strong>START</strong> an:',
+        hero_copy_hint: '(klicken zum Kopieren)',
         stat1: 'DSGVO-konform',
         stat2: 'Server & Datenschutz',
         stat3: 'Kostenlos starten',
-        stat4: 'PII-Typen erkannt',
+        stat4: 'Jedes Handy',
         sb1_pill: 'Wie es funktioniert',
         sb1_title: 'Frag einfach.\nPer SMS.',
         sb1_desc: 'Schreibe deine Frage als SMS. Unsere KI antwortet auf Deutsch \u2014 direkt in Sekunden. Rezepte, \u00dcbersetzungen, Fakten, Reisetipps \u2014 alles m\u00f6glich.',
@@ -2121,13 +2173,16 @@ const breadcrumbJsonLd = {
         btn_upgrade: 'Jetzt upgraden', badge_popular: 'Beliebt',
         pricing_footnote: 'Alle Preise sind Endpreise. Gem\u00e4\u00df \u00a7 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.',
         guarantee_1: '14 Tage Widerrufsrecht', guarantee_2: 'Keine Abofalle', guarantee_3: 'Sofort k\u00fcndbar per SMS',
-        social_title_1: 'So k\u00f6nnte', social_title_2: 'FragSMS helfen', social_subtitle: 'Typische Anwendungsf\u00e4lle unserer Zielgruppe.',
+        social_title_1: 'So stellen wir uns', social_title_2: 'den Einsatz vor', social_subtitle: 'Typische Szenarien, f\u00fcr die FragSMS gemacht ist.',
         review1_text: '\u201eEndlich kann ich auch KI nutzen! Mein Enkel hat mir gezeigt, wie ich eine SMS schreibe \u2014 mehr brauche ich nicht. Ich frage nach Rezepten und Gesundheitstipps. Wunderbar einfach!\u201c',
-        review1_role: 'Rentnerin, 72 \u2014 M\u00fcnchen',
-        review2_text: '\u201eBei uns auf dem Land gibt es kaum Internet. FragSMS ist perfekt \u2014 ich frage unterwegs nach Materialberechnungen. Funktioniert \u00fcberall, wo ich Empfang habe.\u201c',
-        review2_role: 'Handwerker, 45 \u2014 Eifel',
+        review1_name: 'Szenario: Seniorin',
+        review1_role: 'Rentnerin, 72 \u2014 kein Smartphone',
+        review2_text: '\u201eAuf dem Land gibt es kaum Internet. FragSMS ist perfekt \u2014 ich frage unterwegs nach Materialberechnungen. Funktioniert \u00fcberall, wo ich Empfang habe.\u201c',
+        review2_name: 'Szenario: Handwerker',
+        review2_role: 'Auf der Baustelle \u2014 kein WLAN',
         review3_text: '\u201eNutze es wenn mein Datenvolumen aufgebraucht ist. Schnelle Fakten-Checks, \u00dcbersetzungen, Mathe-Hilfe \u2014 alles per SMS. Dass es DSGVO-konform ist, finde ich richtig gut.\u201c',
-        review3_role: 'Studentin, 23 \u2014 Berlin',
+        review3_name: 'Szenario: Studentin',
+        review3_role: 'Datenvolumen leer \u2014 SMS geht immer',
         uc_title_1: 'Wann ist', uc_title_2: 'FragSMS perfekt?',
         uc_subtitle: 'Echte Situationen, in denen FragSMS den Unterschied macht.',
         uc1_title: 'Urlaub ohne Internet', uc1_desc: 'Im Ausland ohne Roaming oder WLAN? Per SMS fragst du nach Restaurants, \u00dcbersetzungen oder Notfall-Infos \u2014 ganz ohne Datenverbindung.',
@@ -2174,7 +2229,7 @@ const breadcrumbJsonLd = {
         flow_blocked: 'Blockiert', flow_blocked_text: 'PII erkannt \u2192 Warnung', flow_blocked_sub: 'Keine Kosten, kein API-Call',
         flow_clean: 'Sauber',
         flow_hash_sub: 'Nummer nie im Klartext',
-        flow_ai: 'KI / Claude', flow_ai_receives: 'Erh\u00e4lt nur: <strong>\u201eWie wird das Wetter?\u201c</strong>', flow_ai_blocked: 'Erh\u00e4lt nie: Telefonnummer, Name, IBAN',
+        flow_ai: 'KI-Modell', flow_ai_receives: 'Erh\u00e4lt nur: <strong>\u201eWie wird das Wetter?\u201c</strong>', flow_ai_blocked: 'Erh\u00e4lt nie: Telefonnummer, Name, IBAN',
         cmp_title: 'Warum SMS<br>sicherer ist.',
         cmp_desc: 'App- und Web-basierte KI sammelt Dutzende Datenpunkte \u00fcber dich. SMS nutzt das Mobilfunknetz \u2014 keine IPs, keine Cookies, kein Tracking.',
         cmp_app_title: 'App / Web KI',
@@ -2191,10 +2246,13 @@ const breadcrumbJsonLd = {
         hero_subtitle: 'Like ChatGPT \u2014 but via text. No app, no internet, no login. Just ask.',
         hero_cta: 'Start via SMS now \u2192',
         hero_input_sub: '50 free messages per month \u2014 no subscription, no risk',
+        hero_sms_cost: 'SMS cost: your normal SMS rate (included in most flat rates)',
+        hero_desktop_num: 'On desktop? Send <strong>START</strong> to:',
+        hero_copy_hint: '(click to copy)',
         stat1: 'GDPR Compliant',
         stat2: 'EU Servers',
         stat3: 'Start Free',
-        stat4: 'PII Types Detected',
+        stat4: 'Any phone',
         sb1_pill: 'How it works',
         sb1_title: 'Just ask.\nVia SMS.',
         sb1_desc: 'Type your question as a text. Our AI answers in German \u2014 directly in seconds. Recipes, translations, facts, travel tips \u2014 anything goes.',
@@ -2247,13 +2305,16 @@ const breadcrumbJsonLd = {
         btn_upgrade: 'Upgrade now', badge_popular: 'Popular',
         pricing_footnote: 'All prices are final. As per \u00a7 19 para. 1 UStG, no VAT is charged.',
         guarantee_1: '14-Day Right of Withdrawal', guarantee_2: 'No Subscription Trap', guarantee_3: 'Cancel instantly via SMS',
-        social_title_1: 'How', social_title_2: 'FragSMS could help', social_subtitle: 'Typical use cases from our target audience.',
+        social_title_1: 'How we envision', social_title_2: 'FragSMS in action', social_subtitle: 'Typical scenarios FragSMS is made for.',
         review1_text: '\u201cFinally I can use AI too! My grandson showed me how to send a text \u2014 that\'s all I need. I ask for recipes and health tips. Wonderfully simple!\u201d',
-        review1_role: 'Retiree, 72 \u2014 Munich',
+        review1_name: 'Scenario: Senior',
+        review1_role: 'Retiree, 72 \u2014 no smartphone',
         review2_text: '\u201cWhere I live there\'s barely any internet. FragSMS is perfect \u2014 I ask about material calculations on the go. Works everywhere I have signal.\u201d',
-        review2_role: 'Craftsman, 45 \u2014 Eifel',
+        review2_name: 'Scenario: Craftsman',
+        review2_role: 'On the construction site \u2014 no WiFi',
         review3_text: '\u201cI use it when my data plan runs out. Quick fact-checks, translations, math help \u2014 all via SMS. That it\'s GDPR compliant is a real plus.\u201d',
-        review3_role: 'Student, 23 \u2014 Berlin',
+        review3_name: 'Scenario: Student',
+        review3_role: 'Data plan empty \u2014 SMS still works',
         uc_title_1: 'When is', uc_title_2: 'FragSMS perfect?',
         uc_subtitle: 'Real situations where FragSMS makes the difference.',
         uc1_title: 'Vacation without internet', uc1_desc: 'Abroad without roaming or WiFi? Via SMS you can ask for restaurants, translations or emergency info \u2014 no data connection needed.',
@@ -2300,7 +2361,7 @@ const breadcrumbJsonLd = {
         flow_blocked: 'Blocked', flow_blocked_text: 'PII detected \u2192 Warning', flow_blocked_sub: 'No cost, no API call',
         flow_clean: 'Clean',
         flow_hash_sub: 'Number never in plain text',
-        flow_ai: 'AI / Claude', flow_ai_receives: 'Receives only: <strong>"What\'s the weather like?"</strong>', flow_ai_blocked: 'Never receives: phone number, name, IBAN',
+        flow_ai: 'AI Model', flow_ai_receives: 'Receives only: <strong>"What\'s the weather like?"</strong>', flow_ai_blocked: 'Never receives: phone number, name, IBAN',
         cmp_title: 'Why SMS<br>is safer.',
         cmp_desc: 'App and web-based AI collects dozens of data points about you. SMS uses the carrier network \u2014 no IPs, no cookies, no tracking.',
         cmp_app_title: 'App / Web AI',
