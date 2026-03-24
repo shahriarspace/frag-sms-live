@@ -44,85 +44,91 @@ const breadcrumbJsonLd = {
 >
 
   <!-- ═══════════════════════════════════════════════
-       HERO
+       HERO — What is FragSMS?
   ════════════════════════════════════════════════ -->
   <section class="hero-section">
     <div class="hero-glow"></div>
     <div class="container hero-inner">
 
-      <div class="fade-in">
-        <span class="pill" data-i18n="hero_badge">KI per SMS in Deutschland</span>
-      </div>
-
-      <h1 class="hero-title fade-in">
-        <span data-i18n="hero_title_1">Dein KI-Assistent.</span><br>
-        <span class="text-gradient" data-i18n="hero_title_2">Per SMS.</span>
-      </h1>
-
-      <p class="hero-sub fade-in" data-i18n="hero_subtitle">
-        Wie ChatGPT &mdash; aber per SMS. Kein App, kein Internet, kein Login. Einfach fragen.
-      </p>
-
-      <p class="hero-sms-number fade-in" data-i18n="hero_sms_number">
-        SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>
-      </p>
-
-      <!-- Big phone number input bar -->
-      <div class="hero-input-wrap fade-in">
-        <div class="hero-input-inner" id="phone-wrap">
-          <svg class="hero-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
-          </svg>
-          <span class="phone-prefix">+49</span>
-          <input
-            id="phone-input"
-            type="tel"
-            class="hero-input"
-            placeholder="151 XXXXXXXX"
-            aria-label="Deine Handynummer"
-            data-i18n-placeholder="hero_input_placeholder"
-          />
-          <!-- Honeypot: hidden from humans, bots fill it -->
-          <input type="text" name="website_url" id="hp-field" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
-        </div>
-        <p class="hero-input-error" id="phone-error" aria-live="polite"></p>
-
-        <!-- Consent checkboxes (above the button so users see them first) -->
-        <div class="signup-checks" id="signup-checks">
-          <label class="signup-check">
-            <input type="checkbox" id="privacy-check" />
-            <span data-i18n="signup_privacy">Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl&auml;rung</a> zu. <span class="required-star">*</span></span>
-          </label>
-          <label class="signup-check">
-            <input type="checkbox" id="age-check" />
-            <span data-i18n="signup_age">Ich bin mindestens 16 Jahre alt. <span class="required-star">*</span></span>
-          </label>
+      <div class="hero-content">
+        <div class="hero-text fade-in">
+          <span class="pill" data-i18n="hero_badge">KI per SMS in Deutschland</span>
+          <h1 class="hero-title">
+            <span data-i18n="hero_title_1">Dein KI-Assistent.</span><br>
+            <span class="text-gradient" data-i18n="hero_title_2">Per SMS.</span>
+          </h1>
+          <p class="hero-sub" data-i18n="hero_subtitle">
+            Wie ChatGPT &mdash; aber per SMS. Kein App, kein Internet, kein Login. Einfach fragen.
+          </p>
+          <ul class="sb-list hero-features">
+            <li><span class="check">&#10003;</span> <span data-i18n="sb1_l1">Kein Smartphone erforderlich</span></li>
+            <li><span class="check">&#10003;</span> <span data-i18n="sb1_l2">Kein Internet oder WLAN</span></li>
+            <li><span class="check">&#10003;</span> <span data-i18n="sb1_l3">Antwort in unter 5 Sekunden</span></li>
+          </ul>
+          <a href="sms:+4915908138432?body=START" class="btn-primary hero-cta" data-i18n="hero_cta">
+            Jetzt per SMS starten &rarr;
+          </a>
+          <p class="hero-cta-sub" data-i18n="hero_input_sub">
+            50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko
+          </p>
         </div>
 
-        <!-- CTA button (below checkboxes) -->
-        <div class="hero-btn-wrap">
-          <button class="hero-btn" id="start-btn" disabled aria-label="Kostenlos starten">
-            <span data-i18n="hero_btn">Kostenlos starten</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </button>
+        <div class="hero-mockup fade-in">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-header">
+              <div class="phone-header-label">SMS</div>
+              <div class="phone-header-title">FragSMS</div>
+              <a href="sms:+4915908138432" class="phone-header-num sms-link">+49 1590 8138432</a>
+            </div>
+            <div class="phone-screen" id="sms-screen">
+              <div class="sms-conversation active" data-conv="0">
+                <div class="sms-label" data-i18n="sms_label_0">Kochen &amp; Rezepte</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_0">Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_0">Spanische Tortilla! Kartoffeln d&uuml;nn schneiden, in &Ouml;l 15 Min braten. Zwiebel dazu. 6 Eier verquirlen, salzen, dazugeben. Kleine Hitze 8 Min, wenden. Fertig!</div>
+              </div>
+              <div class="sms-conversation" data-conv="1">
+                <div class="sms-label" data-i18n="sms_label_1">Alltagshilfe</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_1">Wie sage ich auf Englisch: Ich m&ouml;chte einen Arzttermin verschieben?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_1">I would like to reschedule my doctor's appointment. H&ouml;flicher: Could I please reschedule my appointment?</div>
+              </div>
+              <div class="sms-conversation" data-conv="2">
+                <div class="sms-label" data-i18n="sms_label_2">Wissen &amp; Fakten</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_2">Wie hoch ist die Zugspitze?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_2">Die Zugspitze ist 2.962 m hoch &mdash; Deutschlands h&ouml;chster Berg. Im Winter per Seilbahn erreichbar.</div>
+              </div>
+              <div class="sms-conversation" data-conv="3">
+                <div class="sms-label" data-i18n="sms_label_3">Senioren-Hilfe</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_3">Mein Enkel wird 8. Was schenkt man da?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_3">Tolle Ideen: 1) LEGO-Set 2) Kinderbuch-Reihe 3) Experiment-Baukasten 4) Freizeitpark-Tickets. Budget-Tipp: Buch + S&uuml;&szlig;igkeiten = immer ein Hit!</div>
+              </div>
+              <div class="sms-conversation" data-conv="4">
+                <div class="sms-label" data-i18n="sms_label_4">Ohne Internet</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_4">Bin auf dem Land, kein Internet. N&auml;chster Zug Aachen nach K&ouml;ln?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_4">RE1 f&auml;hrt alle 30 Min, Fahrzeit ca. 50 Min. Letzter Zug ca. 23:30. DB-Hotline: 030 2970.</div>
+              </div>
+              <div class="sms-conversation" data-conv="5">
+                <div class="sms-label" data-i18n="sms_label_5">Nachrichten</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_5">Aktuelle Nachrichten von Bild?</div>
+                <div class="sms-bubble sms-received" data-i18n="sms_a_5">Iran-Israel Konflikt eskaliert &mdash; Gaspreise +35%. Gletscher schmelzen bis 2030er. 1/3 Kliniken vor Insolvenz. VW zahlt Boni. Nagelsmann w&auml;hlt DFB-Team. bild.de</div>
+              </div>
+              <div class="sms-conversation" data-conv="6">
+                <div class="sms-label" data-i18n="sms_label_6">Datenschutz</div>
+                <div class="sms-bubble sms-sent" data-i18n="sms_q_6">Schick meine IBAN DE89370400440532013000 an meinen Steuerberater</div>
+                <div class="sms-bubble sms-received sms-privacy-warn" data-i18n="sms_a_6">Deine Nachricht enth&auml;lt pers&ouml;nliche Daten (IBAN). Bitte sende keine sensiblen Infos per SMS. Formuliere deine Frage ohne IBAN neu.</div>
+              </div>
+            </div>
+            <div class="phone-dots">
+              <button class="dot active" data-dot="0" aria-label="Beispiel 1"></button>
+              <button class="dot" data-dot="1" aria-label="Beispiel 2"></button>
+              <button class="dot" data-dot="2" aria-label="Beispiel 3"></button>
+              <button class="dot" data-dot="3" aria-label="Beispiel 4"></button>
+              <button class="dot" data-dot="4" aria-label="Beispiel 5"></button>
+              <button class="dot" data-dot="5" aria-label="Beispiel 6"></button>
+              <button class="dot" data-dot="6" aria-label="Beispiel 7"></button>
+            </div>
+          </div>
         </div>
-        <p class="hero-checkbox-hint" id="checkbox-hint" aria-live="polite"></p>
-
-        <!-- Turnstile widget (hidden until real site key is configured)
-        <div id="turnstile-container" class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-callback="onTurnstileSuccess" data-theme="dark"></div>
-        -->
-
-        <!-- Success state (hidden by default) -->
-        <div class="signup-success" id="signup-success" style="display:none;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.5" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <p data-i18n="signup_success"><strong>SMS gesendet!</strong> Pr&uuml;fe dein Handy und antworte mit <strong>JA</strong> an <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> um dein Konto zu aktivieren.</p>
-        </div>
-
-        <p class="hero-input-sub fade-in" id="hero-input-sub" data-i18n="hero_input_sub">
-          50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko
-        </p>
       </div>
 
     </div>
@@ -156,89 +162,7 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- ═══════════════════════════════════════════════
-       SWITCHBACK 1 — SMS Demo (phone mockup left)
-  ════════════════════════════════════════════════ -->
-  <section class="sb-section">
-    <div class="container sb-grid">
-
-      <!-- Left: Phone mockup -->
-      <div class="sb-media fade-in">
-        <div class="phone-mockup">
-          <div class="phone-notch"></div>
-          <div class="phone-header">
-            <div class="phone-header-label">SMS</div>
-            <div class="phone-header-title">FragSMS</div>
-            <a href="sms:+4915908138432" class="phone-header-num sms-link">+49 1590 8138432</a>
-          </div>
-          <div class="phone-screen" id="sms-screen">
-            <div class="sms-conversation active" data-conv="0">
-              <div class="sms-label" data-i18n="sms_label_0">Kochen &amp; Rezepte</div>
-              <div class="sms-bubble sms-sent" data-i18n="sms_q_0">Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?</div>
-              <div class="sms-bubble sms-received" data-i18n="sms_a_0">Spanische Tortilla! Kartoffeln d&uuml;nn schneiden, in &Ouml;l 15 Min braten. Zwiebel dazu. 6 Eier verquirlen, salzen, dazugeben. Kleine Hitze 8 Min, wenden. Fertig!</div>
-            </div>
-            <div class="sms-conversation" data-conv="1">
-              <div class="sms-label" data-i18n="sms_label_1">Alltagshilfe</div>
-              <div class="sms-bubble sms-sent" data-i18n="sms_q_1">Wie sage ich auf Englisch: Ich m&ouml;chte einen Arzttermin verschieben?</div>
-              <div class="sms-bubble sms-received" data-i18n="sms_a_1">I would like to reschedule my doctor's appointment. H&ouml;flicher: Could I please reschedule my appointment?</div>
-            </div>
-            <div class="sms-conversation" data-conv="2">
-              <div class="sms-label" data-i18n="sms_label_2">Wissen &amp; Fakten</div>
-              <div class="sms-bubble sms-sent" data-i18n="sms_q_2">Wie hoch ist die Zugspitze?</div>
-              <div class="sms-bubble sms-received" data-i18n="sms_a_2">Die Zugspitze ist 2.962 m hoch &mdash; Deutschlands h&ouml;chster Berg. Im Winter per Seilbahn erreichbar.</div>
-            </div>
-            <div class="sms-conversation" data-conv="3">
-              <div class="sms-label" data-i18n="sms_label_3">Senioren-Hilfe</div>
-              <div class="sms-bubble sms-sent" data-i18n="sms_q_3">Mein Enkel wird 8. Was schenkt man da?</div>
-              <div class="sms-bubble sms-received" data-i18n="sms_a_3">Tolle Ideen: 1) LEGO-Set 2) Kinderbuch-Reihe 3) Experiment-Baukasten 4) Freizeitpark-Tickets. Budget-Tipp: Buch + S&uuml;&szlig;igkeiten = immer ein Hit!</div>
-            </div>
-            <div class="sms-conversation" data-conv="4">
-              <div class="sms-label" data-i18n="sms_label_4">Ohne Internet</div>
-              <div class="sms-bubble sms-sent" data-i18n="sms_q_4">Bin auf dem Land, kein Internet. N&auml;chster Zug Aachen nach K&ouml;ln?</div>
-              <div class="sms-bubble sms-received" data-i18n="sms_a_4">RE1 f&auml;hrt alle 30 Min, Fahrzeit ca. 50 Min. Letzter Zug ca. 23:30. DB-Hotline: 030 2970.</div>
-            </div>
-            <div class="sms-conversation" data-conv="5">
-              <div class="sms-label" data-i18n="sms_label_5">Nachrichten</div>
-              <div class="sms-bubble sms-sent" data-i18n="sms_q_5">Aktuelle Nachrichten von Bild?</div>
-              <div class="sms-bubble sms-received" data-i18n="sms_a_5">Iran-Israel Konflikt eskaliert &mdash; Gaspreise +35%. Gletscher schmelzen bis 2030er. 1/3 Kliniken vor Insolvenz. VW zahlt Boni. Nagelsmann w&auml;hlt DFB-Team. bild.de</div>
-            </div>
-            <div class="sms-conversation" data-conv="6">
-              <div class="sms-label" data-i18n="sms_label_6">Datenschutz</div>
-              <div class="sms-bubble sms-sent" data-i18n="sms_q_6">Schick meine IBAN DE89370400440532013000 an meinen Steuerberater</div>
-              <div class="sms-bubble sms-received sms-privacy-warn" data-i18n="sms_a_6">Deine Nachricht enth&auml;lt pers&ouml;nliche Daten (IBAN). Bitte sende keine sensiblen Infos per SMS. Formuliere deine Frage ohne IBAN neu.</div>
-            </div>
-          </div>
-          <div class="phone-dots">
-            <button class="dot active" data-dot="0" aria-label="Beispiel 1"></button>
-            <button class="dot" data-dot="1" aria-label="Beispiel 2"></button>
-            <button class="dot" data-dot="2" aria-label="Beispiel 3"></button>
-            <button class="dot" data-dot="3" aria-label="Beispiel 4"></button>
-            <button class="dot" data-dot="4" aria-label="Beispiel 5"></button>
-            <button class="dot" data-dot="5" aria-label="Beispiel 6"></button>
-            <button class="dot" data-dot="6" aria-label="Beispiel 7"></button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Text -->
-      <div class="sb-text fade-in">
-        <span class="pill" data-i18n="sb1_pill">Wie es funktioniert</span>
-        <h2 class="sb-title" data-i18n="sb1_title">Frag einfach.<br>Per SMS.</h2>
-        <p class="sb-desc" data-i18n="sb1_desc">
-          Schreibe deine Frage als SMS. Unsere KI antwortet auf Deutsch &mdash; direkt in Sekunden.
-          Rezepte, &Uuml;bersetzungen, Fakten, Reisetipps &mdash; alles m&ouml;glich.
-        </p>
-        <ul class="sb-list">
-          <li><span class="check">&#10003;</span> <span data-i18n="sb1_l1">Kein Smartphone erforderlich</span></li>
-          <li><span class="check">&#10003;</span> <span data-i18n="sb1_l2">Kein Internet oder WLAN</span></li>
-          <li><span class="check">&#10003;</span> <span data-i18n="sb1_l3">Antwort in unter 5 Sekunden</span></li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
-       SWITCHBACK 2 — How it works (text left, steps right)
+       HOW IT WORKS — 3 Steps (text left, phone mockup right)
   ════════════════════════════════════════════════ -->
   <section class="sb-section sb-alt" aria-labelledby="how-it-works">
     <div class="container sb-grid sb-reverse">
@@ -304,6 +228,57 @@ const breadcrumbJsonLd = {
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       USE CASES — Real-world scenarios
+  ════════════════════════════════════════════════ -->
+  <section class="pg-section" aria-labelledby="usecases-heading">
+    <div class="container">
+      <div class="section-heading fade-in">
+        <h2 id="usecases-heading"><span data-i18n="uc_title_1">Wann ist</span> <span class="text-gradient" data-i18n="uc_title_2">FragSMS perfekt?</span></h2>
+        <p data-i18n="uc_subtitle">Echte Situationen, in denen FragSMS den Unterschied macht.</p>
+      </div>
+      <div class="usecases-grid">
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#9992;</div>
+          <h3 class="usecase-title" data-i18n="uc1_title">Urlaub ohne Internet</h3>
+          <p class="usecase-desc" data-i18n="uc1_desc">Im Ausland ohne Roaming oder WLAN? Per SMS fragst du nach Restaurants, &Uuml;bersetzungen oder Notfall-Infos &mdash; ganz ohne Datenverbindung.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#128372;</div>
+          <h3 class="usecase-title" data-i18n="uc2_title">Kein Smartphone</h3>
+          <p class="usecase-desc" data-i18n="uc2_desc">Millionen Menschen in Deutschland nutzen kein Smartphone. Mit FragSMS kann jedes Handy, das SMS senden kann, KI nutzen &mdash; auch ein Nokia 3310.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#127966;</div>
+          <h3 class="usecase-title" data-i18n="uc3_title">Auf dem Land</h3>
+          <p class="usecase-desc" data-i18n="uc3_desc">In l&auml;ndlichen Gebieten gibt es oft kein stabiles Internet. SMS funktioniert &uuml;berall, wo es Mobilfunkempfang gibt &mdash; auch ohne 4G oder 5G.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#128242;</div>
+          <h3 class="usecase-title" data-i18n="uc4_title">Datenvolumen aufgebraucht</h3>
+          <p class="usecase-desc" data-i18n="uc4_desc">Monatliches Datenvolumen leer? SMS funktioniert trotzdem. Fakten-Checks, &Uuml;bersetzungen und schnelle Antworten &mdash; ohne einen Cent f&uuml;r Daten.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#128116;</div>
+          <h3 class="usecase-title" data-i18n="uc5_title">Senioren &amp; Technik-Einsteiger</h3>
+          <p class="usecase-desc" data-i18n="uc5_desc">Keine App installieren, kein Passwort merken, kein Account anlegen. Wer eine SMS tippen kann, kann FragSMS nutzen &mdash; ab der ersten Nachricht.</p>
+        </article>
+
+        <article class="usecase-card fade-in">
+          <div class="usecase-icon">&#127959;</div>
+          <h3 class="usecase-title" data-i18n="uc6_title">Auf der Baustelle</h3>
+          <p class="usecase-desc" data-i18n="uc6_desc">Schnell eine Materialberechnung oder Umrechnung brauchen? Per SMS bekommst du sofort Antworten &mdash; auch mit Handschuhen und ohne WLAN.</p>
+        </article>
+
+      </div>
     </div>
   </section>
 
@@ -558,6 +533,76 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- ═══════════════════════════════════════════════
+       CTA — Signup Form
+  ════════════════════════════════════════════════ -->
+  <section class="pg-section cta-section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="section-heading fade-in">
+        <h2 id="cta-heading" data-i18n="cta_title">Bereit loszulegen?</h2>
+        <p data-i18n="cta_sub">Gib deine Handynummer ein und starte kostenlos &mdash; in 30 Sekunden.</p>
+      </div>
+
+      <div class="cta-form fade-in">
+        <!-- Option 1: Direct SMS link -->
+        <a href="sms:+4915908138432?body=START" class="btn-primary hero-cta cta-sms-btn" data-i18n="hero_cta">
+          Jetzt per SMS starten &rarr;
+        </a>
+        <p class="cta-or" data-i18n="cta_or">oder registriere dich hier:</p>
+
+        <!-- Option 2: Phone input form -->
+        <div class="hero-input-wrap">
+          <div class="hero-input-inner" id="phone-wrap">
+            <svg class="hero-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+            </svg>
+            <span class="phone-prefix">+49</span>
+            <input
+              id="phone-input"
+              type="tel"
+              class="hero-input"
+              placeholder="151 XXXXXXXX"
+              aria-label="Deine Handynummer"
+              data-i18n-placeholder="hero_input_placeholder"
+            />
+            <!-- Honeypot: hidden from humans, bots fill it -->
+            <input type="text" name="website_url" id="hp-field" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
+          </div>
+          <p class="hero-input-error" id="phone-error" aria-live="polite"></p>
+
+          <!-- Consent checkboxes -->
+          <div class="signup-checks" id="signup-checks">
+            <label class="signup-check">
+              <input type="checkbox" id="privacy-check" />
+              <span data-i18n="signup_privacy">Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl&auml;rung</a> zu. <span class="required-star">*</span></span>
+            </label>
+            <label class="signup-check">
+              <input type="checkbox" id="age-check" />
+              <span data-i18n="signup_age">Ich bin mindestens 16 Jahre alt. <span class="required-star">*</span></span>
+            </label>
+          </div>
+
+          <!-- CTA button -->
+          <div class="hero-btn-wrap">
+            <button class="hero-btn" id="start-btn" disabled aria-label="Kostenlos starten">
+              <span data-i18n="hero_btn">Kostenlos starten</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </div>
+          <p class="hero-checkbox-hint" id="checkbox-hint" aria-live="polite"></p>
+
+          <!-- Success state (hidden by default) -->
+          <div class="signup-success" id="signup-success" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.5" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <p data-i18n="signup_success"><strong>SMS gesendet!</strong> Pr&uuml;fe dein Handy und antworte mit <strong>JA</strong> an <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> um dein Konto zu aktivieren.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
        USE CASES / TESTIMONIALS
   ════════════════════════════════════════════════ -->
   <section class="pg-section pg-alt" aria-labelledby="testimonials-heading">
@@ -599,57 +644,6 @@ const breadcrumbJsonLd = {
               <div class="testimonial-role" data-i18n="review3_role">Studentin, 23 &mdash; Berlin</div>
             </div>
           </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
-       USE CASES — Real-world scenarios
-  ════════════════════════════════════════════════ -->
-  <section class="pg-section" aria-labelledby="usecases-heading">
-    <div class="container">
-      <div class="section-heading fade-in">
-        <h2 id="usecases-heading"><span data-i18n="uc_title_1">Wann ist</span> <span class="text-gradient" data-i18n="uc_title_2">FragSMS perfekt?</span></h2>
-        <p data-i18n="uc_subtitle">Echte Situationen, in denen FragSMS den Unterschied macht.</p>
-      </div>
-      <div class="usecases-grid">
-
-        <article class="usecase-card fade-in">
-          <div class="usecase-icon">&#9992;</div>
-          <h3 class="usecase-title" data-i18n="uc1_title">Urlaub ohne Internet</h3>
-          <p class="usecase-desc" data-i18n="uc1_desc">Im Ausland ohne Roaming oder WLAN? Per SMS fragst du nach Restaurants, &Uuml;bersetzungen oder Notfall-Infos &mdash; ganz ohne Datenverbindung.</p>
-        </article>
-
-        <article class="usecase-card fade-in">
-          <div class="usecase-icon">&#128372;</div>
-          <h3 class="usecase-title" data-i18n="uc2_title">Kein Smartphone</h3>
-          <p class="usecase-desc" data-i18n="uc2_desc">Millionen Menschen in Deutschland nutzen kein Smartphone. Mit FragSMS kann jedes Handy, das SMS senden kann, KI nutzen &mdash; auch ein Nokia 3310.</p>
-        </article>
-
-        <article class="usecase-card fade-in">
-          <div class="usecase-icon">&#127966;</div>
-          <h3 class="usecase-title" data-i18n="uc3_title">Auf dem Land</h3>
-          <p class="usecase-desc" data-i18n="uc3_desc">In l&auml;ndlichen Gebieten gibt es oft kein stabiles Internet. SMS funktioniert &uuml;berall, wo es Mobilfunkempfang gibt &mdash; auch ohne 4G oder 5G.</p>
-        </article>
-
-        <article class="usecase-card fade-in">
-          <div class="usecase-icon">&#128242;</div>
-          <h3 class="usecase-title" data-i18n="uc4_title">Datenvolumen aufgebraucht</h3>
-          <p class="usecase-desc" data-i18n="uc4_desc">Monatliches Datenvolumen leer? SMS funktioniert trotzdem. Fakten-Checks, &Uuml;bersetzungen und schnelle Antworten &mdash; ohne einen Cent f&uuml;r Daten.</p>
-        </article>
-
-        <article class="usecase-card fade-in">
-          <div class="usecase-icon">&#128116;</div>
-          <h3 class="usecase-title" data-i18n="uc5_title">Senioren &amp; Technik-Einsteiger</h3>
-          <p class="usecase-desc" data-i18n="uc5_desc">Keine App installieren, kein Passwort merken, kein Account anlegen. Wer eine SMS tippen kann, kann FragSMS nutzen &mdash; ab der ersten Nachricht.</p>
-        </article>
-
-        <article class="usecase-card fade-in">
-          <div class="usecase-icon">&#127959;</div>
-          <h3 class="usecase-title" data-i18n="uc6_title">Auf der Baustelle</h3>
-          <p class="usecase-desc" data-i18n="uc6_desc">Schnell eine Materialberechnung oder Umrechnung brauchen? Per SMS bekommst du sofort Antworten &mdash; auch mit Handschuhen und ohne WLAN.</p>
         </article>
 
       </div>
@@ -794,7 +788,6 @@ const breadcrumbJsonLd = {
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       position: relative;
       overflow: hidden;
       padding: 3rem 0 4rem;
@@ -808,32 +801,92 @@ const breadcrumbJsonLd = {
     .hero-inner {
       position: relative;
       z-index: 1;
+    }
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .hero-text {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
     }
     .hero-title {
-      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 900;
       line-height: 1.08;
       letter-spacing: -0.04em;
-      margin: 1.25rem 0 1.25rem;
+      margin: 0.75rem 0 1rem;
     }
     .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: clamp(1rem, 2vw, 1.15rem);
       color: var(--color-text-muted);
-      max-width: 520px;
-      margin: 0 auto 2.5rem;
+      max-width: 480px;
+      margin: 0 0 1.5rem;
       line-height: 1.65;
     }
-    .hero-sms-number {
-      font-size: 1.1rem;
-      color: var(--color-text-muted);
-      margin: -1.5rem auto 2rem;
-      text-align: center;
-      letter-spacing: 0.02em;
+    .hero-features {
+      margin-bottom: 2rem;
     }
-    .hero-sms-number .sms-link { font-size: 1.2rem; }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border-radius: 12px;
+    }
+    .hero-cta-sub {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .hero-mockup {
+      display: flex;
+      justify-content: center;
+    }
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+      .hero-text {
+        align-items: center;
+      }
+      .hero-features {
+        text-align: left;
+        display: inline-flex;
+        flex-direction: column;
+      }
+    }
+
+    /* ── CTA Section ─────────────────────────────── */
+    .cta-section {
+      background: var(--color-bg-alt);
+    }
+    .cta-form {
+      max-width: 580px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cta-sms-btn {
+      width: 100%;
+      max-width: 480px;
+      justify-content: center;
+      font-size: 1.1rem;
+      padding: 1rem 2rem;
+    }
+    .cta-or {
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      margin: 1.25rem 0;
+    }
 
     /* ── Input bar ────────────────────────────────── */
     .hero-input-wrap {
@@ -2491,10 +2544,11 @@ const breadcrumbJsonLd = {
         hero_title_1: 'Dein KI-Assistent.',
         hero_title_2: 'Per SMS.',
         hero_subtitle: 'Wie ChatGPT \u2014 aber per SMS. Kein App, kein Internet, kein Login. Einfach fragen.',
-        hero_sms_number: 'SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>',
         hero_input_placeholder: '151 XXXXXXXX',
         hero_btn: 'Kostenlos starten',
+        hero_cta: 'Jetzt per SMS starten \u2192',
         hero_input_sub: '50 kostenlose Nachrichten pro Monat \u2014 kein Abo, kein Risiko',
+        cta_or: 'oder registriere dich hier:',
         stat1: 'DSGVO-konform',
         stat2: 'Server & Datenschutz',
         stat3: 'Kostenlos starten',
@@ -2624,10 +2678,11 @@ const breadcrumbJsonLd = {
         hero_title_1: 'Your AI Assistant.',
         hero_title_2: 'Via SMS.',
         hero_subtitle: 'Like ChatGPT \u2014 but via text. No app, no internet, no login. Just ask.',
-        hero_sms_number: 'Text <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>',
         hero_input_placeholder: '151 XXXXXXXX',
         hero_btn: 'Start for free',
+        hero_cta: 'Start via SMS now \u2192',
         hero_input_sub: '50 free messages per month \u2014 no subscription, no risk',
+        cta_or: 'or sign up here:',
         stat1: 'GDPR Compliant',
         stat2: 'EU Servers',
         stat3: 'Start Free',
