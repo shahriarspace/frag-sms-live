@@ -16,9 +16,11 @@ import Base from '../layouts/Base.astro';
 
       <h2>1. &Uuml;berblick</h2>
       <p>
-        FragSMS ist ein KI-Assistent, der per SMS erreichbar ist. Der Dienst nutzt k&uuml;nstliche Intelligenz
-        (Claude Haiku von Anthropic), um deine Fragen zu beantworten. Du chattest mit einer KI, nicht mit einem
-        Menschen. Wir nehmen den Schutz deiner pers&ouml;nlichen Daten sehr ernst.
+        FragSMS ist ein KI-Assistent, der per SMS erreichbar ist. Der Dienst nutzt k&uuml;nstliche Intelligenz,
+        um deine Fragen zu beantworten. Je nach Tarif kommen unterschiedliche KI-Modelle zum Einsatz:
+        Gemini 2.5 Flash von Google (Free-Tarif) oder Claude Haiku von Anthropic (Plus- und Flat-Tarif).
+        Du chattest mit einer KI, nicht mit einem Menschen.
+        Wir nehmen den Schutz deiner pers&ouml;nlichen Daten sehr ernst.
         Diese Datenschutzerkl&auml;rung informiert dich dar&uuml;ber, welche Daten wir erheben, wie wir sie verwenden und welche Rechte du hast.
       </p>
 
@@ -87,14 +89,38 @@ import Base from '../layouts/Base.astro';
 
       <h2>4. KI-Verarbeitung und EU AI Act</h2>
       <p>
-        FragSMS verwendet k&uuml;nstliche Intelligenz (KI) zur Beantwortung deiner Fragen. Konkret:
+        FragSMS verwendet k&uuml;nstliche Intelligenz (KI) zur Beantwortung deiner Fragen. Je nach Tarif werden unterschiedliche Anbieter eingesetzt:
       </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Tarif</th>
+            <th>KI-Modell</th>
+            <th>Anbieter</th>
+            <th>Verarbeitungsort</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Free</td>
+            <td>Gemini 2.5 Flash</td>
+            <td>Google LLC</td>
+            <td>USA/EU (DPA + SCCs, EU-US Data Privacy Framework)</td>
+          </tr>
+          <tr>
+            <td>Plus / Flat</td>
+            <td>Claude Haiku</td>
+            <td>Anthropic</td>
+            <td>USA (DPA + SCCs)</td>
+          </tr>
+        </tbody>
+      </table>
       <ul>
-        <li><strong>KI-Modell:</strong> Claude Haiku von Anthropic</li>
-        <li><strong>Verarbeitungsort:</strong> Anthropic-Server (USA, abgesichert durch DPA und Standardvertragsklauseln/SCCs)</li>
         <li><strong>Transparenzhinweis:</strong> Du chattest mit einer k&uuml;nstlichen Intelligenz, nicht mit einem Menschen. Dies wird dir bei der Registrierung per SMS mitgeteilt.</li>
         <li><strong>Keine automatisierte Einzelentscheidung:</strong> Die KI-Antworten dienen ausschlie&szlig;lich der allgemeinen Information und haben keine rechtlichen oder vergleichbaren Auswirkungen.</li>
-        <li><strong>Datenverwendung:</strong> Deine SMS-Nachrichten werden an die Anthropic API gesendet, um Antworten zu generieren. Anthropic verarbeitet diese Daten gem&auml;&szlig; dem Auftragsverarbeitungsvertrag (DPA) und verwendet sie nicht zum Training von KI-Modellen.</li>
+        <li><strong>Datenverwendung:</strong> Deine SMS-Nachrichten werden an den jeweiligen KI-Anbieter gesendet, um Antworten zu generieren. Beide Anbieter verarbeiten die Daten gem&auml;&szlig; Auftragsverarbeitungsvertrag (DPA) und verwenden sie nicht zum Training von KI-Modellen.</li>
+        <li><strong>Websuche (Free-Tarif):</strong> Im Free-Tarif nutzt Gemini die integrierte Google-Suche (Google Grounding), um aktuelle Informationen abzurufen. Suchanfragen werden von Google verarbeitet.</li>
+        <li><strong>Websuche (Plus/Flat-Tarif):</strong> In den kostenpflichtigen Tarifen nutzt Claude die integrierte Websuche von Anthropic, um aktuelle Informationen abzurufen.</li>
       </ul>
       <p>
         FragSMS ist gem&auml;&szlig; EU AI Act (Verordnung (EU) 2024/1689) als Anwendung mit begrenztem Risiko
@@ -126,8 +152,13 @@ import Base from '../layouts/Base.astro';
           </tr>
           <tr>
             <td>Anthropic</td>
-            <td>KI-Antworten (Claude Haiku)</td>
+            <td>KI-Antworten (Claude Haiku, Plus/Flat-Tarif)</td>
             <td>USA (DPA + SCCs)</td>
+          </tr>
+          <tr>
+            <td>Google LLC</td>
+            <td>KI-Antworten (Gemini 2.5 Flash, Free-Tarif) und Websuche (Google Grounding)</td>
+            <td>USA/EU (DPA + SCCs, EU-US Data Privacy Framework)</td>
           </tr>
           <tr>
             <td>Cloudflare</td>
