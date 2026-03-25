@@ -81,7 +81,63 @@ const breadcrumbJsonLd = {
           </p>
         </div>
 
-        <div class="flex justify-center fade-in">
+        <div class="flex justify-center items-end gap-6 md:gap-8 fade-in">
+          <!-- Nokia 3310 mockup -->
+          <div class="nokia-mockup hidden sm:flex flex-col items-center -rotate-3 hover:rotate-0 transition-transform duration-500 shrink-0" aria-label="Nokia 3310 mit FragSMS">
+            <!-- Body -->
+            <div class="relative w-[140px] bg-[#2a3a4a] rounded-[28px] border-2 border-[#1e2e3e] p-2 pt-3 pb-3 shadow-[0_20px_60px_rgba(0,0,0,0.3),0_0_40px_rgba(16,185,129,0.06)]">
+              <!-- Antenna nub -->
+              <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-3 bg-[#1e2e3e] rounded-t-[4px]"></div>
+              <!-- Earpiece -->
+              <div class="flex justify-center gap-[2px] mb-2">
+                <span class="w-1 h-1 rounded-full bg-[#1a2a3a]"></span>
+                <span class="w-1 h-1 rounded-full bg-[#1a2a3a]"></span>
+                <span class="w-1 h-1 rounded-full bg-[#1a2a3a]"></span>
+                <span class="w-1 h-1 rounded-full bg-[#1a2a3a]"></span>
+                <span class="w-1 h-1 rounded-full bg-[#1a2a3a]"></span>
+              </div>
+              <!-- Screen -->
+              <div class="nokia-screen bg-[#8bac6f] rounded-[6px] mx-auto w-[116px] p-2 mb-3 border border-[#6a8a52]">
+                <div class="text-[0.5rem] text-[#2a3a1e] font-mono leading-[1.45] whitespace-pre-wrap">
+                  <div class="text-[0.45rem] text-center mb-1 opacity-70">FragSMS</div>
+                  <div class="mb-1.5"><span class="opacity-60">&gt;</span> Wie hoch ist die Zugspitze?</div>
+                  <div class="border-t border-[#6a8a52] pt-1">Die Zugspitze ist 2.962 m hoch - Deutschlands h&ouml;chster Berg.</div>
+                </div>
+              </div>
+              <!-- Nokia label -->
+              <div class="text-center text-[0.5rem] font-bold text-[#8899aa] tracking-[0.15em] uppercase mb-2">NOKIA</div>
+              <!-- Keypad -->
+              <div class="flex flex-col items-center gap-[3px]">
+                <!-- Menu/nav buttons -->
+                <div class="flex gap-4 mb-1">
+                  <div class="w-6 h-3 rounded-[3px] bg-[#1e2e3e]"></div>
+                  <div class="w-6 h-3 rounded-[3px] bg-[#1e2e3e]"></div>
+                </div>
+                <!-- D-pad -->
+                <div class="w-9 h-9 rounded-full bg-[#1e2e3e] border border-[#162636] mb-1 flex items-center justify-center">
+                  <div class="w-3 h-3 rounded-full bg-[#2a3a4a]"></div>
+                </div>
+                <!-- Number keys -->
+                <div class="grid grid-cols-3 gap-[3px]">
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">1</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">2</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">3</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">4</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">5</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">6</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">7</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">8</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">9</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">*</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">0</div>
+                  <div class="w-7 h-4 rounded-[3px] bg-[#3a4a5a] text-[0.35rem] text-[#8899aa] flex items-center justify-center font-bold">#</div>
+                </div>
+              </div>
+            </div>
+            <span class="mt-3 text-[0.7rem] text-th-muted font-semibold" data-i18n="nokia_label">Auch ohne Smartphone</span>
+          </div>
+
+          <!-- Smartphone mockup -->
           <div class="phone-mockup w-phone bg-th-phone-bg rounded-phone p-3 border-2 border-th-phone-border">
             <div class="w-notch h-1.5 bg-th-phone-border rounded-sm mx-auto mt-1 mb-2"></div>
             <div class="text-center py-2 pb-3 border-b border-th-phone-border mb-2">
@@ -89,7 +145,7 @@ const breadcrumbJsonLd = {
               <div class="text-base font-bold text-th-text">FragSMS</div>
               <a href="sms:+4915908138432" class="sms-link text-[0.7rem] text-th-muted">+49 1590 8138432</a>
             </div>
-            <div class="phone-screen h-phone-screen overflow-y-auto px-1 py-2">
+            <div class="phone-screen h-phone-screen overflow-y-auto px-1 py-2" id="sms-screen">
               <div class="sms-conversation active" data-conv="0">
                 <div class="sms-label" data-i18n="sms_label_0">Kochen &amp; Rezepte</div>
                 <div class="sms-bubble sms-sent" data-i18n="sms_q_0">Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?</div>
@@ -1174,6 +1230,22 @@ const breadcrumbJsonLd = {
         0 0 80px rgba(16,185,129,0.12),
         0 0 140px rgba(16,185,129,0.06);
     }
+
+    /* ── Nokia 3310 mockup ───────────────────────── */
+    .nokia-mockup {
+      transition: transform 0.5s ease;
+    }
+    .nokia-screen {
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.15);
+    }
+    [data-theme="light"] .nokia-mockup > div {
+      background: #3a4e62;
+      border-color: #2e4050;
+    }
+    [data-theme="light"] .nokia-screen {
+      background: #9fc47f;
+      border-color: #7aa05c;
+    }
     .sms-link { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
     .sms-link:hover { opacity: 0.8; }
     .phone-screen {
@@ -1791,6 +1863,7 @@ const breadcrumbJsonLd = {
         hero_sms_cost: 'SMS-Kosten: dein normaler SMS-Tarif (in den meisten Flatrates enthalten)',
         hero_desktop_num: 'Am Computer? Sende <strong>START</strong> an:',
         hero_copy_hint: '(klicken zum Kopieren)',
+        nokia_label: 'Auch ohne Smartphone',
         cta_sub_dual: 'W\u00e4hle deinen Weg \u2014 in Sekunden startklar.',
         cta_sms_title: 'Per SMS starten',
         cta_sms_desc: 'Direkt vom Handy \u2014 kein Formular n\u00f6tig.',
@@ -1939,6 +2012,7 @@ const breadcrumbJsonLd = {
         hero_sms_cost: 'SMS cost: your normal SMS rate (included in most flat rates)',
         hero_desktop_num: 'On desktop? Send <strong>START</strong> to:',
         hero_copy_hint: '(click to copy)',
+        nokia_label: 'Works without a smartphone',
         cta_sub_dual: 'Choose your path \u2014 ready in seconds.',
         cta_sms_title: 'Start via SMS',
         cta_sms_desc: 'Directly from your phone \u2014 no form needed.',
