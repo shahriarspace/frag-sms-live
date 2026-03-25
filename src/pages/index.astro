@@ -475,64 +475,64 @@ const breadcrumbJsonLd = {
         <p class="text-th-muted text-base max-w-desc mx-auto" data-i18n="pricing_subtitle">Kostenlos starten. Jederzeit upgraden. Jederzeit k&uuml;ndbar.</p>
       </div>
 
-      <div class="pricing-grid">
+      <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5 max-w-pricing mx-auto">
 
-        <article class="pricing-card fade-in">
-          <div class="pc-name">Free</div>
-          <div class="pc-price">&euro;0</div>
-          <div class="pc-period" data-i18n="price_per_month">pro Monat</div>
-          <ul class="pc-features">
-            <li><span class="check">&#10003;</span> <span data-i18n="free_f1">50 Nachrichten / Monat</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="free_f2">Kein Account n&ouml;tig</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="free_f3">3 Gespr&auml;chsrunden</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="free_f4">Web-Suche inklusive</span></li>
+        <article class="bg-th-surface border border-th-border rounded-card p-8 flex flex-col relative transition-card duration-300 hover:border-th-border-hover hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] fade-in">
+          <div class="text-[0.9rem] font-bold text-th-muted mb-3 uppercase tracking-[0.04em]">Free</div>
+          <div class="text-price mb-[0.2rem]">&euro;0</div>
+          <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
+          <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="free_f1">50 Nachrichten / Monat</span></li>
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="free_f2">Kein Account n&ouml;tig</span></li>
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="free_f3">3 Gespr&auml;chsrunden</span></li>
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="free_f4">Web-Suche inklusive</span></li>
           </ul>
-          <span class="btn-secondary pc-btn" data-i18n="free_cta">Einfach SMS senden</span>
+          <span class="btn-secondary block text-center w-full" data-i18n="free_cta">Einfach SMS senden</span>
         </article>
 
-        <article class="pricing-card pricing-card--featured fade-in">
-          <div class="pc-badge" data-i18n="badge_popular">Beliebt</div>
-          <div class="pc-name" style="color: var(--color-primary);">Plus</div>
-          <div class="pc-price">&euro;4,99</div>
-          <div class="pc-period" data-i18n="price_per_month">pro Monat</div>
-          <ul class="pc-features">
-            <li><span class="check">&#10003;</span> <span data-i18n="plus_f1">50 Nachrichten / Monat</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="plus_f2">Web-Suche inklusive</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="plus_f3">Gespr&auml;chsverlauf (20 Nachr.)</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="plus_f4">Priorit&auml;ts-Antworten</span></li>
+        <article class="pricing-card--featured bg-th-surface border border-transparent rounded-card p-8 flex flex-col relative transition-card duration-300 shadow-[0_0_40px_rgba(16,185,129,0.1)] fade-in">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-th-primary text-th-btn-text px-5 py-1 rounded-pill text-[0.72rem] font-bold tracking-[0.03em]" data-i18n="badge_popular">Beliebt</div>
+          <div class="text-[0.9rem] font-bold text-th-primary mb-3 uppercase tracking-[0.04em]">Plus</div>
+          <div class="text-price mb-[0.2rem]">&euro;4,99</div>
+          <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
+          <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="plus_f1">50 Nachrichten / Monat</span></li>
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="plus_f2">Web-Suche inklusive</span></li>
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="plus_f3">Gespr&auml;chsverlauf (20 Nachr.)</span></li>
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="plus_f4">Priorit&auml;ts-Antworten</span></li>
           </ul>
-          <a href="/upgrade" class="btn-primary pc-btn" data-i18n="btn_upgrade">Jetzt upgraden</a>
+          <a href="/upgrade" class="btn-primary block text-center w-full" data-i18n="btn_upgrade">Jetzt upgraden</a>
         </article>
 
-        <article class="pricing-card fade-in">
-          <div class="pc-name">Flat</div>
-          <div class="pc-price">&euro;14,99</div>
-          <div class="pc-period" data-i18n="price_per_month">pro Monat</div>
-          <ul class="pc-features">
-            <li><span class="check">&#10003;</span> <span data-i18n="flat_f1">1000 Nachrichten / Monat</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="flat_f2">Web-Suche inklusive</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="flat_f3">Gespr&auml;chsverlauf (50 Nachr.)</span></li>
-            <li><span class="check">&#10003;</span> <span data-i18n="flat_f4">Priorit&auml;ts-Antworten</span></li>
+        <article class="bg-th-surface border border-th-border rounded-card p-8 flex flex-col relative transition-card duration-300 hover:border-th-border-hover hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] fade-in">
+          <div class="text-[0.9rem] font-bold text-th-muted mb-3 uppercase tracking-[0.04em]">Flat</div>
+          <div class="text-price mb-[0.2rem]">&euro;14,99</div>
+          <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
+          <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="flat_f1">1000 Nachrichten / Monat</span></li>
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="flat_f2">Web-Suche inklusive</span></li>
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="flat_f3">Gespr&auml;chsverlauf (50 Nachr.)</span></li>
+            <li class="flex items-center gap-2"><span class="check">&#10003;</span> <span data-i18n="flat_f4">Priorit&auml;ts-Antworten</span></li>
           </ul>
-          <a href="/upgrade" class="btn-secondary pc-btn" data-i18n="btn_upgrade">Jetzt upgraden</a>
+          <a href="/upgrade" class="btn-secondary block text-center w-full" data-i18n="btn_upgrade">Jetzt upgraden</a>
         </article>
 
       </div>
 
-      <p class="fade-in pricing-footnote" data-i18n="pricing_footnote">
+      <p class="fade-in text-center text-[0.78rem] text-th-footer-dim mt-8" data-i18n="pricing_footnote">
         Alle Preise sind Endpreise. Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.
       </p>
 
-      <div class="fade-in guarantee-row">
-        <div class="guarantee-item">
+      <div class="fade-in flex justify-center gap-8 mt-8 flex-wrap">
+        <div class="flex items-center gap-1.5 text-[0.82rem] text-th-muted">
           <span class="check">&#128274;</span>
           <span data-i18n="guarantee_1">14 Tage Widerrufsrecht</span>
         </div>
-        <div class="guarantee-item">
+        <div class="flex items-center gap-1.5 text-[0.82rem] text-th-muted">
           <span class="check">&#9940;</span>
           <span data-i18n="guarantee_2">Keine Abofalle</span>
         </div>
-        <div class="guarantee-item">
+        <div class="flex items-center gap-1.5 text-[0.82rem] text-th-muted">
           <span class="check">&#9989;</span>
           <span data-i18n="guarantee_3">Sofort kündbar per SMS</span>
         </div>
@@ -1970,32 +1970,7 @@ const breadcrumbJsonLd = {
       pointer-events: none;
     }
 
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .pricing-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 20px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-    }
-    .pricing-card:hover {
-      border-color: var(--color-border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-    }
-    .pricing-card--featured {
-      border-color: transparent;
-      box-shadow: 0 0 40px rgba(16,185,129,0.1);
-    }
+    /* ── Pricing — migrated to Tailwind (pseudo-elements kept) ── */
     .pricing-card--featured::before {
       content: '';
       position: absolute;
@@ -2017,80 +1992,6 @@ const breadcrumbJsonLd = {
     .pricing-card--featured:hover {
       transform: translateY(-6px);
       box-shadow: 0 16px 48px rgba(16,185,129,0.2);
-    }
-    .pc-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--color-primary);
-      color: var(--color-btn-text);
-      padding: 0.2rem 1.2rem;
-      border-radius: 20px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-    .pc-name {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--color-text-muted);
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .pc-price {
-      font-size: 2.75rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 0.2rem;
-    }
-    .pc-period {
-      font-size: 0.8rem;
-      color: var(--color-text-muted);
-      margin-bottom: 1.75rem;
-    }
-    .pc-features {
-      list-style: none;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 1.75rem;
-      font-size: 0.88rem;
-      color: var(--color-text-muted);
-    }
-    .pc-features li {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .pc-btn {
-      display: block;
-      text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .pricing-footnote {
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--color-footer-dim);
-      margin-top: 2rem;
-    }
-    .guarantee-row {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-    .guarantee-item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.82rem;
-      color: var(--color-text-muted);
     }
 
     /* ── Testimonials ────────────────────────────── */
