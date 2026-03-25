@@ -821,13 +821,13 @@ const breadcrumbJsonLd = {
 
     /* ── Hero ─────────────────────────────────────── */
     .hero-section {
-      min-height: calc(100vh - 65px);
+      min-height: min(100vh - 65px, 900px);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      padding: 2rem 0 2rem;
+      padding: 2rem 0;
     }
     .hero-glow {
       position: absolute;
