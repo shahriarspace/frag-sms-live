@@ -46,42 +46,42 @@ const breadcrumbJsonLd = {
   <!-- ═══════════════════════════════════════════════
        HERO — What is FragSMS?
   ════════════════════════════════════════════════ -->
-  <section class="hero-section">
+  <section class="hero-section min-h-[min(100vh-65px,900px)] flex items-center justify-center relative overflow-hidden py-8">
     <div class="hero-glow"></div>
-    <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
-    <div class="container hero-inner">
+    <canvas class="absolute inset-0 w-full h-full pointer-events-none z-0" id="hero-particles" aria-hidden="true"></canvas>
+    <div class="container relative z-[1]">
 
-      <div class="hero-content">
-        <div class="hero-text fade-in">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center max-w-content-wide mx-auto md:text-left text-center">
+        <div class="flex flex-col items-center md:items-start fade-in">
           <span class="pill" data-i18n="hero_badge">KI per SMS in Deutschland</span>
-          <h1 class="hero-title">
+          <h1 class="text-hero mt-2 mb-3">
             <span data-i18n="hero_title_1">Dein KI-Assistent.</span><br>
             <span class="text-gradient" data-i18n="hero_title_2">Per SMS.</span>
           </h1>
-          <p class="hero-sub" data-i18n="hero_subtitle">
+          <p class="text-[clamp(1rem,2vw,1.15rem)] text-th-muted max-w-[480px] mb-4 leading-relaxed text-center md:text-left" data-i18n="hero_subtitle">
             Wie ChatGPT &mdash; aber per SMS. Kein App, kein Internet, kein Login. Einfach fragen.
           </p>
-          <ul class="sb-list hero-features">
+          <ul class="sb-list mb-5 text-left inline-flex flex-col md:flex md:flex-col">
             <li><span class="check">&#10003;</span> <span data-i18n="sb1_l1">Kein Smartphone erforderlich</span></li>
             <li><span class="check">&#10003;</span> <span data-i18n="sb1_l2">Kein Internet oder WLAN</span></li>
             <li><span class="check">&#10003;</span> <span data-i18n="sb1_l3">Antwort in unter 5 Sekunden</span></li>
           </ul>
-          <a href="sms:+4915908138432?body=START" class="btn-primary hero-cta" data-i18n="hero_cta">
+          <a href="sms:+4915908138432?body=START" class="btn-primary hero-cta inline-flex items-center gap-2 py-3.5 px-8 text-[1.05rem] font-bold rounded-xl relative shadow-[0_0_20px_rgba(16,185,129,0.25),0_0_60px_rgba(16,185,129,0.1)] animate-glow-pulse" data-i18n="hero_cta">
             Jetzt per SMS starten &rarr;
           </a>
-          <div class="hero-desktop-hint">
-            <p class="hero-desktop-num" data-i18n="hero_desktop_num">Am Computer? Sende <strong>START</strong> an:</p>
-            <p class="hero-desktop-number" onclick="navigator.clipboard&&navigator.clipboard.writeText('+4915908138432')">+49 1590 8138432 <span class="hero-copy-hint" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
+          <div class="hero-desktop-hint hidden md:block mt-2 text-left">
+            <p class="text-[0.82rem] text-th-muted mb-0.5" data-i18n="hero_desktop_num">Am Computer? Sende <strong>START</strong> an:</p>
+            <p class="text-xl font-extrabold text-th-primary tracking-wide cursor-pointer select-all hover:underline" onclick="navigator.clipboard&&navigator.clipboard.writeText('+4915908138432')">+49 1590 8138432 <span class="text-[0.7rem] font-normal text-th-muted" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
           </div>
-          <p class="hero-cta-sub" data-i18n="hero_input_sub">
+          <p class="mt-2 text-[0.78rem] text-th-muted text-center md:text-left" data-i18n="hero_input_sub">
             50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko
           </p>
-          <p class="hero-sms-cost" data-i18n="hero_sms_cost">
+          <p class="mt-1 text-[0.72rem] text-th-muted opacity-70 text-center md:text-left" data-i18n="hero_sms_cost">
             SMS-Kosten: dein normaler SMS-Tarif (in den meisten Flatrates enthalten)
           </p>
         </div>
 
-        <div class="hero-mockup fade-in">
+        <div class="flex justify-center fade-in">
           <div class="phone-mockup">
             <div class="phone-notch"></div>
             <div class="phone-header">
@@ -145,26 +145,26 @@ const breadcrumbJsonLd = {
   <!-- ═══════════════════════════════════════════════
        STATS BAR
   ════════════════════════════════════════════════ -->
-  <section class="stats-bar">
-    <div class="container stats-inner">
-      <div class="stat-item fade-in">
-        <span class="stat-num">100%</span>
-        <span class="stat-label" data-i18n="stat1">DSGVO-konform</span>
+  <section class="stats-bar border-t border-b border-th-border py-8 bg-th-bg-alt relative">
+    <div class="container flex items-center justify-center flex-wrap">
+      <div class="flex flex-col items-center px-12 max-md:px-6 text-center fade-in">
+        <span class="text-stat text-th-primary">100%</span>
+        <span class="text-[0.78rem] text-th-muted mt-1 uppercase tracking-wider font-semibold" data-i18n="stat1">DSGVO-konform</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item fade-in">
-        <span class="stat-num">EU</span>
-        <span class="stat-label" data-i18n="stat2">Server &amp; Datenschutz</span>
+      <div class="stat-divider w-px h-stat-divider bg-th-border shrink-0 max-md:hidden"></div>
+      <div class="flex flex-col items-center px-12 max-md:px-6 text-center fade-in">
+        <span class="text-stat text-th-primary">EU</span>
+        <span class="text-[0.78rem] text-th-muted mt-1 uppercase tracking-wider font-semibold" data-i18n="stat2">Server &amp; Datenschutz</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item fade-in">
-        <span class="stat-num">&euro;0</span>
-        <span class="stat-label" data-i18n="stat3">Kostenlos starten</span>
+      <div class="stat-divider w-px h-stat-divider bg-th-border shrink-0 max-md:hidden"></div>
+      <div class="flex flex-col items-center px-12 max-md:px-6 text-center fade-in">
+        <span class="text-stat text-th-primary">&euro;0</span>
+        <span class="text-[0.78rem] text-th-muted mt-1 uppercase tracking-wider font-semibold" data-i18n="stat3">Kostenlos starten</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item fade-in">
-        <span class="stat-num">&#128241;</span>
-        <span class="stat-label" data-i18n="stat4">Jedes Handy</span>
+      <div class="stat-divider w-px h-stat-divider bg-th-border shrink-0 max-md:hidden"></div>
+      <div class="flex flex-col items-center px-12 max-md:px-6 text-center fade-in">
+        <span class="text-stat text-th-primary">&#128241;</span>
+        <span class="text-[0.78rem] text-th-muted mt-1 uppercase tracking-wider font-semibold" data-i18n="stat4">Jedes Handy</span>
       </div>
     </div>
   </section>
@@ -820,14 +820,14 @@ const breadcrumbJsonLd = {
   <style>
 
     /* ── Hero ─────────────────────────────────────── */
-    .hero-section {
-      min-height: min(100vh - 65px, 900px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      padding: 2rem 0;
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(16,185,129,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
     }
     .hero-glow {
       position: absolute;
@@ -844,143 +844,9 @@ const breadcrumbJsonLd = {
       50% { opacity: 1; transform: scale(1.03) translateY(-8px); }
       100% { opacity: 0.8; transform: scale(0.98) translateY(4px); }
     }
-    .hero-particles {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    /* Subtle dot grid overlay */
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(16,185,129,0.06) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-    }
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      max-width: 1060px;
-      margin: 0 auto;
-    }
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .hero-title {
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      margin: 0.5rem 0 0.75rem;
-    }
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: var(--color-text-muted);
-      max-width: 480px;
-      margin: 0 0 1rem;
-      line-height: 1.55;
-    }
-    .hero-features {
-      margin-bottom: 1.25rem;
-    }
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      font-size: 1.05rem;
-      font-weight: 700;
-      border-radius: 12px;
-      position: relative;
-      box-shadow: 0 0 20px rgba(16,185,129,0.25), 0 0 60px rgba(16,185,129,0.1);
-      animation: ctaPulse 3s ease-in-out infinite;
-    }
     @keyframes ctaPulse {
       0%, 100% { box-shadow: 0 0 20px rgba(16,185,129,0.25), 0 0 60px rgba(16,185,129,0.1); }
       50% { box-shadow: 0 0 30px rgba(16,185,129,0.4), 0 0 80px rgba(16,185,129,0.15); }
-    }
-    .hero-cta-sub {
-      margin-top: 0.5rem;
-      font-size: 0.78rem;
-      color: var(--color-text-muted);
-    }
-    .hero-sms-cost {
-      margin-top: 0.2rem;
-      font-size: 0.72rem;
-      color: var(--color-text-muted);
-      opacity: 0.7;
-    }
-    .hero-desktop-hint {
-      display: none;
-      margin-top: 0.5rem;
-      text-align: left;
-    }
-    .hero-desktop-num {
-      font-size: 0.82rem;
-      color: var(--color-text-muted);
-      margin-bottom: 0.15rem;
-    }
-    .hero-desktop-number {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--color-primary);
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      user-select: all;
-    }
-    .hero-desktop-number:hover {
-      text-decoration: underline;
-    }
-    .hero-copy-hint {
-      font-size: 0.7rem;
-      font-weight: 400;
-      color: var(--color-text-muted);
-    }
-    @media (min-width: 769px) {
-      .hero-desktop-hint {
-        display: block;
-      }
-    }
-    .hero-mockup {
-      display: flex;
-      justify-content: center;
-    }
-    @media (max-width: 768px) {
-      .hero-content {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        text-align: center;
-      }
-      .hero-text {
-        align-items: center;
-      }
-      .hero-features {
-        text-align: left;
-        display: inline-flex;
-        flex-direction: column;
-      }
-      .hero-desktop-hint {
-        text-align: center;
-      }
-      .hero-cta-sub, .hero-sms-cost {
-        text-align: center;
-      }
-      .hero-sub {
-        text-align: center;
-      }
     }
 
     /* ── CTA Section ─────────────────────────────── */
@@ -1424,14 +1290,7 @@ const breadcrumbJsonLd = {
       margin-bottom: 1rem;
     }
 
-    /* ── Stats bar ───────────────────────────────── */
-    .stats-bar {
-      border-top: 1px solid var(--color-border);
-      border-bottom: 1px solid var(--color-border);
-      padding: 2rem 0;
-      background: var(--color-bg-alt);
-      position: relative;
-    }
+    /* ── Stats bar (pseudo-elements only) ──────────── */
     .stats-bar::before {
       content: '';
       position: absolute;
@@ -1449,41 +1308,6 @@ const breadcrumbJsonLd = {
       right: 10%;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(16,185,129,0.3), transparent);
-    }
-    .stats-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      flex-wrap: wrap;
-    }
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0.5rem 3rem;
-      text-align: center;
-    }
-    .stat-num {
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      color: var(--color-primary);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--color-text-muted);
-      margin-top: 0.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-weight: 600;
-    }
-    .stat-divider {
-      width: 1px;
-      height: 40px;
-      background: var(--color-border);
-      flex-shrink: 0;
     }
 
     /* ── Switchback sections ─────────────────────── */
@@ -2577,8 +2401,6 @@ const breadcrumbJsonLd = {
       .sb-text { align-items: center; text-align: center; }
       .sb-list { align-items: center; }
       .sb-media { justify-content: center; }
-      .stat-item { padding: 0.5rem 1.5rem; }
-      .stat-divider { display: none; }
       .flow-diagram {
         flex-direction: column;
         align-items: center;
