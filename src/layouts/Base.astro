@@ -235,6 +235,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         margin: 0 auto;
         padding: 0 2rem;
       }
+      @media (max-width: 400px) {
+        .container { padding: 0 1rem; }
+      }
 
       /* Fade-in animation */
       .fade-in {
