@@ -82,62 +82,165 @@ const breadcrumbJsonLd = {
         </div>
 
         <div class="flex justify-center items-end gap-6 md:gap-8 fade-in">
-          <!-- Nokia 3310 mockup -->
+          <!-- Nokia 3310 mockup (SVG) -->
           <div class="nokia-mockup hidden sm:flex flex-col items-center -rotate-3 hover:rotate-0 transition-transform duration-500 shrink-0" aria-label="Nokia 3310 mit FragSMS">
-            <!-- Outer shell: silver/gray side rails -->
-            <div class="nokia-shell relative shadow-[0_20px_60px_rgba(0,0,0,0.35),0_0_40px_rgba(16,185,129,0.06)]">
-              <!-- Navy blue faceplate -->
-              <div class="nokia-face relative">
-                <!-- Earpiece dots -->
-                <div class="flex justify-center gap-[3px] pt-3 pb-2">
-                  <span class="w-[3px] h-[3px] rounded-full bg-[#0d1a30]"></span>
-                  <span class="w-[3px] h-[3px] rounded-full bg-[#0d1a30]"></span>
-                  <span class="w-[3px] h-[3px] rounded-full bg-[#0d1a30]"></span>
-                  <span class="w-[3px] h-[3px] rounded-full bg-[#0d1a30]"></span>
-                  <span class="w-[3px] h-[3px] rounded-full bg-[#0d1a30]"></span>
-                </div>
+            <div class="nokia-wrapper relative" style="width:160px;height:340px;">
+              <!-- SVG body -->
+              <svg class="nokia-svg" viewBox="0 0 160 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:340px;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.35)) drop-shadow(0 0 30px rgba(16,185,129,0.06));">
+                <defs>
+                  <!-- Body gradients -->
+                  <linearGradient id="nk-shell" x1="80" y1="0" x2="80" y2="340" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#b0b4ba"/>
+                    <stop offset="0.3" stop-color="#a8acb2"/>
+                    <stop offset="1" stop-color="#8a8e94"/>
+                  </linearGradient>
+                  <linearGradient id="nk-face" x1="80" y1="10" x2="80" y2="335" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#253858"/>
+                    <stop offset="0.25" stop-color="#1e2d4d"/>
+                    <stop offset="1" stop-color="#1a2744"/>
+                  </linearGradient>
+                  <linearGradient id="nk-bezel" x1="80" y1="38" x2="80" y2="148" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#c8ccd2"/>
+                    <stop offset="0.5" stop-color="#b0b4ba"/>
+                    <stop offset="1" stop-color="#a0a4aa"/>
+                  </linearGradient>
+                  <linearGradient id="nk-screen" x1="80" y1="50" x2="80" y2="135" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#95b878"/>
+                    <stop offset="1" stop-color="#82a562"/>
+                  </linearGradient>
+                  <linearGradient id="nk-key" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+                    <stop offset="0" stop-color="#f8f8f4"/>
+                    <stop offset="1" stop-color="#dddad2"/>
+                  </linearGradient>
+                  <linearGradient id="nk-dpad" x1="80" y1="205" x2="80" y2="245" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#162240"/>
+                    <stop offset="1" stop-color="#0d1a30"/>
+                  </linearGradient>
+                  <!-- Highlight for 3D effect -->
+                  <linearGradient id="nk-highlight" x1="40" y1="0" x2="120" y2="340" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="rgba(255,255,255,0.12)"/>
+                    <stop offset="0.5" stop-color="rgba(255,255,255,0)"/>
+                    <stop offset="1" stop-color="rgba(0,0,0,0.08)"/>
+                  </linearGradient>
+                </defs>
 
-                <!-- Screen bezel (gray curved frame) -->
-                <div class="nokia-bezel mx-auto">
-                  <!-- Green LCD screen -->
-                  <div class="nokia-screen">
-                    <div class="text-[0.5rem] text-[#2a3a1e] font-mono leading-[1.45] whitespace-pre-wrap">
-                      <div class="text-[0.45rem] text-center mb-1 opacity-70">FragSMS</div>
-                      <div class="mb-1.5"><span class="opacity-60">&gt;</span> Wie hoch ist die Zugspitze?</div>
-                      <div class="border-t border-[#6a8a52] pt-1">Die Zugspitze ist 2.962 m hoch - Deutschlands h&ouml;chster Berg.</div>
-                    </div>
-                  </div>
-                </div>
+                <!-- Outer shell (silver rails) — tapered: narrower top, wider bottom -->
+                <path d="M52,2 C52,2 56,0 80,0 C104,0 108,2 108,2 L112,6 C116,12 118,20 118,28 L120,120 L122,200 L124,280 C124,310 120,330 108,338 L52,338 C40,330 36,310 36,280 L38,200 L40,120 L42,28 C42,20 44,12 48,6 Z" fill="url(#nk-shell)"/>
 
-                <!-- NOKIA branding -->
-                <div class="text-center text-[0.55rem] font-bold text-[#8899aa] tracking-[0.2em] uppercase mt-2 mb-2">NOKIA</div>
+                <!-- Navy faceplate (inset from shell) -->
+                <path d="M55,5 C55,5 60,3 80,3 C100,3 105,5 105,5 L108,8 C112,14 114,22 114,30 L116,120 L118,200 L120,278 C120,306 116,326 106,334 L54,334 C44,326 40,306 40,278 L42,200 L44,120 L46,30 C46,22 48,14 52,8 Z" fill="url(#nk-face)"/>
 
-                <!-- Soft keys + blue accent strip -->
-                <div class="flex items-center justify-center gap-[2px] mb-2 px-4">
-                  <div class="nokia-softkey-left"></div>
-                  <div class="w-6 h-[6px] rounded-[2px] bg-[#4a8ab5]"></div>
-                  <div class="nokia-softkey-right"></div>
-                </div>
+                <!-- 3D highlight overlay -->
+                <path d="M55,5 C55,5 60,3 80,3 C100,3 105,5 105,5 L108,8 C112,14 114,22 114,30 L116,120 L118,200 L120,278 C120,306 116,326 106,334 L54,334 C44,326 40,306 40,278 L42,200 L44,120 L46,30 C46,22 48,14 52,8 Z" fill="url(#nk-highlight)"/>
 
-                <!-- D-pad / navigation disc -->
-                <div class="nokia-dpad mx-auto mb-2">
-                  <div class="w-[14px] h-[14px] rounded-full bg-[#1a2744] border border-[#253555]"></div>
-                </div>
+                <!-- Antenna bump -->
+                <rect x="72" y="0" width="16" height="8" rx="4" ry="4" fill="#8a8e94"/>
+                <rect x="74" y="0" width="12" height="6" rx="3" ry="3" fill="#1e2d4d"/>
 
-                <!-- Number keypad - oval white keys -->
-                <div class="grid grid-cols-3 gap-x-[6px] gap-y-[5px] px-4 pb-4">
-                  <div class="nokia-key"><span class="nokia-key-num">1</span><span class="nokia-key-letters">&infin;</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">2</span><span class="nokia-key-letters">abc</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">3</span><span class="nokia-key-letters">def</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">4</span><span class="nokia-key-letters">ghi</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">5</span><span class="nokia-key-letters">jkl</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">6</span><span class="nokia-key-letters">mno</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">7</span><span class="nokia-key-letters">pqrs</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">8</span><span class="nokia-key-letters">tuv</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">9</span><span class="nokia-key-letters">wxyz</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">*</span><span class="nokia-key-letters">+</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">0</span><span class="nokia-key-letters">_</span></div>
-                  <div class="nokia-key"><span class="nokia-key-num">#</span><span class="nokia-key-letters">&Delta;</span></div>
+                <!-- Earpiece grille (5 small holes) -->
+                <circle cx="70" cy="18" r="1.5" fill="#0d1a30"/>
+                <circle cx="75" cy="18" r="1.5" fill="#0d1a30"/>
+                <circle cx="80" cy="18" r="1.5" fill="#0d1a30"/>
+                <circle cx="85" cy="18" r="1.5" fill="#0d1a30"/>
+                <circle cx="90" cy="18" r="1.5" fill="#0d1a30"/>
+
+                <!-- Screen bezel — gray frame, wider at bottom, curved -->
+                <path d="M50,38 C50,32 56,28 64,28 L96,28 C104,28 110,32 110,38 L112,120 C112,126 112,140 108,146 C104,150 96,152 80,152 C64,152 56,150 52,146 C48,140 48,126 48,120 Z" fill="url(#nk-bezel)"/>
+
+                <!-- Inner screen border -->
+                <rect x="54" y="36" width="52" height="92" rx="4" ry="4" fill="#6a8a52" opacity="0.6"/>
+
+                <!-- Green LCD screen (where text will be overlaid) -->
+                <rect class="nokia-screen-rect" x="56" y="38" width="48" height="88" rx="3" ry="3" fill="url(#nk-screen)"/>
+                <!-- Screen inner shadow -->
+                <rect x="56" y="38" width="48" height="88" rx="3" ry="3" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+
+                <!-- NOKIA text -->
+                <text x="80" y="167" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="7" font-weight="bold" fill="#7a8a9a" letter-spacing="2">NOKIA</text>
+
+                <!-- Soft keys (arc-shaped) -->
+                <!-- Left soft key -->
+                <path d="M52,178 L68,178 C72,178 74,180 74,184 C74,188 72,190 68,190 L52,190 C50,190 48,188 48,184 C48,180 50,178 52,178 Z" fill="#0d1a30" stroke="#253555" stroke-width="0.5"/>
+                <!-- Right soft key -->
+                <path d="M108,178 L92,178 C88,178 86,180 86,184 C86,188 88,190 92,190 L108,190 C110,190 112,188 112,184 C112,180 110,178 108,178 Z" fill="#0d1a30" stroke="#253555" stroke-width="0.5"/>
+                <!-- Blue accent strip between soft keys -->
+                <rect x="76" y="180" width="8" height="8" rx="2" fill="#4a8ab5"/>
+
+                <!-- D-pad (navigation disc) -->
+                <circle cx="80" cy="212" r="18" fill="url(#nk-dpad)" stroke="#253555" stroke-width="1.5"/>
+                <!-- D-pad arrows/ring -->
+                <circle cx="80" cy="212" r="12" fill="none" stroke="#253555" stroke-width="0.8"/>
+                <!-- D-pad center button -->
+                <circle cx="80" cy="212" r="5" fill="#1a2744" stroke="#2a3a5a" stroke-width="0.5"/>
+                <!-- D-pad direction indicators -->
+                <polygon points="80,198 83,203 77,203" fill="#2a3a5a"/> <!-- up -->
+                <polygon points="80,226 83,221 77,221" fill="#2a3a5a"/> <!-- down -->
+                <polygon points="66,212 71,209 71,215" fill="#2a3a5a"/> <!-- left -->
+                <polygon points="94,212 89,209 89,215" fill="#2a3a5a"/> <!-- right -->
+
+                <!-- Number keypad — 4x3 grid of oval keys -->
+                <!-- Row 1: 1, 2, 3 -->
+                <ellipse cx="52" cy="244" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="49" y="246" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">1</text>
+                <text x="55" y="246" font-family="Arial,sans-serif" font-size="3.5" fill="#555">oo</text>
+
+                <ellipse cx="80" cy="244" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="76" y="246" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">2</text>
+                <text x="82" y="246" font-family="Arial,sans-serif" font-size="3.5" fill="#555">abc</text>
+
+                <ellipse cx="108" cy="244" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="106" y="246" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">3</text>
+                <text x="110" y="246" font-family="Arial,sans-serif" font-size="3.5" fill="#555">def</text>
+
+                <!-- Row 2: 4, 5, 6 -->
+                <ellipse cx="52" cy="262" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="49" y="264" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">4</text>
+                <text x="55" y="264" font-family="Arial,sans-serif" font-size="3.5" fill="#555">ghi</text>
+
+                <ellipse cx="80" cy="262" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="77" y="264" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">5</text>
+                <text x="83" y="264" font-family="Arial,sans-serif" font-size="3.5" fill="#555">jkl</text>
+
+                <ellipse cx="108" cy="262" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="105" y="264" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">6</text>
+                <text x="110" y="264" font-family="Arial,sans-serif" font-size="3.5" fill="#555">mno</text>
+
+                <!-- Row 3: 7, 8, 9 -->
+                <ellipse cx="52" cy="280" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="49" y="282" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">7</text>
+                <text x="54" y="282" font-family="Arial,sans-serif" font-size="3.5" fill="#555">pqrs</text>
+
+                <ellipse cx="80" cy="280" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="77" y="282" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">8</text>
+                <text x="83" y="282" font-family="Arial,sans-serif" font-size="3.5" fill="#555">tuv</text>
+
+                <ellipse cx="108" cy="280" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="105" y="282" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">9</text>
+                <text x="109" y="282" font-family="Arial,sans-serif" font-size="3.5" fill="#555">wxyz</text>
+
+                <!-- Row 4: *, 0, # -->
+                <ellipse cx="52" cy="298" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="48" y="300" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">*</text>
+                <text x="55" y="300" font-family="Arial,sans-serif" font-size="3.5" fill="#555">+</text>
+
+                <ellipse cx="80" cy="298" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="77" y="300" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">0</text>
+                <text x="83" y="300" font-family="Arial,sans-serif" font-size="3.5" fill="#555">_</text>
+
+                <ellipse cx="108" cy="298" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
+                <text x="104" y="300" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">#</text>
+                <text x="110" y="300" font-family="Arial,sans-serif" font-size="3.5" fill="#555">^</text>
+
+                <!-- Bottom edge detail -->
+                <ellipse cx="80" cy="320" rx="20" ry="3" fill="rgba(0,0,0,0.1)"/>
+              </svg>
+
+              <!-- SMS content overlay on screen -->
+              <div class="nokia-screen-overlay absolute" style="top:38px;left:56px;width:48px;height:88px;overflow:hidden;padding:3px;">
+                <div class="text-[0.3rem] font-mono leading-[1.5] whitespace-pre-wrap" style="color:#2a3a1e;">
+                  <div class="text-center mb-[2px] opacity-70" style="font-size:0.25rem;">FragSMS</div>
+                  <div class="mb-[2px]"><span class="opacity-60">&gt;</span> Wie hoch ist die Zugspitze?</div>
+                  <div style="border-top:0.5px solid #6a8a52;padding-top:2px;">Die Zugspitze ist 2.962&thinsp;m hoch - Deutschlands h&ouml;chster Berg.</div>
                 </div>
               </div>
             </div>
@@ -1238,98 +1341,16 @@ const breadcrumbJsonLd = {
         0 0 140px rgba(16,185,129,0.06);
     }
 
-    /* ── Nokia 3310 mockup ───────────────────────── */
+    /* ── Nokia 3310 mockup (SVG) ───────────────────── */
     .nokia-mockup {
       transition: transform 0.5s ease;
     }
-    /* Outer shell — silver/gray side rails, tapered shape */
-    .nokia-shell {
-      width: 148px;
-      background: linear-gradient(180deg, #b8bcc2 0%, #a0a4aa 50%, #8a8e94 100%);
-      border-radius: 30px 30px 24px 24px;
-      padding: 4px;
+    .nokia-screen-overlay {
+      pointer-events: none;
     }
-    /* Navy blue faceplate */
-    .nokia-face {
-      background: linear-gradient(180deg, #1e2d4d 0%, #1a2744 40%, #1a2744 100%);
-      border-radius: 27px 27px 21px 21px;
-      overflow: hidden;
-    }
-    /* Screen bezel — lighter gray curved frame */
-    .nokia-bezel {
-      width: 120px;
-      background: linear-gradient(180deg, #c0c4ca 0%, #a8acb2 100%);
-      border-radius: 8px 8px 16px 16px;
-      padding: 6px 6px 10px 6px;
-    }
-    /* Green LCD screen */
-    .nokia-screen {
-      background: #8bac6f;
-      border-radius: 4px;
-      padding: 6px;
-      border: 1px solid #6a8a52;
-      box-shadow: inset 0 1px 6px rgba(0,0,0,0.2);
-    }
-    /* Soft keys — arc-shaped */
-    .nokia-softkey-left,
-    .nokia-softkey-right {
-      width: 28px;
-      height: 14px;
-      background: #0d1a30;
-      border: 1px solid #253555;
-    }
-    .nokia-softkey-left {
-      border-radius: 2px 14px 14px 2px;
-    }
-    .nokia-softkey-right {
-      border-radius: 14px 2px 2px 14px;
-    }
-    /* D-pad navigation disc */
-    .nokia-dpad {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #0d1a30 0%, #162240 100%);
-      border: 2px solid #253555;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    /* Oval white keys */
-    .nokia-key {
-      width: 32px;
-      height: 18px;
-      background: linear-gradient(180deg, #f5f5f0 0%, #e0ddd5 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-      cursor: default;
-    }
-    .nokia-key-num {
-      font-size: 0.45rem;
-      font-weight: 800;
-      color: #1a1a1a;
-      line-height: 1;
-    }
-    .nokia-key-letters {
-      font-size: 0.3rem;
-      font-weight: 600;
-      color: #444;
-      line-height: 1;
-    }
-    /* Light theme overrides */
-    [data-theme="light"] .nokia-shell {
-      background: linear-gradient(180deg, #c5c9cf 0%, #b0b4ba 50%, #989ca2 100%);
-    }
-    [data-theme="light"] .nokia-face {
-      background: linear-gradient(180deg, #243660 0%, #1e2d4d 40%, #1e2d4d 100%);
-    }
-    [data-theme="light"] .nokia-screen {
-      background: #9fc47f;
-      border-color: #7aa05c;
+    /* Light theme: brighten the screen overlay text */
+    [data-theme="light"] .nokia-screen-overlay div {
+      color: #1e3010;
     }
     .sms-link { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
     .sms-link:hover { opacity: 0.8; }
