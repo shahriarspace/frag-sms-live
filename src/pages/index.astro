@@ -82,14 +82,14 @@ const breadcrumbJsonLd = {
         </div>
 
         <div class="flex justify-center fade-in">
-          <div class="phone-mockup">
-            <div class="phone-notch"></div>
-            <div class="phone-header">
-              <div class="phone-header-label">SMS</div>
-              <div class="phone-header-title">FragSMS</div>
-              <a href="sms:+4915908138432" class="phone-header-num sms-link">+49 1590 8138432</a>
+          <div class="phone-mockup w-phone bg-th-phone-bg rounded-phone p-3 border-2 border-th-phone-border">
+            <div class="w-notch h-1.5 bg-th-phone-border rounded-sm mx-auto mt-1 mb-2"></div>
+            <div class="text-center py-2 pb-3 border-b border-th-phone-border mb-2">
+              <div class="text-[0.7rem] text-th-muted uppercase tracking-[0.05em]">SMS</div>
+              <div class="text-base font-bold text-th-text">FragSMS</div>
+              <a href="sms:+4915908138432" class="sms-link text-[0.7rem] text-th-muted">+49 1590 8138432</a>
             </div>
-            <div class="phone-screen" id="sms-screen">
+            <div class="phone-screen h-phone-screen overflow-y-auto px-1 py-2">
               <div class="sms-conversation active" data-conv="0">
                 <div class="sms-label" data-i18n="sms_label_0">Kochen &amp; Rezepte</div>
                 <div class="sms-bubble sms-sent" data-i18n="sms_q_0">Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?</div>
@@ -126,7 +126,7 @@ const breadcrumbJsonLd = {
                 <div class="sms-bubble sms-received sms-privacy-warn" data-i18n="sms_a_6">Deine Nachricht enth&auml;lt pers&ouml;nliche Daten (IBAN). Bitte sende keine sensiblen Infos per SMS. Formuliere deine Frage ohne IBAN neu.</div>
               </div>
             </div>
-            <div class="phone-dots">
+            <div class="flex justify-center gap-1.5 pt-3 pb-2">
               <button class="dot active" data-dot="0" aria-label="Beispiel 1"></button>
               <button class="dot" data-dot="1" aria-label="Beispiel 2"></button>
               <button class="dot" data-dot="2" aria-label="Beispiel 3"></button>
@@ -213,14 +213,14 @@ const breadcrumbJsonLd = {
 
       <!-- Right: Phone mockup — onboarding carousel -->
       <div class="flex justify-center [direction:ltr] fade-in">
-        <div class="phone-mockup">
-          <div class="phone-notch"></div>
-          <div class="phone-header">
-            <div class="phone-header-label">SMS</div>
-            <div class="phone-header-title">FragSMS</div>
-            <a href="sms:+4915908138432" class="phone-header-num sms-link">+49 1590 8138432</a>
+        <div class="phone-mockup w-phone bg-th-phone-bg rounded-phone p-3 border-2 border-th-phone-border">
+          <div class="w-notch h-1.5 bg-th-phone-border rounded-sm mx-auto mt-1 mb-2"></div>
+          <div class="text-center py-2 pb-3 border-b border-th-phone-border mb-2">
+            <div class="text-[0.7rem] text-th-muted uppercase tracking-[0.05em]">SMS</div>
+            <div class="text-base font-bold text-th-text">FragSMS</div>
+            <a href="sms:+4915908138432" class="sms-link text-[0.7rem] text-th-muted">+49 1590 8138432</a>
           </div>
-          <div class="phone-screen" id="onboarding-screen">
+          <div class="phone-screen h-phone-screen overflow-y-auto px-1 py-2" id="onboarding-screen">
             <div class="sms-conversation active">
               <div class="sms-label" data-i18n="sb2_conv_label">So funktioniert's</div>
               <div class="sms-bubble sms-sent">START</div>
@@ -1159,12 +1159,8 @@ const breadcrumbJsonLd = {
     }
 
     /* ── Phone mockup ────────────────────────────── */
+    /* Kept: box-shadow, hover, scrollbar, JS-toggled states */
     .phone-mockup {
-      width: 280px;
-      background: var(--color-phone-bg);
-      border-radius: 32px;
-      padding: 12px;
-      border: 2px solid var(--color-phone-border);
       box-shadow:
         0 30px 80px rgba(0,0,0,0.25),
         0 0 60px rgba(16,185,129,0.08),
@@ -1178,28 +1174,9 @@ const breadcrumbJsonLd = {
         0 0 80px rgba(16,185,129,0.12),
         0 0 140px rgba(16,185,129,0.06);
     }
-    .phone-notch {
-      width: 80px;
-      height: 6px;
-      background: var(--color-phone-border);
-      border-radius: 3px;
-      margin: 4px auto 8px;
-    }
-    .phone-header {
-      text-align: center;
-      padding: 8px 0 12px;
-      border-bottom: 1px solid var(--color-phone-border);
-      margin-bottom: 8px;
-    }
-    .phone-header-label { font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    .phone-header-title { font-size: 1rem; font-weight: 700; color: var(--color-text); }
-    .phone-header-num   { font-size: 0.7rem; color: var(--color-text-muted); }
     .sms-link { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
     .sms-link:hover { opacity: 0.8; }
     .phone-screen {
-      height: 340px;
-      overflow-y: auto;
-      padding: 8px 4px 8px 4px;
       scrollbar-width: thin;
       scrollbar-color: var(--color-primary) transparent;
     }
@@ -1245,12 +1222,6 @@ const breadcrumbJsonLd = {
       border: 1px solid var(--color-sms-received-border);
       margin-right: auto;
       border-bottom-left-radius: 4px;
-    }
-    .phone-dots {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      padding: 12px 0 8px;
     }
     .dot {
       width: 8px; height: 8px;
