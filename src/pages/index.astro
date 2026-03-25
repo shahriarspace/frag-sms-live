@@ -10,7 +10,7 @@ const faqJsonLd = {
     { "@type": "Question", "name": "Kann ich ChatGPT per SMS nutzen?", "acceptedAnswer": { "@type": "Answer", "text": "Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen - ähnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort erhalten." } },
     { "@type": "Question", "name": "Wie kündige ich mein FragSMS Abo?", "acceptedAnswer": { "@type": "Answer", "text": "Sende einfach STOP per SMS oder nutze den 'Jetzt kündigen' Button auf fragsms.de/upgrade. Die Kündigung ist sofort wirksam, ohne Wartezeit." } },
     { "@type": "Question", "name": "Sind meine Daten bei FragSMS sicher?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. FragSMS erkennt persoenliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch und blockiert die Nachricht, bevor sie die KI erreicht. Alle Daten werden ausschliesslich auf EU-Servern gespeichert. Deine Telefonnummer wird per SHA-256 verschluesselt und nie im Klartext gespeichert. FragSMS ist vollstaendig DSGVO-konform." } },
-    { "@type": "Question", "name": "Was kostet FragSMS?", "acceptedAnswer": { "@type": "Answer", "text": "FragSMS bietet einen kostenlosen Tarif mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus kostet 4,99 EUR/Monat (50 Nachrichten, mehr Verlauf) und Flat kostet 14,99 EUR/Monat (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise." } }
+    { "@type": "Question", "name": "Was kostet FragSMS?", "acceptedAnswer": { "@type": "Answer", "text": "WhatsApp-Nachrichten sind bei FragSMS unbegrenzt und kostenlos. Plus kostet 4,99 EUR/Monat (30 SMS inklusive), Flat kostet 14,99 EUR/Monat (150 SMS inklusive). SMS-Guthaben ist auch einzeln kaufbar (10 SMS ab 1,99 EUR). Alle Preise sind Endpreise." } }
   ]
 };
 
@@ -498,12 +498,13 @@ const breadcrumbJsonLd = {
           <div class="text-price mb-[0.2rem]">&euro;0</div>
           <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
           <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="free_f1">50 Nachrichten / Monat</span></li>
+            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="free_f1">WhatsApp unbegrenzt</span></li>
             <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="free_f2">Kein Account n&ouml;tig</span></li>
             <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="free_f3">3 Gespr&auml;chsrunden</span></li>
             <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="free_f4">Web-Suche inklusive</span></li>
+            <li class="flex items-center gap-2"><span class="text-th-muted text-[0.75rem]">&#8212;</span> <span class="text-[0.82rem]" data-i18n="free_f5">SMS per Guthaben m&ouml;glich</span></li>
           </ul>
-          <span class="btn-secondary block text-center w-full" data-i18n="free_cta">Einfach SMS senden</span>
+          <a href="https://wa.me/4915908138432?text=Hallo" target="_blank" rel="noopener" class="btn-secondary block text-center w-full" data-i18n="free_cta">WhatsApp &ouml;ffnen</a>
         </article>
 
         <article class="pricing-card--featured bg-th-surface border border-transparent rounded-card p-8 flex flex-col relative transition-card duration-300 shadow-[0_0_40px_rgba(16,185,129,0.1)] fade-in">
@@ -512,8 +513,8 @@ const breadcrumbJsonLd = {
           <div class="text-price mb-[0.2rem]">&euro;4,99</div>
           <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
           <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f1">50 Nachrichten / Monat</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f2">Web-Suche inklusive</span></li>
+            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f1">WhatsApp unbegrenzt</span></li>
+            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f2">30 SMS / Monat inklusive</span></li>
             <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f3">Gespr&auml;chsverlauf (20 Nachr.)</span></li>
             <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f4">Priorit&auml;ts-Antworten</span></li>
           </ul>
@@ -525,8 +526,8 @@ const breadcrumbJsonLd = {
           <div class="text-price mb-[0.2rem]">&euro;14,99</div>
           <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
           <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f1">1000 Nachrichten / Monat</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f2">Web-Suche inklusive</span></li>
+            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f1">WhatsApp unbegrenzt</span></li>
+            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f2">150 SMS / Monat inklusive</span></li>
             <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f3">Gespr&auml;chsverlauf (50 Nachr.)</span></li>
             <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f4">Priorit&auml;ts-Antworten</span></li>
           </ul>
@@ -553,6 +554,25 @@ const breadcrumbJsonLd = {
           <span data-i18n="guarantee_3">Sofort kündbar per SMS</span>
         </div>
       </div>
+
+      <!-- SMS Credit Packs -->
+      <div class="fade-in mt-12 pt-8 border-t border-th-border text-center">
+        <h3 class="text-[1.05rem] font-extrabold mb-2 text-th-text" data-i18n="credits_title">SMS-Guthaben</h3>
+        <p class="text-[0.85rem] text-th-muted mb-6 max-w-desc mx-auto" data-i18n="credits_desc">Kein Abo? Kaufe SMS-Guthaben einzeln. Verf&auml;llt nie.</p>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <div class="bg-th-surface border border-th-border rounded-card px-6 py-4 text-center min-w-[140px]">
+            <div class="text-[1.1rem] font-extrabold text-th-text">10 SMS</div>
+            <div class="text-[0.95rem] text-th-primary font-bold">&euro;1,99</div>
+            <div class="text-[0.72rem] text-th-muted mt-1" data-i18n="credits_per_sms_10">&euro;0,20 / SMS</div>
+          </div>
+          <div class="bg-th-surface border border-th-border rounded-card px-6 py-4 text-center min-w-[140px]">
+            <div class="text-[1.1rem] font-extrabold text-th-text">50 SMS</div>
+            <div class="text-[0.95rem] text-th-primary font-bold">&euro;7,99</div>
+            <div class="text-[0.72rem] text-th-muted mt-1" data-i18n="credits_per_sms_50">&euro;0,16 / SMS</div>
+          </div>
+        </div>
+        <p class="text-[0.78rem] text-th-muted mt-4" data-i18n="credits_how">Sende <strong>KAUFEN</strong> per SMS oder WhatsApp zum Kaufen.</p>
+      </div>
     </div>
   </section>
 
@@ -564,6 +584,25 @@ const breadcrumbJsonLd = {
        <div class="text-center mb-12 fade-in">
          <h2 id="cta-heading" class="text-section-sm mb-2" data-i18n="cta_title">Bereit loszulegen?</h2>
          <p class="text-th-muted text-base max-w-desc mx-auto" data-i18n="cta_sub_dual">W&auml;hle deinen Weg &mdash; in Sekunden startklar.</p>
+       </div>
+
+       <!-- WhatsApp: Primary free CTA -->
+       <div class="cta-whatsapp fade-in">
+         <div class="inline-flex items-center justify-center w-cta-icon h-[56px] rounded-flow mb-5" style="background: rgba(37,211,102,0.12); color: #25d366;">
+           <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+         </div>
+         <h3 class="text-xl font-extrabold mb-2 text-th-text" data-i18n="cta_wa_title">Per WhatsApp starten</h3>
+         <p class="text-[0.9rem] text-th-muted mb-6 leading-normal" data-i18n="cta_wa_desc">Kostenlos &amp; unbegrenzt &mdash; sofort loslegen.</p>
+         <a href="https://wa.me/4915908138432?text=Hallo" target="_blank" rel="noopener" class="cta-wa-btn" data-i18n="cta_wa_btn">
+           WhatsApp &ouml;ffnen &rarr;
+         </a>
+         <p class="text-[0.78rem] text-th-muted mt-4" data-i18n="cta_wa_note">Kein Account n&ouml;tig. Einfach Nachricht senden.</p>
+       </div>
+
+       <div class="flex items-center justify-center gap-4 my-10 fade-in">
+         <span class="flex-1 max-w-[120px] h-[1.5px] bg-th-border"></span>
+         <span class="text-[0.85rem] font-bold text-th-muted uppercase tracking-[0.06em]" data-i18n="cta_or_sms">oder per SMS</span>
+         <span class="flex-1 max-w-[120px] h-[1.5px] bg-th-border"></span>
        </div>
 
        <div class="cta-dual fade-in">
@@ -650,7 +689,7 @@ const breadcrumbJsonLd = {
            </div>
          </div>
        </div>
-       <p class="text-center mt-6 text-[0.78rem] text-th-muted" data-i18n="hero_input_sub">50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko</p>
+       <p class="text-center mt-6 text-[0.78rem] text-th-muted" data-i18n="hero_input_sub">Unbegrenzt kostenlos per WhatsApp &mdash; kein Abo, kein Risiko</p>
        <p class="text-center text-[0.72rem] text-th-footer-dim" data-i18n="hero_sms_cost">SMS-Kosten: dein normaler SMS-Tarif (in den meisten Flatrates enthalten)</p>
      </div>
    </section>
@@ -888,6 +927,41 @@ const breadcrumbJsonLd = {
       padding: 1rem 2rem;
       box-shadow: 0 0 20px rgba(16,185,129,0.25);
       animation: ctaPulse 3s ease-in-out infinite;
+    }
+
+    /* ── WhatsApp CTA ────────────────────────────── */
+    .cta-whatsapp {
+      background: var(--color-surface);
+      border: 2px solid #25d366;
+      border-radius: 18px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .cta-whatsapp:hover {
+      box-shadow: 0 12px 40px rgba(37,211,102,0.15);
+      transform: translateY(-4px);
+    }
+    .cta-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.5rem;
+      background: #25d366;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 0 20px rgba(37,211,102,0.25);
+    }
+    .cta-wa-btn:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
     }
 
     /* ── CTA Dual Layout ─────────────────────────── */
@@ -1811,7 +1885,7 @@ const breadcrumbJsonLd = {
         hero_cta: 'Jetzt per SMS starten \u2192',
         hero_input_placeholder: '151 XXXXXXXX',
         hero_btn: 'Kostenlos starten',
-        hero_input_sub: '50 kostenlose Nachrichten pro Monat \u2014 kein Abo, kein Risiko',
+        hero_input_sub: 'Unbegrenzt kostenlos per WhatsApp \u2014 kein Abo, kein Risiko',
         hero_sms_cost: 'SMS-Kosten: dein normaler SMS-Tarif (in den meisten Flatrates enthalten)',
         hero_desktop_num: 'Am Computer? Sende <strong>START</strong> an:',
         hero_copy_hint: '(klicken zum Kopieren)',
@@ -1822,6 +1896,16 @@ const breadcrumbJsonLd = {
         cta_web_title: 'Hier registrieren',
         cta_web_desc: 'Gib deine Nummer ein \u2014 wir senden dir die erste SMS.',
         cta_or: 'oder',
+        cta_wa_title: 'Per WhatsApp starten',
+        cta_wa_desc: 'Kostenlos & unbegrenzt \u2014 sofort loslegen.',
+        cta_wa_btn: 'WhatsApp \u00f6ffnen \u2192',
+        cta_wa_note: 'Kein Account n\u00f6tig. Einfach Nachricht senden.',
+        cta_or_sms: 'oder per SMS',
+        credits_title: 'SMS-Guthaben',
+        credits_desc: 'Kein Abo? Kaufe SMS-Guthaben einzeln. Verf\u00e4llt nie.',
+        credits_per_sms_10: '\u20ac0,20 / SMS',
+        credits_per_sms_50: '\u20ac0,16 / SMS',
+        credits_how: 'Sende KAUFEN per SMS oder WhatsApp zum Kaufen.',
         signup_privacy: 'Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl\u00e4rung</a> zu. <span class="required-star">*</span>',
         signup_age: 'Ich bin mindestens 16 Jahre alt. <span class="required-star">*</span>',
         signup_success: '<strong>SMS gesendet!</strong> Pr\u00fcfe dein Handy und antworte mit <strong>JA</strong> an <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> um dein Konto zu aktivieren.',
@@ -1867,7 +1951,7 @@ const breadcrumbJsonLd = {
         step3_desc: 'Sende STOP \u2014 sofort abgemeldet, alle Daten unwiderruflich gel\u00f6scht.',
         sb2_conv_label: 'So funktioniert\'s',
         sb2_conv_welcome: 'Willkommen bei FragSMS! Du chattest mit einer KI, nicht mit einem Menschen.<br><br>Antworte JA = Nutzungsbedingungen + Datenschutz akzeptiert.<br><br>Abmelden: STOP senden.',
-        sb2_conv_confirm: 'Du bist dabei! 50 Nachrichten/Monat kostenlos. Stell jetzt deine erste Frage!',
+        sb2_conv_confirm: 'Du bist dabei! Unbegrenzt kostenlos per WhatsApp. Stell jetzt deine erste Frage!',
         sb2_conv_question: 'Was ist die Hauptstadt von Australien?',
         sb2_conv_answer: 'Die Hauptstadt von Australien ist Canberra \u2014 nicht Sydney, wie viele denken!',
         sb2_stop_reply: 'Abgemeldet. Dein Chatverlauf wurde gel\u00f6scht. Du erh\u00e4ltst keine weiteren SMS. Jederzeit zur\u00fcckkehren mit START. fragsms.de',
@@ -1880,9 +1964,9 @@ const breadcrumbJsonLd = {
         pricing_title: 'Preise',
         pricing_subtitle: 'Kostenlos starten. Jederzeit upgraden. Jederzeit k\u00fcndbar.',
         price_per_month: 'pro Monat',
-        free_f1: '50 Nachrichten / Monat', free_f2: 'Kein Account n\u00f6tig', free_f3: '3 Gespr\u00e4chsrunden', free_f4: 'Web-Suche inklusive', free_cta: 'Einfach SMS senden',
-        plus_f1: '50 Nachrichten / Monat', plus_f2: 'Web-Suche inklusive', plus_f3: 'Gespr\u00e4chsverlauf (20 Nachr.)', plus_f4: 'Priorit\u00e4ts-Antworten',
-        flat_f1: '1000 Nachrichten / Monat', flat_f2: 'Web-Suche inklusive', flat_f3: 'Gespr\u00e4chsverlauf (50 Nachr.)', flat_f4: 'Priorit\u00e4ts-Antworten',
+        free_f1: 'WhatsApp unbegrenzt', free_f2: 'Kein Account n\u00f6tig', free_f3: '3 Gespr\u00e4chsrunden', free_f4: 'Web-Suche inklusive', free_f5: 'SMS per Guthaben m\u00f6glich', free_cta: 'WhatsApp \u00f6ffnen',
+        plus_f1: 'WhatsApp unbegrenzt', plus_f2: '30 SMS / Monat inklusive', plus_f3: 'Gespr\u00e4chsverlauf (20 Nachr.)', plus_f4: 'Priorit\u00e4ts-Antworten',
+        flat_f1: 'WhatsApp unbegrenzt', flat_f2: '150 SMS / Monat inklusive', flat_f3: 'Gespr\u00e4chsverlauf (50 Nachr.)', flat_f4: 'Priorit\u00e4ts-Antworten',
         btn_upgrade: 'Jetzt upgraden', badge_popular: 'Beliebt',
         pricing_footnote: 'Alle Preise sind Endpreise. Gem\u00e4\u00df \u00a7 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.',
         guarantee_1: '14 Tage Widerrufsrecht', guarantee_2: 'Keine Abofalle', guarantee_3: 'Sofort k\u00fcndbar per SMS',
@@ -1910,7 +1994,7 @@ const breadcrumbJsonLd = {
         faq3_q: 'Kann ich ChatGPT per SMS nutzen?', faq3_a: 'Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen \u2014 \u00e4hnlich wie ChatGPT, aber ohne App und ohne Internet.',
         faq4_q: 'Wie k\u00fcndige ich mein Abo?', faq4_a: 'Sende STOP per SMS oder nutze den "Jetzt k\u00fcndigen" Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.',
         faq5_q: 'Sind meine Daten sicher?', faq5_a: 'Ja. FragSMS erkennt automatisch 7 Arten pers\u00f6nlicher Daten (Telefonnummern, E-Mails, IBANs etc.) und blockiert solche Nachrichten, bevor sie die KI erreichen. Alle Daten werden ausschlie\u00dflich in der EU gespeichert. Vollst\u00e4ndig DSGVO-konform.',
-        faq6_q: 'Was kostet FragSMS?', faq6_a: 'FragSMS startet kostenlos mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus 4,99 \u20ac/Monat (50 Nachrichten, mehr Verlauf), Flat 14,99 \u20ac/Monat (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise.',
+        faq6_q: 'Was kostet FragSMS?', faq6_a: 'WhatsApp-Nachrichten sind unbegrenzt und kostenlos. Plus 4,99 \u20ac/Monat (30 SMS inklusive, mehr Verlauf), Flat 14,99 \u20ac/Monat (150 SMS inklusive, maximaler Verlauf). SMS-Guthaben einzeln kaufbar (10 SMS ab 1,99 \u20ac). Alle Preise sind Endpreise.',
         cta_title: 'Bereit loszulegen?',
         cta_sub: '3 Schritte: START senden, JA antworten, Fragen stellen.',
         cta_step1: 'Sende <strong>START</strong> an +49 1590 8138432',
@@ -1960,7 +2044,7 @@ const breadcrumbJsonLd = {
         hero_cta: 'Start via SMS now \u2192',
         hero_input_placeholder: '151 XXXXXXXX',
         hero_btn: 'Start for free',
-        hero_input_sub: '50 free messages per month \u2014 no subscription, no risk',
+        hero_input_sub: 'Unlimited free via WhatsApp \u2014 no subscription, no risk',
         hero_sms_cost: 'SMS cost: your normal SMS rate (included in most flat rates)',
         hero_desktop_num: 'On desktop? Send <strong>START</strong> to:',
         hero_copy_hint: '(click to copy)',
@@ -1971,6 +2055,16 @@ const breadcrumbJsonLd = {
         cta_web_title: 'Sign up here',
         cta_web_desc: 'Enter your number \u2014 we\'ll send you the first SMS.',
         cta_or: 'or',
+        cta_wa_title: 'Start via WhatsApp',
+        cta_wa_desc: 'Free & unlimited \u2014 get started instantly.',
+        cta_wa_btn: 'Open WhatsApp \u2192',
+        cta_wa_note: 'No account needed. Just send a message.',
+        cta_or_sms: 'or via SMS',
+        credits_title: 'SMS Credits',
+        credits_desc: 'No subscription? Buy SMS credits individually. Never expires.',
+        credits_per_sms_10: '\u20ac0.20 / SMS',
+        credits_per_sms_50: '\u20ac0.16 / SMS',
+        credits_how: 'Send KAUFEN via SMS or WhatsApp to purchase.',
         signup_privacy: 'I agree to the <a href="/nutzungsbedingungen/" target="_blank">Terms of Service</a> and <a href="/datenschutz/" target="_blank">Privacy Policy</a>. <span class="required-star">*</span>',
         signup_age: 'I am at least 16 years old. <span class="required-star">*</span>',
         signup_success: '<strong>SMS sent!</strong> Check your phone and reply with <strong>JA</strong> to <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> to activate your account.',
@@ -2016,7 +2110,7 @@ const breadcrumbJsonLd = {
         step3_desc: 'Send STOP \u2014 instantly unsubscribed, all data permanently deleted.',
         sb2_conv_label: 'How it works',
         sb2_conv_welcome: 'Welcome to FragSMS! You are chatting with an AI, not a human.<br><br>Reply YES = Terms + Privacy accepted.<br><br>Unsubscribe: send STOP.',
-        sb2_conv_confirm: 'You\'re in! 50 messages/month free. Ask your first question now!',
+        sb2_conv_confirm: 'You\'re in! Unlimited free via WhatsApp. Ask your first question now!',
         sb2_conv_question: 'What is the capital of Australia?',
         sb2_conv_answer: 'The capital of Australia is Canberra \u2014 not Sydney, as many think!',
         sb2_stop_reply: 'Unsubscribed. Your chat history has been deleted. No more SMS. Return anytime with START. fragsms.de',
@@ -2029,9 +2123,9 @@ const breadcrumbJsonLd = {
         pricing_title: 'Pricing',
         pricing_subtitle: 'Start free. Upgrade anytime. Cancel anytime.',
         price_per_month: 'per month',
-        free_f1: '50 messages / month', free_f2: 'No account needed', free_f3: '3 conversation turns', free_f4: 'Web search included', free_cta: 'Just send an SMS',
-        plus_f1: '50 messages / month', plus_f2: 'Web search included', plus_f3: 'Conversation history (20 msgs)', plus_f4: 'Priority answers',
-        flat_f1: '1000 messages / month', flat_f2: 'Web search included', flat_f3: 'Conversation history (50 msgs)', flat_f4: 'Priority answers',
+        free_f1: 'WhatsApp unlimited', free_f2: 'No account needed', free_f3: '3 conversation turns', free_f4: 'Web search included', free_f5: 'SMS via credits available', free_cta: 'Open WhatsApp',
+        plus_f1: 'WhatsApp unlimited', plus_f2: '30 SMS / month included', plus_f3: 'Conversation history (20 msgs)', plus_f4: 'Priority answers',
+        flat_f1: 'WhatsApp unlimited', flat_f2: '150 SMS / month included', flat_f3: 'Conversation history (50 msgs)', flat_f4: 'Priority answers',
         btn_upgrade: 'Upgrade now', badge_popular: 'Popular',
         pricing_footnote: 'All prices are final. As per \u00a7 19 para. 1 UStG, no VAT is charged.',
         guarantee_1: '14-Day Right of Withdrawal', guarantee_2: 'No Subscription Trap', guarantee_3: 'Cancel instantly via SMS',
@@ -2059,7 +2153,7 @@ const breadcrumbJsonLd = {
         faq3_q: 'Can I use ChatGPT via SMS?', faq3_a: 'With FragSMS you can use an AI assistant via SMS \u2014 similar to ChatGPT, but without an app or internet.',
         faq4_q: 'How do I cancel my subscription?', faq4_a: 'Send STOP via SMS or use the "Cancel now" button at fragsms.de/upgrade. Effective immediately.',
         faq5_q: 'Is my data secure?', faq5_a: 'Yes. FragSMS automatically detects 7 types of personal data (phone numbers, emails, IBANs etc.) and blocks such messages before they reach the AI. All data is stored exclusively in the EU. Fully GDPR compliant.',
-        faq6_q: 'How much does FragSMS cost?', faq6_a: 'FragSMS starts free with 50 messages/month incl. web search. Plus \u20ac4.99/month (50 messages, more history), Flat \u20ac14.99/month (1000 messages, maximum history). All prices are final.',
+        faq6_q: 'How much does FragSMS cost?', faq6_a: 'WhatsApp messages are unlimited and free. Plus \u20ac4.99/month (30 SMS included, more history), Flat \u20ac14.99/month (150 SMS included, maximum history). SMS credits also available separately (10 SMS from \u20ac1.99). All prices are final.',
         cta_title: 'Ready to get started?',
         cta_sub: '3 steps: send START, reply YES, start asking.',
         cta_step1: 'Send <strong>START</strong> to +49 1590 8138432',
