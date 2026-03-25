@@ -553,46 +553,46 @@ const breadcrumbJsonLd = {
        <div class="cta-dual fade-in">
          <!-- Option A: Direct SMS -->
          <div class="cta-option cta-option--sms">
-           <div class="cta-option-icon">
-             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-           </div>
-           <h3 class="cta-option-title" data-i18n="cta_sms_title">Per SMS starten</h3>
-           <p class="cta-option-desc" data-i18n="cta_sms_desc">Direkt vom Handy &mdash; kein Formular n&ouml;tig.</p>
-           <div class="cta-steps">
-             <div class="cta-step"><span class="cta-step-num">1</span> <span data-i18n="cta_step1">Sende <strong>START</strong> an +49 1590 8138432</span></div>
-             <div class="cta-step"><span class="cta-step-num">2</span> <span data-i18n="cta_step2">Antworte <strong>JA</strong> auf die Best&auml;tigungs-SMS</span></div>
-             <div class="cta-step"><span class="cta-step-num">3</span> <span data-i18n="cta_step3">Stell deine erste Frage!</span></div>
-           </div>
-           <a href="sms:+4915908138432?body=START" class="btn-primary cta-sms-btn" data-i18n="hero_cta">
-             Jetzt per SMS starten &rarr;
-           </a>
-           <div class="hero-desktop-hint">
-             <p class="hero-desktop-num" data-i18n="hero_desktop_num">Am Computer? Sende <strong>START</strong> an:</p>
-             <p class="hero-desktop-number" onclick="navigator.clipboard&&navigator.clipboard.writeText('+4915908138432')">+49 1590 8138432 <span class="hero-copy-hint" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
-           </div>
+            <div class="inline-flex items-center justify-center w-cta-icon h-[56px] rounded-flow bg-th-primary-glow text-th-primary mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 text-th-text" data-i18n="cta_sms_title">Per SMS starten</h3>
+            <p class="text-[0.9rem] text-th-muted mb-6 leading-normal" data-i18n="cta_sms_desc">Direkt vom Handy &mdash; kein Formular n&ouml;tig.</p>
+            <div class="flex justify-center gap-6 mb-8 flex-wrap">
+              <div class="flex items-center gap-2 text-[0.95rem] text-th-text"><span class="inline-flex items-center justify-center w-step-circle h-[28px] rounded-full bg-th-primary text-th-btn-text font-bold text-[0.85rem] shrink-0">1</span> <span data-i18n="cta_step1">Sende <strong>START</strong> an +49 1590 8138432</span></div>
+              <div class="flex items-center gap-2 text-[0.95rem] text-th-text"><span class="inline-flex items-center justify-center w-step-circle h-[28px] rounded-full bg-th-primary text-th-btn-text font-bold text-[0.85rem] shrink-0">2</span> <span data-i18n="cta_step2">Antworte <strong>JA</strong> auf die Best&auml;tigungs-SMS</span></div>
+              <div class="flex items-center gap-2 text-[0.95rem] text-th-text"><span class="inline-flex items-center justify-center w-step-circle h-[28px] rounded-full bg-th-primary text-th-btn-text font-bold text-[0.85rem] shrink-0">3</span> <span data-i18n="cta_step3">Stell deine erste Frage!</span></div>
+            </div>
+            <a href="sms:+4915908138432?body=START" class="btn-primary cta-sms-btn" data-i18n="hero_cta">
+              Jetzt per SMS starten &rarr;
+            </a>
+            <div class="mt-6 pt-4 border-t border-th-border">
+              <p class="text-[0.85rem] text-th-muted mb-1" data-i18n="hero_desktop_num">Am Computer? Sende <strong>START</strong> an:</p>
+              <p class="text-[1.15rem] font-extrabold text-th-primary cursor-pointer tracking-[0.02em] transition-opacity duration-200 hover:opacity-80" onclick="navigator.clipboard&&navigator.clipboard.writeText('+4915908138432')">+49 1590 8138432 <span class="text-xs font-normal text-th-muted" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
+            </div>
          </div>
 
-         <!-- Divider -->
-         <div class="cta-divider">
-           <span class="cta-divider-line"></span>
-           <span class="cta-divider-text" data-i18n="cta_or">oder</span>
-           <span class="cta-divider-line"></span>
-         </div>
+          <!-- Divider -->
+          <div class="flex flex-col md:flex-col items-center justify-center px-6 shrink-0 max-md:flex-row max-md:py-4 max-md:px-0">
+            <span class="flex-1 w-[1.5px] bg-th-border min-h-[40px] max-md:w-auto max-md:h-[1.5px] max-md:min-h-0"></span>
+            <span class="text-[0.85rem] font-bold text-th-muted uppercase tracking-[0.06em] py-3 max-md:px-4 max-md:py-0" data-i18n="cta_or">oder</span>
+            <span class="flex-1 w-[1.5px] bg-th-border min-h-[40px] max-md:w-auto max-md:h-[1.5px] max-md:min-h-0"></span>
+          </div>
 
          <!-- Option B: Web Signup -->
-         <div class="cta-option cta-option--web">
-           <div class="cta-option-icon">
-             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
-           </div>
-           <h3 class="cta-option-title" data-i18n="cta_web_title">Hier registrieren</h3>
-           <p class="cta-option-desc" data-i18n="cta_web_desc">Gib deine Nummer ein &mdash; wir senden dir die erste SMS.</p>
+          <div class="cta-option cta-option--web">
+            <div class="inline-flex items-center justify-center w-cta-icon h-[56px] rounded-flow bg-th-primary-glow text-th-primary mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 text-th-text" data-i18n="cta_web_title">Hier registrieren</h3>
+            <p class="text-[0.9rem] text-th-muted mb-6 leading-normal" data-i18n="cta_web_desc">Gib deine Nummer ein &mdash; wir senden dir die erste SMS.</p>
 
            <div class="hero-input-wrap">
              <div class="hero-input-inner" id="phone-wrap">
-               <svg class="hero-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
-               </svg>
-               <span class="phone-prefix">+49</span>
+                <svg class="w-[22px] h-[22px] text-th-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+                </svg>
+                <span class="text-[1.1rem] font-bold text-th-text shrink-0 select-none pointer-events-none tracking-[0.01em]">+49</span>
                <input
                  id="phone-input"
                  type="tel"
@@ -634,8 +634,8 @@ const breadcrumbJsonLd = {
            </div>
          </div>
        </div>
-       <p class="hero-cta-sub" style="text-align:center; margin-top: 1.5rem;" data-i18n="hero_input_sub">50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko</p>
-       <p class="hero-sms-cost" style="text-align:center;" data-i18n="hero_sms_cost">SMS-Kosten: dein normaler SMS-Tarif (in den meisten Flatrates enthalten)</p>
+       <p class="text-center mt-6 text-[0.78rem] text-th-muted" data-i18n="hero_input_sub">50 kostenlose Nachrichten pro Monat &mdash; kein Abo, kein Risiko</p>
+       <p class="text-center text-[0.72rem] text-th-footer-dim" data-i18n="hero_sms_cost">SMS-Kosten: dein normaler SMS-Tarif (in den meisten Flatrates enthalten)</p>
      </div>
    </section>
 
@@ -864,11 +864,6 @@ const breadcrumbJsonLd = {
         radial-gradient(ellipse 50% 50% at 70% 50%, rgba(52,211,153,0.04) 0%, transparent 55%);
       pointer-events: none;
     }
-    .cta-form {
-      max-width: 580px;
-      margin: 0 auto;
-      text-align: center;
-    }
     .cta-sms-btn {
       width: 100%;
       max-width: 480px;
@@ -922,81 +917,6 @@ const breadcrumbJsonLd = {
       box-shadow: 0 12px 40px rgba(16,185,129,0.15);
       transform: translateY(-4px);
     }
-    .cta-option-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: var(--color-primary-glow);
-      color: var(--color-primary);
-      margin-bottom: 1.25rem;
-    }
-    .cta-option-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      color: var(--color-text);
-    }
-    .cta-option-desc {
-      font-size: 0.9rem;
-      color: var(--color-text-muted);
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
-    }
-
-    /* ── CTA Divider ─────────────────────────────── */
-    .cta-divider {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1.5rem;
-      flex-shrink: 0;
-    }
-    .cta-divider-line {
-      flex: 1;
-      width: 1.5px;
-      background: var(--color-border);
-      min-height: 40px;
-    }
-    .cta-divider-text {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 0.75rem 0;
-    }
-
-    /* ── Desktop hint in CTA ────────────────────── */
-    .cta-option .hero-desktop-hint {
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--color-border);
-    }
-    .cta-option .hero-desktop-num {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      margin-bottom: 0.25rem;
-    }
-    .cta-option .hero-desktop-number {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--color-primary);
-      cursor: pointer;
-      letter-spacing: 0.02em;
-      transition: opacity 0.2s;
-    }
-    .cta-option .hero-desktop-number:hover {
-      opacity: 0.8;
-    }
-    .cta-option .hero-copy-hint {
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--color-text-muted);
-    }
 
     /* ── Web Signup Form ─────────────────────────── */
     .hero-input-wrap {
@@ -1017,22 +937,6 @@ const breadcrumbJsonLd = {
     .hero-input-inner:focus-within {
       border-color: var(--color-primary);
       box-shadow: 0 0 0 3px rgba(16,185,129,0.15);
-    }
-    .hero-input-icon {
-      width: 22px;
-      height: 22px;
-      color: var(--color-text-muted);
-      flex-shrink: 0;
-    }
-    .phone-prefix {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--color-text);
-      flex-shrink: 0;
-      user-select: none;
-      pointer-events: none;
-      letter-spacing: 0.01em;
-      font-family: var(--font-sans);
     }
     .hero-input {
       flex: 1;
@@ -1228,51 +1132,9 @@ const breadcrumbJsonLd = {
         flex-direction: column;
         gap: 0;
       }
-      .cta-divider {
-        flex-direction: row;
-        padding: 1rem 0;
-      }
-      .cta-divider-line {
-        width: auto;
-        height: 1.5px;
-        min-height: 0;
-        flex: 1;
-      }
-      .cta-divider-text {
-        padding: 0 1rem;
-      }
       .cta-option {
         padding: 2rem 1.5rem;
       }
-    }
-
-    /* ── CTA Steps ────────────────────────────────── */
-    .cta-steps {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .cta-step {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.95rem;
-      color: var(--color-text);
-    }
-    .cta-step-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--color-primary);
-      color: var(--color-btn-text);
-      font-weight: 700;
-      font-size: 0.85rem;
-      flex-shrink: 0;
     }
 
     /* ── Shared: Pill, sb-list, check, sb-title, sb-desc ── */
