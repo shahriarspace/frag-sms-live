@@ -293,13 +293,13 @@ const breadcrumbJsonLd = {
    <!-- ═══════════════════════════════════════════════
        SWITCHBACK 3 — Privacy (full-bleed Netlify style)
   ════════════════════════════════════════════════ -->
-  <section class="flow-section" aria-labelledby="features-heading">
+  <section class="flow-section bg-th-bg-alt py-20 overflow-hidden" aria-labelledby="features-heading">
 
     <!-- Heading -->
-    <div class="container flow-heading fade-in">
-      <span class="pill" data-i18n="sb3_pill">Privacy First</span>
-      <h2 class="sb-title" id="features-heading" data-i18n="sb3_title">Wir sch&uuml;tzen<br>deine Identit&auml;t.</h2>
-      <p class="sb-desc" data-i18n="sb3_desc">
+    <div class="container text-center mb-12 fade-in">
+      <span class="inline-block px-4 py-1.5 rounded-pill text-[0.78rem] font-bold tracking-[0.04em] uppercase bg-th-primary-glow text-th-primary border border-th-primary-border mb-4" data-i18n="sb3_pill">Privacy First</span>
+      <h2 class="text-section font-black tracking-[-0.035em] leading-[1.1] mt-2 mb-4" id="features-heading" data-i18n="sb3_title">Wir sch&uuml;tzen<br>deine Identit&auml;t.</h2>
+      <p class="text-base text-th-muted leading-[1.75] max-w-[640px] mx-auto" data-i18n="sb3_desc">
         FragSMS erkennt pers&ouml;nliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch &mdash;
         und blockiert die Nachricht, <strong>bevor</strong> sie die KI erreicht. Keine Kosten, kein Risiko.
         Dazu: EU-Server, SHA-256-Verschl&uuml;sselung, kein Tracking.
@@ -307,89 +307,89 @@ const breadcrumbJsonLd = {
     </div>
 
     <!-- Full-width flow diagram -->
-    <div class="container flow-landscape">
+    <div class="container w-full">
       <div class="flow-diagram">
 
         <!-- Col 1: SMS received -->
-        <div class="flow-col">
-          <div class="flow-col-icon">
+        <div class="flow-col flex-1 flex flex-col items-center text-center gap-2.5 px-4 py-7 bg-th-surface border border-th-border rounded-flow min-w-0">
+          <div class="w-flow-icon h-[52px] flex items-center justify-center rounded-[14px] bg-th-primary-glow border border-th-primary-border text-th-primary">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </div>
-          <span class="flow-col-title" data-i18n="flow_sms">SMS empfangen</span>
-          <div class="flow-col-detail">
-            <code>+49151XXXXXXX</code>
+          <span class="text-[0.95rem] font-extrabold tracking-[-0.01em]" data-i18n="flow_sms">SMS empfangen</span>
+          <div class="flex flex-col items-center gap-1 w-full min-w-0">
+            <code class="font-mono text-[0.72rem] bg-th-bg-alt px-2 py-0.5 rounded-md text-th-text border border-th-border inline-block max-w-full overflow-hidden text-ellipsis">+49151XXXXXXX</code>
           </div>
-          <span class="flow-col-sub" data-i18n="flow_sms_sub">Deine Nummer</span>
+          <span class="text-[0.68rem] text-th-muted uppercase tracking-[0.04em] font-semibold" data-i18n="flow_sms_sub">Deine Nummer</span>
         </div>
 
         <div class="flow-h-arrow"><span class="flow-arrow-line"></span><span class="flow-arrow-head"></span></div>
 
         <!-- Col 2: PII Scanner -->
-        <div class="flow-col flow-col--accent">
-          <div class="flow-col-icon flow-col-icon--shield">
+        <div class="flow-col flow-col--accent flex-1 flex flex-col items-center text-center gap-2.5 px-4 py-7 bg-th-primary border border-th-primary text-th-btn-text rounded-flow min-w-0">
+          <div class="w-flow-icon h-[52px] flex items-center justify-center rounded-[14px] bg-white/20 border border-white/30 text-th-btn-text [&_svg]:stroke-[var(--color-btn-text)]">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
           </div>
-          <span class="flow-col-title" data-i18n="flow_pii">PII-Scanner</span>
-          <div class="flow-col-detail">
-            <div class="flow-scan-items">
-              <span class="flow-scan-tag" data-i18n="flow_tag_phone">Telefon</span>
-              <span class="flow-scan-tag" data-i18n="flow_tag_email">E-Mail</span>
-              <span class="flow-scan-tag" data-i18n="flow_tag_iban">IBAN</span>
-              <span class="flow-scan-tag" data-i18n="flow_tag_cc">Kreditkarte</span>
-              <span class="flow-scan-tag" data-i18n="flow_tag_tax">Steuer-ID</span>
-              <span class="flow-scan-tag" data-i18n="flow_tag_dob">Geburtsdatum</span>
+          <span class="text-[0.95rem] font-extrabold tracking-[-0.01em] text-th-btn-text" data-i18n="flow_pii">PII-Scanner</span>
+          <div class="flex flex-col items-center gap-1 w-full min-w-0">
+            <div class="flex flex-wrap justify-center gap-1">
+              <span class="text-[0.65rem] font-semibold px-1.5 py-0.5 rounded-[5px] bg-white/20 border border-white/30 text-th-btn-text whitespace-nowrap" data-i18n="flow_tag_phone">Telefon</span>
+              <span class="text-[0.65rem] font-semibold px-1.5 py-0.5 rounded-[5px] bg-white/20 border border-white/30 text-th-btn-text whitespace-nowrap" data-i18n="flow_tag_email">E-Mail</span>
+              <span class="text-[0.65rem] font-semibold px-1.5 py-0.5 rounded-[5px] bg-white/20 border border-white/30 text-th-btn-text whitespace-nowrap" data-i18n="flow_tag_iban">IBAN</span>
+              <span class="text-[0.65rem] font-semibold px-1.5 py-0.5 rounded-[5px] bg-white/20 border border-white/30 text-th-btn-text whitespace-nowrap" data-i18n="flow_tag_cc">Kreditkarte</span>
+              <span class="text-[0.65rem] font-semibold px-1.5 py-0.5 rounded-[5px] bg-white/20 border border-white/30 text-th-btn-text whitespace-nowrap" data-i18n="flow_tag_tax">Steuer-ID</span>
+              <span class="text-[0.65rem] font-semibold px-1.5 py-0.5 rounded-[5px] bg-white/20 border border-white/30 text-th-btn-text whitespace-nowrap" data-i18n="flow_tag_dob">Geburtsdatum</span>
             </div>
           </div>
-          <span class="flow-col-sub" data-i18n="flow_pii_sub">7 Muster werden gepr&uuml;ft</span>
+          <span class="text-[0.68rem] text-white/70 uppercase tracking-[0.04em] font-semibold" data-i18n="flow_pii_sub">7 Muster werden gepr&uuml;ft</span>
         </div>
 
         <div class="flow-h-arrow"><span class="flow-arrow-line"></span><span class="flow-arrow-head"></span></div>
 
         <!-- Col 3: Branch -->
-        <div class="flow-col flow-col--split">
-          <div class="flow-branch-card flow-branch--blocked">
-            <div class="flow-branch-icon">
+        <div class="flow-col flow-col--split flex-1 flex flex-col items-center text-center gap-2 bg-transparent border-0 p-0 min-w-0">
+          <div class="flex flex-col items-center gap-1.5 px-3 py-4 rounded-[14px] text-center flex-1 bg-[rgba(239,68,68,0.08)] border border-[rgba(239,68,68,0.2)]">
+            <div class="w-step-num h-[36px] flex items-center justify-center rounded-[10px] bg-[rgba(239,68,68,0.12)] text-th-error">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </div>
-            <span class="flow-branch-label" data-i18n="flow_blocked">Blockiert</span>
-            <span class="flow-blocked-text" data-i18n="flow_blocked_text">PII erkannt &rarr; Warnung</span>
-            <span class="flow-blocked-sub" data-i18n="flow_blocked_sub">Keine Kosten, kein API-Call</span>
+            <span class="text-[0.85rem] font-extrabold text-th-error" data-i18n="flow_blocked">Blockiert</span>
+            <span class="text-[0.7rem] font-semibold text-th-error" data-i18n="flow_blocked_text">PII erkannt &rarr; Warnung</span>
+            <span class="text-[0.62rem] text-th-muted" data-i18n="flow_blocked_sub">Keine Kosten, kein API-Call</span>
           </div>
-          <div class="flow-branch-card flow-branch--ok">
-            <div class="flow-branch-icon flow-branch-icon--ok">
+          <div class="flex flex-col items-center gap-1.5 px-3 py-4 rounded-[14px] text-center flex-1 bg-[rgba(16,185,129,0.08)] border border-[rgba(16,185,129,0.2)]">
+            <div class="w-step-num h-[36px] flex items-center justify-center rounded-[10px] bg-th-primary-glow text-th-primary">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <span class="flow-branch-label" data-i18n="flow_clean">Sauber</span>
+            <span class="text-[0.85rem] font-extrabold text-th-primary" data-i18n="flow_clean">Sauber</span>
           </div>
         </div>
 
         <div class="flow-h-arrow"><span class="flow-arrow-line"></span><span class="flow-arrow-head"></span></div>
 
         <!-- Col 4: SHA-256 -->
-        <div class="flow-col">
-          <div class="flow-col-icon">
+        <div class="flow-col flex-1 flex flex-col items-center text-center gap-2.5 px-4 py-7 bg-th-surface border border-th-border rounded-flow min-w-0">
+          <div class="w-flow-icon h-[52px] flex items-center justify-center rounded-[14px] bg-th-primary-glow border border-th-primary-border text-th-primary">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
           </div>
-          <span class="flow-col-title">SHA-256</span>
-          <div class="flow-col-detail">
-            <code class="flow-hash-from">+49151...XXX</code>
-            <span class="flow-hash-arrow">&rarr;</span>
-            <code class="flow-hash-to">a3f8c2b...9e1d</code>
+          <span class="text-[0.95rem] font-extrabold tracking-[-0.01em]">SHA-256</span>
+          <div class="flex flex-col items-center gap-1 w-full min-w-0">
+            <code class="font-mono text-[0.72rem] bg-th-bg-alt px-2 py-0.5 rounded-md text-th-text border border-th-border inline-block max-w-full overflow-hidden text-ellipsis line-through opacity-50">+49151...XXX</code>
+            <span class="text-th-primary font-bold text-[0.85rem]">&rarr;</span>
+            <code class="font-mono text-[0.72rem] bg-th-bg-alt px-2 py-0.5 rounded-md !text-th-primary border border-th-border inline-block max-w-full overflow-hidden text-ellipsis font-semibold">a3f8c2b...9e1d</code>
           </div>
-          <span class="flow-col-sub" data-i18n="flow_hash_sub">Nummer nie im Klartext</span>
+          <span class="text-[0.68rem] text-th-muted uppercase tracking-[0.04em] font-semibold" data-i18n="flow_hash_sub">Nummer nie im Klartext</span>
         </div>
 
         <div class="flow-h-arrow"><span class="flow-arrow-line"></span><span class="flow-arrow-head"></span></div>
 
         <!-- Col 5: AI -->
-        <div class="flow-col">
-          <div class="flow-col-icon flow-col-icon--ai">
+        <div class="flow-col flex-1 flex flex-col items-center text-center gap-2.5 px-4 py-7 bg-th-surface border border-th-border rounded-flow min-w-0">
+          <div class="w-flow-icon h-[52px] flex items-center justify-center rounded-[14px] bg-gradient-to-br from-[rgba(16,185,129,0.2)] to-[rgba(59,130,246,0.2)] border border-th-primary-border text-th-primary">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4v2H8V6a4 4 0 014-4z"/><rect x="4" y="8" width="16" height="12" rx="2"/><line x1="9" y1="13" x2="9" y2="16"/><line x1="15" y1="13" x2="15" y2="16"/></svg>
           </div>
-           <span class="flow-col-title" data-i18n="flow_ai">KI-Modell</span>
-          <div class="flow-col-detail flow-col-detail--ai">
-            <span class="flow-ai-receives" data-i18n="flow_ai_receives">Erh&auml;lt nur: <strong>&bdquo;Wie wird das Wetter?&ldquo;</strong></span>
-            <span class="flow-ai-blocked" data-i18n="flow_ai_blocked">Erh&auml;lt nie: Telefonnummer, Name, IBAN</span>
+          <span class="text-[0.95rem] font-extrabold tracking-[-0.01em]" data-i18n="flow_ai">KI-Modell</span>
+          <div class="flex flex-col items-center gap-[0.35rem] w-full min-w-0">
+            <span class="text-[0.78rem] text-th-primary leading-[1.4] [&_strong]:text-th-text" data-i18n="flow_ai_receives">Erh&auml;lt nur: <strong>&bdquo;Wie wird das Wetter?&ldquo;</strong></span>
+            <span class="text-[0.68rem] text-th-error line-through opacity-70" data-i18n="flow_ai_blocked">Erh&auml;lt nie: Telefonnummer, Name, IBAN</span>
           </div>
         </div>
 
@@ -397,67 +397,67 @@ const breadcrumbJsonLd = {
     </div>
 
     <!-- Checklist -->
-    <div class="container flow-checklist fade-in-chain">
-      <ul class="sb-list">
-        <li><span class="check">&#10003;</span> <span data-i18n="sb3_l1">Automatische PII-Erkennung &amp; Blockierung</span></li>
-        <li><span class="check">&#10003;</span> <span data-i18n="sb3_l2">100% EU-Datenspeicherung, DSGVO-konform</span></li>
-        <li><span class="check">&#10003;</span> <span data-i18n="sb3_l3">STOP senden = alle Daten sofort gel&ouml;scht</span></li>
+    <div class="container mt-10 flex justify-center fade-in-chain">
+      <ul class="list-none flex flex-row flex-wrap gap-x-12 gap-y-6 justify-center p-0 [&_li]:flex [&_li]:items-center [&_li]:gap-2.5 [&_li]:text-[0.95rem] [&_li]:text-th-muted">
+        <li><span class="text-th-primary font-bold shrink-0">&#10003;</span> <span data-i18n="sb3_l1">Automatische PII-Erkennung &amp; Blockierung</span></li>
+        <li><span class="text-th-primary font-bold shrink-0">&#10003;</span> <span data-i18n="sb3_l2">100% EU-Datenspeicherung, DSGVO-konform</span></li>
+        <li><span class="text-th-primary font-bold shrink-0">&#10003;</span> <span data-i18n="sb3_l3">STOP senden = alle Daten sofort gel&ouml;scht</span></li>
       </ul>
     </div>
 
-    <!-- ── SMS vs App/Web comparison ── -->
-    <div class="container flow-heading flow-heading--compare fade-in-chain">
-      <h3 class="sb-title flow-compare-title" data-i18n="cmp_title">Warum SMS<br>sicherer ist.</h3>
-      <p class="sb-desc" data-i18n="cmp_desc">
+    <!-- ── SMS vs App comparison ── -->
+    <div class="container text-center mt-16 mb-12 fade-in-chain">
+      <h3 class="text-[2rem] font-black tracking-[-0.035em] leading-[1.1] mt-2 mb-4" data-i18n="cmp_title">Warum SMS<br>sicherer ist.</h3>
+      <p class="text-base text-th-muted leading-[1.75] max-w-sb-desc mx-auto mb-6" data-i18n="cmp_desc">
         App- und Web-basierte KI sammelt Dutzende Datenpunkte &uuml;ber dich.
         SMS nutzt das Mobilfunknetz &mdash; keine IPs, keine Cookies, kein Tracking.
       </p>
     </div>
 
-    <div class="container flow-landscape">
-      <div class="flow-compare">
+    <div class="container w-full">
+      <div class="flow-compare flex items-stretch gap-0 w-full max-w-compare mx-auto">
 
         <!-- Left: App/Web AI -->
-        <div class="cmp-card cmp-card--bad">
-          <div class="cmp-card-header">
-            <div class="cmp-icon cmp-icon--bad">
+        <div class="cmp-card flex-1 flex flex-col p-6 rounded-flow border border-[rgba(239,68,68,0.25)] bg-th-surface">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-cmp-icon h-[44px] flex items-center justify-center rounded-xl shrink-0 bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.2)] text-th-error">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
             </div>
-            <span class="cmp-card-title" data-i18n="cmp_app_title">App / Web KI</span>
+            <span class="text-[1.05rem] font-extrabold tracking-[-0.01em]" data-i18n="cmp_app_title">App / Web KI</span>
           </div>
-          <ul class="cmp-list">
-            <li class="cmp-item cmp-item--bad"><span class="cmp-x">&times;</span> <span data-i18n="cmp_ip">IP-Adresse</span></li>
-            <li class="cmp-item cmp-item--bad"><span class="cmp-x">&times;</span> <span data-i18n="cmp_fingerprint">Browser-Fingerprint</span></li>
-            <li class="cmp-item cmp-item--bad"><span class="cmp-x">&times;</span> <span data-i18n="cmp_cookies">Cookies &amp; Tracker</span></li>
-            <li class="cmp-item cmp-item--bad"><span class="cmp-x">&times;</span> <span data-i18n="cmp_device">Ger&auml;te-ID</span></li>
-            <li class="cmp-item cmp-item--bad"><span class="cmp-x">&times;</span> <span data-i18n="cmp_gps">GPS-Standort</span></li>
-            <li class="cmp-item cmp-item--bad"><span class="cmp-x">&times;</span> <span data-i18n="cmp_login">Login-Identit&auml;t</span></li>
-            <li class="cmp-item cmp-item--bad"><span class="cmp-x">&times;</span> <span data-i18n="cmp_pixel">Tracking-Pixel</span></li>
+          <ul class="list-none p-0 m-0 flex flex-col gap-2.5 flex-1">
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-[rgba(239,68,68,0.1)] text-th-error text-base font-bold shrink-0 leading-none">&times;</span> <span data-i18n="cmp_ip">IP-Adresse</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-[rgba(239,68,68,0.1)] text-th-error text-base font-bold shrink-0 leading-none">&times;</span> <span data-i18n="cmp_fingerprint">Browser-Fingerprint</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-[rgba(239,68,68,0.1)] text-th-error text-base font-bold shrink-0 leading-none">&times;</span> <span data-i18n="cmp_cookies">Cookies &amp; Tracker</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-[rgba(239,68,68,0.1)] text-th-error text-base font-bold shrink-0 leading-none">&times;</span> <span data-i18n="cmp_device">Ger&auml;te-ID</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-[rgba(239,68,68,0.1)] text-th-error text-base font-bold shrink-0 leading-none">&times;</span> <span data-i18n="cmp_gps">GPS-Standort</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-[rgba(239,68,68,0.1)] text-th-error text-base font-bold shrink-0 leading-none">&times;</span> <span data-i18n="cmp_login">Login-Identit&auml;t</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-[rgba(239,68,68,0.1)] text-th-error text-base font-bold shrink-0 leading-none">&times;</span> <span data-i18n="cmp_pixel">Tracking-Pixel</span></li>
           </ul>
-          <div class="cmp-verdict cmp-verdict--bad" data-i18n="cmp_app_verdict">Umfassendes Profiling m&ouml;glich</div>
+          <div class="mt-5 px-4 py-2.5 rounded-[10px] text-center text-[0.8rem] font-bold tracking-[0.01em] bg-[rgba(239,68,68,0.08)] text-th-error" data-i18n="cmp_app_verdict">Umfassendes Profiling m&ouml;glich</div>
         </div>
 
         <!-- VS divider -->
-        <div class="cmp-vs"><span>VS</span></div>
+        <div class="cmp-vs flex items-center justify-center px-4 shrink-0"><span class="flex items-center justify-center w-cmp-icon h-[44px] rounded-full bg-th-bg-alt border-2 border-th-border text-[0.75rem] font-black tracking-[0.05em] text-th-muted">VS</span></div>
 
         <!-- Right: SMS AI (FragSMS) -->
-        <div class="cmp-card cmp-card--good">
-          <div class="cmp-card-header">
-            <div class="cmp-icon cmp-icon--good">
+        <div class="cmp-card flex-1 flex flex-col p-6 rounded-flow border border-[rgba(16,185,129,0.3)] bg-[rgba(16,185,129,0.04)]">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-cmp-icon h-[44px] flex items-center justify-center rounded-xl shrink-0 bg-th-primary-glow border border-th-primary-border text-th-primary">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
             </div>
-            <span class="cmp-card-title" data-i18n="cmp_sms_title">SMS KI (FragSMS)</span>
+            <span class="text-[1.05rem] font-extrabold tracking-[-0.01em]" data-i18n="cmp_sms_title">SMS KI (FragSMS)</span>
           </div>
-          <ul class="cmp-list">
-            <li class="cmp-item cmp-item--good"><span class="cmp-check">&#10003;</span> <span data-i18n="cmp_no_ip">Keine IP-Adresse</span></li>
-            <li class="cmp-item cmp-item--good"><span class="cmp-check">&#10003;</span> <span data-i18n="cmp_no_fingerprint">Kein Browser-Fingerprint</span></li>
-            <li class="cmp-item cmp-item--good"><span class="cmp-check">&#10003;</span> <span data-i18n="cmp_no_cookies">Keine Cookies</span></li>
-            <li class="cmp-item cmp-item--good"><span class="cmp-check">&#10003;</span> <span data-i18n="cmp_no_device">Keine Ger&auml;te-ID</span></li>
-            <li class="cmp-item cmp-item--good"><span class="cmp-check">&#10003;</span> <span data-i18n="cmp_no_gps">Kein GPS-Tracking</span></li>
-            <li class="cmp-item cmp-item--good"><span class="cmp-check">&#10003;</span> <span data-i18n="cmp_no_login">Kein Login n&ouml;tig</span></li>
-            <li class="cmp-item cmp-item--good"><span class="cmp-check">&#10003;</span> <span data-i18n="cmp_no_pixel">Keine Tracking-Pixel</span></li>
+          <ul class="list-none p-0 m-0 flex flex-col gap-2.5 flex-1">
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-th-primary-glow text-th-primary text-[0.8rem] font-bold shrink-0 leading-none">&#10003;</span> <span data-i18n="cmp_no_ip">Keine IP-Adresse</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-th-primary-glow text-th-primary text-[0.8rem] font-bold shrink-0 leading-none">&#10003;</span> <span data-i18n="cmp_no_fingerprint">Kein Browser-Fingerprint</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-th-primary-glow text-th-primary text-[0.8rem] font-bold shrink-0 leading-none">&#10003;</span> <span data-i18n="cmp_no_cookies">Keine Cookies</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-th-primary-glow text-th-primary text-[0.8rem] font-bold shrink-0 leading-none">&#10003;</span> <span data-i18n="cmp_no_device">Keine Ger&auml;te-ID</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-th-primary-glow text-th-primary text-[0.8rem] font-bold shrink-0 leading-none">&#10003;</span> <span data-i18n="cmp_no_gps">Kein GPS-Tracking</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-th-primary-glow text-th-primary text-[0.8rem] font-bold shrink-0 leading-none">&#10003;</span> <span data-i18n="cmp_no_login">Kein Login n&ouml;tig</span></li>
+            <li class="flex items-center gap-2.5 text-[0.88rem] font-medium"><span class="flex items-center justify-center w-cmp-badge h-[24px] rounded-full bg-th-primary-glow text-th-primary text-[0.8rem] font-bold shrink-0 leading-none">&#10003;</span> <span data-i18n="cmp_no_pixel">Keine Tracking-Pixel</span></li>
           </ul>
-          <div class="cmp-verdict cmp-verdict--good" data-i18n="cmp_sms_verdict">Nur Nummer &rarr; SHA-256 Hash</div>
+          <div class="mt-5 px-4 py-2.5 rounded-[10px] text-center text-[0.8rem] font-bold tracking-[0.01em] bg-th-primary-glow text-th-primary" data-i18n="cmp_sms_verdict">Nur Nummer &rarr; SHA-256 Hash</div>
         </div>
 
       </div>
@@ -1137,21 +1137,7 @@ const breadcrumbJsonLd = {
       }
     }
 
-    /* ── Shared: Pill, sb-list, check, sb-title, sb-desc ── */
-    /* Used by flow section + hero features — remove when all migrated */
-    .pill {
-      display: inline-block;
-      padding: 0.35rem 1rem;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      background: var(--color-primary-glow);
-      color: var(--color-primary);
-      border: 1px solid var(--color-primary-border);
-      margin-bottom: 1rem;
-    }
+    /* ── Shared classes — migrated to Tailwind ── */
 
     /* ── Stats bar (pseudo-elements only) ──────────── */
     .stats-bar::before {
@@ -1171,39 +1157,6 @@ const breadcrumbJsonLd = {
       right: 10%;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(16,185,129,0.3), transparent);
-    }
-
-    .sb-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 900;
-      letter-spacing: -0.035em;
-      line-height: 1.1;
-      margin: 0.5rem 0 1rem;
-    }
-    .sb-desc {
-      font-size: 1rem;
-      color: var(--color-text-muted);
-      line-height: 1.75;
-      max-width: 460px;
-      margin-bottom: 1.5rem;
-    }
-    .sb-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    .sb-list li {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.95rem;
-      color: var(--color-text-muted);
-    }
-    .check {
-      color: var(--color-primary);
-      font-weight: 700;
-      flex-shrink: 0;
     }
 
     /* ── Phone mockup ────────────────────────────── */
@@ -1324,28 +1277,10 @@ const breadcrumbJsonLd = {
     .dot:hover:not(.active) { background: var(--color-dot-hover); }
 
 
-    /* ── Privacy flow section (full-bleed, Netlify style) ── */
-    .flow-section {
-      background: var(--color-bg-alt);
-      padding: 5rem 0;
-      overflow: hidden;
-    }
-    .flow-heading {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .flow-heading .sb-title {
-      margin-bottom: 1rem;
-    }
-    .flow-heading .sb-desc {
-      max-width: 640px;
-      margin: 0 auto;
-    }
+    /* ── Privacy flow section — migrated to Tailwind ── */
+    /* Kept: flow-diagram layout, arrows, animations, responsive */
 
-    /* Diagram container */
-    .flow-landscape {
-      width: 100%;
-    }
+    /* Diagram container — needed for responsive override */
     .flow-diagram {
       display: flex;
       align-items: stretch;
@@ -1353,109 +1288,7 @@ const breadcrumbJsonLd = {
       width: 100%;
     }
 
-    /* Individual columns (cards) */
-    .flow-col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.6rem;
-      padding: 1.75rem 1rem;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      min-width: 0;
-    }
-    .flow-col--accent {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
-      color: var(--color-btn-text);
-    }
-    .flow-col--split {
-      gap: 0.5rem;
-      background: transparent;
-      border: none;
-      padding: 0;
-    }
-
-    /* Icon circles */
-    .flow-col-icon {
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 14px;
-      background: var(--color-primary-glow);
-      border: 1px solid var(--color-primary-border);
-      color: var(--color-primary);
-    }
-    .flow-col-icon--shield {
-      background: rgba(255,255,255,0.2);
-      border-color: rgba(255,255,255,0.3);
-      color: var(--color-btn-text);
-    }
-    .flow-col-icon--shield svg { stroke: var(--color-btn-text); }
-    .flow-col-icon--ai {
-      background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(59,130,246,0.2));
-      border-color: var(--color-primary-border);
-    }
-
-    /* Column title */
-    .flow-col-title {
-      font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-    .flow-col--accent .flow-col-title {
-      color: var(--color-btn-text);
-    }
-
-    /* Column detail */
-    .flow-col-detail {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
-      width: 100%;
-      min-width: 0;
-    }
-    .flow-col-detail code {
-      font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
-      font-size: 0.72rem;
-      background: var(--color-bg-alt);
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      color: var(--color-text);
-      border: 1px solid var(--color-border);
-      display: inline-block;
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .flow-col--accent .flow-col-detail code {
-      background: rgba(255,255,255,0.15);
-      border-color: rgba(255,255,255,0.2);
-      color: var(--color-btn-text);
-    }
-    .flow-col-detail--ai {
-      gap: 0.35rem;
-    }
-
-    /* Column sub label */
-    .flow-col-sub {
-      font-size: 0.68rem;
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-weight: 600;
-    }
-    .flow-col--accent .flow-col-sub {
-      color: rgba(255,255,255,0.7);
-    }
-
-    /* Horizontal arrows between columns */
+    /* Horizontal arrows between columns — needed for responsive direction change */
     .flow-h-arrow {
       display: flex;
       align-items: center;
@@ -1477,120 +1310,6 @@ const breadcrumbJsonLd = {
       border-bottom: 5px solid transparent;
       border-left: 7px solid var(--color-primary);
       flex-shrink: 0;
-    }
-
-    /* Scan tags */
-    .flow-scan-items {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.25rem;
-    }
-    .flow-scan-tag {
-      font-size: 0.65rem;
-      font-weight: 600;
-      padding: 0.15rem 0.4rem;
-      border-radius: 5px;
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: var(--color-btn-text);
-      white-space: nowrap;
-    }
-
-    /* Branch cards (stacked in the split column) */
-    .flow-branch-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 1rem 0.75rem;
-      border-radius: 14px;
-      text-align: center;
-      flex: 1;
-    }
-    .flow-branch--blocked {
-      background: rgba(239,68,68,0.08);
-      border: 1px solid rgba(239,68,68,0.2);
-    }
-    .flow-branch--ok {
-      background: rgba(16,185,129,0.08);
-      border: 1px solid rgba(16,185,129,0.2);
-    }
-    .flow-branch-icon {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      background: rgba(239,68,68,0.12);
-      color: var(--color-error);
-    }
-    .flow-branch-icon--ok {
-      background: var(--color-primary-glow);
-      color: var(--color-primary);
-    }
-    .flow-branch-label {
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
-    .flow-branch--blocked .flow-branch-label { color: var(--color-error); }
-    .flow-branch--ok .flow-branch-label { color: var(--color-primary); }
-    .flow-blocked-text {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--color-error);
-    }
-    .flow-blocked-sub {
-      font-size: 0.62rem;
-      color: var(--color-text-muted);
-    }
-
-    /* Hash transform */
-    .flow-hash-from {
-      text-decoration: line-through;
-      opacity: 0.5;
-    }
-    .flow-hash-arrow {
-      color: var(--color-primary);
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-    .flow-hash-to {
-      color: var(--color-primary) !important;
-      font-weight: 600;
-    }
-
-    /* AI detail */
-    .flow-ai-receives {
-      font-size: 0.78rem;
-      color: var(--color-primary);
-      line-height: 1.4;
-    }
-    .flow-ai-receives strong {
-      color: var(--color-text);
-    }
-    .flow-ai-blocked {
-      font-size: 0.68rem;
-      color: var(--color-error);
-      text-decoration: line-through;
-      opacity: 0.7;
-    }
-
-    /* Checklist below diagram */
-    .flow-checklist {
-      margin-top: 2.5rem;
-      display: flex;
-      justify-content: center;
-    }
-    .flow-checklist .sb-list {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 1.5rem 3rem;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
     }
 
     /* ── Sliding animation for flow diagram ── */
@@ -1644,14 +1363,8 @@ const breadcrumbJsonLd = {
     .flow-diagram.flow-visible > :nth-child(8) { animation-delay: 700ms; }
     .flow-diagram.flow-visible > :nth-child(9) { animation-delay: 800ms; }
 
-    /* ── SMS vs App/Web comparison diagram ── */
-    .flow-heading--compare {
-      margin-top: 4rem;
-      margin-bottom: 3rem;
-    }
-    .flow-compare-title {
-      font-size: 2rem;
-    }
+    /* ── SMS vs App/Web comparison — migrated to Tailwind ── */
+    /* Kept: animation triggers only */
     .flow-compare {
       display: flex;
       align-items: stretch;
@@ -1659,142 +1372,6 @@ const breadcrumbJsonLd = {
       width: 100%;
       max-width: 820px;
       margin: 0 auto;
-    }
-
-    /* Cards */
-    .cmp-card {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 2rem 1.5rem;
-      border-radius: 16px;
-      border: 1px solid var(--color-border);
-      background: var(--color-surface);
-    }
-    .cmp-card--bad {
-      border-color: rgba(239,68,68,0.25);
-    }
-    .cmp-card--good {
-      border-color: rgba(16,185,129,0.3);
-      background: rgba(16,185,129,0.04);
-    }
-    .cmp-card-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
-    }
-    .cmp-icon {
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      flex-shrink: 0;
-    }
-    .cmp-icon--bad {
-      background: rgba(239,68,68,0.1);
-      border: 1px solid rgba(239,68,68,0.2);
-      color: var(--color-error);
-    }
-    .cmp-icon--good {
-      background: var(--color-primary-glow);
-      border: 1px solid var(--color-primary-border);
-      color: var(--color-primary);
-    }
-    .cmp-card-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-
-    /* List items */
-    .cmp-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      flex: 1;
-    }
-    .cmp-item {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.88rem;
-      font-weight: 500;
-    }
-    .cmp-x {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(239,68,68,0.1);
-      color: var(--color-error);
-      font-size: 1rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      line-height: 1;
-    }
-    .cmp-check {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--color-primary-glow);
-      color: var(--color-primary);
-      font-size: 0.8rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      line-height: 1;
-    }
-
-    /* Verdict */
-    .cmp-verdict {
-      margin-top: 1.25rem;
-      padding: 0.6rem 1rem;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-    .cmp-verdict--bad {
-      background: rgba(239,68,68,0.08);
-      color: var(--color-error);
-    }
-    .cmp-verdict--good {
-      background: var(--color-primary-glow);
-      color: var(--color-primary);
-    }
-
-    /* VS divider */
-    .cmp-vs {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1rem;
-      flex-shrink: 0;
-    }
-    .cmp-vs span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--color-bg-alt);
-      border: 2px solid var(--color-border);
-      font-size: 0.75rem;
-      font-weight: 900;
-      letter-spacing: 0.05em;
-      color: var(--color-text-muted);
     }
 
     /* Sliding animation for comparison cards */
@@ -1905,11 +1482,6 @@ const breadcrumbJsonLd = {
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
         border-bottom: none;
-      }
-      .flow-checklist .sb-list {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
       }
       .flow-compare {
         flex-direction: column;
