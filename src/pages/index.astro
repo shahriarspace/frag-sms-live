@@ -84,163 +84,155 @@ const breadcrumbJsonLd = {
         <div class="flex justify-center items-end gap-6 md:gap-8 fade-in">
           <!-- Nokia 3310 mockup (SVG) -->
           <div class="nokia-mockup hidden sm:flex flex-col items-center -rotate-3 hover:rotate-0 transition-transform duration-500 shrink-0" aria-label="Nokia 3310 mit FragSMS">
-            <div class="nokia-wrapper relative" style="width:160px;height:340px;">
+            <div class="nokia-wrapper relative" style="width:130px;height:310px;">
               <!-- SVG body -->
-              <svg class="nokia-svg" viewBox="0 0 160 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:340px;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.35)) drop-shadow(0 0 30px rgba(16,185,129,0.06));">
+              <svg class="nokia-svg" viewBox="0 0 130 310" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:130px;height:310px;filter:drop-shadow(0 16px 40px rgba(0,0,0,0.4)) drop-shadow(0 0 20px rgba(16,185,129,0.06));">
                 <defs>
-                  <!-- Body gradients -->
-                  <linearGradient id="nk-shell" x1="80" y1="0" x2="80" y2="340" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stop-color="#b0b4ba"/>
-                    <stop offset="0.3" stop-color="#a8acb2"/>
-                    <stop offset="1" stop-color="#8a8e94"/>
-                  </linearGradient>
-                  <linearGradient id="nk-face" x1="80" y1="10" x2="80" y2="335" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stop-color="#253858"/>
-                    <stop offset="0.25" stop-color="#1e2d4d"/>
-                    <stop offset="1" stop-color="#1a2744"/>
-                  </linearGradient>
-                  <linearGradient id="nk-bezel" x1="80" y1="38" x2="80" y2="148" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stop-color="#c8ccd2"/>
+                  <linearGradient id="nk-shell" x1="65" y1="0" x2="65" y2="310" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#c0c4ca"/>
                     <stop offset="0.5" stop-color="#b0b4ba"/>
-                    <stop offset="1" stop-color="#a0a4aa"/>
+                    <stop offset="1" stop-color="#9a9ea4"/>
                   </linearGradient>
-                  <linearGradient id="nk-screen" x1="80" y1="50" x2="80" y2="135" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stop-color="#95b878"/>
-                    <stop offset="1" stop-color="#82a562"/>
+                  <linearGradient id="nk-face" x1="65" y1="5" x2="65" y2="305" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#283c5a"/>
+                    <stop offset="0.15" stop-color="#1e2d4d"/>
+                    <stop offset="0.6" stop-color="#1a2744"/>
+                    <stop offset="1" stop-color="#182340"/>
+                  </linearGradient>
+                  <linearGradient id="nk-bezel" x1="65" y1="28" x2="65" y2="135" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#d0d3d8"/>
+                    <stop offset="0.3" stop-color="#c0c4ca"/>
+                    <stop offset="1" stop-color="#a8acb2"/>
+                  </linearGradient>
+                  <linearGradient id="nk-lcd" x1="65" y1="42" x2="65" y2="118" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#98bc72"/>
+                    <stop offset="1" stop-color="#86a85e"/>
                   </linearGradient>
                   <linearGradient id="nk-key" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
-                    <stop offset="0" stop-color="#f8f8f4"/>
-                    <stop offset="1" stop-color="#dddad2"/>
+                    <stop offset="0" stop-color="#f5f4f0"/>
+                    <stop offset="0.4" stop-color="#eceae4"/>
+                    <stop offset="1" stop-color="#d8d5cc"/>
                   </linearGradient>
-                  <linearGradient id="nk-dpad" x1="80" y1="205" x2="80" y2="245" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="nk-dpad" x1="65" y1="172" x2="65" y2="206" gradientUnits="userSpaceOnUse">
                     <stop offset="0" stop-color="#162240"/>
                     <stop offset="1" stop-color="#0d1a30"/>
                   </linearGradient>
-                  <!-- Highlight for 3D effect -->
-                  <linearGradient id="nk-highlight" x1="40" y1="0" x2="120" y2="340" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stop-color="rgba(255,255,255,0.12)"/>
-                    <stop offset="0.5" stop-color="rgba(255,255,255,0)"/>
-                    <stop offset="1" stop-color="rgba(0,0,0,0.08)"/>
-                  </linearGradient>
                 </defs>
 
-                <!-- Outer shell (silver rails) — tapered: narrower top, wider bottom -->
-                <path d="M52,2 C52,2 56,0 80,0 C104,0 108,2 108,2 L112,6 C116,12 118,20 118,28 L120,120 L122,200 L124,280 C124,310 120,330 108,338 L52,338 C40,330 36,310 36,280 L38,200 L40,120 L42,28 C42,20 44,12 48,6 Z" fill="url(#nk-shell)"/>
+                <!-- Outer shell (silver/gray) — gentle rounded rectangle -->
+                <rect x="4" y="4" width="122" height="302" rx="18" ry="18" fill="url(#nk-shell)"/>
 
-                <!-- Navy faceplate (inset from shell) -->
-                <path d="M55,5 C55,5 60,3 80,3 C100,3 105,5 105,5 L108,8 C112,14 114,22 114,30 L116,120 L118,200 L120,278 C120,306 116,326 106,334 L54,334 C44,326 40,306 40,278 L42,200 L44,120 L46,30 C46,22 48,14 52,8 Z" fill="url(#nk-face)"/>
+                <!-- Navy faceplate — inset 4px from shell -->
+                <rect x="8" y="8" width="114" height="294" rx="15" ry="15" fill="url(#nk-face)"/>
 
-                <!-- 3D highlight overlay -->
-                <path d="M55,5 C55,5 60,3 80,3 C100,3 105,5 105,5 L108,8 C112,14 114,22 114,30 L116,120 L118,200 L120,278 C120,306 116,326 106,334 L54,334 C44,326 40,306 40,278 L42,200 L44,120 L46,30 C46,22 48,14 52,8 Z" fill="url(#nk-highlight)"/>
+                <!-- Subtle left-side highlight for 3D -->
+                <rect x="8" y="8" width="114" height="294" rx="15" ry="15" fill="url(#nk-face)" opacity="0"/>
+                <path d="M8,23 Q8,8 23,8 L40,8 L38,302 L23,302 Q8,302 8,287 Z" fill="rgba(255,255,255,0.04)"/>
 
-                <!-- Antenna bump -->
-                <rect x="72" y="0" width="16" height="8" rx="4" ry="4" fill="#8a8e94"/>
-                <rect x="74" y="0" width="12" height="6" rx="3" ry="3" fill="#1e2d4d"/>
+                <!-- Earpiece grille -->
+                <circle cx="54" cy="22" r="1.2" fill="#0e1a32"/>
+                <circle cx="58" cy="22" r="1.2" fill="#0e1a32"/>
+                <circle cx="62" cy="22" r="1.2" fill="#0e1a32"/>
+                <circle cx="66" cy="22" r="1.2" fill="#0e1a32"/>
+                <circle cx="70" cy="22" r="1.2" fill="#0e1a32"/>
+                <circle cx="74" cy="22" r="1.2" fill="#0e1a32"/>
 
-                <!-- Earpiece grille (5 small holes) -->
-                <circle cx="70" cy="18" r="1.5" fill="#0d1a30"/>
-                <circle cx="75" cy="18" r="1.5" fill="#0d1a30"/>
-                <circle cx="80" cy="18" r="1.5" fill="#0d1a30"/>
-                <circle cx="85" cy="18" r="1.5" fill="#0d1a30"/>
-                <circle cx="90" cy="18" r="1.5" fill="#0d1a30"/>
+                <!-- Screen bezel — gray frame with rounded bottom -->
+                <path d="M24,34 Q24,28 30,28 L100,28 Q106,28 106,34 L106,110 Q106,132 65,132 Q24,132 24,110 Z" fill="url(#nk-bezel)"/>
 
-                <!-- Screen bezel — gray frame, wider at bottom, curved -->
-                <path d="M50,38 C50,32 56,28 64,28 L96,28 C104,28 110,32 110,38 L112,120 C112,126 112,140 108,146 C104,150 96,152 80,152 C64,152 56,150 52,146 C48,140 48,126 48,120 Z" fill="url(#nk-bezel)"/>
-
-                <!-- Inner screen border -->
-                <rect x="54" y="36" width="52" height="92" rx="4" ry="4" fill="#6a8a52" opacity="0.6"/>
-
-                <!-- Green LCD screen (where text will be overlaid) -->
-                <rect class="nokia-screen-rect" x="56" y="38" width="48" height="88" rx="3" ry="3" fill="url(#nk-screen)"/>
+                <!-- Green LCD screen -->
+                <rect x="30" y="35" width="70" height="82" rx="3" ry="3" fill="url(#nk-lcd)"/>
                 <!-- Screen inner shadow -->
-                <rect x="56" y="38" width="48" height="88" rx="3" ry="3" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+                <rect x="30" y="35" width="70" height="82" rx="3" ry="3" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="0.8"/>
+                <!-- Screen glass reflection -->
+                <rect x="30" y="35" width="70" height="30" rx="3" ry="0" fill="rgba(255,255,255,0.06)"/>
 
                 <!-- NOKIA text -->
-                <text x="80" y="167" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="7" font-weight="bold" fill="#7a8a9a" letter-spacing="2">NOKIA</text>
+                <text x="65" y="146" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="700" fill="#6a7a8e" letter-spacing="2.5" style="text-transform:uppercase">NOKIA</text>
 
-                <!-- Soft keys (arc-shaped) -->
-                <!-- Left soft key -->
-                <path d="M52,178 L68,178 C72,178 74,180 74,184 C74,188 72,190 68,190 L52,190 C50,190 48,188 48,184 C48,180 50,178 52,178 Z" fill="#0d1a30" stroke="#253555" stroke-width="0.5"/>
-                <!-- Right soft key -->
-                <path d="M108,178 L92,178 C88,178 86,180 86,184 C86,188 88,190 92,190 L108,190 C110,190 112,188 112,184 C112,180 110,178 108,178 Z" fill="#0d1a30" stroke="#253555" stroke-width="0.5"/>
-                <!-- Blue accent strip between soft keys -->
-                <rect x="76" y="180" width="8" height="8" rx="2" fill="#4a8ab5"/>
+                <!-- Soft keys row -->
+                <!-- Left soft key (C shape, inner curve faces right) -->
+                <path d="M25,156 L48,156 Q52,156 52,160 L52,164 Q52,168 48,168 L25,168 Q22,168 22,164 L22,160 Q22,156 25,156 Z" fill="#0e1a32" stroke="#1e3050" stroke-width="0.5"/>
+                <!-- Right soft key (C shape, inner curve faces left) -->
+                <path d="M105,156 L82,156 Q78,156 78,160 L78,164 Q78,168 82,168 L105,168 Q108,168 108,164 L108,160 Q108,156 105,156 Z" fill="#0e1a32" stroke="#1e3050" stroke-width="0.5"/>
+                <!-- Blue accent strip center -->
+                <rect x="56" y="158" width="18" height="8" rx="3" fill="#3d7fb0"/>
+                <!-- Tiny light dot on blue strip -->
+                <circle cx="65" cy="162" r="1.5" fill="#5aaad8" opacity="0.7"/>
 
-                <!-- D-pad (navigation disc) -->
-                <circle cx="80" cy="212" r="18" fill="url(#nk-dpad)" stroke="#253555" stroke-width="1.5"/>
-                <!-- D-pad arrows/ring -->
-                <circle cx="80" cy="212" r="12" fill="none" stroke="#253555" stroke-width="0.8"/>
-                <!-- D-pad center button -->
-                <circle cx="80" cy="212" r="5" fill="#1a2744" stroke="#2a3a5a" stroke-width="0.5"/>
-                <!-- D-pad direction indicators -->
-                <polygon points="80,198 83,203 77,203" fill="#2a3a5a"/> <!-- up -->
-                <polygon points="80,226 83,221 77,221" fill="#2a3a5a"/> <!-- down -->
-                <polygon points="66,212 71,209 71,215" fill="#2a3a5a"/> <!-- left -->
-                <polygon points="94,212 89,209 89,215" fill="#2a3a5a"/> <!-- right -->
+                <!-- D-pad / navigation disc -->
+                <circle cx="65" cy="189" r="17" fill="url(#nk-dpad)" stroke="#1e3050" stroke-width="1.5"/>
+                <!-- D-pad outer ring -->
+                <circle cx="65" cy="189" r="12" fill="none" stroke="#1e3050" stroke-width="0.6"/>
+                <!-- D-pad center -->
+                <circle cx="65" cy="189" r="4.5" fill="#1a2744" stroke="#253858" stroke-width="0.5"/>
+                <!-- Direction ticks -->
+                <line x1="65" y1="174" x2="65" y2="177" stroke="#253858" stroke-width="1"/>
+                <line x1="65" y1="201" x2="65" y2="204" stroke="#253858" stroke-width="1"/>
+                <line x1="50" y1="189" x2="53" y2="189" stroke="#253858" stroke-width="1"/>
+                <line x1="77" y1="189" x2="80" y2="189" stroke="#253858" stroke-width="1"/>
 
-                <!-- Number keypad — 4x3 grid of oval keys -->
-                <!-- Row 1: 1, 2, 3 -->
-                <ellipse cx="52" cy="244" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="49" y="246" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">1</text>
-                <text x="55" y="246" font-family="Arial,sans-serif" font-size="3.5" fill="#555">oo</text>
+                <!-- ═══ Keypad: 4 rows x 3 columns ═══ -->
+                <!-- Key dimensions: rx=13, ry=8 — spaced 30px apart horizontally, 19px vertically -->
+                <!-- Row 1: 1, 2, 3  (cy=218) -->
+                <ellipse cx="35" cy="218" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="31" y="220" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">1</text>
+                <text x="38" y="220" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">oo</text>
 
-                <ellipse cx="80" cy="244" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="76" y="246" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">2</text>
-                <text x="82" y="246" font-family="Arial,sans-serif" font-size="3.5" fill="#555">abc</text>
+                <ellipse cx="65" cy="218" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="60" y="220" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">2</text>
+                <text x="67" y="220" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">abc</text>
 
-                <ellipse cx="108" cy="244" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="106" y="246" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">3</text>
-                <text x="110" y="246" font-family="Arial,sans-serif" font-size="3.5" fill="#555">def</text>
+                <ellipse cx="95" cy="218" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="93" y="220" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">3</text>
+                <text x="98" y="220" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">def</text>
 
-                <!-- Row 2: 4, 5, 6 -->
-                <ellipse cx="52" cy="262" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="49" y="264" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">4</text>
-                <text x="55" y="264" font-family="Arial,sans-serif" font-size="3.5" fill="#555">ghi</text>
+                <!-- Row 2: 4, 5, 6  (cy=237) -->
+                <ellipse cx="35" cy="237" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="31" y="239" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">4</text>
+                <text x="38" y="239" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">ghi</text>
 
-                <ellipse cx="80" cy="262" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="77" y="264" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">5</text>
-                <text x="83" y="264" font-family="Arial,sans-serif" font-size="3.5" fill="#555">jkl</text>
+                <ellipse cx="65" cy="237" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="61" y="239" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">5</text>
+                <text x="68" y="239" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">jkl</text>
 
-                <ellipse cx="108" cy="262" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="105" y="264" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">6</text>
-                <text x="110" y="264" font-family="Arial,sans-serif" font-size="3.5" fill="#555">mno</text>
+                <ellipse cx="95" cy="237" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="91" y="239" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">6</text>
+                <text x="97" y="239" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">mno</text>
 
-                <!-- Row 3: 7, 8, 9 -->
-                <ellipse cx="52" cy="280" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="49" y="282" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">7</text>
-                <text x="54" y="282" font-family="Arial,sans-serif" font-size="3.5" fill="#555">pqrs</text>
+                <!-- Row 3: 7, 8, 9  (cy=256) -->
+                <ellipse cx="35" cy="256" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="31" y="258" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">7</text>
+                <text x="37" y="258" font-family="Arial,sans-serif" font-size="3.2" font-weight="600" fill="#666">pqrs</text>
 
-                <ellipse cx="80" cy="280" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="77" y="282" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">8</text>
-                <text x="83" y="282" font-family="Arial,sans-serif" font-size="3.5" fill="#555">tuv</text>
+                <ellipse cx="65" cy="256" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="61" y="258" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">8</text>
+                <text x="68" y="258" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">tuv</text>
 
-                <ellipse cx="108" cy="280" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="105" y="282" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">9</text>
-                <text x="109" y="282" font-family="Arial,sans-serif" font-size="3.5" fill="#555">wxyz</text>
+                <ellipse cx="95" cy="256" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="91" y="258" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">9</text>
+                <text x="96" y="258" font-family="Arial,sans-serif" font-size="3.2" font-weight="600" fill="#666">wxyz</text>
 
-                <!-- Row 4: *, 0, # -->
-                <ellipse cx="52" cy="298" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="48" y="300" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">*</text>
-                <text x="55" y="300" font-family="Arial,sans-serif" font-size="3.5" fill="#555">+</text>
+                <!-- Row 4: *, 0, #  (cy=275) -->
+                <ellipse cx="35" cy="275" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="32" y="277" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">*</text>
+                <text x="38" y="277" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">+</text>
 
-                <ellipse cx="80" cy="298" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="77" y="300" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">0</text>
-                <text x="83" y="300" font-family="Arial,sans-serif" font-size="3.5" fill="#555">_</text>
+                <ellipse cx="65" cy="275" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="61" y="277" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">0</text>
+                <text x="68" y="277" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">_</text>
 
-                <ellipse cx="108" cy="298" rx="14" ry="8" fill="url(#nk-key)" stroke="#c0bdb5" stroke-width="0.5"/>
-                <text x="104" y="300" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#1a1a1a">#</text>
-                <text x="110" y="300" font-family="Arial,sans-serif" font-size="3.5" fill="#555">^</text>
-
-                <!-- Bottom edge detail -->
-                <ellipse cx="80" cy="320" rx="20" ry="3" fill="rgba(0,0,0,0.1)"/>
+                <ellipse cx="95" cy="275" rx="13" ry="8" fill="url(#nk-key)" stroke="#bbb8b0" stroke-width="0.5"/>
+                <text x="92" y="277" font-family="Arial,sans-serif" font-size="7" font-weight="800" fill="#222">#</text>
+                <text x="97" y="277" font-family="Arial,sans-serif" font-size="3.5" font-weight="600" fill="#666">^</text>
               </svg>
 
               <!-- SMS content overlay on screen -->
-              <div class="nokia-screen-overlay absolute" style="top:38px;left:56px;width:48px;height:88px;overflow:hidden;padding:3px;">
-                <div class="text-[0.3rem] font-mono leading-[1.5] whitespace-pre-wrap" style="color:#2a3a1e;">
-                  <div class="text-center mb-[2px] opacity-70" style="font-size:0.25rem;">FragSMS</div>
-                  <div class="mb-[2px]"><span class="opacity-60">&gt;</span> Wie hoch ist die Zugspitze?</div>
-                  <div style="border-top:0.5px solid #6a8a52;padding-top:2px;">Die Zugspitze ist 2.962&thinsp;m hoch - Deutschlands h&ouml;chster Berg.</div>
+              <div class="nokia-screen-overlay absolute" style="top:37px;left:32px;width:66px;height:78px;overflow:hidden;padding:4px;">
+                <div class="text-[0.35rem] font-mono leading-[1.4] whitespace-pre-wrap" style="color:#2a3a1e;">
+                  <div class="text-center mb-[2px] opacity-70" style="font-size:0.28rem;">FragSMS</div>
+                  <div class="mb-[3px]"><span class="opacity-50">&gt;</span> Wie hoch ist die Zugspitze?</div>
+                  <div style="border-top:0.5px solid rgba(106,138,82,0.5);padding-top:2px;">Die Zugspitze ist 2.962&thinsp;m hoch - Deutschlands h&ouml;chster Berg.</div>
                 </div>
               </div>
             </div>
