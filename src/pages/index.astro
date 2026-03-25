@@ -172,47 +172,47 @@ const breadcrumbJsonLd = {
   <!-- ═══════════════════════════════════════════════
        HOW IT WORKS — 3 Steps (text left, phone mockup right)
   ════════════════════════════════════════════════ -->
-  <section class="sb-section sb-alt" aria-labelledby="how-it-works">
-    <div class="container sb-grid sb-reverse">
+  <section class="py-24 bg-th-bg-alt" aria-labelledby="how-it-works">
+    <div class="container grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center max-w-content-wide mx-auto md:[direction:rtl]">
 
       <!-- Left: Text + Steps -->
-      <div class="sb-text fade-in">
+      <div class="flex flex-col items-center md:items-start text-center md:text-left [direction:ltr] fade-in">
         <span class="pill" data-i18n="sb2_pill">In 3 Schritten</span>
-        <h2 class="sb-title" id="how-it-works" data-i18n="sb2_title">In Sekunden<br>startklar.</h2>
-        <p class="sb-desc" data-i18n="sb2_desc">
+        <h2 class="text-section mt-2 mb-4" id="how-it-works" data-i18n="sb2_title">In Sekunden<br>startklar.</h2>
+        <p class="text-base text-th-muted leading-relaxed max-w-sb-desc mb-6" data-i18n="sb2_desc">
           Keine Registrierung, kein App-Download, kein Passwort.
           Einfach eine SMS senden und sofort loslegen.
         </p>
-        <div class="sb2-steps">
-          <div class="sb2-step">
-            <div class="sb2-step-num">1</div>
-            <div class="sb2-step-body">
-              <div class="sb2-step-title" data-i18n="step1_title">START senden</div>
-              <div class="sb2-step-desc" data-i18n="step1_desc">Sende <strong style="color:var(--color-primary)">START</strong> per SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a> und du bist sofort dabei.</div>
+        <div class="mt-6 flex flex-col gap-4">
+          <div class="flex items-start gap-3">
+            <div class="w-step-num h-step-num rounded-step bg-th-primary-glow border border-th-primary-border flex items-center justify-center text-[0.9rem] font-extrabold text-th-primary shrink-0">1</div>
+            <div class="flex-1">
+              <div class="font-bold text-[0.9rem] mb-0.5" data-i18n="step1_title">START senden</div>
+              <div class="text-[0.8rem] text-th-muted leading-relaxed" data-i18n="step1_desc">Sende <strong style="color:var(--color-primary)">START</strong> per SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a> und du bist sofort dabei.</div>
             </div>
           </div>
-          <div class="sb2-step">
-            <div class="sb2-step-num">2</div>
-            <div class="sb2-step-body">
-              <div class="sb2-step-title" data-i18n="step2_title">Frag was du willst</div>
-              <div class="sb2-step-desc" data-i18n="step2_desc">Schreibe deine Frage. Die KI antwortet auf Deutsch &mdash; in Sekunden.</div>
+          <div class="flex items-start gap-3">
+            <div class="w-step-num h-step-num rounded-step bg-th-primary-glow border border-th-primary-border flex items-center justify-center text-[0.9rem] font-extrabold text-th-primary shrink-0">2</div>
+            <div class="flex-1">
+              <div class="font-bold text-[0.9rem] mb-0.5" data-i18n="step2_title">Frag was du willst</div>
+              <div class="text-[0.8rem] text-th-muted leading-relaxed" data-i18n="step2_desc">Schreibe deine Frage. Die KI antwortet auf Deutsch &mdash; in Sekunden.</div>
             </div>
           </div>
-          <div class="sb2-step">
-            <div class="sb2-step-num sb2-stop">STOP</div>
-            <div class="sb2-step-body">
-              <div class="sb2-step-title" data-i18n="step3_title">STOP = Alles gel&ouml;scht</div>
-              <div class="sb2-step-desc" data-i18n="step3_desc">Sende <strong style="color:var(--color-error)">STOP</strong> &mdash; sofort abgemeldet, alle Daten unwiderruflich gel&ouml;scht.</div>
+          <div class="flex items-start gap-3">
+            <div class="w-step-num h-step-num rounded-step bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] flex items-center justify-center text-[0.6rem] font-extrabold text-th-error shrink-0">STOP</div>
+            <div class="flex-1">
+              <div class="font-bold text-[0.9rem] mb-0.5" data-i18n="step3_title">STOP = Alles gel&ouml;scht</div>
+              <div class="text-[0.8rem] text-th-muted leading-relaxed" data-i18n="step3_desc">Sende <strong style="color:var(--color-error)">STOP</strong> &mdash; sofort abgemeldet, alle Daten unwiderruflich gel&ouml;scht.</div>
             </div>
           </div>
         </div>
-        <a href="sms:+4915908138432?body=START" class="btn-primary" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;" data-i18n="sb2_cta">
+        <a href="sms:+4915908138432?body=START" class="btn-primary mt-6 inline-flex items-center gap-2" data-i18n="sb2_cta">
           Kostenlos starten &rarr;
         </a>
       </div>
 
       <!-- Right: Phone mockup — onboarding carousel -->
-      <div class="sb-media fade-in">
+      <div class="flex justify-center [direction:ltr] fade-in">
         <div class="phone-mockup">
           <div class="phone-notch"></div>
           <div class="phone-header">
@@ -1275,7 +1275,8 @@ const breadcrumbJsonLd = {
       flex-shrink: 0;
     }
 
-    /* ── Pill badge ──────────────────────────────── */
+    /* ── Shared: Pill, sb-list, check, sb-title, sb-desc ── */
+    /* Used by flow section + hero features — remove when all migrated */
     .pill {
       display: inline-block;
       padding: 0.35rem 1rem;
@@ -1310,32 +1311,6 @@ const breadcrumbJsonLd = {
       background: linear-gradient(90deg, transparent, rgba(16,185,129,0.3), transparent);
     }
 
-    /* ── Switchback sections ─────────────────────── */
-    .sb-section {
-      padding: 6rem 0;
-    }
-    .sb-alt {
-      background: var(--color-bg-alt);
-    }
-    .sb-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-      max-width: 1060px;
-      margin: 0 auto;
-    }
-    .sb-reverse {
-      direction: rtl;
-    }
-    .sb-reverse > * {
-      direction: ltr;
-    }
-    .sb-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
     .sb-title {
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
       font-weight: 900;
@@ -1367,10 +1342,6 @@ const breadcrumbJsonLd = {
       color: var(--color-primary);
       font-weight: 700;
       flex-shrink: 0;
-    }
-    .sb-media {
-      display: flex;
-      justify-content: center;
     }
 
     /* ── Phone mockup ────────────────────────────── */
@@ -1490,41 +1461,6 @@ const breadcrumbJsonLd = {
     .dot.active { background: var(--color-primary); transform: scale(1.2); }
     .dot:hover:not(.active) { background: var(--color-dot-hover); }
 
-    /* ── Switchback 2 steps ─────────────────────── */
-    .sb2-steps {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .sb2-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-    .sb2-step-num {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      background: var(--color-primary-glow);
-      border: 1px solid var(--color-primary-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      font-weight: 800;
-      color: var(--color-primary);
-      flex-shrink: 0;
-    }
-    .sb2-step-num.sb2-stop {
-      font-size: 0.6rem;
-      background: rgba(239,68,68,0.1);
-      border-color: rgba(239,68,68,0.3);
-      color: var(--color-error);
-    }
-    .sb2-step-body { flex: 1; }
-    .sb2-step-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.15rem; }
-    .sb2-step-desc { font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.55; }
 
     /* ── Privacy flow section (full-bleed, Netlify style) ── */
     .flow-section {
@@ -2392,15 +2328,6 @@ const breadcrumbJsonLd = {
 
     /* ── Responsive ──────────────────────────────── */
     @media (max-width: 800px) {
-      .sb-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        direction: ltr !important;
-      }
-      .sb-reverse { direction: ltr !important; }
-      .sb-text { align-items: center; text-align: center; }
-      .sb-list { align-items: center; }
-      .sb-media { justify-content: center; }
       .flow-diagram {
         flex-direction: column;
         align-items: center;
