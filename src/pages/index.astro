@@ -1,45 +1,54 @@
 ---
 import Base from '../layouts/Base.astro';
+import { brand } from '../config/brand.js';
+const B = brand;
 
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Brauche ich ein Smartphone für FragSMS?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann — auch mit älteren Feature Phones und Prepaid-Handys." } },
-    { "@type": "Question", "name": "Brauche ich Internet oder WLAN für FragSMS?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. FragSMS funktioniert komplett über SMS im Mobilfunknetz. Kein WLAN, kein Datenplan und keine App nötig." } },
-    { "@type": "Question", "name": "Kann ich ChatGPT per SMS nutzen?", "acceptedAnswer": { "@type": "Answer", "text": "Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen - ähnlich wie ChatGPT, aber ohne App und ohne Internet. Einfach eine SMS senden und sofort eine KI-Antwort erhalten." } },
-    { "@type": "Question", "name": "Wie kündige ich mein FragSMS Abo?", "acceptedAnswer": { "@type": "Answer", "text": "Sende einfach STOP per SMS oder nutze den 'Jetzt kündigen' Button auf fragsms.de/upgrade. Die Kündigung ist sofort wirksam, ohne Wartezeit." } },
-    { "@type": "Question", "name": "Sind meine Daten bei FragSMS sicher?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. FragSMS erkennt persoenliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch und blockiert die Nachricht, bevor sie die KI erreicht. Alle Daten werden ausschliesslich auf EU-Servern gespeichert. Deine Telefonnummer wird per SHA-256 verschluesselt und nie im Klartext gespeichert. FragSMS ist vollstaendig DSGVO-konform." } },
-    { "@type": "Question", "name": "Was kostet FragSMS?", "acceptedAnswer": { "@type": "Answer", "text": "FragSMS Free bietet 500 WhatsApp-Nachrichten pro Monat kostenlos. Plus kostet 4,99 EUR/Monat (1.000 WhatsApp + 30 SMS inklusive), Flat kostet 14,99 EUR/Monat (unbegrenzt WhatsApp + 150 SMS inklusive). SMS-Guthaben ist auch einzeln kaufbar (10 SMS ab 1,99 EUR). Alle Preise sind Endpreise." } }
+    { "@type": "Question", "name": "Do I need a smartphone for " + B.name + "?", "acceptedAnswer": { "@type": "Answer", "text": "No. " + B.name + " works with any phone that can send SMS, including older feature phones and prepaid phones." } },
+    { "@type": "Question", "name": "Do I need internet or WiFi for " + B.name + "?", "acceptedAnswer": { "@type": "Answer", "text": "No. " + B.name + " works entirely via SMS over the mobile network. No WiFi, no data plan, no app needed." } },
+    { "@type": "Question", "name": "Can I use ChatGPT via SMS?", "acceptedAnswer": { "@type": "Answer", "text": "With " + B.name + " you can use an AI assistant via SMS, similar to ChatGPT but without an app or internet. Just send a text and get an AI answer instantly." } },
+    { "@type": "Question", "name": "How do I cancel my " + B.name + " subscription?", "acceptedAnswer": { "@type": "Answer", "text": "Send STOP via SMS or use the cancel button at " + B.domain + "/upgrade. Cancellation is immediate." } },
+    { "@type": "Question", "name": "Is my data safe with " + B.name + "?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. " + B.name + " detects personal data like phone numbers, emails and IBANs automatically and blocks the message before it reaches the AI. All data stored on " + B.legal.serverLabel + " servers. " + B.legal.privacyLabel + "." } },
+    { "@type": "Question", "name": "How much does " + B.name + " cost?", "acceptedAnswer": { "@type": "Answer", "text": B.plans.map(function(p) { return p.name + " " + p.priceDisplay + "/" + (B.country === 'DE' ? 'Monat' : 'month'); }).join(". ") + ". All prices are final." } }
   ]
 };
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "FragSMS",
-  "description": "KI, die deine Zeit respektiert. Kurze, praezise Antworten per SMS oder WhatsApp in Deutschland.",
-  "provider": { "@type": "Organization", "name": "FragSMS", "url": "https://fragsms.de" },
-  "areaServed": { "@type": "Country", "name": "Germany" },
-  "serviceType": "KI-Assistent per SMS",
-  "offers": [
-    { "@type": "Offer", "name": "FragSMS Free", "price": "0", "priceCurrency": "EUR" },
-    { "@type": "Offer", "name": "FragSMS Plus", "price": "4.99", "priceCurrency": "EUR" },
-    { "@type": "Offer", "name": "FragSMS Flat", "price": "14.99", "priceCurrency": "EUR" }
-  ]
+  "name": B.name,
+  "description": B.name + " - " + B.tagline + " AI assistant via SMS or WhatsApp.",
+  "provider": { "@type": "Organization", "name": B.name, "url": B.urls.site },
+  "areaServed": { "@type": "Country", "name": B.schema.countryName },
+  "serviceType": "AI assistant via SMS",
+  "offers": B.plans.map(function(p) { return { "@type": "Offer", "name": B.name + " " + p.name, "price": p.price, "priceCurrency": B.currency.code }; })
 };
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://fragsms.de/" }]
+  "itemListElement": [{ "@type": "ListItem", "position": 1, "name": B.country === 'DE' ? 'Startseite' : 'Home', "item": B.urls.site + "/" }]
 };
+
+const pageTitle = B.country === 'DE'
+  ? B.name + ' \u2014 KI, die deine Zeit respektiert | KI-Assistent per SMS & WhatsApp'
+  : B.country === 'BD'
+  ? B.name + ' \u2014 SMS-e AI assistant | App, internet lagbe na'
+  : B.name + ' \u2014 AI that respects your time | AI Assistant via SMS & WhatsApp';
+
+const pageDesc = B.country === 'DE'
+  ? B.name + ' ist KI, die deine Zeit respektiert. Kurze, praezise Antworten per SMS oder WhatsApp. Kein App, kein Internet, kein Login. ' + B.legal.privacyLabel + ', ' + B.legal.serverLabel + '-Daten. Kostenlos starten.'
+  : B.country === 'BD'
+  ? B.name + ' \u2014 SMS-e AI assistant. App, internet ba login lagbe na. Proshno korle shothik uttor paben.'
+  : B.name + ' is AI that respects your time. Short, precise answers via SMS or WhatsApp. No app, no internet, no login. Start free.';
 ---
 
 <Base
-  title="FragSMS — KI, die deine Zeit respektiert | KI-Assistent per SMS &amp; WhatsApp"
-  description="FragSMS ist KI, die deine Zeit respektiert. Kurze, praezise Antworten per SMS oder WhatsApp. Kein App, kein Internet, kein Login. DSGVO-konform, EU-Daten. Kostenlos starten."
-  keywords="KI per SMS, ChatGPT per SMS, KI Assistent Deutschland, AI SMS ohne App, DSGVO KI Assistent, KI ohne Smartphone, KI ohne Internet, FragSMS, kuenstliche Intelligenz SMS, SMS AI Deutschland, KI kurze Antworten, KI WhatsApp Deutschland"
+  title={pageTitle}
+  description={pageDesc}
   jsonLd={[faqJsonLd, serviceJsonLd, breadcrumbJsonLd]}
 >
 
@@ -67,12 +76,12 @@ const breadcrumbJsonLd = {
             <li class="flex items-center gap-2 text-[0.9rem] text-th-muted"><span class="text-th-primary font-bold text-base">&#10003;</span> <span data-i18n="sb1_l3">Antwort in unter 5 Sekunden</span></li>
             <li class="flex items-center gap-2 text-[0.9rem] text-th-muted"><span class="text-th-primary font-bold text-base">&#10003;</span> <span data-i18n="sb1_l4">Kurz &amp; pr&auml;zise &mdash; kein endloses Scrollen</span></li>
           </ul>
-          <a href="sms:+4915908138432?body=START" class="btn-primary hero-cta inline-flex items-center gap-2 py-3.5 px-8 text-[1.05rem] font-bold rounded-xl relative shadow-[0_0_20px_rgba(16,185,129,0.25),0_0_60px_rgba(16,185,129,0.1)] animate-glow-pulse" data-i18n="hero_cta">
+          <a href={B.phone.smsLink + '?body=START'} class="btn-primary hero-cta inline-flex items-center gap-2 py-3.5 px-8 text-[1.05rem] font-bold rounded-xl relative shadow-[0_0_20px_rgba(16,185,129,0.25),0_0_60px_rgba(16,185,129,0.1)] animate-glow-pulse" data-i18n="hero_cta">
             Jetzt per SMS starten &rarr;
           </a>
           <div class="hero-desktop-hint hidden md:block mt-2 text-left">
             <p class="text-[0.82rem] text-th-muted mb-0.5" data-i18n="hero_desktop_num">Am Computer? Sende <strong>START</strong> an:</p>
-            <p class="text-xl font-extrabold text-th-primary tracking-wide cursor-pointer select-all hover:underline" onclick="navigator.clipboard&&navigator.clipboard.writeText('+4915908138432')">+49 1590 8138432 <span class="text-[0.7rem] font-normal text-th-muted" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
+            <p class="text-xl font-extrabold text-th-primary tracking-wide cursor-pointer select-all hover:underline" onclick={'navigator.clipboard&&navigator.clipboard.writeText(\'' + B.phone.e164 + '\')'}>{B.phone.display} <span class="text-[0.7rem] font-normal text-th-muted" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
           </div>
           <p class="mt-2 text-[0.78rem] text-th-muted text-center md:text-left" data-i18n="hero_input_sub">
             500 WhatsApp-Nachrichten/Monat kostenlos &mdash; kein Abo, kein Risiko
@@ -103,8 +112,8 @@ const breadcrumbJsonLd = {
             <div class="w-notch h-1.5 bg-th-phone-border rounded-sm mx-auto mt-1 mb-2"></div>
             <div class="text-center py-2 pb-3 border-b border-th-phone-border mb-2">
               <div class="text-[0.7rem] text-th-muted uppercase tracking-[0.05em]">SMS</div>
-              <div class="text-base font-bold text-th-text">FragSMS</div>
-              <a href="sms:+4915908138432" class="sms-link text-[0.7rem] text-th-muted">+49 1590 8138432</a>
+              <div class="text-base font-bold text-th-text">{B.name}</div>
+              <a href={B.phone.smsLink} class="sms-link text-[0.7rem] text-th-muted">{B.phone.display}</a>
             </div>
             <div class="phone-screen h-phone-screen overflow-y-auto px-1 py-2" id="sms-screen">
               <div class="sms-conversation active" data-conv="0">
@@ -164,25 +173,15 @@ const breadcrumbJsonLd = {
   ════════════════════════════════════════════════ -->
   <section class="stats-bar border-t border-b border-th-border py-8 bg-th-bg-alt relative">
     <div class="container flex items-center justify-center flex-wrap gap-y-4">
-      <div class="flex flex-col items-center px-6 sm:px-12 text-center fade-in">
-        <span class="text-stat text-th-primary">100%</span>
-        <span class="text-[0.78rem] text-th-muted mt-1 uppercase tracking-wider font-semibold" data-i18n="stat1">DSGVO-konform</span>
-      </div>
-      <div class="stat-divider w-px h-stat-divider bg-th-border shrink-0 hidden sm:block"></div>
-      <div class="flex flex-col items-center px-6 sm:px-12 text-center fade-in">
-        <span class="text-stat text-th-primary">EU</span>
-        <span class="text-[0.78rem] text-th-muted mt-1 uppercase tracking-wider font-semibold" data-i18n="stat2">Server &amp; Datenschutz</span>
-      </div>
-      <div class="stat-divider w-px h-stat-divider bg-th-border shrink-0 hidden sm:block"></div>
-      <div class="flex flex-col items-center px-6 sm:px-12 text-center fade-in">
-        <span class="text-stat text-th-primary">&euro;0</span>
-        <span class="text-[0.78rem] text-th-muted mt-1 uppercase tracking-wider font-semibold" data-i18n="stat3">Kostenlos starten</span>
-      </div>
-      <div class="stat-divider w-px h-stat-divider bg-th-border shrink-0 hidden sm:block"></div>
-      <div class="flex flex-col items-center px-6 sm:px-12 text-center fade-in">
-        <span class="text-stat text-th-primary">&#128241;</span>
-        <span class="text-[0.78rem] text-th-muted mt-1 uppercase tracking-wider font-semibold" data-i18n="stat4">Jedes Handy</span>
-      </div>
+      {B.stats.map((stat, i) => (
+        <>
+          {i > 0 && <div class="stat-divider w-px h-stat-divider bg-th-border shrink-0 hidden sm:block"></div>}
+          <div class="flex flex-col items-center px-6 sm:px-12 text-center fade-in">
+            <span class="text-stat text-th-primary" set:html={stat.value} />
+            <span class="text-[0.78rem] text-th-muted mt-1 uppercase tracking-wider font-semibold" data-i18n={'stat' + (i + 1)}>{stat.label[B.lang.default]}</span>
+          </div>
+        </>
+      ))}
     </div>
   </section>
 
@@ -205,7 +204,7 @@ const breadcrumbJsonLd = {
             <div class="w-step-num h-step-num rounded-step bg-th-primary-glow border border-th-primary-border flex items-center justify-center text-[0.9rem] font-extrabold text-th-primary shrink-0">1</div>
             <div class="flex-1">
               <div class="font-bold text-[0.9rem] mb-0.5" data-i18n="step1_title">START senden</div>
-              <div class="text-[0.8rem] text-th-muted leading-relaxed" data-i18n="step1_desc">Sende <strong style="color:var(--color-primary)">START</strong> per SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a> und du bist sofort dabei.</div>
+              <div class="text-[0.8rem] text-th-muted leading-relaxed" data-i18n="step1_desc">Sende <strong style="color:var(--color-primary)">START</strong> per SMS an <a href={B.phone.smsLink + '?body=START'} class="sms-link"><strong>{B.phone.display}</strong></a> und du bist sofort dabei.</div>
             </div>
           </div>
           <div class="flex items-start gap-3">
@@ -223,7 +222,7 @@ const breadcrumbJsonLd = {
             </div>
           </div>
         </div>
-        <a href="sms:+4915908138432?body=START" class="btn-primary mt-6 inline-flex items-center gap-2" data-i18n="sb2_cta">
+        <a href={B.phone.smsLink + '?body=START'} class="btn-primary mt-6 inline-flex items-center gap-2" data-i18n="sb2_cta">
           Kostenlos starten &rarr;
         </a>
       </div>
@@ -232,12 +231,12 @@ const breadcrumbJsonLd = {
       <div class="flex justify-center [direction:ltr] fade-in">
         <div class="phone-mockup w-phone bg-th-phone-bg rounded-phone p-3 border-2 border-th-phone-border">
           <div class="w-notch h-1.5 bg-th-phone-border rounded-sm mx-auto mt-1 mb-2"></div>
-          <div class="text-center py-2 pb-3 border-b border-th-phone-border mb-2">
-            <div class="text-[0.7rem] text-th-muted uppercase tracking-[0.05em]">SMS</div>
-            <div class="text-base font-bold text-th-text">FragSMS</div>
-            <a href="sms:+4915908138432" class="sms-link text-[0.7rem] text-th-muted">+49 1590 8138432</a>
-          </div>
-          <div class="phone-screen h-phone-screen overflow-y-auto px-1 py-2" id="onboarding-screen">
+            <div class="text-center py-2 pb-3 border-b border-th-phone-border mb-2">
+              <div class="text-[0.7rem] text-th-muted uppercase tracking-[0.05em]">SMS</div>
+              <div class="text-base font-bold text-th-text">{B.name}</div>
+              <a href={B.phone.smsLink} class="sms-link text-[0.7rem] text-th-muted">{B.phone.display}</a>
+            </div>
+            <div class="phone-screen h-phone-screen overflow-y-auto px-1 py-2" id="onboarding-screen">
             <div class="sms-conversation active">
               <div class="sms-label" data-i18n="sb2_conv_label">So funktioniert's</div>
               <div class="sms-bubble sms-sent">START</div>
@@ -262,7 +261,7 @@ const breadcrumbJsonLd = {
   <section class="py-24" aria-labelledby="usecases-heading">
     <div class="container">
       <div class="text-center mb-12 fade-in">
-        <h2 id="usecases-heading" class="text-section-sm mb-2"><span data-i18n="uc_title_1">Wann ist</span> <span class="text-gradient" data-i18n="uc_title_2">FragSMS perfekt?</span></h2>
+        <h2 id="usecases-heading" class="text-section-sm mb-2"><span data-i18n="uc_title_1">Wann ist</span> <span class="text-gradient" data-i18n="uc_title_2">{B.name} perfekt?</span></h2>
         <p class="text-th-muted text-base max-w-desc mx-auto" data-i18n="uc_subtitle">Echte Situationen, in denen FragSMS den Unterschied macht.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5 max-w-cards mx-auto">
@@ -488,72 +487,54 @@ const breadcrumbJsonLd = {
   <section class="py-24" aria-labelledby="pricing-heading">
     <div class="container">
       <div class="text-center mb-12 fade-in">
-        <h2 id="pricing-heading" class="text-section-sm mb-2"><span class="text-gradient">FragSMS</span> <span data-i18n="pricing_title">Preise</span></h2>
+        <h2 id="pricing-heading" class="text-section-sm mb-2"><span class="text-gradient">{B.name}</span> <span data-i18n="pricing_title">Preise</span></h2>
         <p class="text-th-muted text-base max-w-desc mx-auto" data-i18n="pricing_subtitle">Kostenlos starten. Jederzeit upgraden. Jederzeit k&uuml;ndbar.</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5 max-w-pricing mx-auto">
 
-        <article class="bg-th-surface border border-th-border rounded-card p-8 flex flex-col relative transition-card duration-300 hover:border-th-border-hover hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] fade-in">
-          <div class="text-[0.9rem] font-bold text-th-muted mb-3 uppercase tracking-[0.04em]">Free</div>
-          <div class="text-price mb-[0.2rem]">&euro;0</div>
-          <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
-          <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="free_f1">500 WhatsApp / Monat</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="free_f2">Kein Account n&ouml;tig</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="free_f3">3 Gespr&auml;chsrunden</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="free_f4">Web-Suche inklusive</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-muted text-[0.75rem]">&#8212;</span> <span class="text-[0.82rem]" data-i18n="free_f5">SMS per Guthaben m&ouml;glich</span></li>
-          </ul>
-          <a href="https://wa.me/4915908138432?text=Hallo" target="_blank" rel="noopener" class="btn-secondary block text-center w-full" data-i18n="free_cta">WhatsApp &ouml;ffnen</a>
-        </article>
-
-        <article class="pricing-card--featured bg-th-surface border border-transparent rounded-card p-8 flex flex-col relative transition-card duration-300 shadow-[0_0_40px_rgba(16,185,129,0.1)] fade-in">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-th-primary text-th-btn-text px-5 py-1 rounded-pill text-[0.72rem] font-bold tracking-[0.03em]" data-i18n="badge_popular">Beliebt</div>
-          <div class="text-[0.9rem] font-bold text-th-primary mb-3 uppercase tracking-[0.04em]">Plus</div>
-          <div class="text-price mb-[0.2rem]">&euro;4,99</div>
-          <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
-          <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f1">1.000 WhatsApp / Monat</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f2">30 SMS / Monat inklusive</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f3">Gespr&auml;chsverlauf (20 Nachr.)</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="plus_f4">Priorit&auml;ts-Antworten</span></li>
-          </ul>
-          <a href="/upgrade" class="btn-primary block text-center w-full" data-i18n="btn_upgrade">Jetzt upgraden</a>
-        </article>
-
-        <article class="bg-th-surface border border-th-border rounded-card p-8 flex flex-col relative transition-card duration-300 hover:border-th-border-hover hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] fade-in">
-          <div class="text-[0.9rem] font-bold text-th-muted mb-3 uppercase tracking-[0.04em]">Flat</div>
-          <div class="text-price mb-[0.2rem]">&euro;14,99</div>
-          <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
-          <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f1">WhatsApp unbegrenzt</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f2">150 SMS / Monat inklusive</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f3">Gespr&auml;chsverlauf (50 Nachr.)</span></li>
-            <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span data-i18n="flat_f4">Priorit&auml;ts-Antworten</span></li>
-          </ul>
-          <a href="/upgrade" class="btn-secondary block text-center w-full" data-i18n="btn_upgrade">Jetzt upgraden</a>
-        </article>
+        {B.plans.map((plan) => {
+          const lang = B.lang.default;
+          const features = plan.features[lang] || plan.features.en || [];
+          const cta = plan.cta[lang] || plan.cta.en || '';
+          const extraNote = plan.extraNote ? (plan.extraNote[lang] || plan.extraNote.en || '') : '';
+          const isFeatured = plan.featured;
+          const isWaCta = plan.ctaType === 'whatsapp';
+          const ctaHref = isWaCta ? B.phone.waLink + '?text=Hallo' : '/upgrade';
+          const ctaTarget = isWaCta ? '_blank' : undefined;
+          const ctaRel = isWaCta ? 'noopener' : undefined;
+          return (
+            <article class={isFeatured ? 'pricing-card--featured bg-th-surface border border-transparent rounded-card p-8 flex flex-col relative transition-card duration-300 shadow-[0_0_40px_rgba(16,185,129,0.1)] fade-in' : 'bg-th-surface border border-th-border rounded-card p-8 flex flex-col relative transition-card duration-300 hover:border-th-border-hover hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] fade-in'}>
+              {isFeatured && <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-th-primary text-th-btn-text px-5 py-1 rounded-pill text-[0.72rem] font-bold tracking-[0.03em]" data-i18n="badge_popular">Beliebt</div>}
+              <div class={'text-[0.9rem] font-bold mb-3 uppercase tracking-[0.04em]' + (isFeatured ? ' text-th-primary' : ' text-th-muted')}>{plan.name}</div>
+              <div class="text-price mb-[0.2rem]">{plan.priceDisplay}</div>
+              <div class="text-[0.8rem] text-th-muted mb-7" data-i18n="price_per_month">pro Monat</div>
+              <ul class="list-none flex-1 flex flex-col gap-2 mb-7 text-[0.88rem] text-th-muted">
+                {features.map((f) => (
+                  <li class="flex items-center gap-2"><span class="text-th-primary font-bold">&#10003;</span> <span>{f}</span></li>
+                ))}
+                {extraNote && (
+                  <li class="flex items-center gap-2"><span class="text-th-muted text-[0.75rem]">&#8212;</span> <span class="text-[0.82rem]">{extraNote}</span></li>
+                )}
+              </ul>
+              <a href={ctaHref} target={ctaTarget} rel={ctaRel} class={(isFeatured ? 'btn-primary' : isWaCta ? 'btn-secondary' : 'btn-secondary') + ' block text-center w-full'}>{cta}</a>
+            </article>
+          );
+        })}
 
       </div>
 
       <p class="fade-in text-center text-[0.78rem] text-th-footer-dim mt-8" data-i18n="pricing_footnote">
-        Alle Preise sind Endpreise. Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.
+        {B.legal.pricingFootnote[B.lang.default]}
       </p>
 
       <div class="fade-in flex justify-center gap-8 mt-8 flex-wrap">
-        <div class="flex items-center gap-1.5 text-[0.82rem] text-th-muted">
-          <span>&#128274;</span>
-          <span data-i18n="guarantee_1">14 Tage Widerrufsrecht</span>
-        </div>
-        <div class="flex items-center gap-1.5 text-[0.82rem] text-th-muted">
-          <span>&#9940;</span>
-          <span data-i18n="guarantee_2">Keine Abofalle</span>
-        </div>
-        <div class="flex items-center gap-1.5 text-[0.82rem] text-th-muted">
-          <span>&#9989;</span>
-          <span data-i18n="guarantee_3">Sofort kündbar per SMS</span>
-        </div>
+        {B.legal.guarantees.map((g, i) => (
+          <div class="flex items-center gap-1.5 text-[0.82rem] text-th-muted">
+            <span>{g.icon}</span>
+            <span data-i18n={'guarantee_' + (i + 1)}>{g.label[B.lang.default]}</span>
+          </div>
+        ))}
       </div>
 
       <!-- SMS Credit Packs -->
@@ -561,18 +542,15 @@ const breadcrumbJsonLd = {
         <h3 class="text-[1.05rem] font-extrabold mb-2 text-th-text" data-i18n="credits_title">SMS-Guthaben</h3>
         <p class="text-[0.85rem] text-th-muted mb-6 max-w-desc mx-auto" data-i18n="credits_desc">Kein Abo? Kaufe SMS-Guthaben einzeln. Verf&auml;llt nie.</p>
         <div class="flex justify-center gap-4 flex-wrap">
-          <div class="bg-th-surface border border-th-border rounded-card px-6 py-4 text-center min-w-[140px]">
-            <div class="text-[1.1rem] font-extrabold text-th-text">10 SMS</div>
-            <div class="text-[0.95rem] text-th-primary font-bold">&euro;1,99</div>
-            <div class="text-[0.72rem] text-th-muted mt-1" data-i18n="credits_per_sms_10">&euro;0,20 / SMS</div>
-          </div>
-          <div class="bg-th-surface border border-th-border rounded-card px-6 py-4 text-center min-w-[140px]">
-            <div class="text-[1.1rem] font-extrabold text-th-text">50 SMS</div>
-            <div class="text-[0.95rem] text-th-primary font-bold">&euro;7,99</div>
-            <div class="text-[0.72rem] text-th-muted mt-1" data-i18n="credits_per_sms_50">&euro;0,16 / SMS</div>
-          </div>
+          {B.credits.map((cr) => (
+            <div class="bg-th-surface border border-th-border rounded-card px-6 py-4 text-center min-w-[140px]">
+              <div class="text-[1.1rem] font-extrabold text-th-text">{cr.count} SMS</div>
+              <div class="text-[0.95rem] text-th-primary font-bold">{cr.priceDisplay}</div>
+              <div class="text-[0.72rem] text-th-muted mt-1">{cr.perSms[B.lang.default] || cr.perSms.en}</div>
+            </div>
+          ))}
         </div>
-        <p class="text-[0.78rem] text-th-muted mt-4" data-i18n="credits_how">Sende <strong>KAUFEN</strong> per SMS oder WhatsApp zum Kaufen.</p>
+        <p class="text-[0.78rem] text-th-muted mt-4" data-i18n="credits_how">Sende <strong>{B.buyKeyword}</strong> per SMS oder WhatsApp zum Kaufen.</p>
       </div>
     </div>
   </section>
@@ -594,7 +572,7 @@ const breadcrumbJsonLd = {
          </div>
          <h3 class="text-xl font-extrabold mb-2 text-th-text" data-i18n="cta_wa_title">Per WhatsApp starten</h3>
          <p class="text-[0.9rem] text-th-muted mb-6 leading-normal" data-i18n="cta_wa_desc">Kostenlos &mdash; 500 Nachrichten/Monat.</p>
-         <a href="https://wa.me/4915908138432?text=Hallo" target="_blank" rel="noopener" class="cta-wa-btn" data-i18n="cta_wa_btn">
+          <a href={B.phone.waLink + '?text=Hallo'} target="_blank" rel="noopener" class="cta-wa-btn" data-i18n="cta_wa_btn">
            WhatsApp &ouml;ffnen &rarr;
          </a>
          <p class="text-[0.78rem] text-th-muted mt-4" data-i18n="cta_wa_note">Kein Account n&ouml;tig. Einfach Nachricht senden.</p>
@@ -619,12 +597,12 @@ const breadcrumbJsonLd = {
               <div class="flex items-center gap-2 text-[0.95rem] text-th-text"><span class="inline-flex items-center justify-center w-step-circle h-[28px] rounded-full bg-th-primary text-th-btn-text font-bold text-[0.85rem] shrink-0">2</span> <span data-i18n="cta_step2">Antworte <strong>JA</strong> auf die Best&auml;tigungs-SMS</span></div>
               <div class="flex items-center gap-2 text-[0.95rem] text-th-text"><span class="inline-flex items-center justify-center w-step-circle h-[28px] rounded-full bg-th-primary text-th-btn-text font-bold text-[0.85rem] shrink-0">3</span> <span data-i18n="cta_step3">Stell deine erste Frage!</span></div>
             </div>
-            <a href="sms:+4915908138432?body=START" class="btn-primary cta-sms-btn" data-i18n="hero_cta">
+            <a href={B.phone.smsLink + '?body=START'} class="btn-primary cta-sms-btn" data-i18n="hero_cta">
               Jetzt per SMS starten &rarr;
             </a>
             <div class="mt-6 pt-4 border-t border-th-border">
               <p class="text-[0.85rem] text-th-muted mb-1" data-i18n="hero_desktop_num">Am Computer? Sende <strong>START</strong> an:</p>
-              <p class="text-[1.15rem] font-extrabold text-th-primary cursor-pointer tracking-[0.02em] transition-opacity duration-200 hover:opacity-80" onclick="navigator.clipboard&&navigator.clipboard.writeText('+4915908138432')">+49 1590 8138432 <span class="text-xs font-normal text-th-muted" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
+               <p class="text-[1.15rem] font-extrabold text-th-primary cursor-pointer tracking-[0.02em] transition-opacity duration-200 hover:opacity-80" onclick={'navigator.clipboard&&navigator.clipboard.writeText(\'' + B.phone.e164 + '\')'}>{B.phone.display} <span class="text-xs font-normal text-th-muted" data-i18n="hero_copy_hint">(klicken zum Kopieren)</span></p>
             </div>
          </div>
 
@@ -648,13 +626,13 @@ const breadcrumbJsonLd = {
                 <svg class="w-[22px] h-[22px] text-th-muted shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
                 </svg>
-                <span class="text-[1.1rem] font-bold text-th-text shrink-0 select-none pointer-events-none tracking-[0.01em]">+49</span>
+                <span class="text-[1.1rem] font-bold text-th-text shrink-0 select-none pointer-events-none tracking-[0.01em]">{B.phone.prefix}</span>
                <input
                  id="phone-input"
                  type="tel"
                  class="hero-input"
-                 placeholder="151 XXXXXXXX"
-                 aria-label="Deine Handynummer"
+                  placeholder={B.validation.phonePlaceholder}
+                  aria-label={B.country === 'DE' ? 'Deine Handynummer' : 'Your mobile number'}
                  data-i18n-placeholder="hero_input_placeholder"
                />
                <!-- Honeypot -->
@@ -685,7 +663,7 @@ const breadcrumbJsonLd = {
 
              <div class="signup-success" id="signup-success" style="display:none;">
                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.5" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-               <p data-i18n="signup_success"><strong>SMS gesendet!</strong> Pr&uuml;fe dein Handy und antworte mit <strong>JA</strong> an <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> um dein Konto zu aktivieren.</p>
+                <p data-i18n="signup_success"><strong>SMS gesendet!</strong> Pr&uuml;fe dein Handy und antworte mit <strong>{B.consent}</strong> an <a href={`${B.phone.smsLink}?body=${B.consent}`} class="sms-link"><strong>{B.phone.display}</strong></a> um dein Konto zu aktivieren.</p>
              </div>
            </div>
          </div>
@@ -702,7 +680,7 @@ const breadcrumbJsonLd = {
     <div class="container">
       <div class="text-center mb-12 fade-in">
         <h2 id="testimonials-heading" class="text-section-sm mb-2"><span data-i18n="social_title_1">So stellen wir uns</span> <span class="text-gradient" data-i18n="social_title_2">den Einsatz vor</span></h2>
-        <p class="text-th-muted text-base max-w-desc mx-auto" data-i18n="social_subtitle">Typische Szenarien, f&uuml;r die FragSMS gemacht ist.</p>
+        <p class="text-th-muted text-base max-w-desc mx-auto" data-i18n="social_subtitle">Typische Szenarien, f&uuml;r die {B.name} gemacht ist.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5 max-w-cards mx-auto">
 
@@ -718,7 +696,7 @@ const breadcrumbJsonLd = {
         </article>
 
         <article class="bg-th-surface border border-th-border rounded-card p-8 flex flex-col gap-5 transition-card duration-300 hover:border-th-primary-border hover:shadow-[0_8px_32px_rgba(16,185,129,0.1)] hover:-translate-y-[3px] fade-in">
-          <p class="text-[0.9rem] text-th-muted leading-[1.75] italic flex-1" data-i18n="review2_text">&bdquo;Auf dem Land gibt es kaum Internet. FragSMS ist perfekt &mdash; ich frage unterwegs nach Materialberechnungen. Funktioniert &uuml;berall, wo ich Empfang habe.&ldquo;</p>
+          <p class="text-[0.9rem] text-th-muted leading-[1.75] italic flex-1" data-i18n="review2_text">&bdquo;Auf dem Land gibt es kaum Internet. {B.name} ist perfekt &mdash; ich frage unterwegs nach Materialberechnungen. Funktioniert &uuml;berall, wo ich Empfang habe.&ldquo;</p>
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-th-primary-glow border border-th-primary-border flex items-center justify-center font-extrabold text-[0.8rem] text-th-primary shrink-0">&#127959;</div>
             <div>
@@ -749,17 +727,17 @@ const breadcrumbJsonLd = {
   <section class="py-24" aria-labelledby="faq-heading">
     <div class="container">
       <div class="text-center mb-12 fade-in">
-        <h2 id="faq-heading" class="text-section-sm mb-2"><span data-i18n="faq_title_1">Häufige Fragen zu</span> <span class="text-gradient">FragSMS</span></h2>
+        <h2 id="faq-heading" class="text-section-sm mb-2"><span data-i18n="faq_title_1">Häufige Fragen zu</span> <span class="text-gradient">{B.name}</span></h2>
       </div>
       <div class="max-w-content-narrow mx-auto">
 
         <details class="faq-item group border border-th-border rounded-xl mb-3 overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-th-primary-border open:shadow-[0_4px_16px_rgba(16,185,129,0.06)] fade-in">
           <summary class="px-6 py-5 cursor-pointer font-semibold text-[0.95rem] list-none flex justify-between items-center bg-th-surface transition-colors duration-200 hover:bg-th-surface-hover group-open:border-b group-open:border-th-border" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <span itemprop="name" data-i18n="faq1_q">Brauche ich ein Smartphone für FragSMS?</span>
+            <span itemprop="name" data-i18n="faq1_q">Brauche ich ein Smartphone für {B.name}?</span>
             <span class="text-th-primary text-xl transition-transform duration-200 shrink-0 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 py-4 text-[0.9rem] text-th-muted leading-[1.7] bg-th-surface" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text" data-i18n="faq1_a">Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann &mdash; auch mit älteren Feature Phones und Prepaid-Handys.</p>
+            <p itemprop="text" data-i18n="faq1_a">Nein. {B.name} funktioniert mit jedem Handy, das SMS senden kann &mdash; auch mit älteren Feature Phones und Prepaid-Handys.</p>
           </div>
         </details>
 
@@ -779,7 +757,7 @@ const breadcrumbJsonLd = {
             <span class="text-th-primary text-xl transition-transform duration-200 shrink-0 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 py-4 text-[0.9rem] text-th-muted leading-[1.7] bg-th-surface" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text" data-i18n="faq3_a">Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen &mdash; ähnlich wie ChatGPT, aber ohne App und ohne Internet.</p>
+            <p itemprop="text" data-i18n="faq3_a">Mit {B.name} kannst du einen KI-Assistenten per SMS nutzen &mdash; ähnlich wie ChatGPT, aber ohne App und ohne Internet.</p>
           </div>
         </details>
 
@@ -789,7 +767,7 @@ const breadcrumbJsonLd = {
             <span class="text-th-primary text-xl transition-transform duration-200 shrink-0 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 py-4 text-[0.9rem] text-th-muted leading-[1.7] bg-th-surface" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text" data-i18n="faq4_a">Sende STOP per SMS oder nutze den &quot;Jetzt k&uuml;ndigen&quot; Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.</p>
+            <p itemprop="text" data-i18n="faq4_a">Sende STOP per SMS oder nutze den &quot;Jetzt k&uuml;ndigen&quot; Button auf {B.domain}/upgrade. Sofort wirksam, ohne Wartezeit.</p>
           </div>
         </details>
 
@@ -799,17 +777,17 @@ const breadcrumbJsonLd = {
             <span class="text-th-primary text-xl transition-transform duration-200 shrink-0 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 py-4 text-[0.9rem] text-th-muted leading-[1.7] bg-th-surface" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text" data-i18n="faq5_a">Ja. FragSMS erkennt pers&ouml;nliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch und blockiert die Nachricht, bevor sie die KI erreicht. Dazu: alle Daten ausschlie&szlig;lich in der EU, Telefonnummer per SHA-256 verschl&uuml;sselt, kein Tracking, kein Profiling. Vollst&auml;ndig DSGVO-konform.</p>
+            <p itemprop="text" data-i18n="faq5_a">Ja. {B.name} erkennt pers&ouml;nliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch und blockiert die Nachricht, bevor sie die KI erreicht. Dazu: alle Daten ausschlie&szlig;lich in der {B.legal.serverLabel}, Telefonnummer per SHA-256 verschl&uuml;sselt, kein Tracking, kein Profiling. Vollst&auml;ndig {B.legal.privacyLabel}.</p>
           </div>
         </details>
 
         <details class="faq-item group border border-th-border rounded-xl mb-3 overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-th-primary-border open:shadow-[0_4px_16px_rgba(16,185,129,0.06)] fade-in">
           <summary class="px-6 py-5 cursor-pointer font-semibold text-[0.95rem] list-none flex justify-between items-center bg-th-surface transition-colors duration-200 hover:bg-th-surface-hover group-open:border-b group-open:border-th-border" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <span itemprop="name" data-i18n="faq6_q">Was kostet FragSMS?</span>
+            <span itemprop="name" data-i18n="faq6_q">Was kostet {B.name}?</span>
             <span class="text-th-primary text-xl transition-transform duration-200 shrink-0 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 py-4 text-[0.9rem] text-th-muted leading-[1.7] bg-th-surface" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text" data-i18n="faq6_a">FragSMS startet kostenlos mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus 4,99 &euro;/Monat (50 Nachrichten, mehr Verlauf), Flat 14,99 &euro;/Monat (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise.</p>
+            <p itemprop="text" data-i18n="faq6_a">{B.name} startet kostenlos mit 50 Nachrichten pro Monat inkl. Web-Suche. Plus {B.plans[1]?.priceDisplay}/{B.country === 'DE' ? 'Monat' : 'month'} (50 Nachrichten, mehr Verlauf), Flat {B.plans[2]?.priceDisplay}/{B.country === 'DE' ? 'Monat' : 'month'} (1000 Nachrichten, maximaler Verlauf). Alle Preise sind Endpreise.</p>
           </div>
         </details>
 
@@ -826,7 +804,7 @@ const breadcrumbJsonLd = {
         <span data-i18n="about_title">ChatGPT per SMS nutzen &mdash; so geht&apos;s in</span> <span class="text-gradient" data-i18n="about_title_2">Deutschland</span>
       </h2>
       <div class="fade-in text-[0.95rem] text-th-muted leading-[1.85] [&_p]:mb-[1.1rem] [&_strong]:text-th-text">
-        <p data-i18n="about_p1">Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber die Antworten sind oft endlos lang &mdash; und du brauchst ein Smartphone, Internet und einen Account. <strong>FragSMS</strong> ist anders: kurze, pr&auml;zise Antworten per SMS oder WhatsApp &mdash; KI, die deine Zeit respektiert.</p>
+        <p data-i18n="about_p1">Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber die Antworten sind oft endlos lang &mdash; und du brauchst ein Smartphone, Internet und einen Account. <strong>{B.name}</strong> ist anders: kurze, pr&auml;zise Antworten per SMS oder WhatsApp &mdash; KI, die deine Zeit respektiert.</p>
         <p data-i18n="about_p2">Ob du Fragen zur Allgemeinbildung hast, einen Text übersetzen lassen möchtest, Kochrezepte brauchst oder Hilfe beim Formulieren von Nachrichten suchst &mdash; FragSMS antwortet in Sekunden, komplett auf Deutsch. Keine seitenlangen Texte, kein Scrollen. Nur das, was du wissen willst.</p>
         <p data-i18n="about_p3"><strong>Ideal f&uuml;r Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong>Perfekt f&uuml;r l&auml;ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf&uuml;gbar ist. Und <strong style="color:var(--color-primary)">100% DSGVO-konform</strong>: Alle Daten auf EU-Servern, automatische Erkennung und Blockierung pers&ouml;nlicher Daten (Telefonnummern, E-Mails, IBANs) &mdash; bevor die KI sie sieht.</p>
       </div>
@@ -847,14 +825,14 @@ const breadcrumbJsonLd = {
         <a href="/blog/ki-ohne-internet/" class="flex flex-col bg-th-surface border border-th-border rounded-card p-8 no-underline transition-card duration-300 hover:border-th-primary hover:shadow-[0_12px_40px_rgba(16,185,129,0.12)] hover:-translate-y-1 hover:no-underline fade-in">
           <div class="inline-block px-3 py-1 rounded-pill text-[0.7rem] font-bold tracking-[0.05em] uppercase bg-th-primary-glow text-th-primary border border-th-primary-border mb-4 self-start" data-i18n="blog_tag_1">Ratgeber</div>
           <h3 class="text-base font-extrabold text-th-text tracking-[-0.02em] leading-[1.35] mb-3" data-i18n="blog_card1_title">KI ohne Internet nutzen &mdash; so geht&apos;s per SMS</h3>
-          <p class="text-sm text-th-muted leading-[1.7] flex-1 mb-5" data-i18n="blog_card1_desc">Kein WLAN, kein Datenvolumen, kein Problem. Wie FragSMS k&uuml;nstliche Intelligenz f&uuml;r jeden zug&auml;nglich macht.</p>
+          <p class="text-sm text-th-muted leading-[1.7] flex-1 mb-5" data-i18n="blog_card1_desc">Kein WLAN, kein Datenvolumen, kein Problem. Wie {B.name} k&uuml;nstliche Intelligenz f&uuml;r jeden zug&auml;nglich macht.</p>
           <span class="text-[0.82rem] font-bold text-th-primary tracking-[0.01em]" data-i18n="blog_read_more">Artikel lesen &rarr;</span>
         </a>
 
         <a href="/blog/chatgpt-alternative-ohne-app/" class="flex flex-col bg-th-surface border border-th-border rounded-card p-8 no-underline transition-card duration-300 hover:border-th-primary hover:shadow-[0_12px_40px_rgba(16,185,129,0.12)] hover:-translate-y-1 hover:no-underline fade-in">
           <div class="inline-block px-3 py-1 rounded-pill text-[0.7rem] font-bold tracking-[0.05em] uppercase bg-th-primary-glow text-th-primary border border-th-primary-border mb-4 self-start" data-i18n="blog_tag_2">Vergleich</div>
           <h3 class="text-base font-extrabold text-th-text tracking-[-0.02em] leading-[1.35] mb-3" data-i18n="blog_card2_title">ChatGPT Alternative ohne App: KI per SMS</h3>
-          <p class="text-sm text-th-muted leading-[1.7] flex-1 mb-5" data-i18n="blog_card2_desc">Kein Konto, keine App, kein Login &mdash; wie FragSMS im direkten Vergleich zu ChatGPT abschneidet.</p>
+          <p class="text-sm text-th-muted leading-[1.7] flex-1 mb-5" data-i18n="blog_card2_desc">Kein Konto, keine App, kein Login &mdash; wie {B.name} im direkten Vergleich zu ChatGPT abschneidet.</p>
           <span class="text-[0.82rem] font-bold text-th-primary tracking-[0.01em]" data-i18n="blog_read_more">Artikel lesen &rarr;</span>
         </a>
 
@@ -1597,10 +1575,33 @@ const breadcrumbJsonLd = {
       });
       autoTimer = setInterval(function() { showConv((currentIdx + 1) % conversations.length); }, 5000);
     })();
+  </script>
 
+  <script is:inline define:vars={{
+    brandSignup: {
+      signupUrl: B.urls.signup,
+      phonePrefix: B.phone.prefix,
+      phoneE164: B.phone.e164,
+      phoneDisplay: B.phone.display,
+      smsLink: B.phone.smsLink,
+      phoneRegex: B.validation.phoneRegex,
+      mobileRegex: B.validation.mobileRegex,
+      brandName: B.name,
+      defaultLang: B.lang.default,
+      langStorageKey: B.name.toLowerCase().replace(/[^a-z0-9]/g, '') + '-lang',
+      consent: B.consent
+    }
+  }}>
     // Web signup — phone validation + POST to Worker
     (function() {
-      var SIGNUP_URL = 'https://sms.fragsms.de/signup';
+      var cfg = brandSignup;
+      var SIGNUP_URL = cfg.signupUrl;
+      var PHONE_PREFIX = cfg.phonePrefix;
+      var PHONE_REGEX = new RegExp(cfg.phoneRegex);
+      var MOBILE_REGEX = new RegExp(cfg.mobileRegex);
+      // International dial prefix without '+' for stripping (e.g. '49', '880', '1')
+      var PREFIX_DIGITS = PHONE_PREFIX.replace('+', '');
+      var DOUBLE_ZERO_PREFIX = '00' + PREFIX_DIGITS;
 
       var p = {
         input: 'phone-input', btn: 'start-btn', error: 'phone-error', wrap: 'phone-wrap',
@@ -1610,24 +1611,24 @@ const breadcrumbJsonLd = {
 
       function normalizePhone(raw) {
         var s = raw.replace(/[\s\-\(\)\.]/g, '');
-        if (s.indexOf('0') === 0) s = s.substring(1);
-        if (s.indexOf('+49') === 0) s = s.substring(3);
-        if (s.indexOf('0049') === 0) s = s.substring(4);
-        return '+49' + s;
+        if (s.indexOf('0') === 0 && s.indexOf(DOUBLE_ZERO_PREFIX) !== 0) s = s.substring(1);
+        if (s.indexOf(PHONE_PREFIX) === 0) s = s.substring(PHONE_PREFIX.length);
+        if (s.indexOf(DOUBLE_ZERO_PREFIX) === 0) s = s.substring(DOUBLE_ZERO_PREFIX.length);
+        return PHONE_PREFIX + s;
       }
 
-      function classifyGermanNumber(raw) {
+      function classifyNumber(raw) {
         if (!raw) return 'invalid';
         var n = normalizePhone(raw);
-        var m = n.match(/^\+49(\d{9,12})$/);
+        var m = n.match(PHONE_REGEX);
         if (!m) return 'invalid';
         var local = m[1];
-        if (/^1[567]/.test(local)) return 'mobile';
+        if (MOBILE_REGEX.test(local)) return 'mobile';
         return 'landline';
       }
 
       function getLang() {
-        try { return localStorage.getItem('fragsms-lang') || 'de'; } catch(e) { return 'de'; }
+        try { return localStorage.getItem(cfg.langStorageKey) || cfg.defaultLang; } catch(e) { return cfg.defaultLang; }
       }
 
       function getMsg(key, fallbackDe, fallbackEn) {
@@ -1643,7 +1644,7 @@ const breadcrumbJsonLd = {
         var privacyCb = document.getElementById(p.privacy);
         var ageCb = document.getElementById(p.age);
         if (!input || !btn) return;
-        var valid = classifyGermanNumber(input.value.trim()) === 'mobile';
+        var valid = classifyNumber(input.value.trim()) === 'mobile';
         var checked = privacyCb && privacyCb.checked && ageCb && ageCb.checked;
         btn.disabled = !valid;
         if (valid && checked) {
@@ -1669,22 +1670,22 @@ const breadcrumbJsonLd = {
 
       input.addEventListener('input', function() {
         var v = input.value;
-        if (v.length > 0 && v.charAt(0) === '0') {
+        if (v.length > 0 && v.charAt(0) === '0' && v.indexOf(DOUBLE_ZERO_PREFIX) !== 0) {
           input.value = v.replace(/^0+/, '');
           v = input.value;
         }
         var stripped = v.replace(/[\s\-\(\)\.]/g, '');
-        if (stripped.indexOf('+49') === 0) {
-          input.value = stripped.substring(3);
+        if (stripped.indexOf(PHONE_PREFIX) === 0) {
+          input.value = stripped.substring(PHONE_PREFIX.length);
           v = input.value;
-        } else if (stripped.indexOf('0049') === 0) {
-          input.value = stripped.substring(4);
+        } else if (stripped.indexOf(DOUBLE_ZERO_PREFIX) === 0) {
+          input.value = stripped.substring(DOUBLE_ZERO_PREFIX.length);
           v = input.value;
         }
 
         var raw = v.trim();
         touched = raw.length > 0;
-        var cls = classifyGermanNumber(raw);
+        var cls = classifyNumber(raw);
 
         updateBtnState();
 
@@ -1696,9 +1697,9 @@ const breadcrumbJsonLd = {
 
         if (errorEl) {
           if (touched && raw.length >= 4 && cls === 'landline') {
-            errorEl.textContent = getMsg('phone_error_landline', 'FragSMS funktioniert nur mit Mobilfunknummern (015x, 016x, 017x)', 'FragSMS only works with mobile numbers (015x, 016x, 017x)');
+            errorEl.textContent = getMsg('phone_error_landline', cfg.brandName + ' funktioniert nur mit Mobilfunknummern', cfg.brandName + ' only works with mobile numbers');
           } else if (touched && raw.length >= 4 && cls === 'invalid') {
-            errorEl.textContent = getMsg('phone_error_invalid', 'Bitte gib eine g\u00fcltige deutsche Handynummer ein', 'Please enter a valid German mobile number');
+            errorEl.textContent = getMsg('phone_error_invalid', 'Bitte gib eine g\u00fcltige Handynummer ein', 'Please enter a valid mobile number');
           } else {
             errorEl.textContent = '';
           }
@@ -1742,7 +1743,7 @@ const breadcrumbJsonLd = {
       btn.addEventListener('click', function() {
         if (submitting) return;
         var raw = input.value.trim();
-        if (classifyGermanNumber(raw) !== 'mobile') return;
+        if (classifyNumber(raw) !== 'mobile') return;
         var checked = privacyCb && privacyCb.checked && ageCb && ageCb.checked;
         if (!checked) {
           showCheckboxHint();
@@ -1782,7 +1783,9 @@ const breadcrumbJsonLd = {
             if (result.data.already_active) {
               if (successEl) {
                 var msgP = successEl.querySelector('p');
-                if (msgP) msgP.innerHTML = getMsg('signup_already_active', 'Du bist bereits angemeldet! Sende einfach eine SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>.', 'You are already signed up! Just send an SMS to <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>.');
+                if (msgP) msgP.innerHTML = getMsg('signup_already_active',
+                  'Du bist bereits angemeldet! Sende einfach eine SMS an <a href="' + cfg.smsLink + '?body=START" class="sms-link"><strong>' + cfg.phoneDisplay + '</strong></a>.',
+                  'You are already signed up! Just send an SMS to <a href="' + cfg.smsLink + '?body=START" class="sms-link"><strong>' + cfg.phoneDisplay + '</strong></a>.');
               }
             }
           } else {
@@ -1875,8 +1878,22 @@ const breadcrumbJsonLd = {
     })();
   </script>
 
-  <script>
-    // Page-level translations
+  <script is:inline define:vars={{
+    brandTrans: {
+      name: B.name,
+      phoneE164: B.phone.e164,
+      phoneDisplay: B.phone.display,
+      smsLink: B.phone.smsLink,
+      waLink: B.phone.waLink,
+      domain: B.domain,
+      consent: B.consent,
+      buyKeyword: B.buyKeyword,
+      privacyLabel: B.legal.privacyLabel,
+      serverLabel: B.legal.serverLabel
+    }
+  }}>
+    // Page-level translations — brand values injected at build time
+    var _b = brandTrans;
     window.__fragTranslations = {
       de: {
         hero_badge: 'KI, die deine Zeit respektiert',
@@ -1906,22 +1923,22 @@ const breadcrumbJsonLd = {
         credits_desc: 'Kein Abo? Kaufe SMS-Guthaben einzeln. Verf\u00e4llt nie.',
         credits_per_sms_10: '\u20ac0,20 / SMS',
         credits_per_sms_50: '\u20ac0,16 / SMS',
-        credits_how: 'Sende KAUFEN per SMS oder WhatsApp zum Kaufen.',
+        credits_how: 'Sende ' + _b.buyKeyword + ' per SMS oder WhatsApp zum Kaufen.',
         signup_privacy: 'Ich stimme den <a href="/nutzungsbedingungen/" target="_blank">Nutzungsbedingungen</a> und der <a href="/datenschutz/" target="_blank">Datenschutzerkl\u00e4rung</a> zu. <span class="required-star">*</span>',
         signup_age: 'Ich bin mindestens 16 Jahre alt. <span class="required-star">*</span>',
-        signup_success: '<strong>SMS gesendet!</strong> Pr\u00fcfe dein Handy und antworte mit <strong>JA</strong> an <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> um dein Konto zu aktivieren.',
-        signup_already_active: 'Du bist bereits angemeldet! Sende einfach eine SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>.',
+        signup_success: '<strong>SMS gesendet!</strong> Pr\u00fcfe dein Handy und antworte mit <strong>' + _b.consent + '</strong> an <a href="' + _b.smsLink + '?body=' + _b.consent + '" class="sms-link"><strong>' + _b.phoneDisplay + '</strong></a> um dein Konto zu aktivieren.',
+        signup_already_active: 'Du bist bereits angemeldet! Sende einfach eine SMS an <a href="' + _b.smsLink + '?body=START" class="sms-link"><strong>' + _b.phoneDisplay + '</strong></a>.',
         signup_error: 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.',
         signup_checkbox_required: 'Bitte stimme den Nutzungsbedingungen und der Datenschutzerkl\u00e4rung zu.',
-        phone_error_invalid: 'Bitte gib eine g\u00fcltige deutsche Handynummer ein',
-        phone_error_landline: 'FragSMS funktioniert nur mit Mobilfunknummern (015x, 016x, 017x)',
-        stat1: 'DSGVO-konform',
-        stat2: 'Server & Datenschutz',
+        phone_error_invalid: 'Bitte gib eine g\u00fcltige Handynummer ein',
+        phone_error_landline: _b.name + ' funktioniert nur mit Mobilfunknummern',
+        stat1: _b.privacyLabel,
+        stat2: _b.serverLabel + '-Server',
         stat3: 'Kostenlos starten',
         stat4: 'Jedes Handy',
-        sb1_pill: 'Warum FragSMS',
+        sb1_pill: 'Warum ' + _b.name,
         sb1_title: 'Frag einfach.\nPer SMS.',
-        sb1_desc: 'Andere KI-Assistenten liefern seitenlange Texte. FragSMS antwortet in ein paar S\u00e4tzen \u2014 pr\u00e4zise, auf den Punkt, auf Deutsch. Rezepte, \u00dcbersetzungen, Fakten, Reisetipps \u2014 alles in Sekunden.',
+        sb1_desc: 'Andere KI-Assistenten liefern seitenlange Texte. ' + _b.name + ' antwortet in ein paar S\u00e4tzen \u2014 pr\u00e4zise, auf den Punkt, auf Deutsch. Rezepte, \u00dcbersetzungen, Fakten, Reisetipps \u2014 alles in Sekunden.',
         sb1_l1: 'Kein Smartphone erforderlich',
         sb1_l2: 'Kein Internet oder WLAN',
         sb1_l3: 'Antwort in unter 5 Sekunden',
@@ -1932,12 +1949,12 @@ const breadcrumbJsonLd = {
         sb2_cta: 'Kostenlos starten \u2192',
         sb3_pill: 'Privacy First',
         sb3_title: 'Wir sch\u00fctzen<br>deine Identit\u00e4t.',
-        sb3_desc: 'FragSMS erkennt pers\u00f6nliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch \u2014 und blockiert die Nachricht, <strong>bevor</strong> sie die KI erreicht. Keine Kosten, kein Risiko. Dazu: EU-Server, SHA-256-Verschl\u00fcsselung, kein Tracking.',
+        sb3_desc: _b.name + ' erkennt pers\u00f6nliche Daten wie Telefonnummern, E-Mail-Adressen und IBANs automatisch \u2014 und blockiert die Nachricht, <strong>bevor</strong> sie die KI erreicht. Keine Kosten, kein Risiko. Dazu: ' + _b.serverLabel + '-Server, SHA-256-Verschl\u00fcsselung, kein Tracking.',
         sb3_l1: 'Automatische PII-Erkennung & Blockierung',
-        sb3_l2: '100% EU-Datenspeicherung, DSGVO-konform',
+        sb3_l2: '100% ' + _b.serverLabel + '-Datenspeicherung, ' + _b.privacyLabel,
         sb3_l3: 'STOP senden = alle Daten sofort gel\u00f6scht',
-        pv_eu_title: 'EU-Server & DSGVO',
-        pv_eu_sub: 'Alle Daten bleiben in Europa',
+        pv_eu_title: _b.serverLabel + '-Server & ' + _b.privacyLabel.split('-')[0],
+        pv_eu_sub: 'Alle Daten bleiben in ' + (_b.serverLabel === 'EU' ? 'Europa' : _b.serverLabel),
         pv_ok: '\u2713 Aktiv', pv_ok2: '\u2713 Aktiv', pv_ok3: '\u2713 Aktiv', pv_ok4: '\u2713 Aktiv',
         pv_enc_title: 'SHA-256 Verschl\u00fcsselung',
         pv_enc_sub: 'Nummer nie im Klartext',
@@ -1946,17 +1963,17 @@ const breadcrumbJsonLd = {
         pv_pay_title: 'Sichere Zahlung',
         pv_pay_sub: 'Stripe \u00b7 SEPA \u00b7 PayPal',
         step1_title: 'START senden',
-        step1_desc: 'Sende START per SMS an <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a> und du bist sofort dabei.',
+        step1_desc: 'Sende START per SMS an <a href="' + _b.smsLink + '?body=START" class="sms-link"><strong>' + _b.phoneDisplay + '</strong></a> und du bist sofort dabei.',
         step2_title: 'Frag was du willst',
         step2_desc: 'Schreibe deine Frage. Die KI antwortet auf Deutsch \u2014 in Sekunden.',
         step3_title: 'STOP = Alles gel\u00f6scht',
         step3_desc: 'Sende STOP \u2014 sofort abgemeldet, alle Daten unwiderruflich gel\u00f6scht.',
         sb2_conv_label: 'So funktioniert\'s',
-        sb2_conv_welcome: 'Willkommen bei FragSMS! Du chattest mit einer KI, nicht mit einem Menschen.<br><br>Antworte JA = Nutzungsbedingungen + Datenschutz akzeptiert.<br><br>Abmelden: STOP senden.',
+        sb2_conv_welcome: 'Willkommen bei ' + _b.name + '! Du chattest mit einer KI, nicht mit einem Menschen.<br><br>Antworte ' + _b.consent + ' = Nutzungsbedingungen + Datenschutz akzeptiert.<br><br>Abmelden: STOP senden.',
         sb2_conv_confirm: 'Du bist dabei! 500 WhatsApp-Nachrichten/Monat kostenlos. Stell jetzt deine erste Frage!',
         sb2_conv_question: 'Was ist die Hauptstadt von Australien?',
         sb2_conv_answer: 'Die Hauptstadt von Australien ist Canberra \u2014 nicht Sydney, wie viele denken!',
-        sb2_stop_reply: 'Abgemeldet. Dein Chatverlauf wurde gel\u00f6scht. Du erh\u00e4ltst keine weiteren SMS. Jederzeit zur\u00fcckkehren mit START. fragsms.de',
+        sb2_stop_reply: 'Abgemeldet. Dein Chatverlauf wurde gel\u00f6scht. Du erh\u00e4ltst keine weiteren SMS. Jederzeit zur\u00fcckkehren mit START. ' + _b.domain,
         sms_label_0: 'Kochen & Rezepte', sms_q_0: 'Was kann ich mit Kartoffeln, Zwiebeln und Eiern kochen?', sms_a_0: 'Spanische Tortilla! Kartoffeln d\u00fcnn schneiden, in \u00d6l 15 Min braten. Zwiebel dazu. 6 Eier verquirlen, salzen, dazugeben. Kleine Hitze 8 Min, wenden. Fertig!',
         sms_label_1: 'Alltagshilfe', sms_q_1: 'Wie sage ich auf Englisch: Ich m\u00f6chte einen Arzttermin verschieben?', sms_a_1: 'I would like to reschedule my doctor\'s appointment. H\u00f6flicher: Could I please reschedule my appointment?',
         sms_label_2: 'Wissen & Fakten', sms_q_2: 'Wie hoch ist die Zugspitze?', sms_a_2: 'Die Zugspitze ist 2.962 m hoch \u2014 Deutschlands h\u00f6chster Berg. Im Winter per Seilbahn erreichbar.',
@@ -1972,41 +1989,41 @@ const breadcrumbJsonLd = {
         btn_upgrade: 'Jetzt upgraden', badge_popular: 'Beliebt',
         pricing_footnote: 'Alle Preise sind Endpreise. Gem\u00e4\u00df \u00a7 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.',
         guarantee_1: '14 Tage Widerrufsrecht', guarantee_2: 'Keine Abofalle', guarantee_3: 'Sofort k\u00fcndbar per SMS',
-        social_title_1: 'So stellen wir uns', social_title_2: 'den Einsatz vor', social_subtitle: 'Typische Szenarien, f\u00fcr die FragSMS gemacht ist.',
+        social_title_1: 'So stellen wir uns', social_title_2: 'den Einsatz vor', social_subtitle: 'Typische Szenarien, f\u00fcr die ' + _b.name + ' gemacht ist.',
         review1_text: '\u201eEndlich kann ich auch KI nutzen! Mein Enkel hat mir gezeigt, wie ich eine SMS schreibe \u2014 mehr brauche ich nicht. Ich frage nach Rezepten und Gesundheitstipps. Wunderbar einfach!\u201c',
         review1_name: 'Szenario: Seniorin',
         review1_role: 'Rentnerin, 72 \u2014 kein Smartphone',
-        review2_text: '\u201eAuf dem Land gibt es kaum Internet. FragSMS ist perfekt \u2014 ich frage unterwegs nach Materialberechnungen. Funktioniert \u00fcberall, wo ich Empfang habe.\u201c',
+        review2_text: '\u201eAuf dem Land gibt es kaum Internet. ' + _b.name + ' ist perfekt \u2014 ich frage unterwegs nach Materialberechnungen. Funktioniert \u00fcberall, wo ich Empfang habe.\u201c',
         review2_name: 'Szenario: Handwerker',
         review2_role: 'Auf der Baustelle \u2014 kein WLAN',
-        review3_text: '\u201eNutze es wenn mein Datenvolumen aufgebraucht ist. Schnelle Fakten-Checks, \u00dcbersetzungen, Mathe-Hilfe \u2014 alles per SMS. Dass es DSGVO-konform ist, finde ich richtig gut.\u201c',
+        review3_text: '\u201eNutze es wenn mein Datenvolumen aufgebraucht ist. Schnelle Fakten-Checks, \u00dcbersetzungen, Mathe-Hilfe \u2014 alles per SMS. Dass es ' + _b.privacyLabel + ' ist, finde ich richtig gut.\u201c',
         review3_name: 'Szenario: Studentin',
         review3_role: 'Datenvolumen leer \u2014 SMS geht immer',
-        uc_title_1: 'Wann ist', uc_title_2: 'FragSMS perfekt?',
-        uc_subtitle: 'Echte Situationen, in denen FragSMS den Unterschied macht.',
+        uc_title_1: 'Wann ist', uc_title_2: _b.name + ' perfekt?',
+        uc_subtitle: 'Echte Situationen, in denen ' + _b.name + ' den Unterschied macht.',
         uc1_title: 'Urlaub ohne Internet', uc1_desc: 'Im Ausland ohne Roaming oder WLAN? Per SMS fragst du nach Restaurants, \u00dcbersetzungen oder Notfall-Infos \u2014 ganz ohne Datenverbindung.',
-        uc2_title: 'Kein Smartphone', uc2_desc: 'Millionen Menschen in Deutschland nutzen kein Smartphone. Mit FragSMS kann jedes Handy, das SMS senden kann, KI nutzen \u2014 auch ein Nokia 3310.',
+        uc2_title: 'Kein Smartphone', uc2_desc: 'Millionen Menschen in Deutschland nutzen kein Smartphone. Mit ' + _b.name + ' kann jedes Handy, das SMS senden kann, KI nutzen \u2014 auch ein Nokia 3310.',
         uc3_title: 'Auf dem Land', uc3_desc: 'In l\u00e4ndlichen Gebieten gibt es oft kein stabiles Internet. SMS funktioniert \u00fcberall, wo es Mobilfunkempfang gibt \u2014 auch ohne 4G oder 5G.',
         uc4_title: 'Datenvolumen aufgebraucht', uc4_desc: 'Monatliches Datenvolumen leer? SMS funktioniert trotzdem. Fakten-Checks, \u00dcbersetzungen und schnelle Antworten \u2014 ohne einen Cent f\u00fcr Daten.',
-        uc5_title: 'Senioren & Technik-Einsteiger', uc5_desc: 'Keine App installieren, kein Passwort merken, kein Account anlegen. Wer eine SMS tippen kann, kann FragSMS nutzen \u2014 ab der ersten Nachricht.',
+        uc5_title: 'Senioren & Technik-Einsteiger', uc5_desc: 'Keine App installieren, kein Passwort merken, kein Account anlegen. Wer eine SMS tippen kann, kann ' + _b.name + ' nutzen \u2014 ab der ersten Nachricht.',
         uc6_title: 'Auf der Baustelle', uc6_desc: 'Schnell eine Materialberechnung oder Umrechnung brauchen? Per SMS bekommst du sofort Antworten \u2014 auch mit Handschuhen und ohne WLAN.',
         faq_title_1: 'H\u00e4ufige Fragen zu',
-        faq1_q: 'Brauche ich ein Smartphone f\u00fcr FragSMS?', faq1_a: 'Nein. FragSMS funktioniert mit jedem Handy, das SMS senden kann \u2014 auch mit \u00e4lteren Feature Phones und Prepaid-Handys.',
+        faq1_q: 'Brauche ich ein Smartphone f\u00fcr ' + _b.name + '?', faq1_a: 'Nein. ' + _b.name + ' funktioniert mit jedem Handy, das SMS senden kann \u2014 auch mit \u00e4lteren Feature Phones und Prepaid-Handys.',
         faq2_q: 'Brauche ich Internet oder WLAN?', faq2_a: 'Nein. SMS funktioniert \u00fcber das Mobilfunknetz \u2014 kein WLAN, kein Datenplan und keine App n\u00f6tig.',
-        faq3_q: 'Kann ich ChatGPT per SMS nutzen?', faq3_a: 'Mit FragSMS kannst du einen KI-Assistenten per SMS nutzen \u2014 \u00e4hnlich wie ChatGPT, aber ohne App und ohne Internet.',
-        faq4_q: 'Wie k\u00fcndige ich mein Abo?', faq4_a: 'Sende STOP per SMS oder nutze den "Jetzt k\u00fcndigen" Button auf fragsms.de/upgrade. Sofort wirksam, ohne Wartezeit.',
-        faq5_q: 'Sind meine Daten sicher?', faq5_a: 'Ja. FragSMS erkennt automatisch 7 Arten pers\u00f6nlicher Daten (Telefonnummern, E-Mails, IBANs etc.) und blockiert solche Nachrichten, bevor sie die KI erreichen. Alle Daten werden ausschlie\u00dflich in der EU gespeichert. Vollst\u00e4ndig DSGVO-konform.',
-        faq6_q: 'Was kostet FragSMS?', faq6_a: 'FragSMS Free bietet 500 WhatsApp-Nachrichten/Monat kostenlos. Plus 4,99 \u20ac/Monat (1.000 WhatsApp + 30 SMS inklusive), Flat 14,99 \u20ac/Monat (unbegrenzt WhatsApp + 150 SMS inklusive). SMS-Guthaben einzeln kaufbar (10 SMS ab 1,99 \u20ac). Alle Preise sind Endpreise.',
+        faq3_q: 'Kann ich ChatGPT per SMS nutzen?', faq3_a: 'Mit ' + _b.name + ' kannst du einen KI-Assistenten per SMS nutzen \u2014 \u00e4hnlich wie ChatGPT, aber ohne App und ohne Internet.',
+        faq4_q: 'Wie k\u00fcndige ich mein Abo?', faq4_a: 'Sende STOP per SMS oder nutze den "Jetzt k\u00fcndigen" Button auf ' + _b.domain + '/upgrade. Sofort wirksam, ohne Wartezeit.',
+        faq5_q: 'Sind meine Daten sicher?', faq5_a: 'Ja. ' + _b.name + ' erkennt automatisch 7 Arten pers\u00f6nlicher Daten (Telefonnummern, E-Mails, IBANs etc.) und blockiert solche Nachrichten, bevor sie die KI erreichen. Alle Daten werden ausschlie\u00dflich in der ' + _b.serverLabel + ' gespeichert. Vollst\u00e4ndig ' + _b.privacyLabel + '.',
+        faq6_q: 'Was kostet ' + _b.name + '?', faq6_a: _b.name + ' Free bietet 500 WhatsApp-Nachrichten/Monat kostenlos. Plus 4,99 \u20ac/Monat (1.000 WhatsApp + 30 SMS inklusive), Flat 14,99 \u20ac/Monat (unbegrenzt WhatsApp + 150 SMS inklusive). SMS-Guthaben einzeln kaufbar (10 SMS ab 1,99 \u20ac). Alle Preise sind Endpreise.',
         cta_title: 'Bereit loszulegen?',
-        cta_sub: '3 Schritte: START senden, JA antworten, Fragen stellen.',
-        cta_step1: 'Sende <strong>START</strong> an +49 1590 8138432',
-        cta_step2: 'Antworte <strong>JA</strong> auf die Best\u00e4tigungs-SMS',
+        cta_sub: '3 Schritte: START senden, ' + _b.consent + ' antworten, Fragen stellen.',
+        cta_step1: 'Sende <strong>START</strong> an ' + _b.phoneDisplay,
+        cta_step2: 'Antworte <strong>' + _b.consent + '</strong> auf die Best\u00e4tigungs-SMS',
         cta_step3: 'Stell deine erste Frage!',
         about_title: 'ChatGPT per SMS nutzen \u2014 so geht\'s in',
         about_title_2: 'Deutschland',
-        about_p1: 'Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber die Antworten sind oft endlos lang \u2014 und du brauchst ein Smartphone, Internet und einen Account. <strong>FragSMS</strong> ist anders: kurze, pr\u00e4zise Antworten per SMS oder WhatsApp \u2014 KI, die deine Zeit respektiert.',
-        about_p2: 'Ob du Fragen zur Allgemeinbildung hast, einen Text \u00fcbersetzen lassen m\u00f6chtest oder Kochrezepte brauchst \u2014 FragSMS antwortet in Sekunden, komplett auf Deutsch. Keine seitenlangen Texte, kein Scrollen. Nur das, was du wissen willst.',
-        about_p3: '<strong>Ideal f\u00fcr Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong>Perfekt f\u00fcr l\u00e4ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf\u00fcgbar ist. <strong style="color:var(--color-primary)">Automatische PII-Erkennung</strong> blockiert pers\u00f6nliche Daten, bevor sie die KI erreichen. Und <strong style="color:var(--color-primary)">100% DSGVO-konform</strong>.',
+        about_p1: 'Millionen Menschen in Deutschland nutzen bereits KI-Assistenten wie ChatGPT. Aber die Antworten sind oft endlos lang \u2014 und du brauchst ein Smartphone, Internet und einen Account. <strong>' + _b.name + '</strong> ist anders: kurze, pr\u00e4zise Antworten per SMS oder WhatsApp \u2014 KI, die deine Zeit respektiert.',
+        about_p2: 'Ob du Fragen zur Allgemeinbildung hast, einen Text \u00fcbersetzen lassen m\u00f6chtest oder Kochrezepte brauchst \u2014 ' + _b.name + ' antwortet in Sekunden, komplett auf Deutsch. Keine seitenlangen Texte, kein Scrollen. Nur das, was du wissen willst.',
+        about_p3: '<strong>Ideal f\u00fcr Senioren</strong>, die mit Smartphone-Apps nicht vertraut sind. <strong>Perfekt f\u00fcr l\u00e4ndliche Gebiete</strong>, in denen mobiles Internet schlecht verf\u00fcgbar ist. <strong style="color:var(--color-primary)">Automatische PII-Erkennung</strong> blockiert pers\u00f6nliche Daten, bevor sie die KI erreichen. Und <strong style="color:var(--color-primary)">100% ' + _b.privacyLabel + '</strong>.',
         blog_title_1: 'Ratgeber &amp;',
         blog_title_2: 'Wissen',
         blog_subtitle: 'Alles \u00fcber KI per SMS, Datenschutz und digitale Teilhabe in Deutschland.',
@@ -2014,11 +2031,11 @@ const breadcrumbJsonLd = {
         blog_tag_2: 'Vergleich',
         blog_tag_3: 'Datenschutz',
         blog_card1_title: 'KI ohne Internet nutzen \u2014 so geht\'s per SMS',
-        blog_card1_desc: 'Kein WLAN, kein Datenvolumen, kein Problem. Wie FragSMS k\u00fcnstliche Intelligenz f\u00fcr jeden zug\u00e4nglich macht.',
+        blog_card1_desc: 'Kein WLAN, kein Datenvolumen, kein Problem. Wie ' + _b.name + ' k\u00fcnstliche Intelligenz f\u00fcr jeden zug\u00e4nglich macht.',
         blog_card2_title: 'ChatGPT Alternative ohne App: KI per SMS',
-        blog_card2_desc: 'Kein Konto, keine App, kein Login \u2014 wie FragSMS im direkten Vergleich zu ChatGPT abschneidet.',
-        blog_card3_title: 'DSGVO-konformer KI-Assistent: Warum Datenschutz bei KI wichtig ist',
-        blog_card3_desc: 'Was passiert mit deinen KI-Anfragen? Und was macht einen wirklich DSGVO-konformen KI-Assistenten aus?',
+        blog_card2_desc: 'Kein Konto, keine App, kein Login \u2014 wie ' + _b.name + ' im direkten Vergleich zu ChatGPT abschneidet.',
+        blog_card3_title: _b.privacyLabel + 'er KI-Assistent: Warum Datenschutz bei KI wichtig ist',
+        blog_card3_desc: 'Was passiert mit deinen KI-Anfragen? Und was macht einen wirklich ' + _b.privacyLabel.toLowerCase() + 'en KI-Assistenten aus?',
         blog_read_more: 'Artikel lesen \u2192',
         sms_label_6: 'Datenschutz', sms_q_6: 'Meine IBAN ist DE89 3704 0044 0532 0130 00', sms_a_6: '\u26a0\ufe0f Deine Nachricht enth\u00e4lt pers\u00f6nliche Daten (IBAN). Aus Datenschutzgr\u00fcnden wurde sie nicht an die KI weitergeleitet. Bitte sende deine Frage ohne pers\u00f6nliche Daten.',
         pv_pii_title: 'PII-Erkennung', pv_pii_sub: '7 Muster automatisch erkannt', pv_ok_pii: '\u2713 Aktiv',
@@ -2034,7 +2051,7 @@ const breadcrumbJsonLd = {
         cmp_app_title: 'App / Web KI',
         cmp_ip: 'IP-Adresse', cmp_fingerprint: 'Browser-Fingerprint', cmp_cookies: 'Cookies & Tracker', cmp_device: 'Ger\u00e4te-ID', cmp_gps: 'GPS-Standort', cmp_login: 'Login-Identit\u00e4t', cmp_pixel: 'Tracking-Pixel',
         cmp_app_verdict: 'Umfassendes Profiling m\u00f6glich',
-        cmp_sms_title: 'SMS KI (FragSMS)',
+        cmp_sms_title: 'SMS KI (' + _b.name + ')',
         cmp_no_ip: 'Keine IP-Adresse', cmp_no_fingerprint: 'Kein Browser-Fingerprint', cmp_no_cookies: 'Keine Cookies', cmp_no_device: 'Keine Ger\u00e4te-ID', cmp_no_gps: 'Kein GPS-Tracking', cmp_no_login: 'Kein Login n\u00f6tig', cmp_no_pixel: 'Keine Tracking-Pixel',
         cmp_sms_verdict: 'Nur Nummer \u2192 SHA-256 Hash'
       },
@@ -2066,22 +2083,22 @@ const breadcrumbJsonLd = {
         credits_desc: 'No subscription? Buy SMS credits individually. Never expires.',
         credits_per_sms_10: '\u20ac0.20 / SMS',
         credits_per_sms_50: '\u20ac0.16 / SMS',
-        credits_how: 'Send KAUFEN via SMS or WhatsApp to purchase.',
+        credits_how: 'Send ' + _b.buyKeyword + ' via SMS or WhatsApp to purchase.',
         signup_privacy: 'I agree to the <a href="/nutzungsbedingungen/" target="_blank">Terms of Service</a> and <a href="/datenschutz/" target="_blank">Privacy Policy</a>. <span class="required-star">*</span>',
         signup_age: 'I am at least 16 years old. <span class="required-star">*</span>',
-        signup_success: '<strong>SMS sent!</strong> Check your phone and reply with <strong>JA</strong> to <a href="sms:+4915908138432?body=JA" class="sms-link"><strong>+49 1590 8138432</strong></a> to activate your account.',
-        signup_already_active: 'You are already signed up! Just send an SMS to <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a>.',
+        signup_success: '<strong>SMS sent!</strong> Check your phone and reply with <strong>' + _b.consent + '</strong> to <a href="' + _b.smsLink + '?body=' + _b.consent + '" class="sms-link"><strong>' + _b.phoneDisplay + '</strong></a> to activate your account.',
+        signup_already_active: 'You are already signed up! Just send an SMS to <a href="' + _b.smsLink + '?body=START" class="sms-link"><strong>' + _b.phoneDisplay + '</strong></a>.',
         signup_error: 'An error occurred. Please try again.',
         signup_checkbox_required: 'Please agree to the Terms of Service and Privacy Policy.',
-        phone_error_invalid: 'Please enter a valid German mobile number',
-        phone_error_landline: 'FragSMS only works with mobile numbers (015x, 016x, 017x)',
+        phone_error_invalid: 'Please enter a valid mobile number',
+        phone_error_landline: _b.name + ' only works with mobile numbers',
         stat1: 'GDPR Compliant',
-        stat2: 'EU Servers',
+        stat2: _b.serverLabel + ' Servers',
         stat3: 'Start Free',
         stat4: 'Any phone',
-        sb1_pill: 'Why FragSMS',
+        sb1_pill: 'Why ' + _b.name,
         sb1_title: 'Just ask.\nVia SMS.',
-        sb1_desc: 'Other AI assistants deliver pages of text. FragSMS answers in a few sentences \u2014 precise, to the point, in German. Recipes, translations, facts, travel tips \u2014 all in seconds.',
+        sb1_desc: 'Other AI assistants deliver pages of text. ' + _b.name + ' answers in a few sentences \u2014 precise, to the point. Recipes, translations, facts, travel tips \u2014 all in seconds.',
         sb1_l1: 'No smartphone required',
         sb1_l2: 'No internet or WiFi',
         sb1_l3: 'Reply in under 5 seconds',
@@ -2092,12 +2109,12 @@ const breadcrumbJsonLd = {
         sb2_cta: 'Start for free \u2192',
         sb3_pill: 'Privacy First',
         sb3_title: 'We protect<br>your identity.',
-        sb3_desc: 'FragSMS automatically detects personal data like phone numbers, email addresses and IBANs \u2014 and blocks the message <strong>before</strong> it reaches the AI. No cost, no risk. Plus: EU servers, SHA-256 encryption, no tracking.',
+        sb3_desc: _b.name + ' automatically detects personal data like phone numbers, email addresses and IBANs \u2014 and blocks the message <strong>before</strong> it reaches the AI. No cost, no risk. Plus: ' + _b.serverLabel + ' servers, SHA-256 encryption, no tracking.',
         sb3_l1: 'Automatic PII detection & blocking',
-        sb3_l2: '100% EU data storage, GDPR compliant',
+        sb3_l2: '100% ' + _b.serverLabel + ' data storage, GDPR compliant',
         sb3_l3: 'Send STOP = all data instantly deleted',
-        pv_eu_title: 'EU Servers & GDPR',
-        pv_eu_sub: 'All data stays in Europe',
+        pv_eu_title: _b.serverLabel + ' Servers & GDPR',
+        pv_eu_sub: 'All data stays in ' + (_b.serverLabel === 'EU' ? 'Europe' : _b.serverLabel),
         pv_ok: '\u2713 Active', pv_ok2: '\u2713 Active', pv_ok3: '\u2713 Active', pv_ok4: '\u2713 Active',
         pv_enc_title: 'SHA-256 Encryption',
         pv_enc_sub: 'Number never in plain text',
@@ -2106,17 +2123,17 @@ const breadcrumbJsonLd = {
         pv_pay_title: 'Secure Payment',
         pv_pay_sub: 'Stripe \u00b7 SEPA \u00b7 PayPal',
         step1_title: 'Send START',
-        step1_desc: 'Send START via SMS to <a href="sms:+4915908138432?body=START" class="sms-link"><strong>+49 1590 8138432</strong></a> and you\'re in immediately.',
+        step1_desc: 'Send START via SMS to <a href="' + _b.smsLink + '?body=START" class="sms-link"><strong>' + _b.phoneDisplay + '</strong></a> and you\'re in immediately.',
         step2_title: 'Ask anything',
-        step2_desc: 'Type your question. The AI replies in German \u2014 in seconds.',
+        step2_desc: 'Type your question. The AI replies in seconds.',
         step3_title: 'STOP = Everything deleted',
         step3_desc: 'Send STOP \u2014 instantly unsubscribed, all data permanently deleted.',
         sb2_conv_label: 'How it works',
-        sb2_conv_welcome: 'Welcome to FragSMS! You are chatting with an AI, not a human.<br><br>Reply YES = Terms + Privacy accepted.<br><br>Unsubscribe: send STOP.',
+        sb2_conv_welcome: 'Welcome to ' + _b.name + '! You are chatting with an AI, not a human.<br><br>Reply ' + _b.consent + ' = Terms + Privacy accepted.<br><br>Unsubscribe: send STOP.',
         sb2_conv_confirm: 'You\'re in! 500 WhatsApp messages/month free. Ask your first question now!',
         sb2_conv_question: 'What is the capital of Australia?',
         sb2_conv_answer: 'The capital of Australia is Canberra \u2014 not Sydney, as many think!',
-        sb2_stop_reply: 'Unsubscribed. Your chat history has been deleted. No more SMS. Return anytime with START. fragsms.de',
+        sb2_stop_reply: 'Unsubscribed. Your chat history has been deleted. No more SMS. Return anytime with START. ' + _b.domain,
         sms_label_0: 'Cooking & Recipes', sms_q_0: 'What can I cook with potatoes, onions and eggs?', sms_a_0: 'Spanish Tortilla! Thinly slice 4 potatoes, fry in oil 15 min. Add 1 onion. Beat 6 eggs, season, add to pan. Low heat 8 min then flip. Done in 30 min!',
         sms_label_1: 'Everyday Help', sms_q_1: 'How do I say: I\'d like to reschedule my doctor\'s appointment?', sms_a_1: 'I would like to reschedule my doctor\'s appointment. More polite: Could I please reschedule my appointment?',
         sms_label_2: 'Knowledge & Facts', sms_q_2: 'How high is the Zugspitze?', sms_a_2: 'The Zugspitze is 2,962 m high \u2014 Germany\'s tallest mountain. Reachable by cable car in winter.',
@@ -2132,51 +2149,51 @@ const breadcrumbJsonLd = {
         btn_upgrade: 'Upgrade now', badge_popular: 'Popular',
         pricing_footnote: 'All prices are final. As per \u00a7 19 para. 1 UStG, no VAT is charged.',
         guarantee_1: '14-Day Right of Withdrawal', guarantee_2: 'No Subscription Trap', guarantee_3: 'Cancel instantly via SMS',
-        social_title_1: 'How we envision', social_title_2: 'FragSMS in action', social_subtitle: 'Typical scenarios FragSMS is made for.',
+        social_title_1: 'How we envision', social_title_2: _b.name + ' in action', social_subtitle: 'Typical scenarios ' + _b.name + ' is made for.',
         review1_text: '\u201cFinally I can use AI too! My grandson showed me how to send a text \u2014 that\'s all I need. I ask for recipes and health tips. Wonderfully simple!\u201d',
         review1_name: 'Scenario: Senior',
         review1_role: 'Retiree, 72 \u2014 no smartphone',
-        review2_text: '\u201cWhere I live there\'s barely any internet. FragSMS is perfect \u2014 I ask about material calculations on the go. Works everywhere I have signal.\u201d',
+        review2_text: '\u201cWhere I live there\'s barely any internet. ' + _b.name + ' is perfect \u2014 I ask about material calculations on the go. Works everywhere I have signal.\u201d',
         review2_name: 'Scenario: Craftsman',
         review2_role: 'On the construction site \u2014 no WiFi',
         review3_text: '\u201cI use it when my data plan runs out. Quick fact-checks, translations, math help \u2014 all via SMS. That it\'s GDPR compliant is a real plus.\u201d',
         review3_name: 'Scenario: Student',
         review3_role: 'Data plan empty \u2014 SMS still works',
-        uc_title_1: 'When is', uc_title_2: 'FragSMS perfect?',
-        uc_subtitle: 'Real situations where FragSMS makes the difference.',
+        uc_title_1: 'When is', uc_title_2: _b.name + ' perfect?',
+        uc_subtitle: 'Real situations where ' + _b.name + ' makes the difference.',
         uc1_title: 'Vacation without internet', uc1_desc: 'Abroad without roaming or WiFi? Via SMS you can ask for restaurants, translations or emergency info \u2014 no data connection needed.',
-        uc2_title: 'No smartphone', uc2_desc: 'Millions of people in Germany don\'t use a smartphone. With FragSMS, any phone that can send SMS can use AI \u2014 even a Nokia 3310.',
+        uc2_title: 'No smartphone', uc2_desc: 'Millions of people don\'t use a smartphone. With ' + _b.name + ', any phone that can send SMS can use AI \u2014 even a Nokia 3310.',
         uc3_title: 'In rural areas', uc3_desc: 'In rural areas there is often no stable internet. SMS works everywhere there is mobile reception \u2014 even without 4G or 5G.',
         uc4_title: 'Data plan used up', uc4_desc: 'Monthly data plan empty? SMS still works. Fact-checks, translations and quick answers \u2014 without spending a cent on data.',
-        uc5_title: 'Seniors & tech beginners', uc5_desc: 'No app to install, no password to remember, no account to create. If you can type a text, you can use FragSMS \u2014 from the very first message.',
+        uc5_title: 'Seniors & tech beginners', uc5_desc: 'No app to install, no password to remember, no account to create. If you can type a text, you can use ' + _b.name + ' \u2014 from the very first message.',
         uc6_title: 'On the construction site', uc6_desc: 'Need a quick material calculation or conversion? Via SMS you get instant answers \u2014 even with gloves on and no WiFi.',
         faq_title_1: 'Frequently asked questions about',
-        faq1_q: 'Do I need a smartphone for FragSMS?', faq1_a: 'No. FragSMS works with any phone that can send SMS \u2014 including older feature phones.',
+        faq1_q: 'Do I need a smartphone for ' + _b.name + '?', faq1_a: 'No. ' + _b.name + ' works with any phone that can send SMS \u2014 including older feature phones.',
         faq2_q: 'Do I need internet or WiFi?', faq2_a: 'No. SMS works via the mobile network \u2014 no WiFi, no data plan, no app needed.',
-        faq3_q: 'Can I use ChatGPT via SMS?', faq3_a: 'With FragSMS you can use an AI assistant via SMS \u2014 similar to ChatGPT, but without an app or internet.',
-        faq4_q: 'How do I cancel my subscription?', faq4_a: 'Send STOP via SMS or use the "Cancel now" button at fragsms.de/upgrade. Effective immediately.',
-        faq5_q: 'Is my data secure?', faq5_a: 'Yes. FragSMS automatically detects 7 types of personal data (phone numbers, emails, IBANs etc.) and blocks such messages before they reach the AI. All data is stored exclusively in the EU. Fully GDPR compliant.',
-        faq6_q: 'How much does FragSMS cost?', faq6_a: 'FragSMS Free includes 500 WhatsApp messages/month at no cost. Plus \u20ac4.99/month (1,000 WhatsApp + 30 SMS included), Flat \u20ac14.99/month (unlimited WhatsApp + 150 SMS included). SMS credits also available separately (10 SMS from \u20ac1.99). All prices are final.',
+        faq3_q: 'Can I use ChatGPT via SMS?', faq3_a: 'With ' + _b.name + ' you can use an AI assistant via SMS \u2014 similar to ChatGPT, but without an app or internet.',
+        faq4_q: 'How do I cancel my subscription?', faq4_a: 'Send STOP via SMS or use the "Cancel now" button at ' + _b.domain + '/upgrade. Effective immediately.',
+        faq5_q: 'Is my data secure?', faq5_a: 'Yes. ' + _b.name + ' automatically detects 7 types of personal data (phone numbers, emails, IBANs etc.) and blocks such messages before they reach the AI. All data is stored exclusively on ' + _b.serverLabel + ' servers. Fully GDPR compliant.',
+        faq6_q: 'How much does ' + _b.name + ' cost?', faq6_a: _b.name + ' Free includes 500 WhatsApp messages/month at no cost. Plus \u20ac4.99/month (1,000 WhatsApp + 30 SMS included), Flat \u20ac14.99/month (unlimited WhatsApp + 150 SMS included). SMS credits also available separately (10 SMS from \u20ac1.99). All prices are final.',
         cta_title: 'Ready to get started?',
-        cta_sub: '3 steps: send START, reply YES, start asking.',
-        cta_step1: 'Send <strong>START</strong> to +49 1590 8138432',
-        cta_step2: 'Reply <strong>YES</strong> to the confirmation SMS',
+        cta_sub: '3 steps: send START, reply ' + _b.consent + ', start asking.',
+        cta_step1: 'Send <strong>START</strong> to ' + _b.phoneDisplay,
+        cta_step2: 'Reply <strong>' + _b.consent + '</strong> to the confirmation SMS',
         cta_step3: 'Ask your first question!',
         about_title: 'Use ChatGPT via SMS \u2014 here\'s how in',
         about_title_2: 'Germany',
-        about_p1: 'Millions of people in Germany already use AI assistants like ChatGPT. But the answers are often endlessly long \u2014 and you need a smartphone, internet, and an account. <strong>FragSMS</strong> is different: short, precise answers via SMS or WhatsApp \u2014 AI that respects your time.',
-        about_p2: 'Whether you have questions, need translations, or want cooking recipes \u2014 FragSMS replies in seconds, entirely in German. No pages of text, no scrolling. Just what you need to know.',
+        about_p1: 'Millions of people already use AI assistants like ChatGPT. But the answers are often endlessly long \u2014 and you need a smartphone, internet, and an account. <strong>' + _b.name + '</strong> is different: short, precise answers via SMS or WhatsApp \u2014 AI that respects your time.',
+        about_p2: 'Whether you have questions, need translations, or want cooking recipes \u2014 ' + _b.name + ' replies in seconds. No pages of text, no scrolling. Just what you need to know.',
         about_p3: '<strong>Ideal for seniors</strong> unfamiliar with smartphone apps. <strong>Perfect for rural areas</strong> with poor mobile internet. <strong style="color:var(--color-primary)">Automatic PII detection</strong> blocks personal data before it reaches the AI. And <strong style="color:var(--color-primary)">100% GDPR compliant</strong>.',
         blog_title_1: 'Guides &amp;',
         blog_title_2: 'Knowledge',
-        blog_subtitle: 'Everything about AI via SMS, privacy and digital inclusion in Germany.',
+        blog_subtitle: 'Everything about AI via SMS, privacy and digital inclusion.',
         blog_tag_1: 'Guide',
         blog_tag_2: 'Comparison',
         blog_tag_3: 'Privacy',
         blog_card1_title: 'Using AI without internet \u2014 how it works via SMS',
-        blog_card1_desc: 'No WiFi, no data plan, no problem. How FragSMS makes artificial intelligence accessible to everyone.',
+        blog_card1_desc: 'No WiFi, no data plan, no problem. How ' + _b.name + ' makes artificial intelligence accessible to everyone.',
         blog_card2_title: 'ChatGPT alternative without app: AI via SMS',
-        blog_card2_desc: 'No account, no app, no login \u2014 how FragSMS compares directly to ChatGPT.',
+        blog_card2_desc: 'No account, no app, no login \u2014 how ' + _b.name + ' compares directly to ChatGPT.',
         blog_card3_title: 'GDPR-compliant AI assistant: Why privacy in AI matters',
         blog_card3_desc: 'What happens to your AI queries? And what makes a truly GDPR-compliant AI assistant?',
         blog_read_more: 'Read article \u2192',
@@ -2194,7 +2211,7 @@ const breadcrumbJsonLd = {
         cmp_app_title: 'App / Web AI',
         cmp_ip: 'IP Address', cmp_fingerprint: 'Browser Fingerprint', cmp_cookies: 'Cookies & Trackers', cmp_device: 'Device ID', cmp_gps: 'GPS Location', cmp_login: 'Login Identity', cmp_pixel: 'Tracking Pixels',
         cmp_app_verdict: 'Comprehensive profiling possible',
-        cmp_sms_title: 'SMS AI (FragSMS)',
+        cmp_sms_title: 'SMS AI (' + _b.name + ')',
         cmp_no_ip: 'No IP address', cmp_no_fingerprint: 'No browser fingerprint', cmp_no_cookies: 'No cookies', cmp_no_device: 'No device ID', cmp_no_gps: 'No GPS tracking', cmp_no_login: 'No login required', cmp_no_pixel: 'No tracking pixels',
         cmp_sms_verdict: 'Only number \u2192 SHA-256 hash'
       }

@@ -1,4 +1,6 @@
 ---
+import { brand } from '../config/brand.js';
+
 export interface Props {
   title: string;
   description?: string;
@@ -9,10 +11,22 @@ export interface Props {
   legalPage?: boolean;
 }
 
+const defaultDesc = brand.country === 'DE'
+  ? brand.name + ' \u2014 Dein KI-Assistent per SMS in Deutschland. Kein App, kein Internet, kein Login. Frag einfach per SMS und erhalte sofort KI-Antworten. ' + brand.legal.privacyLabel + ', ' + brand.legal.serverLabel + '-Daten.'
+  : brand.country === 'BD'
+  ? brand.name + ' \u2014 SMS-e AI assistant. App, internet ba login lagbe na. Proshno korle shothik uttor paben.'
+  : brand.name + ' \u2014 Your AI assistant via SMS. No app, no internet, no login. Just text and get instant AI answers.';
+
+const defaultKeywords = brand.country === 'DE'
+  ? 'KI per SMS, ChatGPT per SMS, KI Assistent Deutschland, SMS KI, AI SMS ohne App, DSGVO KI, ' + brand.name
+  : brand.country === 'BD'
+  ? 'AI SMS Bangladesh, AI assistant SMS, HelloKobi, SMS AI no internet, AI without app'
+  : 'AI via SMS, ChatGPT via SMS, AI assistant USA, SMS AI, AI without app, ' + brand.name;
+
 const {
   title,
-  description = 'FragSMS — Dein KI-Assistent per SMS in Deutschland. Kein App, kein Internet, kein Login. Frag einfach per SMS und erhalte sofort KI-Antworten. DSGVO-konform, EU-Daten.',
-  keywords = 'KI per SMS, ChatGPT per SMS, KI Assistent Deutschland, SMS KI, AI SMS ohne App, DSGVO KI, FragSMS',
+  description = defaultDesc,
+  keywords = defaultKeywords,
   ogImage = '/og-image.svg',
   noindex = false,
   jsonLd,
@@ -21,16 +35,17 @@ const {
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
 const ogImageUrl = new URL(ogImage, Astro.site).href;
+const B = brand;
 ---
 
 <!doctype html>
-<html lang="de" dir="ltr">
+<html lang={B.lang.default} dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
-    <meta name="author" content="FragSMS" />
+    <meta name="author" content={B.name} />
     <meta name="theme-color" content="#0a0a0a" id="meta-theme-color" />
 
     <!-- Favicon -->
@@ -43,50 +58,50 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     }
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap.xml" />
-    <link rel="alternate" hreflang="de" href={canonicalUrl} />
+    <link rel="alternate" hreflang={B.lang.default} href={canonicalUrl} />
     <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
     <title>{title}</title>
 
     <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://stripe.fragsms.de" crossorigin />
+    <link rel="preconnect" href={'https://' + B.urls.stripeDomain} crossorigin />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:locale" content="de_DE" />
-    <meta property="og:site_name" content="FragSMS" />
+    <meta property="og:locale" content={B.schema.ogLocale} />
+    <meta property="og:site_name" content={B.name} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="FragSMS — KI-Assistent per SMS in Deutschland" />
+    <meta property="og:image:alt" content={B.name + ' \u2014 AI assistant via SMS'} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
-    <meta name="twitter:image:alt" content="FragSMS — KI-Assistent per SMS in Deutschland" />
+    <meta name="twitter:image:alt" content={B.name + ' \u2014 AI assistant via SMS'} />
 
     <!-- Structured Data: Organization (all pages) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "FragSMS",
-      "url": "https://fragsms.de",
-      "logo": "https://fragsms.de/logo.svg",
-      "description": "KI-Assistent per SMS in Deutschland. Kein App, kein Internet. DSGVO-konform.",
+      "name": B.name,
+      "url": B.urls.site,
+      "logo": B.urls.site + "/logo.svg",
+      "description": "AI assistant via SMS. No app, no internet. " + B.legal.privacyLabel + ".",
       "foundingDate": "2026",
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "kontakt@fragsms.de",
+        "email": B.contactEmail,
         "contactType": "customer service",
-        "availableLanguage": "German"
+        "availableLanguage": B.schema.lang
       },
       "areaServed": {
         "@type": "Country",
-        "name": "Germany"
+        "name": B.schema.countryName
       }
     })} />
 
@@ -94,10 +109,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "FragSMS",
-      "url": "https://fragsms.de",
-      "inLanguage": "de",
-      "description": "KI-Assistent per SMS — Frag einfach."
+      "name": B.name,
+      "url": B.urls.site,
+      "inLanguage": B.lang.default,
+      "description": B.name + ' \u2014 ' + B.tagline
     })} />
 
     <!-- Page-specific structured data -->
@@ -106,9 +121,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     ))}
 
     <!-- Theme detection: apply before paint to prevent flash -->
-    <script is:inline>
+    <script is:inline define:vars={{ brandStoragePrefix: B.name.toLowerCase() }}>
       (function(){
-        var t = localStorage.getItem('fragsms-theme');
+        var t = localStorage.getItem(brandStoragePrefix + '-theme');
         if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', t);
         var m = document.getElementById('meta-theme-color');
@@ -576,12 +591,12 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
   </head>
   <body>
     <!-- Skip to content link for accessibility -->
-    <a href="#main-content" class="skip-to-content">Zum Inhalt springen</a>
+    <a href="#main-content" class="skip-to-content" data-i18n="skip_to_content">Zum Inhalt springen</a>
 
     <!-- Header -->
     <header style="border-bottom: 1px solid var(--color-border); padding: 1.1rem 0; backdrop-filter: blur(12px); background: var(--color-header-bg); position: sticky; top: 0; z-index: 100;">
       <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;" aria-label="FragSMS Startseite">
+        <a href="/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;" aria-label={B.name + ' Startseite'}>
           <!-- Speech bubble icon -->
           <svg width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
             <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--color-bg)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
@@ -593,27 +608,29 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
             <circle cx="21" cy="28" r="1.5" fill="var(--color-primary-dark)"/>
           </svg>
           <span style="font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em;">
-            <span style="color: var(--color-text);">Frag</span><span style="color: var(--color-primary);">SMS</span>
+            <span style="color: var(--color-text);">{B.logo.part1}</span><span style="color: var(--color-primary);">{B.logo.part2}</span>
           </span>
         </a>
         <nav aria-label="Hauptnavigation" class="header-nav" style="display: flex; align-items: center; gap: 1.75rem; font-size: 0.9rem;">
           <a href="/upgrade" class="nav-link-desktop" data-i18n="nav_upgrade">Upgrade</a>
           <a href="/blog/" class="nav-link-desktop">Blog</a>
-          <a href="/impressum" class="nav-link-desktop">Impressum</a>
-          <a href="/datenschutz" class="nav-link-desktop" data-i18n="nav_datenschutz">Datenschutz</a>
+          {B.legal.links.slice(0, 2).map(link => (
+            <a href={link.href} class="nav-link-desktop">{link.label[B.lang.default]}</a>
+          ))}
           <!-- Theme toggle -->
           <button class="theme-toggle" id="theme-toggle" aria-label="Theme wechseln" title="Dark/Light Mode">
             <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="5" fill="#fbbf24"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="#818cf8"/></svg>
           </button>
           {!legalPage && (
-            <div class="lang-switcher" aria-label="Sprache / Language">
-              <button class="lang-btn active" data-lang="de" aria-label="Deutsch" title="Deutsch"><svg viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg></button>
-              <button class="lang-btn" data-lang="en" aria-label="English" title="English"><svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg></button>
+            <div class="lang-switcher" aria-label="Language">
+              {B.lang.flags.map((f, i) => (
+                <button class={'lang-btn' + (i === 0 ? ' active' : '')} data-lang={f.lang} aria-label={f.ariaLabel} title={f.title} data-flag={f.flag}></button>
+              ))}
             </div>
           )}
           <!-- Hamburger button — mobile only -->
-          <button class="hamburger-btn" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false">
+          <button class="hamburger-btn" id="hamburger-btn" aria-label={B.lang.default === 'de' ? 'Menu oeffnen' : B.lang.default === 'bn' ? 'Menu khulun' : 'Open menu'} aria-expanded="false">
             <span class="hamburger-inner">
               <span class="hamburger-bar"></span>
               <span class="hamburger-bar"></span>
@@ -626,8 +643,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
         <a href="/upgrade" data-i18n="nav_upgrade">Upgrade</a>
         <a href="/blog/">Blog</a>
-        <a href="/impressum">Impressum</a>
-        <a href="/datenschutz" data-i18n="nav_datenschutz">Datenschutz</a>
+        {B.legal.links.slice(0, 2).map(link => (
+          <a href={link.href}>{link.label[B.lang.default]}</a>
+        ))}
       </nav>
     </header>
 
@@ -640,7 +658,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <footer style="border-top: 1px solid var(--color-border); padding: 3rem 0; margin-top: 0; background: var(--color-bg-alt);">
       <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted);">
         <!-- Footer logo -->
-        <a href="/" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; text-decoration: none;" aria-label="FragSMS">
+        <a href="/" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; text-decoration: none;" aria-label={B.name}>
           <svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--color-bg)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
             <rect x="6" y="5" width="20" height="14" rx="2" fill="var(--color-primary)"/>
@@ -651,19 +669,18 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
             <circle cx="21" cy="28" r="1.5" fill="var(--color-primary-dark)"/>
           </svg>
           <span style="font-size: 1rem; font-weight: 800; letter-spacing: -0.02em;">
-            <span style="color: var(--color-text);">Frag</span><span style="color: var(--color-primary);">SMS</span>
+            <span style="color: var(--color-text);">{B.logo.part1}</span><span style="color: var(--color-primary);">{B.logo.part2}</span>
           </span>
         </a>
         <nav aria-label="Footer-Navigation" style="display: flex; justify-content: center; gap: 1.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
           <a href="/upgrade" style="color: var(--color-text-muted);" data-i18n="nav_upgrade">Upgrade</a>
           <a href="/blog/" style="color: var(--color-text-muted);">Blog</a>
-          <a href="/impressum" style="color: var(--color-text-muted);">Impressum</a>
-          <a href="/datenschutz" style="color: var(--color-text-muted);" data-i18n="nav_datenschutz">Datenschutz</a>
-          <a href="/nutzungsbedingungen" style="color: var(--color-text-muted);" data-i18n="footer_nutzungsbedingungen">Nutzungsbedingungen</a>
-          <a href="/widerrufsbelehrung" style="color: var(--color-text-muted);" data-i18n="footer_widerrufsbelehrung">Widerrufsbelehrung</a>
+          {B.legal.links.map(link => (
+            <a href={link.href} style="color: var(--color-text-muted);">{link.label[B.lang.default]}</a>
+          ))}
         </nav>
-        <p style="color: var(--color-footer-dim);">&copy; {new Date().getFullYear()} FragSMS. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></p>
-        <p style="margin-top: 0.25rem; color: var(--color-footer-dimmer);" data-i18n="footer_tax">Gem&auml;&szlig; &sect; 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.</p>
+        <p style="color: var(--color-footer-dim);">&copy; {new Date().getFullYear()} {B.name}. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></p>
+        <p style="margin-top: 0.25rem; color: var(--color-footer-dimmer);" data-i18n="footer_tax">{B.legal.footerTax[B.lang.default]}</p>
       </div>
     </footer>
 
@@ -713,32 +730,56 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </script>
 
     <!-- Language switcher logic -->
-    <script>
+    <script define:vars={{ brandConfig: { name: B.name, defaultLang: B.lang.default, supported: B.lang.supported, flags: B.lang.flags, legalLinks: B.legal.links, footerTax: B.legal.footerTax } }}>
       (function() {
-        var LANG_KEY = 'fragsms-lang';
+        var LANG_KEY = brandConfig.name.toLowerCase() + '-lang';
+        var defaultLang = brandConfig.defaultLang;
 
-        // Shared translations for header/footer (page-specific translations are in each page's script)
+        // Flag SVG definitions — keyed by country code
+        var FLAG_SVGS = {
+          de: '<svg viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>',
+          gb: '<svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>',
+          bd: '<svg viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="3" fill="#006a4e"/><circle cx="2.25" cy="1.5" r="0.9" fill="#f42a41"/></svg>',
+          us: '<svg viewBox="0 0 190 100" xmlns="http://www.w3.org/2000/svg"><rect width="190" height="100" fill="#B22234"/><g fill="#fff"><rect y="7.69" width="190" height="7.69"/><rect y="23.08" width="190" height="7.69"/><rect y="38.46" width="190" height="7.69"/><rect y="53.85" width="190" height="7.69"/><rect y="69.23" width="190" height="7.69"/><rect y="84.62" width="190" height="7.69"/></g><rect width="76" height="53.85" fill="#3C3B6E"/></svg>',
+          es: '<svg viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="0.75" fill="#AA151B"/><rect width="5" height="1.5" y="0.75" fill="#F1BF00"/><rect width="5" height="0.75" y="2.25" fill="#AA151B"/></svg>'
+        };
+
+        // Inject flag SVGs into lang buttons
+        document.querySelectorAll('.lang-btn[data-flag]').forEach(function(btn) {
+          var flag = btn.getAttribute('data-flag');
+          if (FLAG_SVGS[flag]) btn.innerHTML = FLAG_SVGS[flag];
+        });
+
+        // Shared translations for header/footer
         var baseTranslations = {
           de: {
             nav_upgrade: 'Upgrade',
-            nav_datenschutz: 'Datenschutz',
-            footer_nutzungsbedingungen: 'Nutzungsbedingungen',
-            footer_widerrufsbelehrung: 'Widerrufsbelehrung',
             footer_rights: 'Alle Rechte vorbehalten.',
-            footer_tax: 'Gem\u00e4\u00df \u00a7 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.'
+            footer_tax: brandConfig.footerTax.de || '',
+            skip_to_content: 'Zum Inhalt springen'
           },
           en: {
             nav_upgrade: 'Upgrade',
-            nav_datenschutz: 'Privacy Policy',
-            footer_nutzungsbedingungen: 'Terms of Service',
-            footer_widerrufsbelehrung: 'Cancellation Policy',
             footer_rights: 'All rights reserved.',
-            footer_tax: 'As per \u00a7 19 para. 1 UStG, no VAT is charged (small business regulation).'
+            footer_tax: brandConfig.footerTax.en || '',
+            skip_to_content: 'Skip to content'
+          },
+          bn: {
+            nav_upgrade: 'Upgrade',
+            footer_rights: '\u09b8\u09b0\u09cd\u09ac\u09b8\u09cd\u09ac\u09a4\u09cd\u09ac \u09b8\u0982\u09b0\u0995\u09cd\u09b7\u09bf\u09a4\u0964',
+            footer_tax: brandConfig.footerTax.bn || '',
+            skip_to_content: '\u0995\u09a8\u09cd\u099f\u09c7\u09a8\u09cd\u099f\u09c7 \u09af\u09be\u09a8'
+          },
+          es: {
+            nav_upgrade: 'Upgrade',
+            footer_rights: 'Todos los derechos reservados.',
+            footer_tax: brandConfig.footerTax.es || '',
+            skip_to_content: 'Ir al contenido'
           }
         };
 
         function getStoredLang() {
-          try { return localStorage.getItem(LANG_KEY) || 'de'; } catch(e) { return 'de'; }
+          try { return localStorage.getItem(LANG_KEY) || defaultLang; } catch(e) { return defaultLang; }
         }
 
         function setStoredLang(lang) {
@@ -748,9 +789,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         function applyLang(lang) {
           // Merge base translations with any page-level translations
           var pageTranslations = window.__fragTranslations || {};
-          var deStrings = Object.assign({}, baseTranslations.de, (pageTranslations.de || {}));
-          var enStrings = Object.assign({}, baseTranslations.en, (pageTranslations.en || {}));
-          var strings = lang === 'en' ? enStrings : deStrings;
+          var base = baseTranslations[lang] || baseTranslations.en || {};
+          var page = pageTranslations[lang] || {};
+          var strings = Object.assign({}, base, page);
 
           // Update all data-i18n elements
           document.querySelectorAll('[data-i18n]').forEach(function(el) {
@@ -774,7 +815,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
           });
 
           // Update html lang attribute
-          document.documentElement.lang = lang === 'en' ? 'en' : 'de';
+          document.documentElement.lang = lang;
         }
 
         // Initialize on load
@@ -803,9 +844,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </script>
 
     <!-- Theme toggle logic -->
-    <script>
+    <script is:inline define:vars={{ themeStorageKey: B.name.toLowerCase() + '-theme' }}>
       (function() {
-        var THEME_KEY = 'fragsms-theme';
+        var THEME_KEY = themeStorageKey;
 
         function getEffectiveTheme() {
           var stored = null;
@@ -815,19 +856,15 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
         }
 
         function applyTheme(theme) {
-          // Add transition class for smooth switch
           document.documentElement.classList.add('theme-transition');
           document.documentElement.setAttribute('data-theme', theme);
-          // Update meta theme-color
           var meta = document.querySelector('meta[name="theme-color"]');
           if (meta) meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#0a0a0a');
-          // Remove transition class after animation
           setTimeout(function() {
             document.documentElement.classList.remove('theme-transition');
           }, 350);
         }
 
-        // Toggle button
         var btn = document.getElementById('theme-toggle');
         if (btn) {
           btn.addEventListener('click', function() {
@@ -838,7 +875,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
           });
         }
 
-        // Listen for system theme changes (if no manual override stored)
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
           var stored = null;
           try { stored = localStorage.getItem(THEME_KEY); } catch(ex) {}
@@ -850,7 +886,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </script>
 
     <!-- Hamburger menu logic -->
-    <script>
+    <script is:inline define:vars={{ menuLabels: { open: B.lang.default === 'de' ? 'Menu oeffnen' : B.lang.default === 'bn' ? 'Menu khulun' : 'Open menu', close: B.lang.default === 'de' ? 'Menu schliessen' : B.lang.default === 'bn' ? 'Menu bondho korun' : 'Close menu' } }}>
       (function() {
         var hamburgerBtn = document.getElementById('hamburger-btn');
         var mobileNav = document.getElementById('mobile-nav');
@@ -862,26 +898,24 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
           mobileNav.classList.toggle('open');
           hamburgerBtn.classList.toggle('open');
           hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-          hamburgerBtn.setAttribute('aria-label', isOpen ? 'Menü öffnen' : 'Menü schließen');
+          hamburgerBtn.setAttribute('aria-label', isOpen ? menuLabels.open : menuLabels.close);
         });
 
-        // Close menu when clicking a nav link
         mobileNav.querySelectorAll('a').forEach(function(link) {
           link.addEventListener('click', function() {
             mobileNav.classList.remove('open');
             hamburgerBtn.classList.remove('open');
             hamburgerBtn.setAttribute('aria-expanded', 'false');
-            hamburgerBtn.setAttribute('aria-label', 'Menü öffnen');
+            hamburgerBtn.setAttribute('aria-label', menuLabels.open);
           });
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', function(e) {
           if (!mobileNav.contains(e.target) && !hamburgerBtn.contains(e.target)) {
             mobileNav.classList.remove('open');
             hamburgerBtn.classList.remove('open');
             hamburgerBtn.setAttribute('aria-expanded', 'false');
-            hamburgerBtn.setAttribute('aria-label', 'Menü öffnen');
+            hamburgerBtn.setAttribute('aria-label', menuLabels.open);
           }
         });
       })();
