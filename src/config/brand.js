@@ -37,6 +37,7 @@ const BRAND_AI_PROVIDER = env.PUBLIC_BRAND_AI_PROVIDER || 'gemini';
 const BRAND_SMS_WORKER_URL = env.PUBLIC_BRAND_SMS_WORKER_URL || ('https://sms.' + BRAND_DOMAIN);
 const BRAND_SIGNUP_URL     = BRAND_SMS_WORKER_URL + '/signup';
 const BRAND_STRIPE_DOMAIN  = env.PUBLIC_BRAND_STRIPE_DOMAIN  || ('stripe.' + BRAND_DOMAIN);
+const BRAND_CHAT_WORKER_URL = env.PUBLIC_BRAND_CHAT_WORKER_URL || ('https://chat.' + BRAND_DOMAIN);
 
 // ─── Consent keyword ─────────────────────────────────────────────
 // DE=JA, BD=YES (or haan), US=YES
@@ -250,6 +251,7 @@ export const brand = {
   urls: {
     site:          'https://' + BRAND_DOMAIN,
     smsWorker:     BRAND_SMS_WORKER_URL,
+    chatWorker:    BRAND_CHAT_WORKER_URL,
     signup:        BRAND_SIGNUP_URL,
     stripeDomain:  BRAND_STRIPE_DOMAIN,
   },

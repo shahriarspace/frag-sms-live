@@ -53,6 +53,59 @@ const pageDesc = B.country === 'DE'
 >
 
   <!-- ═══════════════════════════════════════════════
+       LAUNCH COUNTDOWN BANNER
+  ════════════════════════════════════════════════ -->
+  <div id="launch-banner" class="relative overflow-hidden" style="background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.02) 100%); border-bottom: 1px solid var(--color-primary-border);">
+    <div class="container max-w-[720px] py-5 px-4 text-center">
+      <div class="flex flex-col items-center gap-3">
+        <span class="inline-block px-3 py-1 rounded-pill text-[0.72rem] font-bold tracking-[0.06em] uppercase bg-th-primary-glow text-th-primary border border-th-primary-border" data-i18n="launch_badge">Bald verf&uuml;gbar</span>
+        <h2 class="text-[1.15rem] sm:text-[1.3rem] font-extrabold text-th-text tracking-tight" data-i18n="launch_title">Wir starten am <span class="text-gradient">1. Mai 2026</span></h2>
+
+        <!-- Countdown -->
+        <div class="flex gap-3 sm:gap-4 mt-1" id="countdown">
+          <div class="flex flex-col items-center min-w-[56px]">
+            <span class="text-[1.6rem] sm:text-[2rem] font-extrabold text-th-primary leading-none" id="cd-days">--</span>
+            <span class="text-[0.68rem] text-th-muted uppercase tracking-wider mt-0.5" data-i18n="cd_days">Tage</span>
+          </div>
+          <span class="text-[1.6rem] font-bold text-th-muted opacity-40 leading-none">:</span>
+          <div class="flex flex-col items-center min-w-[56px]">
+            <span class="text-[1.6rem] sm:text-[2rem] font-extrabold text-th-primary leading-none" id="cd-hours">--</span>
+            <span class="text-[0.68rem] text-th-muted uppercase tracking-wider mt-0.5" data-i18n="cd_hours">Stunden</span>
+          </div>
+          <span class="text-[1.6rem] font-bold text-th-muted opacity-40 leading-none">:</span>
+          <div class="flex flex-col items-center min-w-[56px]">
+            <span class="text-[1.6rem] sm:text-[2rem] font-extrabold text-th-primary leading-none" id="cd-mins">--</span>
+            <span class="text-[0.68rem] text-th-muted uppercase tracking-wider mt-0.5" data-i18n="cd_mins">Minuten</span>
+          </div>
+        </div>
+
+        <!-- Early signup form -->
+        <p class="text-[0.85rem] text-th-muted mt-2 max-w-[420px]" data-i18n="launch_desc">Trag dich ein und erfahre als Erster, wenn FragSMS live geht.</p>
+        <form id="early-signup-form" class="flex flex-col sm:flex-row gap-2 w-full max-w-[420px] mt-1">
+          <input
+            type="email"
+            id="early-email"
+            placeholder="deine@email.de"
+            required
+            class="flex-1 px-4 py-2.5 rounded-xl text-[0.9rem] border border-th-border bg-th-surface text-th-text outline-none transition-all duration-200 focus:border-th-primary focus:shadow-[0_0_0_3px_var(--color-primary-glow)]"
+            style="min-width: 0;"
+          />
+          <button
+            type="submit"
+            id="early-signup-btn"
+            class="btn-primary px-6 py-2.5 text-[0.85rem] font-bold rounded-xl whitespace-nowrap"
+            data-i18n="launch_btn"
+          >
+            Benachrichtigen
+          </button>
+        </form>
+        <div id="early-signup-msg" class="text-[0.8rem] mt-1" style="display:none;"></div>
+        <p class="text-[0.7rem] text-th-muted opacity-60" data-i18n="launch_privacy">Kein Spam. Nur eine E-Mail zum Launch. Jederzeit abmeldbar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
        HERO — What is FragSMS?
   ════════════════════════════════════════════════ -->
   <section class="hero-section min-h-[min(100vh-65px,900px)] flex items-center justify-center relative overflow-hidden py-8">
@@ -1878,6 +1931,84 @@ const pageDesc = B.country === 'DE'
     })();
   </script>
 
+  <!-- Launch countdown + early signup -->
+  <script is:inline define:vars={{ chatWorkerUrl: B.urls.chatWorker }}>
+    (function() {
+      var LAUNCH = new Date('2026-05-01T00:00:00+02:00').getTime(); // May 1, 2026 CEST
+
+      function updateCountdown() {
+        var now = Date.now();
+        var diff = LAUNCH - now;
+        if (diff <= 0) {
+          var banner = document.getElementById('launch-banner');
+          if (banner) banner.style.display = 'none';
+          return;
+        }
+        var days = Math.floor(diff / 86400000);
+        var hours = Math.floor((diff % 86400000) / 3600000);
+        var mins = Math.floor((diff % 3600000) / 60000);
+        var dEl = document.getElementById('cd-days');
+        var hEl = document.getElementById('cd-hours');
+        var mEl = document.getElementById('cd-mins');
+        if (dEl) dEl.textContent = String(days).padStart(2, '0');
+        if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+        if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 60000);
+
+      // Early signup form
+      var form = document.getElementById('early-signup-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var emailInput = document.getElementById('early-email');
+          var msgEl = document.getElementById('early-signup-msg');
+          var btn = document.getElementById('early-signup-btn');
+          var email = (emailInput.value || '').trim();
+          if (!email) return;
+
+          btn.disabled = true;
+          btn.textContent = '...';
+          msgEl.style.display = 'none';
+
+          fetch(chatWorkerUrl + '/early-signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email })
+          })
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            if (data.ok) {
+              msgEl.textContent = window.__fragCurrentLang === 'en'
+                ? 'You are on the list! We will notify you at launch.'
+                : 'Du bist dabei! Wir benachrichtigen dich zum Launch.';
+              msgEl.style.color = 'var(--color-primary)';
+              emailInput.value = '';
+              form.style.display = 'none';
+            } else {
+              msgEl.textContent = data.error || 'Error';
+              msgEl.style.color = 'var(--color-error)';
+            }
+            msgEl.style.display = 'block';
+          })
+          .catch(function() {
+            msgEl.textContent = window.__fragCurrentLang === 'en'
+              ? 'Connection error. Please try again.'
+              : 'Verbindungsfehler. Bitte versuche es erneut.';
+            msgEl.style.color = 'var(--color-error)';
+            msgEl.style.display = 'block';
+          })
+          .finally(function() {
+            btn.disabled = false;
+            btn.textContent = window.__fragCurrentLang === 'en' ? 'Notify me' : 'Benachrichtigen';
+          });
+        });
+      }
+    })();
+  </script>
+
   <script is:inline define:vars={{
     brandTrans: {
       name: B.name,
@@ -1896,6 +2027,14 @@ const pageDesc = B.country === 'DE'
     var _b = brandTrans;
     window.__fragTranslations = {
       de: {
+        launch_badge: 'Bald verf\u00fcgbar',
+        launch_title: 'Wir starten am <span class="text-gradient">1. Mai 2026</span>',
+        cd_days: 'Tage',
+        cd_hours: 'Stunden',
+        cd_mins: 'Minuten',
+        launch_desc: 'Trag dich ein und erfahre als Erster, wenn FragSMS live geht.',
+        launch_btn: 'Benachrichtigen',
+        launch_privacy: 'Kein Spam. Nur eine E-Mail zum Launch. Jederzeit abmeldbar.',
         hero_badge: 'KI, die deine Zeit respektiert',
         hero_title_1: 'Dein KI-Assistent.',
         hero_title_2: 'Per SMS.',
@@ -2056,6 +2195,14 @@ const pageDesc = B.country === 'DE'
         cmp_sms_verdict: 'Nur Nummer \u2192 SHA-256 Hash'
       },
       en: {
+        launch_badge: 'Coming Soon',
+        launch_title: 'Launching <span class="text-gradient">May 1, 2026</span>',
+        cd_days: 'Days',
+        cd_hours: 'Hours',
+        cd_mins: 'Minutes',
+        launch_desc: 'Sign up to be the first to know when FragSMS goes live.',
+        launch_btn: 'Notify me',
+        launch_privacy: 'No spam. Just one email at launch. Unsubscribe anytime.',
         hero_badge: 'AI that respects your time',
         hero_title_1: 'Your AI Assistant.',
         hero_title_2: 'Via SMS.',
