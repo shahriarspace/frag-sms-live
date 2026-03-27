@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="FragSMS Upgrade — Plus oder Flat Abo | Ab 4,99 EUR/Monat" description="Upgrade dein FragSMS Abo auf Plus (50 Nachrichten, 4,99 EUR) oder Flat (1000 Nachrichten, 14,99 EUR). Mehr Verlauf und Prioritaet. Jederzeit kuendbar." keywords="FragSMS Upgrade, KI SMS Abo, FragSMS Plus, FragSMS Flat, KI Assistent Abo Deutschland">
+<Base title="FragSMS Upgrade — Plus oder Flat Abo | Ab 2,99 EUR/Monat" description="Upgrade dein FragSMS Abo auf Plus (Unbegrenzt WhatsApp + Web, 2,99 EUR) oder Flat (+ 150 SMS, 9,99 EUR). Prioritaets-Antworten und Verlauf. Jederzeit kuendbar." keywords="FragSMS Upgrade, KI SMS Abo, FragSMS Plus, FragSMS Flat, KI Assistent Abo Deutschland">
 
   <section class="section">
     <div class="container" style="max-width: 640px;">
@@ -47,16 +47,16 @@ import Base from '../layouts/Base.astro';
               <input type="radio" name="plan" value="plus" required style="display: none;" />
               <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: var(--color-btn-text); padding: 0.15rem 0.75rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;" data-i18n="badge_popular">Beliebt</div>
               <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Plus</div>
-              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;4,99</div>
-              <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_plus_msgs">50 Nachr./Monat</div>
-              <div style="font-size: 0.7rem; color: var(--color-primary); margin-top: 0.2rem;" data-i18n="upgrade_plus_search">20 Nachr. Verlauf</div>
+              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;2,99</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_plus_msgs">Unbegrenzt WhatsApp + Web</div>
+              <div style="font-size: 0.7rem; color: var(--color-primary); margin-top: 0.2rem;" data-i18n="upgrade_plus_search">Priorit&auml;ts-Antworten</div>
             </label>
             <label style="flex: 1; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s; background: var(--color-bg);" id="plan-flat-label">
               <input type="radio" name="plan" value="flat" style="display: none;" />
               <div style="font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem;">Flat</div>
-              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;14,99</div>
-              <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_flat_msgs">1000 Nachr./Monat</div>
-              <div style="font-size: 0.7rem; color: var(--color-primary); margin-top: 0.2rem;" data-i18n="upgrade_flat_search">50 Nachr. Verlauf</div>
+              <div style="color: var(--color-primary); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.25rem;">&euro;9,99</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);" data-i18n="upgrade_flat_msgs">+ 150 SMS / Monat</div>
+              <div style="font-size: 0.7rem; color: var(--color-primary); margin-top: 0.2rem;" data-i18n="upgrade_flat_search">Priorit&auml;ts-Antworten</div>
             </label>
           </div>
         </div>
@@ -360,10 +360,10 @@ import Base from '../layouts/Base.astro';
         upgrade_phone_label: 'Deine Handynummer',
         upgrade_phone_hint: 'Die Nummer, mit der du FragSMS per SMS nutzt.',
         upgrade_plan_label: 'Tarif w\u00e4hlen',
-        upgrade_plus_msgs: '50 Nachr./Monat',
-        upgrade_plus_search: '20 Nachr. Verlauf',
-        upgrade_flat_msgs: '1000 Nachr./Monat',
-        upgrade_flat_search: '50 Nachr. Verlauf',
+        upgrade_plus_msgs: 'Unbegrenzt WhatsApp + Web',
+        upgrade_plus_search: 'Priorit\u00e4ts-Antworten',
+        upgrade_flat_msgs: '+ 150 SMS / Monat',
+        upgrade_flat_search: 'Priorit\u00e4ts-Antworten',
         badge_popular: 'Beliebt',
         upgrade_cb_widerruf: 'Ich stimme zu, dass FragSMS sofort beginnt und verzichte auf mein 14-t\u00e4giges <a href="/widerrufsbelehrung" target="_blank">Widerrufsrecht</a> (\u00a7356 Abs. 5 BGB).',
         upgrade_cb_datenschutz: 'Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerkl\u00e4rung</a> gelesen und stimme zu.',
@@ -377,10 +377,10 @@ import Base from '../layouts/Base.astro';
         upgrade_phone_label: 'Your phone number',
         upgrade_phone_hint: 'The number you use to text FragSMS.',
         upgrade_plan_label: 'Choose plan',
-        upgrade_plus_msgs: '50 msgs/month',
-        upgrade_plus_search: '20 msg history',
-        upgrade_flat_msgs: '1000 msgs/month',
-        upgrade_flat_search: '50 msg history',
+        upgrade_plus_msgs: 'Unlimited WhatsApp + Web',
+        upgrade_plus_search: 'Priority answers',
+        upgrade_flat_msgs: '+ 150 SMS / month',
+        upgrade_flat_search: 'Priority answers',
         badge_popular: 'Popular',
         upgrade_cb_widerruf: 'I agree that FragSMS starts immediately and waive my 14-day <a href="/widerrufsbelehrung" target="_blank">right of withdrawal</a> (\u00a7356 para. 5 BGB).',
         upgrade_cb_datenschutz: 'I have read and agree to the <a href="/datenschutz" target="_blank">Privacy Policy</a>.',

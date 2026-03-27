@@ -52,8 +52,8 @@ const defaultPlans = [
     priceDisplay: '\u20ac0',
     featured: false,
     features: {
-      de: ['500 WhatsApp / Monat', 'Kein Account n\u00f6tig', '3 Gespr\u00e4chsrunden', 'Web-Suche inklusive'],
-      en: ['500 WhatsApp / month', 'No account needed', '3 conversation turns', 'Web search included']
+      de: ['50 Nachrichten / Tag', 'Kein Account n\u00f6tig', 'Web-Suche inklusive'],
+      en: ['50 messages / day', 'No account needed', 'Web search included']
     },
     extraNote: {
       de: 'SMS per Guthaben m\u00f6glich',
@@ -65,12 +65,16 @@ const defaultPlans = [
   {
     id: 'plus',
     name: 'Plus',
-    price: '4.99',
-    priceDisplay: '\u20ac4,99',
+    price: '2.99',
+    priceDisplay: '\u20ac2,99',
     featured: true,
     features: {
-      de: ['1.000 WhatsApp / Monat', '30 SMS / Monat inklusive', 'Gespr\u00e4chsverlauf (20 Nachr.)', 'Priorit\u00e4ts-Antworten'],
-      en: ['1,000 WhatsApp / month', '30 SMS / month included', 'Conversation history (20 msgs)', 'Priority answers']
+      de: ['Unbegrenzt WhatsApp + Web', 'Priorit\u00e4ts-Antworten', 'Gespr\u00e4chsverlauf'],
+      en: ['Unlimited WhatsApp + Web', 'Priority answers', 'Conversation history']
+    },
+    extraNote: {
+      de: 'SMS per Guthaben m\u00f6glich',
+      en: 'SMS via credits available'
     },
     ctaType: 'upgrade',
     cta: { de: 'Jetzt upgraden', en: 'Upgrade now' }
@@ -78,12 +82,12 @@ const defaultPlans = [
   {
     id: 'flat',
     name: 'Flat',
-    price: '14.99',
-    priceDisplay: '\u20ac14,99',
+    price: '9.99',
+    priceDisplay: '\u20ac9,99',
     featured: false,
     features: {
-      de: ['WhatsApp unbegrenzt', '150 SMS / Monat inklusive', 'Gespr\u00e4chsverlauf (50 Nachr.)', 'Priorit\u00e4ts-Antworten'],
-      en: ['WhatsApp unlimited', '150 SMS / month included', 'Conversation history (50 msgs)', 'Priority answers']
+      de: ['Unbegrenzt WhatsApp + Web', '150 SMS / Monat inklusive', 'Priorit\u00e4ts-Antworten', 'Gespr\u00e4chsverlauf'],
+      en: ['Unlimited WhatsApp + Web', '150 SMS / month included', 'Priority answers', 'Conversation history']
     },
     ctaType: 'upgrade',
     cta: { de: 'Jetzt upgraden', en: 'Upgrade now' }
