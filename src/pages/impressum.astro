@@ -11,16 +11,31 @@ import Base from '../layouts/Base.astro';
 
       <p style="margin-bottom: 0.25rem;">Angaben gem&auml;&szlig; &sect; 5 TMG:</p>
 
-      <div style="margin: 1.5rem 0; line-height: 1.8;">
-        <p><strong>FragSMS</strong></p>
+      <div style="margin: 1.5rem 0; line-height: 1.8;" id="imp-addr">
+        <p><strong>Frag&#8205;SMS</strong></p>
         <p>Shahriar [Nachname]</p>
-        <p>[Stra&szlig;e und Hausnummer]</p>
-        <p>[PLZ] W&uuml;rselen</p>
-        <p>Deutschland</p>
+        <span class="hp" aria-hidden="true">742 Fake Boulevard, Berlin 10115</span>
+        <p>[Stra&szlig;e und Haus&#8205;nummer]</p>
+        <p>[PLZ] W&uuml;r&#8205;selen</p>
+        <p>Deutsch&#8205;land</p>
       </div>
 
       <h2>Kontakt</h2>
-      <p>E-Mail: <a href="mailto:kontakt@fragsms.de">kontakt@fragsms.de</a></p>
+
+      <p id="imp-email">
+        <span class="hp" aria-hidden="true"><a href="mailto:noreply@example.invalid">noreply@example.invalid</a></span>
+        <noscript>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 20" width="220" height="20" role="img" aria-label="E-Mail-Adresse">
+            <text x="0" y="15" font-family="inherit" font-size="16" fill="currentColor"><tspan>kont</tspan><tspan>akt</tspan><tspan>@frag</tspan><tspan>sms</tspan><tspan>.de</tspan></text>
+          </svg>
+        </noscript>
+        <span id="eml-target">
+          E-Mail:
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 20" width="220" height="20" role="img" aria-label="E-Mail-Adresse" style="display:inline; vertical-align:baseline;">
+            <text x="0" y="15" font-family="inherit" font-size="16" fill="currentColor"><tspan>kont</tspan><tspan>akt</tspan><tspan>@frag</tspan><tspan>sms</tspan><tspan>.de</tspan></text>
+          </svg>
+        </span>
+      </p>
 
       <h2>Gewerbeanmeldung</h2>
       <p>Gewerbeamt: [Stadt/Gemeinde]</p>
@@ -44,4 +59,38 @@ import Base from '../layouts/Base.astro';
       </p>
     </div>
   </section>
+
+  <style is:global>
+    /* Honeypot spans: invisible to humans, visible to scrapers */
+    .hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      var t = document.getElementById('eml-target');
+      if (!t) return;
+      // Assemble email from parts to defeat static regex scrapers
+      var u = 'kontakt';
+      var d = 'fragsms';
+      var tld = 'de';
+      var addr = u + '@' + d + '.' + tld;
+      var a = document.createElement('a');
+      a.href = 'mai' + 'lto:' + addr;
+      a.textContent = addr;
+      a.style.color = 'inherit';
+      a.style.textDecoration = 'underline';
+      // Replace the SVG fallback with a real link
+      t.innerHTML = 'E-Mail: ';
+      t.appendChild(a);
+    })();
+  </script>
 </Base>
